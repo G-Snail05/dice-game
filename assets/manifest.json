@@ -307,6 +307,13 @@
    "srcset": {
     "2x": "pack-styleA/2x/ui_logo.png",
     "3x": "pack-styleA/3x/ui_logo.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_logo_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_logo_hc.png",
+     "3x": "pack-styleA/3x/ui_logo_hc.png"
+    }
    }
   },
   "fx_pop_points_1": {
@@ -531,6 +538,13 @@
    "srcset": {
     "2x": "pack-styleA/2x/bg_table_tile.png",
     "3x": "pack-styleA/3x/bg_table_tile.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/bg_table_tile_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/bg_table_tile_hc.png",
+     "3x": "pack-styleA/3x/bg_table_tile_hc.png"
+    }
    }
   },
   "bg_shop_tile": {
@@ -538,6 +552,13 @@
    "srcset": {
     "2x": "pack-styleA/2x/bg_shop_tile.png",
     "3x": "pack-styleA/3x/bg_shop_tile.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/bg_shop_tile_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/bg_shop_tile_hc.png",
+     "3x": "pack-styleA/3x/bg_shop_tile_hc.png"
+    }
    }
   },
   "bg_hc_tile": {
@@ -545,6 +566,76 @@
    "srcset": {
     "2x": "pack-styleA/2x/bg_hc_tile.png",
     "3x": "pack-styleA/3x/bg_hc_tile.png"
+   }
+  },
+  "counter_bit_tumble_1": {
+   "src": "pack-styleA/1x/counter_bit_tumble_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/counter_bit_tumble_1.png",
+    "3x": "pack-styleA/3x/counter_bit_tumble_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/counter_bit_tumble_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/counter_bit_tumble_1_hc.png",
+     "3x": "pack-styleA/3x/counter_bit_tumble_1_hc.png"
+    }
+   }
+  },
+  "counter_bit_tumble_2": {
+   "src": "pack-styleA/1x/counter_bit_tumble_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/counter_bit_tumble_2.png",
+    "3x": "pack-styleA/3x/counter_bit_tumble_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/counter_bit_tumble_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/counter_bit_tumble_2_hc.png",
+     "3x": "pack-styleA/3x/counter_bit_tumble_2_hc.png"
+    }
+   }
+  },
+  "counter_readout": {
+   "src": "pack-styleA/1x/counter_readout.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/counter_readout.png",
+    "3x": "pack-styleA/3x/counter_readout.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/counter_readout_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/counter_readout_hc.png",
+     "3x": "pack-styleA/3x/counter_readout_hc.png"
+    }
+   }
+  },
+  "fx_chain_link": {
+   "src": "pack-styleA/1x/fx_chain_link.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_chain_link.png",
+    "3x": "pack-styleA/3x/fx_chain_link.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_chain_link_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_chain_link_hc.png",
+     "3x": "pack-styleA/3x/fx_chain_link_hc.png"
+    }
+   }
+  },
+  "fx_chain_link_lit": {
+   "src": "pack-styleA/1x/fx_chain_link_lit.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_chain_link_lit.png",
+    "3x": "pack-styleA/3x/fx_chain_link_lit.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_chain_link_lit_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_chain_link_lit_hc.png",
+     "3x": "pack-styleA/3x/fx_chain_link_lit_hc.png"
+    }
    }
   },
   "die_d4_face1": {
@@ -1687,6 +1778,51 @@
     }
    }
   },
+  "ui_btn_reroll": {
+   "src": "pack-styleA/1x/ui_btn_reroll_normal.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/ui_btn_reroll_normal.png",
+    "3x": "pack-styleA/3x/ui_btn_reroll_normal.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_btn_reroll_normal_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_btn_reroll_normal_hc.png",
+     "3x": "pack-styleA/3x/ui_btn_reroll_normal_hc.png"
+    }
+   },
+   "kind": "button",
+   "states": {
+    "pressed": {
+     "src": "pack-styleA/1x/ui_btn_reroll_pressed.png",
+     "srcset": {
+      "2x": "pack-styleA/2x/ui_btn_reroll_pressed.png",
+      "3x": "pack-styleA/3x/ui_btn_reroll_pressed.png"
+     },
+     "hc": {
+      "src": "pack-styleA/1x/ui_btn_reroll_pressed_hc.png",
+      "srcset": {
+       "2x": "pack-styleA/2x/ui_btn_reroll_pressed_hc.png",
+       "3x": "pack-styleA/3x/ui_btn_reroll_pressed_hc.png"
+      }
+     }
+    },
+    "disabled": {
+     "src": "pack-styleA/1x/ui_btn_reroll_disabled.png",
+     "srcset": {
+      "2x": "pack-styleA/2x/ui_btn_reroll_disabled.png",
+      "3x": "pack-styleA/3x/ui_btn_reroll_disabled.png"
+     },
+     "hc": {
+      "src": "pack-styleA/1x/ui_btn_reroll_disabled_hc.png",
+      "srcset": {
+       "2x": "pack-styleA/2x/ui_btn_reroll_disabled_hc.png",
+       "3x": "pack-styleA/3x/ui_btn_reroll_disabled_hc.png"
+      }
+     }
+    }
+   }
+  },
   "ui_btn_shop_reroll": {
    "src": "pack-styleA/1x/ui_btn_shop_reroll_normal.png",
    "srcset": {
@@ -1912,6 +2048,96 @@
     }
    }
   },
+  "ui_btn_continue": {
+   "src": "pack-styleA/1x/ui_btn_continue_normal.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/ui_btn_continue_normal.png",
+    "3x": "pack-styleA/3x/ui_btn_continue_normal.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_btn_continue_normal_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_btn_continue_normal_hc.png",
+     "3x": "pack-styleA/3x/ui_btn_continue_normal_hc.png"
+    }
+   },
+   "kind": "button",
+   "states": {
+    "pressed": {
+     "src": "pack-styleA/1x/ui_btn_continue_pressed.png",
+     "srcset": {
+      "2x": "pack-styleA/2x/ui_btn_continue_pressed.png",
+      "3x": "pack-styleA/3x/ui_btn_continue_pressed.png"
+     },
+     "hc": {
+      "src": "pack-styleA/1x/ui_btn_continue_pressed_hc.png",
+      "srcset": {
+       "2x": "pack-styleA/2x/ui_btn_continue_pressed_hc.png",
+       "3x": "pack-styleA/3x/ui_btn_continue_pressed_hc.png"
+      }
+     }
+    },
+    "disabled": {
+     "src": "pack-styleA/1x/ui_btn_continue_disabled.png",
+     "srcset": {
+      "2x": "pack-styleA/2x/ui_btn_continue_disabled.png",
+      "3x": "pack-styleA/3x/ui_btn_continue_disabled.png"
+     },
+     "hc": {
+      "src": "pack-styleA/1x/ui_btn_continue_disabled_hc.png",
+      "srcset": {
+       "2x": "pack-styleA/2x/ui_btn_continue_disabled_hc.png",
+       "3x": "pack-styleA/3x/ui_btn_continue_disabled_hc.png"
+      }
+     }
+    }
+   }
+  },
+  "ui_btn_endless": {
+   "src": "pack-styleA/1x/ui_btn_endless_normal.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/ui_btn_endless_normal.png",
+    "3x": "pack-styleA/3x/ui_btn_endless_normal.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_btn_endless_normal_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_btn_endless_normal_hc.png",
+     "3x": "pack-styleA/3x/ui_btn_endless_normal_hc.png"
+    }
+   },
+   "kind": "button",
+   "states": {
+    "pressed": {
+     "src": "pack-styleA/1x/ui_btn_endless_pressed.png",
+     "srcset": {
+      "2x": "pack-styleA/2x/ui_btn_endless_pressed.png",
+      "3x": "pack-styleA/3x/ui_btn_endless_pressed.png"
+     },
+     "hc": {
+      "src": "pack-styleA/1x/ui_btn_endless_pressed_hc.png",
+      "srcset": {
+       "2x": "pack-styleA/2x/ui_btn_endless_pressed_hc.png",
+       "3x": "pack-styleA/3x/ui_btn_endless_pressed_hc.png"
+      }
+     }
+    },
+    "disabled": {
+     "src": "pack-styleA/1x/ui_btn_endless_disabled.png",
+     "srcset": {
+      "2x": "pack-styleA/2x/ui_btn_endless_disabled.png",
+      "3x": "pack-styleA/3x/ui_btn_endless_disabled.png"
+     },
+     "hc": {
+      "src": "pack-styleA/1x/ui_btn_endless_disabled_hc.png",
+      "srcset": {
+       "2x": "pack-styleA/2x/ui_btn_endless_disabled_hc.png",
+       "3x": "pack-styleA/3x/ui_btn_endless_disabled_hc.png"
+      }
+     }
+    }
+   }
+  },
   "ui_btn_pause": {
    "src": "pack-styleA/1x/ui_btn_pause_normal.png",
    "srcset": {
@@ -2052,6 +2278,13 @@
    "srcset": {
     "2x": "pack-styleA/2x/ui_coin.png",
     "3x": "pack-styleA/3x/ui_coin.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_coin_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_coin_hc.png",
+     "3x": "pack-styleA/3x/ui_coin_hc.png"
+    }
    }
   },
   "icon_lock": {
@@ -2059,50 +2292,317 @@
    "srcset": {
     "2x": "pack-styleA/2x/ui_icon_lock.png",
     "3x": "pack-styleA/3x/ui_icon_lock.png"
-   }
-  },
-  "ui_btn_reroll": {
-   "src": "pack-styleA/1x/ui_btn_reroll_normal.png",
-   "srcset": {
-    "2x": "pack-styleA/2x/ui_btn_reroll_normal.png",
-    "3x": "pack-styleA/3x/ui_btn_reroll_normal.png"
    },
    "hc": {
-    "src": "pack-styleA/1x/ui_btn_reroll_normal_hc.png",
+    "src": "pack-styleA/1x/ui_icon_lock_hc.png",
     "srcset": {
-     "2x": "pack-styleA/2x/ui_btn_reroll_normal_hc.png",
-     "3x": "pack-styleA/3x/ui_btn_reroll_normal_hc.png"
+     "2x": "pack-styleA/2x/ui_icon_lock_hc.png",
+     "3x": "pack-styleA/3x/ui_icon_lock_hc.png"
+    }
+   }
+  },
+  "die_bin4_body": {
+   "src": "pack-styleA/1x/counter_4bit_body.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/counter_4bit_body.png",
+    "3x": "pack-styleA/3x/counter_4bit_body.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/counter_4bit_body_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/counter_4bit_body_hc.png",
+     "3x": "pack-styleA/3x/counter_4bit_body_hc.png"
     }
    },
-   "kind": "button",
-   "states": {
-    "pressed": {
-     "src": "pack-styleA/1x/ui_btn_reroll_pressed.png",
-     "srcset": {
-      "2x": "pack-styleA/2x/ui_btn_reroll_pressed.png",
-      "3x": "pack-styleA/3x/ui_btn_reroll_pressed.png"
-     },
-     "hc": {
-      "src": "pack-styleA/1x/ui_btn_reroll_pressed_hc.png",
-      "srcset": {
-       "2x": "pack-styleA/2x/ui_btn_reroll_pressed_hc.png",
-       "3x": "pack-styleA/3x/ui_btn_reroll_pressed_hc.png"
-      }
-     }
-    },
-    "disabled": {
-     "src": "pack-styleA/1x/ui_btn_reroll_disabled.png",
-     "srcset": {
-      "2x": "pack-styleA/2x/ui_btn_reroll_disabled.png",
-      "3x": "pack-styleA/3x/ui_btn_reroll_disabled.png"
-     },
-     "hc": {
-      "src": "pack-styleA/1x/ui_btn_reroll_disabled_hc.png",
-      "srcset": {
-       "2x": "pack-styleA/2x/ui_btn_reroll_disabled_hc.png",
-       "3x": "pack-styleA/3x/ui_btn_reroll_disabled_hc.png"
-      }
-     }
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ]
+  },
+  "die_bin4_blank": {
+   "src": "pack-styleA/1x/counter_4bit_blank.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/counter_4bit_blank.png",
+    "3x": "pack-styleA/3x/counter_4bit_blank.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/counter_4bit_blank_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/counter_4bit_blank_hc.png",
+     "3x": "pack-styleA/3x/counter_4bit_blank_hc.png"
+    }
+   },
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ]
+  },
+  "die_bin8_body": {
+   "src": "pack-styleA/1x/counter_8bit_body.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/counter_8bit_body.png",
+    "3x": "pack-styleA/3x/counter_8bit_body.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/counter_8bit_body_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/counter_8bit_body_hc.png",
+     "3x": "pack-styleA/3x/counter_8bit_body_hc.png"
+    }
+   },
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ]
+  },
+  "die_bin8_blank": {
+   "src": "pack-styleA/1x/counter_8bit_blank.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/counter_8bit_blank.png",
+    "3x": "pack-styleA/3x/counter_8bit_blank.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/counter_8bit_blank_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/counter_8bit_blank_hc.png",
+     "3x": "pack-styleA/3x/counter_8bit_blank_hc.png"
+    }
+   },
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ]
+  },
+  "led_bit_on": {
+   "src": "pack-styleA/1x/counter_bit_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/counter_bit_1.png",
+    "3x": "pack-styleA/3x/counter_bit_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/counter_bit_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/counter_bit_1_hc.png",
+     "3x": "pack-styleA/3x/counter_bit_1_hc.png"
+    }
+   }
+  },
+  "led_bit_off": {
+   "src": "pack-styleA/1x/counter_bit_0.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/counter_bit_0.png",
+    "3x": "pack-styleA/3x/counter_bit_0.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/counter_bit_0_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/counter_bit_0_hc.png",
+     "3x": "pack-styleA/3x/counter_bit_0_hc.png"
+    }
+   }
+  },
+  "overlay_chain": {
+   "src": "pack-styleA/1x/special_chain_overlay.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_chain_overlay.png",
+    "3x": "pack-styleA/3x/special_chain_overlay.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_chain_overlay_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_chain_overlay_hc.png",
+     "3x": "pack-styleA/3x/special_chain_overlay_hc.png"
+    }
+   }
+  },
+  "fx_link_glow_1": {
+   "src": "pack-styleA/1x/fx_chain_glow_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_chain_glow_1.png",
+    "3x": "pack-styleA/3x/fx_chain_glow_1.png"
+   }
+  },
+  "fx_link_glow_2": {
+   "src": "pack-styleA/1x/fx_chain_glow_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_chain_glow_2.png",
+    "3x": "pack-styleA/3x/fx_chain_glow_2.png"
+   }
+  },
+  "fx_link_glow_3": {
+   "src": "pack-styleA/1x/fx_chain_glow_3.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_chain_glow_3.png",
+    "3x": "pack-styleA/3x/fx_chain_glow_3.png"
+   }
+  },
+  "icon_link": {
+   "src": "pack-styleA/1x/special_chain_icon.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_chain_icon.png",
+    "3x": "pack-styleA/3x/special_chain_icon.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_chain_icon_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_chain_icon_hc.png",
+     "3x": "pack-styleA/3x/special_chain_icon_hc.png"
+    }
+   }
+  },
+  "icon_counter4": {
+   "src": "pack-styleA/1x/special_counter_4bit_icon.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_counter_4bit_icon.png",
+    "3x": "pack-styleA/3x/special_counter_4bit_icon.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_counter_4bit_icon_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_counter_4bit_icon_hc.png",
+     "3x": "pack-styleA/3x/special_counter_4bit_icon_hc.png"
+    }
+   }
+  },
+  "icon_counter8": {
+   "src": "pack-styleA/1x/special_counter_8bit_icon.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_counter_8bit_icon.png",
+    "3x": "pack-styleA/3x/special_counter_8bit_icon.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_counter_8bit_icon_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_counter_8bit_icon_hc.png",
+     "3x": "pack-styleA/3x/special_counter_8bit_icon_hc.png"
     }
    }
   }

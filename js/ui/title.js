@@ -9,7 +9,7 @@ export function titleView({ save, best }) {
     <h1 class="logo">${artHTML('ui_logo', { alt: 'Dice game', fallback: 'Dice game' })}<small>working title</small></h1>
     <p class="lede">Throw dice, lock the good ones, beat the target. Spend your winnings on stranger dice. Survive ${totalRounds()} rounds.</p>
     <div class="stack">
-      ${save ? btn('continue', `Continue run, round ${save.roundNo}`, { icon: 'ui_btn_next', cls: 'primary', caption: `Continue run · round ${save.roundNo}` }) : ''}
+      ${save ? btn('continue', `Continue run, round ${save.roundNo}`, { icon: 'ui_btn_continue', cls: 'primary', caption: `Continue run · round ${save.roundNo}` }) : ''}
       ${btn('new', 'New run', { icon: 'ui_btn_new_run', cls: save ? '' : 'primary' })}
       <div class="iconbar">${btn('info', 'How to play', { icon: 'ui_btn_info', caption: 'Info' })}${btn('settings', 'Settings', { icon: 'ui_btn_settings', caption: 'Settings' })}</div>
       <details class="seed"><summary>Seeded run</summary>

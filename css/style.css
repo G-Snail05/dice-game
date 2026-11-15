@@ -256,35 +256,49 @@ body.hc .hand, body.hc .hudbar { background: #000; border-color: #fff; }
 .tally.fade-in { animation: fadein .25s ease-out both; }
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 
-/* ---- Binary counters (CSS LED placeholder until the pack has counter art; any --art-* var set by
-   main.js from the manifest replaces the CSS look). ---- */
-.ctr { display: grid; align-content: center; justify-items: center; gap: 8%; aspect-ratio: 1; box-sizing: border-box; padding: 10%;
-  background: var(--art-die_bin4_body, linear-gradient(160deg, #22332a, #0b130e)); background-size: cover; border: 3px solid #4d6b58; border-radius: 12%;
-  box-shadow: inset 0 0 0 2px #000, inset 0 0 12px #000a, 0 3px 0 #0008; container-type: inline-size; transform-origin: 50% 100%; }
-.ctr.b8 { background-image: var(--art-die_bin8_body, linear-gradient(160deg, #2a2a3a, #0d0d16)); border-color: #6a6aa0; }
-.ctr.link { border-color: #c27cff; box-shadow: inset 0 0 0 2px #000, inset 0 0 12px #000a, 0 0 8px #c27cff88, 0 3px 0 #0008; }
-.ctr .leds { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7cqw; width: 88%; }
-.led { display: block; aspect-ratio: 1; border-radius: 50%; background: var(--art-led_bit_off, radial-gradient(circle at 35% 35%, #3b4a40, #10170f)); background-size: cover;
-  box-shadow: inset 0 0 0 1px #000; transition: background-color .05s; }
-.led.on { background: var(--art-led_bit_on, radial-gradient(circle at 35% 35%, #f0ffe0, #4dff7c 45%, #0b8f33)); background-size: cover; box-shadow: 0 0 5px #4dff7c, 0 0 10px #4dff7c88; }
-.ctr.b8 .led.on { background: var(--art-led_bit_on, radial-gradient(circle at 35% 35%, #fff7e0, #ffc23d 45%, #b06a00)); box-shadow: 0 0 5px #ffc23d, 0 0 10px #ffc23d88; }
-.ctr.tumbling .led { opacity: .85; }
-.ctr .ctrval { font: 900 22cqw/1 ui-monospace, Menlo, Consolas, monospace; font-style: normal; color: #8dffab; text-shadow: 0 0 4px #4dff7c; font-variant-numeric: tabular-nums; }
-.ctr.b8 .ctrval { color: #ffd77a; text-shadow: 0 0 4px #ffc23d; }
-.ctr.dark .ctrval { font-size: 17cqw; color: #7d9a86; text-shadow: none; }
-.sdie .ctr { border-width: 2px; padding: 8%; } .sdie .ctr .ctrval { display: none; }
-.badge .ctrbadge { background: #3a2a5a; font-size: 10px; font-weight: 900; line-height: 32px; letter-spacing: -.02em; }
-.badge.l-rule .ctrbadge { background: #8a4bd8; } .sdie .badge .ctrbadge { font-size: 6px; line-height: 16px; }
-.r2 .die.linked { z-index: 3; } .r2 .die.linked .ctr { box-shadow: 0 0 0 3px #d9a8ff, 0 0 18px #c27cff, 0 0 30px #c27cff99; }
-.chainbr { position: fixed; z-index: 40; pointer-events: none; border: 3px solid #d9a8ff; border-bottom: 0; border-radius: 12px 12px 0 0;
-  box-shadow: 0 -2px 14px #c27cff, inset 0 2px 10px #c27cff88; transform-origin: 50% 0; }
-.chainbr .chainlbl { position: absolute; left: 50%; top: 0; transform: translate(-50%, calc(-100% - 4px)); display: flex; gap: 8px; align-items: baseline; white-space: nowrap;
-  background: #140a24f0; border: 2px solid #c27cff; border-radius: 10px; padding: 3px 10px; box-shadow: 0 0 14px #c27cffaa; }
-.chainbr .bin { font: 900 1rem/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .02em; display: flex; gap: 5px; }
-.chainbr .bin i { font-style: normal; opacity: 0; } .chainbr .bin i.show { opacity: 1; } .chainbr .bin i.b1 { color: #8dffab; text-shadow: 0 0 6px #4dff7c; } .chainbr .bin i.b0 { color: #6c7f72; }
-.chainbr .dec { font-size: 1.3rem; font-weight: 900; color: var(--gold); text-shadow: 0 2px 0 #000; }
-.flying.chainfly { color: #e3c2ff; text-shadow: 0 0 10px #c27cff, 0 3px 0 #000; font-size: 1.8rem; }
-@media (min-width: 900px) { .chainbr .bin { font-size: 1.4rem; } .chainbr .dec { font-size: 1.7rem; } }
-body.hc .led.on { background: #fff; box-shadow: none; } body.hc .led { background: #000; box-shadow: inset 0 0 0 2px #fff; }
-body.hc .ctr { background: #000; border-color: #fff; } body.hc .ctr .ctrval { color: #fff; text-shadow: none; } body.hc .chainbr { border-color: #fff; box-shadow: none; }
-body.hc .chainbr .chainlbl { background: #000; border-color: #fff; box-shadow: none; } body.hc .chainbr .bin i.b1 { color: #fff; text-shadow: none; }
+/* ---- Binary counters. Pack art (style A): the bezel and screen are in the body sprite, so .ctr has no
+   border/radius/shadow/padding; each bit is a 4x7 seven-segment cell placed at the manifest's bit_cells
+   (inline left/top from js/ui/dieView.js), never cover-cropped. main.js exposes each counter key as a
+   --art-<key> custom property; the CSS look below each var() is the fallback when a key has no art. ---- */
+.ctr { position: relative; display: block; aspect-ratio: 1; box-sizing: border-box; overflow: visible; container-type: inline-size;
+  background: var(--art-die_bin4_body, linear-gradient(#d6d6e6, #9a9ab8)); background-size: 100% 100%; image-rendering: pixelated; transform-origin: 50% 100%; }
+.ctr.b8 { background-image: var(--art-die_bin8_body, linear-gradient(#d6d6e6, #9a9ab8)); }
+.ctr.dark { background-image: var(--art-die_bin4_blank, linear-gradient(#d6d6e6, #9a9ab8)); } .ctr.b8.dark { background-image: var(--art-die_bin8_blank, linear-gradient(#d6d6e6, #9a9ab8)); }
+.ctr:not(.art)::before { content: ''; position: absolute; left: 9.375%; top: 28.125%; width: 78.125%; height: 34.375%; background: #0e1630; }
+.ctr.b8:not(.art)::before { top: 9.375%; height: 62.5%; }
+.ctr .leds { position: absolute; inset: 0; pointer-events: none; }
+.led { position: absolute; display: block; width: 12.5%; aspect-ratio: 4 / 7; border-radius: 0; box-shadow: none;
+  background: var(--art-led_bit_off, linear-gradient(#1f2d58, #1f2d58)); background-size: 100% 100%; image-rendering: pixelated; }
+.led.on { background-image: var(--art-led_bit_on, linear-gradient(#7cc6ff, #7cc6ff)); }
+.led.blank { background: #1f2d58; }
+.led.t1 { background-image: var(--art-counter_bit_tumble_1, linear-gradient(#3d8ef0, #1f2d58)); } .led.t2 { background-image: var(--art-counter_bit_tumble_2, linear-gradient(#1f2d58, #3d8ef0)); }
+.ctr .ctrovl { position: absolute; left: -6.25%; top: -25%; width: 131.25%; height: 131.25%; max-width: none; pointer-events: none; image-rendering: pixelated; }
+/* Decimal readout tag (34x14 native, '=' baked in) above the counter: x - 1, y - 12; digits in its value area. */
+.ctr .ctrval { position: absolute; left: -3.125%; top: -37.5%; width: 106.25%; aspect-ratio: 34 / 14; font-style: normal; pointer-events: none;
+  background: var(--art-counter_readout, linear-gradient(#0e1630, #0e1630)); background-size: 100% 100%; image-rendering: pixelated; }
+.ctr .ctrval b { position: absolute; left: 20.6%; top: 14.3%; width: 73.5%; height: 64.3%; display: flex; align-items: center; justify-content: center;
+  font: 900 15cqw/1 ui-monospace, Menlo, Consolas, monospace; color: #7cc6ff; text-shadow: 0 1px 0 #122c68; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.ctr.tumbling .ctrval { opacity: 0; }
+.ctr.chained .ctrval { visibility: hidden; }
+.die.pick .ctr .ctrval, .die.benched .ctr .ctrval, .sdie .ctr .ctrval { display: none; }
+.badge .ctrbadge { background: #2563c9; font-size: 10px; font-weight: 900; line-height: 32px; letter-spacing: -.02em; }
+.badge.l-rule .ctrbadge { background: #8a3ad0; } .sdie .badge .ctrbadge { font-size: 6px; line-height: 16px; }
+/* Link chain: glow pulse sprite on each linked counter (same 42x42 geometry as the overlay), a connector
+   between neighbours, and one readout over the run. */
+.ctr .ctrglow { position: absolute; left: -6.25%; top: -25%; width: 131.25%; height: 131.25%; max-width: none; pointer-events: none; image-rendering: pixelated; }
+.r2 .die.linked { z-index: 3; }
+.r2 .die.linked .ctr:not(.glowart) { box-shadow: 0 0 0 3px #c27cff, 0 0 16px #c27cff; }
+.chainlink { position: fixed; z-index: 41; pointer-events: none; image-rendering: pixelated; }
+.chaintag { position: fixed; z-index: 42; pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: 4px; transform-origin: 50% 100%; }
+.chaintag .bin { font: 900 1rem/1 ui-monospace, Menlo, Consolas, monospace; display: flex; gap: 5px; background: #0a0618e6; border: 2px solid #3d8ef0; border-radius: 6px; padding: 3px 7px; white-space: nowrap; }
+.chaintag .bin i { font-style: normal; opacity: 0; } .chaintag .bin i.show { opacity: 1; } .chaintag .bin i.b1 { color: #7cc6ff; } .chaintag .bin i.b0 { color: #3a4f86; }
+.chaintag .tag { position: relative; background: var(--art-counter_readout, linear-gradient(#0e1630, #0e1630)); background-size: 100% 100%; image-rendering: pixelated; }
+.chaintag .tag b { position: absolute; left: 20.6%; top: 14.3%; width: 73.5%; height: 64.3%; display: flex; align-items: center; justify-content: center;
+  font: 900 1.1rem/1 ui-monospace, Menlo, Consolas, monospace; color: #7cc6ff; text-shadow: 0 1px 0 #122c68; font-variant-numeric: tabular-nums; }
+.flying.chainfly { color: #7cc6ff; text-shadow: 0 0 8px #3d8ef0, 0 3px 0 #000; font-size: 1.8rem; }
+@media (min-width: 900px) { .chaintag .bin { font-size: 1.35rem; } .chaintag .tag b { font-size: 2rem; } }
+body.hc .r2 .die.linked .ctr:not(.glowart) { box-shadow: 0 0 0 3px #fff; } body.hc .chaintag .bin { background: #000; border-color: #fff; } body.hc .chaintag .bin i.b1 { color: #fff; }
+body.hc .ctr .ctrval b, body.hc .chaintag .tag b { color: #fff; text-shadow: none; }
+.r2 .die.special:has(> .ctr.art):not(.picked):not(.locked) { box-shadow: none; }
+/* The readout tag sits where a badge would go; the screen shape already says 4- or 8-bit. */
+.r2 .die:has(> .ctr .ctrval) > .badge { display: none; }

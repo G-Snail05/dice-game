@@ -69,74 +69,98 @@ export function deal(root) {
     play(el, [{ transform: 'translateY(48px) scale(.8)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 260, delay: k * 50, easing: 'cubic-bezier(.2,.8,.3,1.2)', fill: 'backwards' })));
 }
 
-// Binary counter roll: the LEDs tumble (random flicker, visual only) while the counter is in the air, then
-// lock in one by one, most significant bit first, and the decimal readout appears. The DOM already
-// holds the final bits; we only flicker over them and restore them.
+// Binary counter roll: while the counter is in the air every cell flickers through the pack's tumble
+// frames (counter_bit_tumble_1/2; visual only, not the game RNG), then the bits lock in one by one, MSB
+// first, and the decimal readout appears. The DOM already holds the final bits; we restore them at the end.
 async function ledRoll(ctr, delay, dur) {
   if (reduced()) return;
   const leds = [...ctr.querySelectorAll('.led')], val = ctr.querySelector('.ctrval');
-  const final = leds.map(l => l.classList.contains('on')), txt = val ? val.textContent : '';
-  const set = (l, on) => { l.classList.toggle('on', on); l.classList.toggle('off', !on); };
+  const final = leds.map(l => l.className);
+  const tumble = l => { l.className = `led ${Math.random() < 0.5 ? 't1' : 't2'}`; };
   ctr.classList.add('tumbling');
-  if (val) val.textContent = '····';
   try {
     const t0 = performance.now(), until = delay + dur * 0.8;
     // Bounded loop (wait() is a timer, so this ends even if the tab is throttled).
-    for (let n = 0; n < 40 && performance.now() - t0 < until; n++) { leds.forEach(l => set(l, Math.random() < 0.5)); await wait(55); }
-    const step = Math.max(35, Math.round(260 / leds.length));
+    for (let n = 0; n < 40 && performance.now() - t0 < until; n++) { leds.forEach(tumble); await wait(70); }
+    const step = Math.max(35, Math.round(280 / leds.length));
     for (let j = 0; j < leds.length; j++) {
-      set(leds[j], final[j]); leds[j].classList.add('lockin');
-      play(leds[j], [{ transform: 'scale(1.7)' }, { transform: 'none' }], { duration: 160, easing: 'ease-out' });
-      for (const l of leds.slice(j + 1)) set(l, Math.random() < 0.5);
+      leds[j].className = final[j];
+      play(leds[j], [{ transform: 'translateY(-18%)' }, { transform: 'none' }], { duration: 120, easing: 'ease-out' });
+      leds.slice(j + 1).forEach(tumble);
       await wait(step);
     }
   } finally {
-    leds.forEach((l, j) => { set(l, final[j]); l.classList.remove('lockin'); });
+    leds.forEach((l, j) => { l.className = final[j]; });
     ctr.classList.remove('tumbling');
-    if (val) val.textContent = txt;
   }
-  if (val) await play(val, [{ transform: 'scale(1.5)', opacity: 0.3 }, { transform: 'none', opacity: 1 }], { duration: 200, easing: 'ease-out' });
+  if (val) await play(val, [{ transform: 'translateY(6px) scale(.6)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 200, easing: 'ease-out' });
 }
 
-// Link chain: a glowing bracket spans the linked counters with the concatenated binary string, which
-// types in left to right (one group per counter), then the decimal value; the readout then flies into
-// the throw's points (the tally), which the total later carries into the points bar.
+// Link chain: each linked counter pulses with the pack's glow (fx_link_glow 1-2-3-2), a two-link connector
+// (fx_chain_link, flashing to _lit) bridges each pair of neighbours on their lower bezels, and one readout
+// tag is centred over the run: the binary string types in (one group per counter), then the decimal.
+// The readout then flies into the throw's points (the tally), which the total later carries to the bar.
 async function chainSequence(root, els, chain, ptsEl, ptsBefore) {
-  const live = els.filter(Boolean);
+  const live = els.filter(Boolean), ctrs = live.map(e => e.querySelector('.ctr') || e);
   if (!live.length || reduced()) { ptsEl.textContent = String(ptsBefore + chain.value); return; }
   phase('chain');
-  const rs = live.map(e => e.getBoundingClientRect());
-  const left = Math.min(...rs.map(r => r.left)) - 6, right = Math.max(...rs.map(r => r.right)) + 6, top = Math.min(...rs.map(r => r.top));
-  const br = document.createElement('div');
-  br.className = 'chainbr';
-  br.setAttribute('aria-hidden', 'true');
-  Object.assign(br.style, { left: `${left}px`, top: `${top - 8}px`, width: `${right - left}px`, height: `${Math.max(...rs.map(r => r.bottom)) - top + 14}px` });
-  br.innerHTML = `<div class="chainlbl"><span class="bin">${chain.parts.map(p => `<span class="grp">${p.split('').map(b => `<i class="b${b}">${b}</i>`).join('')}</span>`).join('')}</span><b class="dec"></b></div>`;
-  document.body.appendChild(br);
+  const rs = ctrs.map(c => c.getBoundingClientRect()), k = rs[0].width / 32; // CSS px per native px
+  const made = [];
+  const add = el => { document.body.appendChild(el); made.push(el); return el; };
+  // Glow on each member (falls back to a CSS ring when the pack has no glow frames).
+  const glowArt = !!artSrc('fx_link_glow_1');
+  const glows = ctrs.map(c => {
+    c.classList.add('chained');
+    if (!glowArt) return null;
+    c.classList.add('glowart');
+    const img = document.createElement('img'); img.className = 'ctrglow art px'; img.alt = ''; setImg(img, 'fx_link_glow_1'); c.appendChild(img); made.push(img); return img;
+  }).filter(Boolean);
   live.forEach(e => e.classList.add('linked'));
+  let pulsing = true;
+  const pulse = (async () => { const seq = [1, 2, 3, 2]; for (let n = 0; pulsing && n < 80; n++) { glows.forEach(g => setImg(g, `fx_link_glow_${seq[n % 4]}`)); await wait(100); } })();
+  // Connectors between neighbours: 16x8 native, centred on the gap, on the lower bezel (y + 23 native).
+  const links = [];
+  for (let j = 1; j < rs.length; j++) {
+    const a = rs[j - 1], b = rs[j], w = 16 * k, h = 8 * k, cx = (a.right + b.left) / 2;
+    const img = add(document.createElement('img'));
+    img.className = 'chainlink art px'; img.alt = '';
+    if (!setImg(img, 'fx_chain_link')) { img.remove(); continue; }
+    Object.assign(img.style, { left: `${cx - w / 2}px`, top: `${b.top + 23 * k}px`, width: `${w}px`, height: `${h}px` });
+    links.push(img);
+  }
+  // One readout over the run.
+  const left = Math.min(...rs.map(r => r.left)), right = Math.max(...rs.map(r => r.right)), top = Math.min(...rs.map(r => r.top));
+  const tag = add(document.createElement('div'));
+  tag.className = 'chaintag';
+  tag.innerHTML = `<span class="bin">${chain.parts.map(p => `<span class="grp">${p.split('').map(b => `<i class="b${b}">${b}</i>`).join('')}</span>`).join('')}</span><span class="tag" style="width:${34 * k}px;height:${14 * k}px"><b></b></span>`;
+  tag.style.left = `${(left + right) / 2}px`;
+  tag.style.top = `${top - 12 * k}px`;
+  tag.style.transform = 'translate(-50%, calc(-100% + ' + (14 * k) + 'px))';
   try {
-    await play(br, [{ transform: 'scaleX(.1)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 260, easing: 'cubic-bezier(.2,.8,.3,1.2)' });
-    const bitsEls = [...br.querySelectorAll('.bin i')], per = Math.max(25, Math.round(420 / bitsEls.length));
+    await Promise.all(links.map((l, j) => play(l, [{ transform: 'scale(.2)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 220, delay: j * 90, easing: 'cubic-bezier(.2,.8,.3,1.4)' })));
+    const bitsEls = [...tag.querySelectorAll('.bin i')], per = Math.max(25, Math.round(420 / bitsEls.length));
     for (const b of bitsEls) { b.classList.add('show'); await wait(per); }
-    const dec = br.querySelector('.dec');
-    dec.textContent = `= ${chain.value}`;
-    await play(dec, [{ transform: 'scale(.3)', opacity: 0 }, { transform: 'scale(1.4)', opacity: 1, offset: 0.6 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'ease-out' });
-    live.forEach(e => { bump(e, 1.12); burst(e, 'fx_pop_rule_', 4); });
+    links.forEach(l => setImg(l, 'fx_chain_link_lit'));
+    const dec = tag.querySelector('.tag b');
+    dec.textContent = String(chain.value);
+    await play(tag.querySelector('.tag'), [{ transform: 'scale(.4)', opacity: 0 }, { transform: 'scale(1.25)', opacity: 1, offset: 0.6 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'ease-out' });
+    live.forEach(e => { bump(e, 1.1); burst(e, 'fx_pop_points_', 4); });
     await wait(450);
-    // Fly the decimal readout into the tally's points.
+    // Fly the decimal into the tally's points.
     const a = dec.getBoundingClientRect(), b = ptsEl.getBoundingClientRect();
-    const fly = document.createElement('div');
+    const fly = add(document.createElement('div'));
     fly.className = 'flying chainfly';
     fly.textContent = `+${chain.value}`;
     Object.assign(fly.style, { left: `${a.left}px`, top: `${a.top}px`, width: `${a.width}px`, height: `${a.height}px` });
-    document.body.appendChild(fly);
     dec.style.opacity = '0';
     const dx = b.left + b.width / 2 - (a.left + a.width / 2), dy = b.top + b.height / 2 - (a.top + a.height / 2);
-    play(br, [{ opacity: 1 }, { opacity: 0 }], { duration: 300, fill: 'forwards' });
+    play(tag, [{ opacity: 1 }, { opacity: 0 }], { duration: 300, fill: 'forwards' });
     await play(fly, [{ transform: 'none' }, { transform: `translate(${dx * 0.5}px, ${dy * 0.5 - 30}px) scale(1.15)`, offset: 0.4 }, { transform: `translate(${dx}px, ${dy}px) scale(.5)`, opacity: 0.9 }], { duration: 480, easing: 'cubic-bezier(.5,0,.7,1)', fill: 'forwards' });
-    fly.remove();
   } finally {
-    br.remove();
+    pulsing = false;
+    await pulse;
+    made.forEach(el => el.remove());
+    ctrs.forEach(c => c.classList.remove('chained', 'glowart'));
     live.forEach(e => e.classList.remove('linked'));
   }
   ptsEl.textContent = String(ptsBefore + chain.value);

@@ -3,7 +3,7 @@
 import { SHAPES, faceKey } from './dice.js';
 import { SPECIALS } from './specials.js';
 
-export const UI_KEYS = ['ui_logo', 'ui_btn_roll', 'ui_btn_score', 'ui_btn_buy', 'ui_btn_shop_reroll', 'ui_btn_sell', 'ui_btn_next', 'ui_btn_new_run', 'ui_btn_settings', 'ui_btn_pause', 'ui_btn_info', 'ui_btn_reroll'];
+export const UI_KEYS = ['ui_logo', 'ui_btn_roll', 'ui_btn_score', 'ui_btn_buy', 'ui_btn_shop_reroll', 'ui_btn_sell', 'ui_btn_next', 'ui_btn_new_run', 'ui_btn_settings', 'ui_btn_pause', 'ui_btn_info', 'ui_btn_reroll', 'ui_btn_continue', 'ui_btn_endless'];
 export const ICON_KEYS = ['icon_coin', 'icon_lock'];
 export const BG_KEYS = ['bg_table_tile', 'bg_shop_tile', 'bg_hc_tile'];
 // Animation frames: roll tumble per shape (blank -> roll_1 -> roll_2), score particles per colour layer,
@@ -30,12 +30,17 @@ export function requiredKeys() {
   return keys.concat(ICON_KEYS, UI_KEYS, BG_KEYS, fxKeys());
 }
 
-// Binary counter art (requested from Ælfstan, not in the pack yet). The game draws counters with CSS
-// (LED look) and uses any of these keys as soon as the manifest has them; each also wants an `_hc` twin.
+// Binary counter art (Ælfstan's style A pack, counters section). Kept apart from requiredKeys() so the
+// placeholder manifest need not cover them: without art the game falls back to the CSS LED look.
+// Body/blank sprites are the 32x32 die slot; LED cells (4x7 native) sit at the manifest's `bit_cells`.
 export function counterArtKeys() {
-  return ['die_bin4_body', 'die_bin8_body', 'die_bin4_blank', 'die_bin8_blank', 'led_bit_on', 'led_bit_off', 'led_bit_tumble_1', 'led_bit_tumble_2',
-    'icon_counter4', 'icon_counter8', 'icon_link', 'fx_link_bracket_l', 'fx_link_bracket_m', 'fx_link_bracket_r', 'fx_link_glow_1', 'fx_link_glow_2', 'fx_link_glow_3'];
+  return ['die_bin4_body', 'die_bin8_body', 'die_bin4_blank', 'die_bin8_blank', 'led_bit_on', 'led_bit_off', 'counter_bit_tumble_1', 'counter_bit_tumble_2',
+    'icon_counter4', 'icon_counter8', 'icon_link', 'overlay_chain', 'fx_chain_link', 'fx_chain_link_lit', 'counter_readout', 'fx_link_glow_1', 'fx_link_glow_2', 'fx_link_glow_3'];
 }
+// Native top-left corners of each bit cell (MSB first) on a 32x32 counter; 8-bit = MSB nibble on top.
+// The active manifest's body entry can override them with `bit_cells` (copied from the pack manifest).
+export const DEFAULT_BIT_CELLS = { 4: [[5, 11], [11, 11], [17, 11], [23, 11]], 8: [[5, 5], [11, 5], [17, 5], [23, 5], [5, 14], [11, 14], [17, 14], [23, 14]] };
+export const bitCells = n => (M.assets[`die_bin${n}_body`] && M.assets[`die_bin${n}_body`].bit_cells) || DEFAULT_BIT_CELLS[n];
 
 let M = { base: 'assets/', assets: {} }, F = null, variant = '';
 // `fallback` is the placeholder manifest: used per key when the active one lacks it or its file fails.

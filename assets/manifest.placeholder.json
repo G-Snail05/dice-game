@@ -273,6 +273,12 @@
   "ui_btn_reroll": {
    "src": "placeholder/ui_btn_reroll.svg"
   },
+  "ui_btn_continue": {
+   "src": "placeholder/ui_btn_continue.svg"
+  },
+  "ui_btn_endless": {
+   "src": "placeholder/ui_btn_endless.svg"
+  },
   "bg_table_tile": {
    "src": "placeholder/bg_table_tile.svg"
   },

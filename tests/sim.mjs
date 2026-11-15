@@ -116,7 +116,15 @@ eq(scoreThrow([D(4), C('0101', 'link4')]).total, 9, 'a Link next to a regular di
   const copy = deserialize(serialize(run)); eq(copy.bag.find(d => d.uid === ctr[0].uid).bits, ctr[0].bits, 'save/load keeps counter bits');
   eq(preview(run).total, scoreCurrent(run).total, 'preview matches score with counters'); }
 eq(SPECIALS.filter(s => s.counter).map(s => [s.id, s.rarity, s.price]), Object.entries(BAL.counters.dice).map(([k, v]) => [k, v.rarity, v.price]), 'counter rarity/price come from balance.json');
-{ const ck = counterArtKeys(); ok(ck.length >= 10 && ck.every(k => !requiredKeys().includes(k)), 'counter art keys are listed separately (CSS fallback until the pack has them)');
+{ const ck = counterArtKeys(); ok(ck.length >= 10 && ck.every(k => !requiredKeys().includes(k)), 'counter art keys are listed separately from requiredKeys (CSS fallback without art)');
+  const man = JSON.parse(fs.readFileSync(ROOT + 'assets/manifest.json', 'utf8'));
+  eq(ck.filter(k => !man.assets[k]), [], 'active manifest covers every counter art key');
+  const files = e => [e.src, ...Object.values(e.srcset || {}), ...(e.hc ? [e.hc.src, ...Object.values(e.hc.srcset || {})] : [])];
+  eq(ck.flatMap(k => files(man.assets[k])).filter(f => !fs.existsSync(ROOT + man.base + f)), [], 'every counter sprite file exists in assets/');
+  eq(ck.filter(k => !man.assets[k].hc), ['fx_link_glow_1', 'fx_link_glow_2', 'fx_link_glow_3'], 'counter keys have high-contrast twins (the pack has none for the glow)');
+  eq([man.assets.die_bin4_body.bit_cells, man.assets.die_bin8_body.bit_cells.map(c => c[1])], [[[5, 11], [11, 11], [17, 11], [23, 11]], [5, 5, 5, 5, 14, 14, 14, 14]], 'bit_cells from the pack: 4-bit one row, 8-bit MSB nibble on top');
+  const pngW = f => fs.readFileSync(ROOT + man.base + f).readUInt32BE(16), pngH = f => fs.readFileSync(ROOT + man.base + f).readUInt32BE(20);
+  eq([pngW(man.assets.die_bin8_body.src), pngW(man.assets.led_bit_on.src), pngH(man.assets.led_bit_on.src), pngW(man.assets.counter_readout.src), pngW(man.assets.overlay_chain.src)], [64, 8, 14, 68, 84], 'counter sprite sizes at 1x (die 64, cell 8x14, readout 68, overlay 84)');
   const doc = fs.readFileSync(ROOT + 'ASSETS.md', 'utf8'); eq(ck.filter(k => !doc.includes(k)), [], 'ASSETS.md lists the counter art keys'); }
 
 // --- Draw 7, pick 5, roll
@@ -185,6 +193,8 @@ ok(Array.from({ length: 12 }, (_, i) => roundInfo(i + 1).target).every((t, i, a)
   const badScale = keys.filter(k => { const e = man.assets[k]; const w = pngW(e.src); return pngW(e.srcset['2x']) !== 2 * w || pngW(e.srcset['3x']) !== 3 * w; }); eq(badScale, [], '2x/3x sprites are exact multiples');
   ok(keys.filter(k => man.assets[k].hc).length >= 80, 'high-contrast twins present for most keys');
   eq(keys.filter(k => /^ui_btn_/.test(k) && man.assets[k].kind !== 'button'), [], 'ui_btn_* keys are button skins with states');
+  eq(['icon_coin', 'icon_lock', 'ui_logo', 'bg_table_tile', 'bg_shop_tile', 'ui_btn_continue', 'ui_btn_endless'].filter(k => !man.assets[k].hc), [], 'new hc twins (coin, lock, logo, table/shop tiles) and continue/endless buttons have hc');
+  eq(['ui_btn_continue', 'ui_btn_endless'].map(k => [man.assets[k].kind, Object.keys(man.assets[k].states).sort()]), [['button', ['disabled', 'pressed']], ['button', ['disabled', 'pressed']]], 'continue/endless are button skins with pressed/disabled');
   const doc = fs.readFileSync(ROOT + 'ASSETS.md', 'utf8'); eq(keys.filter(k => !doc.includes(k)), [], 'ASSETS.md lists every key'); }
 
 // --- Simulations

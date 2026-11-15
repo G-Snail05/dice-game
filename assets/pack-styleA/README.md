@@ -2,10 +2,10 @@
 
 This is the full pack in the style G picked (A, 16-bit pixel). It was built by extending `style-samples/style_a.py` and `pix.py`, so it uses the same 32×32 dice grid, 1px `#1a1030` outlines, three-tone shading and palette. It follows the art and mobile notes in `docs/research-brief.md` §4 and §6.
 
-- **574 sprites**, each exported 4 times (`native/`, `1x/`, `2x/`, `3x/`), giving 2,296 PNGs.
+- **755 sprites**, each exported 4 times (`native/`, `1x/`, `2x/`, `3x/`), giving 3,020 PNGs. This includes the binary counters (see below).
 - `manifest.json` lists every sprite: its files, native and CSS size, category, layer and effect colour, anchors, value areas and the Builder's key.
-- `builder-manifest.styleA.json` is a drop-in for the game's `assets/manifest.json` format. It covers **all 85 keys** that `js/art.js → requiredKeys()` asks for.
-- Contact sheets are in `sheets/`: `sheet_dice`, `sheet_specials`, `sheet_ui`, `sheet_fx`, `sheet_backgrounds`, `sheet_high_contrast` and `sheet_overview` (two phone mock-ups).
+- `builder-manifest.styleA.json` is a drop-in for the game's `assets/manifest.json` format. It covers **all 144 keys** that `js/art.js → requiredKeys()` asks for, and every entry that has a high-contrast sprite carries an `hc` twin (used by `setVariant('hc')`).
+- Contact sheets are in `sheets/`: `sheet_dice`, `sheet_specials`, `sheet_ui`, `sheet_fx`, `sheet_backgrounds`, `sheet_high_contrast`, `sheet_counters` and `sheet_overview` (two phone mock-ups).
 
 ## Scales: one pixel grid everywhere
 | folder | scale | use |
@@ -29,7 +29,8 @@ Use `<img src="1x/x.png" srcset="2x/x.png 2x, 3x/x.png 3x">` (the Builder's mani
   - Per shape: `die_<shape>_blank`, `die_<shape>_roll_1` and `die_<shape>_roll_2` (tumble frames). Cycle blank → roll_1 → roll_2 at about 12 fps while rolling, then show the face.
   - Builder key mapping: `die_d6_face3` → `die_d6_3.png`. This is listed in `manifest.json` as `builder_key`.
 - `special_<name>_icon.png`, `special_<name>_icon_disabled.png`, `special_<name>_overlay.png` and `special_<name>_badge.png`: there are 22 specials, named after the brief's dice (list below).
-- `ui_btn_<name>_<normal|pressed|disabled>.png`: the names are roll, score, reroll, shop, shop_reroll, buy, sell, next, new_run, pause, settings and info.
+- `ui_btn_<name>_<normal|pressed|disabled>.png`: the names are roll, score, reroll, shop, shop_reroll, buy, sell, next, new_run, **continue**, **endless**, pause, settings and info.
+- `ui_btn_blank_<green|blue|slate|violet|icon>_<normal|pressed|disabled>.png`: **label-free** button skins (see Buttons below).
 - `ui_panel_<name>.png`: score, target, round, throws, shop, points, mult, coins, frame (9-slice) and tray. There are also `ui_card_shop_<common|uncommon|rare|selected|sold>`, `ui_price_tag(_disabled)`, `ui_coin`, `ui_coin_small`, `ui_round_pip_<done|current|todo|boss>`, `ui_icon_<lock|reroll|target|boss>` and `ui_logo`.
 - `fx_*`:
   - `fx_ring_<shape>_<layer>`: layer rings
@@ -75,11 +76,11 @@ Ember's badge shows "+2" (confirmed: +2 mult per other even die). Note `js/speci
 - **Gold:** `#7a4008` `#a85e12` `#e09a1a` `#ffd23a` `#fff6c0`, glyph `#4a2606`
 - **Rule:** `#3a1266` `#5e2a9e` `#8a3ad0` `#a85cf0` `#dcb4ff` ring `#c27cff`
 - **Grey:** `#2e2e3e` `#4a4a5e` `#6a6a7e` `#8a8a9e` `#b0b0c0`
-- **Buttons:** green `#16672e` `#1f8a3e` `#3ac25a` `#8ef08a`; blue `#2459bc` `#3d8ef0`; slate `#5a5a7e` `#74749a` `#b8b8d0` `#f4f4f8`
+- **Buttons:** green `#16672e` `#1f8a3e` `#3ac25a` `#8ef08a`; blue `#2459bc` `#3d8ef0`; slate `#5a5a7e` `#74749a` `#b8b8d0` `#f4f4f8`; violet `#3a1266` `#5e2a9e` `#8a3ad0` `#dcb4ff` (white text)
 - **Panels:** `#3a2e66` `#221a3e` `#120c24` `#0a0618` `#2e2452`
 - **Felt (table):** `#1d4a37` `#225640` `#2b6a4e` `#357a5b` `#10301f` `#0a2216`
 - **Shop (sample tile):** `#2b1f4a` `#35285c` `#4a3a7c` `#5c4a96` `#1c1434`
-- **High contrast:** black `#000000` ink and outline, white `#ffffff` faces, and saturated layers: points `#0a5cff`, multiplier `#e00020`, gold `#ffb000`, rule `#9b30ff`. Rings are a solid 2px. The background is `bg_hc_*` (`#0c0c14`).
+- **High contrast:** black `#000000` ink and outline, white `#ffffff` faces, and saturated layers: points `#0a5cff`, multiplier `#e00020`, gold `#ffb000`, rule `#9b30ff`. Rings are a solid 2px. The background is `bg_hc_*` (`#0c0c14`); `bg_table_tile_hc` (`#04110b`) and `bg_shop_tile_hc` (`#0b0714`) are near-black twins that keep a faint felt/violet tint so the two screens stay recognisable. The HC coin is pure yellow `#ffe600` with black line work (16.6:1 on black).
 
 ## Contrast (WCAG ratios)
 | pair | ratio |
@@ -88,7 +89,7 @@ Ember's badge shows "+2" (confirmed: +2 mult per other even die). Note `js/speci
 | Sleeper red ×2 on die face | 4.6:1 |
 | white glyph on blue / red / violet | 5.7 / 5.1 / 5.8:1 |
 | dark glyph or price on gold | 5.6:1 |
-| button text on green / blue / slate | 7.8 / 5.4 / 9.3:1 |
+| button text on green / blue / slate / violet (white) | 7.8 / 5.4 / 9.3 / 5.8:1 |
 | white / blue / red / gold / violet digits on panel | 19.0 / 5.7 / 5.4 / 13.2 / 6.9:1 |
 | rings on felt: blue / red / gold / violet | 5.5 / 3.3 / 7.0 / 3.7:1 (≥ 3:1 non-text) |
 | high-contrast ink | 21:1 |
@@ -110,6 +111,82 @@ Cues 1, 2 and 7 (lift, squash-and-stretch, bounce) are cheaper as CSS transforms
 ## Panels and value areas
 The panels have their label baked in and an empty value area. `manifest.json → value_area` is an inclusive native rect: multiply it by the scale and draw the number there with `ui_font_bold_*`. `ui_panel_frame` is a 9-slice: use `border-image-slice: 6` at native, which is 12 at 1x. Shop cards have a die window at (8,14) for a 32×32 die, and a name strip at `name_strip`.
 
+## Buttons
+**Colour logic** (unchanged): green = go forward / primary (roll, buy, next, new run, **continue**); blue = score; slate = secondary (reroll, shop, shop reroll, sell, icon buttons); grey = disabled. **ENDLESS is violet**, the rule-bending colour: endless mode changes the run's rules, and on the win screen it sits next to the green NEW RUN, so the two choices look different. Violet buttons use white text (5.8:1).
+
+**Labelled sets:** `ui_btn_reroll` says **REROLL** (with the ↻ glyph; `ui_btn_roll` is the first ROLL of a throw, so don't map re-roll to it), `ui_btn_continue` (CONTINUE, green) and `ui_btn_endless` (ENDLESS, violet). Each has normal / pressed / disabled and `_hc` twins, in the same 5×7 bitmap lettering and 64×24 native size (128×48 CSS).
+
+**Label-free sets** for game-drawn text: `ui_btn_blank_<green|blue|slate|violet>` (64×24) and `ui_btn_blank_icon` (24×24, 48×48 CSS), each normal / pressed / disabled + `_hc`. Same sizes, bevels and 44pt+ touch targets as the labelled buttons; the face is left empty.
+- `manifest.json → text_area` is the clear inclusive native rect: `[4,4,59,18]` normal/disabled, `[4,6,59,20]` pressed (the pressed art sits 2 native px lower); icon size `[4,4,19,18]` / `[4,6,19,20]`. Multiply by the scale (×2 for CSS px at 1x) and centre the text in it.
+- `text_colour` / `text_shadow` give the matching label colours: `#1a1030` with a 1px shadow (`#2a9a48` green, `#2a6fd6` blue, `#9a9ab8` slate), white with `#3a1266` on violet, `#2a2a3a` disabled. For a pixel look, draw with `ui_font_text_white` tinted, or a pixel font at 2× CSS px.
+- Every game button key has an alias to its colour: `ui_btn_<roll|buy|next|new_run|continue>_blank` → green, `ui_btn_score_blank` → blue, `ui_btn_<reroll|shop|shop_reroll|sell>_blank` → slate, `ui_btn_endless_blank` → violet, `ui_btn_<pause|settings|info>_blank` → icon.
+- In `builder-manifest.styleA.json` every `ui_btn_*` key now carries `kind: "button"` and `states.pressed/disabled` (with `hc`), and label-free ones carry `textArea`, so `buttonSkin()` works without the conversion step.
+
+## Binary counters (4-bit / 8-bit) and the Chain modifier
+A user idea, not in the brief: a small LCD number screen that rolls 1s and 0s. A counter scores its binary value as a decimal number.
+
+**One die slot.** Both counters are **32×32 native** (64×64 CSS at 1x). That is the d6's outer size, bezel, outline, shading and baseline. Only the screen differs:
+- **4-bit:** one row of 4 bits. The screen is native `[3,9,28,19]`, so it is short, with a deep ivory bezel above and below.
+- **8-bit:** two rows of 4 bits. The **MSB nibble is on top** and the LSB nibble below. The screen is `[3,3,28,22]` and almost fills the face.
+
+The two sizes are told apart by the screen shape and the number of rows. There is no text label, because a legible label doesn't fit on the 8-bit.
+
+Each bit is a **4×7 seven-segment cell** (8×14 CSS px at 1x, 24×42 at 3x):
+- Lit is `#7cc6ff` on the screen `#0e1630` (9.7:1). Lit is blue because a counter's value is points.
+- Unlit segments are `#1f2d58` (1.3:1), so they read as "off" rather than as a digit.
+
+**Bit cells** (`manifest.json → bit_cells`, native top-left corners, MSB first):
+- 4-bit: (5,11) (11,11) (17,11) (23,11)
+- 8-bit: (5,5) (11,5) (17,5) (23,5), then (5,14) (11,14) (17,14) (23,14)
+
+To compose any value, draw `counter_<n>bit_body` (or `_blank`) and then `counter_bit_1` or `counter_bit_0` at each cell.
+
+| sprite | notes |
+|---|---|
+| `counter_<n>bit_body` | housing with an empty screen |
+| `counter_<n>bit_blank` | every segment unlit (face-down / unrolled) |
+| `counter_<n>bit_roll_1..3` | scramble: half-lit random bits, then all on the middle bar, then half-lit again. Cycle at about 12 fps, then settle bit by bit, MSB first. |
+| `counter_4bit_0000` … `_1111` | all 16 values |
+| `counter_8bit_10100110`, `_00000000`, `_11111111` | 8-bit examples |
+| `counter_bit_1`, `counter_bit_0`, `counter_bit_off` | 4×7 cells: lit 1, lit 0, nothing lit |
+| `counter_bit_tumble_1`, `_2` | per-cell tumble frames: half-lit flicker, middle bar |
+| `counter_seg_0..9` | decimal digits in the same LCD cell, for an on-screen decimal option |
+| `counter_readout` | 34×14 decimal tag: "=" and **up to 4 digits** (a 12-bit chain reaches 4095) in `ui_font_bold_blue`, drawn inside `value_area`. Place it at x = counter_x − 1, y = counter_y − 12. At 34 wide it matches the 34 px slot pitch, so neighbouring tags just touch. For a chain, centre one tag over the run. |
+
+**Chain modifier** (violet = rule-bending, hexagon badge). Overlays use the **same 42×42 canvas as the dice, with the counter at (2,8)**. One overlay serves both sizes.
+| sprite | what |
+|---|---|
+| `special_chain_icon` (+`_disabled`, `_hc`) | 32×32 icon with two interlocked links |
+| `special_chain_badge` | a chain and a "<" (links to the **left**), placed exactly like the dice badges |
+| `special_chain_overlay` | violet ring, the badge top-right, and a **half-link stub on the left edge** of the lower bezel that butts up against the neighbouring counter |
+| `fx_chain_link` / `_lit` | 16×8 two-link connector at x = right_counter_x − 9, y = counter_y + 23. It sits on the lower bezels across the 2 px gap and stays clear of both screens. Use `_lit` as a flash when the chain fires. |
+| `fx_chain_bracket_l` / `_m` / `_r` | **Unused**: the game dropped the bracket in favour of the connector plus glow. Left in the pack (8×8 left cap, tiling middle, right cap) in case it comes back. |
+| `fx_chain_glow_1..3` | 42×42 glow pulse on linked counters. Play 1-2-3-2 at about 10 fps. |
+| `counter_4bit_chain_example`, `counter_8bit_chain_example` | pre-composited previews |
+
+**States** (42×42, the same as the dice): `fx_select_counter`, `fx_locked_counter`, `fx_disabled_counter` (grey wash + X) and `fx_ring_counter_<layer>`. They are shared by both sizes because the silhouette is the same as a d6, so the `fx_*_d6` sprites work too.
+**Icons:** `special_counter_4bit_icon` and `special_counter_8bit_icon` are blue rounded squares with a tiny "10" LCD and a 4BIT or 8BIT tab.
+**High contrast:** every counter sprite has an `_hc` twin, with a black screen, white lit segments and near-black unlit ones (16.9:1).
+
+**Builder keys** (also listed in `builder-manifest.styleA.json → _newKeys_counters`):
+| pack key | also mapped from the game's `counterArtKeys()` |
+|---|---|
+| `counter_4bit_body`, `counter_8bit_body` | `die_bin4_body`, `die_bin8_body` |
+| `counter_4bit_blank`, `counter_8bit_blank` | `die_bin4_blank`, `die_bin8_blank` |
+| `counter_bit_1`, `counter_bit_0` | `led_bit_on`, `led_bit_off` |
+| `counter_bit_tumble_1`, `_2` | `led_bit_tumble_1`, `led_bit_tumble_2` |
+| `fx_chain_bracket_l/m/r` | (unused; the game no longer asks for `fx_link_bracket_*`) |
+| `fx_chain_glow_1..3` | `fx_link_glow_1..3` |
+| `icon_link`, `icon_counter4`, `icon_counter8` | (the game's own names) |
+| `counter_4bit_roll_1..3`, `counter_8bit_roll_1..3`, `counter_bit_off`, `counter_readout`, `overlay_chain`, `fx_chain_link`, `fx_chain_link_lit` | (new) |
+
+All 18 current `counterArtKeys()` are covered (the game has since dropped `fx_link_bracket_*` and asks for `overlay_chain`, `fx_chain_link(_lit)`, `counter_readout` and `counter_bit_tumble_*` by their pack names). Every other counter sprite is also listed under its own file name.
+
+**CSS the game needs for this art** (`.ctr` / `.led` in `css/style.css`):
+- `.ctr`: keep `aspect-ratio: 1`. Drop the CSS border, border-radius, box-shadow and padding, because the bezel is in the sprite. Use `background-size: 100% 100%` and `image-rendering: pixelated`.
+- `.led`: lay the cells out at the `bit_cells` positions. That is a 4-column grid, 4/32 wide with a 2/32 gap, starting 5/32 from the left; rows at 11/32 (4-bit), or 5/32 and 14/32 (8-bit). Set `aspect-ratio: 4/7`, no border-radius, no glow, and `background-size: 100% 100%`. With the current round, cover-cropped LED style, the 4×7 digit would be cropped.
+- The green/amber LED colours and the gold chain total should become blue, the points colour.
+
 ## Regenerate
 ```
 cd asset-pack
@@ -121,6 +198,6 @@ The scripts need Python 3 and Pillow, plus Nunito for the sheet labels only.
 - `tools/pix.py` is the sample's canvas library, unchanged.
 - `tools/fonts.py` holds the bitmap fonts and glyphs.
 - `tools/core.py` holds the palette, helpers and registry.
-- `tools/dice.py`, `tools/specials.py`, `tools/ui.py` and `tools/bg.py` draw the pieces.
+- `tools/dice.py`, `tools/specials.py`, `tools/ui.py`, `tools/bg.py` and `tools/counters.py` draw the pieces.
 
 To change a colour job, edit `LAYERS` in `core.py`. To move a special to another layer or shape, edit `SPECIALS` in `specials.py`.

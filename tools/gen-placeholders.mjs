@@ -68,6 +68,8 @@ for (const [c, col] of [['blue', '#3d8ef0'], ['red', '#e8434a']]) for (let n = 1
 for (let n = 1; n <= 4; n++) ICONS[`fx_coin_spin_${n}`] = svg(`<ellipse cx="50" cy="50" rx="${[40, 26, 8, 26][n - 1]}" ry="40" fill="${GOLD}" stroke="#1a1a1a" stroke-width="5"/>`);
 for (let n = 1; n <= 3; n++) ICONS[`fx_glass_shatter_${n}`] = svg(Array.from({ length: 6 }, (_, k) => { const a = k * Math.PI / 3, r = n * 14; return `<path d="M${50 + Math.cos(a) * r} ${50 + Math.sin(a) * r} l10 -6 l-4 12 z" fill="#8fd3e8" stroke="#1a1a1a" stroke-width="2"/>`; }).join(''));
 ICONS.ui_btn_reroll = ICONS.ui_btn_shop_reroll;
+ICONS.ui_btn_continue = ICONS.ui_btn_next;
+ICONS.ui_btn_endless = ICONS.ui_btn_next;
 
 const assets = {};
 for (const key of requiredKeys()) {

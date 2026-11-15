@@ -46,16 +46,19 @@
  "counts": {
   "dice": 88,
   "dice_hc": 88,
-  "specials": 88,
-  "specials_hc": 66,
+  "specials": 96,
+  "specials_hc": 71,
   "fx": 80,
   "fx_hc": 42,
-  "ui": 64,
-  "ui_hc": 44,
+  "ui": 85,
+  "ui_hc": 72,
   "font": 8,
-  "backgrounds": 6
+  "backgrounds": 6,
+  "backgrounds_hc": 2,
+  "counters": 62,
+  "counters_hc": 55
  },
- "total": 574,
+ "total": 755,
  "assets": [
   {
    "name": "die_d4_1",
@@ -11695,7 +11698,7 @@
    },
    "button": "reroll",
    "state": "normal",
-   "builder_key": null,
+   "builder_key": "ui_btn_reroll",
    "min_touch_css": [
     128,
     48
@@ -12662,6 +12665,1267 @@
    "button": "new_run",
    "state": "disabled",
    "variant": "high_contrast"
+  },
+  {
+   "name": "ui_btn_continue_normal",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_continue_normal.png",
+    "1x": "1x/ui_btn_continue_normal.png",
+    "2x": "2x/ui_btn_continue_normal.png",
+    "3x": "3x/ui_btn_continue_normal.png"
+   },
+   "button": "continue",
+   "state": "normal",
+   "builder_key": "ui_btn_continue",
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "render at 1x size (128x48 CSS px) or larger: meets 44pt / 48dp"
+  },
+  {
+   "name": "ui_btn_continue_normal_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_continue_normal_hc.png",
+    "1x": "1x/ui_btn_continue_normal_hc.png",
+    "2x": "2x/ui_btn_continue_normal_hc.png",
+    "3x": "3x/ui_btn_continue_normal_hc.png"
+   },
+   "button": "continue",
+   "state": "normal",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_btn_continue_pressed",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_continue_pressed.png",
+    "1x": "1x/ui_btn_continue_pressed.png",
+    "2x": "2x/ui_btn_continue_pressed.png",
+    "3x": "3x/ui_btn_continue_pressed.png"
+   },
+   "button": "continue",
+   "state": "pressed",
+   "builder_key": null,
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "render at 1x size (128x48 CSS px) or larger: meets 44pt / 48dp"
+  },
+  {
+   "name": "ui_btn_continue_pressed_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_continue_pressed_hc.png",
+    "1x": "1x/ui_btn_continue_pressed_hc.png",
+    "2x": "2x/ui_btn_continue_pressed_hc.png",
+    "3x": "3x/ui_btn_continue_pressed_hc.png"
+   },
+   "button": "continue",
+   "state": "pressed",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_btn_continue_disabled",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_continue_disabled.png",
+    "1x": "1x/ui_btn_continue_disabled.png",
+    "2x": "2x/ui_btn_continue_disabled.png",
+    "3x": "3x/ui_btn_continue_disabled.png"
+   },
+   "button": "continue",
+   "state": "disabled",
+   "builder_key": null,
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "render at 1x size (128x48 CSS px) or larger: meets 44pt / 48dp"
+  },
+  {
+   "name": "ui_btn_continue_disabled_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_continue_disabled_hc.png",
+    "1x": "1x/ui_btn_continue_disabled_hc.png",
+    "2x": "2x/ui_btn_continue_disabled_hc.png",
+    "3x": "3x/ui_btn_continue_disabled_hc.png"
+   },
+   "button": "continue",
+   "state": "disabled",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_btn_endless_normal",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_endless_normal.png",
+    "1x": "1x/ui_btn_endless_normal.png",
+    "2x": "2x/ui_btn_endless_normal.png",
+    "3x": "3x/ui_btn_endless_normal.png"
+   },
+   "button": "endless",
+   "state": "normal",
+   "builder_key": "ui_btn_endless",
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "render at 1x size (128x48 CSS px) or larger: meets 44pt / 48dp"
+  },
+  {
+   "name": "ui_btn_endless_normal_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_endless_normal_hc.png",
+    "1x": "1x/ui_btn_endless_normal_hc.png",
+    "2x": "2x/ui_btn_endless_normal_hc.png",
+    "3x": "3x/ui_btn_endless_normal_hc.png"
+   },
+   "button": "endless",
+   "state": "normal",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_btn_endless_pressed",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_endless_pressed.png",
+    "1x": "1x/ui_btn_endless_pressed.png",
+    "2x": "2x/ui_btn_endless_pressed.png",
+    "3x": "3x/ui_btn_endless_pressed.png"
+   },
+   "button": "endless",
+   "state": "pressed",
+   "builder_key": null,
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "render at 1x size (128x48 CSS px) or larger: meets 44pt / 48dp"
+  },
+  {
+   "name": "ui_btn_endless_pressed_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_endless_pressed_hc.png",
+    "1x": "1x/ui_btn_endless_pressed_hc.png",
+    "2x": "2x/ui_btn_endless_pressed_hc.png",
+    "3x": "3x/ui_btn_endless_pressed_hc.png"
+   },
+   "button": "endless",
+   "state": "pressed",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_btn_endless_disabled",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_endless_disabled.png",
+    "1x": "1x/ui_btn_endless_disabled.png",
+    "2x": "2x/ui_btn_endless_disabled.png",
+    "3x": "3x/ui_btn_endless_disabled.png"
+   },
+   "button": "endless",
+   "state": "disabled",
+   "builder_key": null,
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "render at 1x size (128x48 CSS px) or larger: meets 44pt / 48dp"
+  },
+  {
+   "name": "ui_btn_endless_disabled_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_endless_disabled_hc.png",
+    "1x": "1x/ui_btn_endless_disabled_hc.png",
+    "2x": "2x/ui_btn_endless_disabled_hc.png",
+    "3x": "3x/ui_btn_endless_disabled_hc.png"
+   },
+   "button": "endless",
+   "state": "disabled",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_btn_blank_green_normal",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_green_normal.png",
+    "1x": "1x/ui_btn_blank_green_normal.png",
+    "2x": "2x/ui_btn_blank_green_normal.png",
+    "3x": "3x/ui_btn_blank_green_normal.png"
+   },
+   "button": "blank_green",
+   "state": "normal",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#1a1030",
+   "text_shadow": "#2a9a48",
+   "builder_key": "ui_btn_blank_green",
+   "builder_alias": [
+    "ui_btn_roll_blank",
+    "ui_btn_buy_blank",
+    "ui_btn_next_blank",
+    "ui_btn_new_run_blank",
+    "ui_btn_continue_blank"
+   ],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_green_normal_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_green_normal_hc.png",
+    "1x": "1x/ui_btn_blank_green_normal_hc.png",
+    "2x": "2x/ui_btn_blank_green_normal_hc.png",
+    "3x": "3x/ui_btn_blank_green_normal_hc.png"
+   },
+   "button": "blank_green",
+   "state": "normal",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#1a1030"
+  },
+  {
+   "name": "ui_btn_blank_green_pressed",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_green_pressed.png",
+    "1x": "1x/ui_btn_blank_green_pressed.png",
+    "2x": "2x/ui_btn_blank_green_pressed.png",
+    "3x": "3x/ui_btn_blank_green_pressed.png"
+   },
+   "button": "blank_green",
+   "state": "pressed",
+   "label_free": true,
+   "text_area": [
+    4,
+    6,
+    59,
+    20
+   ],
+   "text_colour": "#1a1030",
+   "text_shadow": "#2a9a48",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_green_pressed_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_green_pressed_hc.png",
+    "1x": "1x/ui_btn_blank_green_pressed_hc.png",
+    "2x": "2x/ui_btn_blank_green_pressed_hc.png",
+    "3x": "3x/ui_btn_blank_green_pressed_hc.png"
+   },
+   "button": "blank_green",
+   "state": "pressed",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    6,
+    59,
+    20
+   ],
+   "text_colour": "#1a1030"
+  },
+  {
+   "name": "ui_btn_blank_green_disabled",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_green_disabled.png",
+    "1x": "1x/ui_btn_blank_green_disabled.png",
+    "2x": "2x/ui_btn_blank_green_disabled.png",
+    "3x": "3x/ui_btn_blank_green_disabled.png"
+   },
+   "button": "blank_green",
+   "state": "disabled",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#2a2a3a",
+   "text_shadow": "#5e5e72",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_green_disabled_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_green_disabled_hc.png",
+    "1x": "1x/ui_btn_blank_green_disabled_hc.png",
+    "2x": "2x/ui_btn_blank_green_disabled_hc.png",
+    "3x": "3x/ui_btn_blank_green_disabled_hc.png"
+   },
+   "button": "blank_green",
+   "state": "disabled",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#2a2a3a"
+  },
+  {
+   "name": "ui_btn_blank_blue_normal",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_blue_normal.png",
+    "1x": "1x/ui_btn_blank_blue_normal.png",
+    "2x": "2x/ui_btn_blank_blue_normal.png",
+    "3x": "3x/ui_btn_blank_blue_normal.png"
+   },
+   "button": "blank_blue",
+   "state": "normal",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#1a1030",
+   "text_shadow": "#2a6fd6",
+   "builder_key": "ui_btn_blank_blue",
+   "builder_alias": [
+    "ui_btn_score_blank"
+   ],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_blue_normal_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_blue_normal_hc.png",
+    "1x": "1x/ui_btn_blank_blue_normal_hc.png",
+    "2x": "2x/ui_btn_blank_blue_normal_hc.png",
+    "3x": "3x/ui_btn_blank_blue_normal_hc.png"
+   },
+   "button": "blank_blue",
+   "state": "normal",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#1a1030"
+  },
+  {
+   "name": "ui_btn_blank_blue_pressed",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_blue_pressed.png",
+    "1x": "1x/ui_btn_blank_blue_pressed.png",
+    "2x": "2x/ui_btn_blank_blue_pressed.png",
+    "3x": "3x/ui_btn_blank_blue_pressed.png"
+   },
+   "button": "blank_blue",
+   "state": "pressed",
+   "label_free": true,
+   "text_area": [
+    4,
+    6,
+    59,
+    20
+   ],
+   "text_colour": "#1a1030",
+   "text_shadow": "#2a6fd6",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_blue_pressed_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_blue_pressed_hc.png",
+    "1x": "1x/ui_btn_blank_blue_pressed_hc.png",
+    "2x": "2x/ui_btn_blank_blue_pressed_hc.png",
+    "3x": "3x/ui_btn_blank_blue_pressed_hc.png"
+   },
+   "button": "blank_blue",
+   "state": "pressed",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    6,
+    59,
+    20
+   ],
+   "text_colour": "#1a1030"
+  },
+  {
+   "name": "ui_btn_blank_blue_disabled",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_blue_disabled.png",
+    "1x": "1x/ui_btn_blank_blue_disabled.png",
+    "2x": "2x/ui_btn_blank_blue_disabled.png",
+    "3x": "3x/ui_btn_blank_blue_disabled.png"
+   },
+   "button": "blank_blue",
+   "state": "disabled",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#2a2a3a",
+   "text_shadow": "#5e5e72",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_blue_disabled_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_blue_disabled_hc.png",
+    "1x": "1x/ui_btn_blank_blue_disabled_hc.png",
+    "2x": "2x/ui_btn_blank_blue_disabled_hc.png",
+    "3x": "3x/ui_btn_blank_blue_disabled_hc.png"
+   },
+   "button": "blank_blue",
+   "state": "disabled",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#2a2a3a"
+  },
+  {
+   "name": "ui_btn_blank_slate_normal",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_slate_normal.png",
+    "1x": "1x/ui_btn_blank_slate_normal.png",
+    "2x": "2x/ui_btn_blank_slate_normal.png",
+    "3x": "3x/ui_btn_blank_slate_normal.png"
+   },
+   "button": "blank_slate",
+   "state": "normal",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#1a1030",
+   "text_shadow": "#9a9ab8",
+   "builder_key": "ui_btn_blank_slate",
+   "builder_alias": [
+    "ui_btn_reroll_blank",
+    "ui_btn_shop_blank",
+    "ui_btn_shop_reroll_blank",
+    "ui_btn_sell_blank"
+   ],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_slate_normal_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_slate_normal_hc.png",
+    "1x": "1x/ui_btn_blank_slate_normal_hc.png",
+    "2x": "2x/ui_btn_blank_slate_normal_hc.png",
+    "3x": "3x/ui_btn_blank_slate_normal_hc.png"
+   },
+   "button": "blank_slate",
+   "state": "normal",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#1a1030"
+  },
+  {
+   "name": "ui_btn_blank_slate_pressed",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_slate_pressed.png",
+    "1x": "1x/ui_btn_blank_slate_pressed.png",
+    "2x": "2x/ui_btn_blank_slate_pressed.png",
+    "3x": "3x/ui_btn_blank_slate_pressed.png"
+   },
+   "button": "blank_slate",
+   "state": "pressed",
+   "label_free": true,
+   "text_area": [
+    4,
+    6,
+    59,
+    20
+   ],
+   "text_colour": "#1a1030",
+   "text_shadow": "#9a9ab8",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_slate_pressed_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_slate_pressed_hc.png",
+    "1x": "1x/ui_btn_blank_slate_pressed_hc.png",
+    "2x": "2x/ui_btn_blank_slate_pressed_hc.png",
+    "3x": "3x/ui_btn_blank_slate_pressed_hc.png"
+   },
+   "button": "blank_slate",
+   "state": "pressed",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    6,
+    59,
+    20
+   ],
+   "text_colour": "#1a1030"
+  },
+  {
+   "name": "ui_btn_blank_slate_disabled",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_slate_disabled.png",
+    "1x": "1x/ui_btn_blank_slate_disabled.png",
+    "2x": "2x/ui_btn_blank_slate_disabled.png",
+    "3x": "3x/ui_btn_blank_slate_disabled.png"
+   },
+   "button": "blank_slate",
+   "state": "disabled",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#2a2a3a",
+   "text_shadow": "#5e5e72",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_slate_disabled_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_slate_disabled_hc.png",
+    "1x": "1x/ui_btn_blank_slate_disabled_hc.png",
+    "2x": "2x/ui_btn_blank_slate_disabled_hc.png",
+    "3x": "3x/ui_btn_blank_slate_disabled_hc.png"
+   },
+   "button": "blank_slate",
+   "state": "disabled",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#2a2a3a"
+  },
+  {
+   "name": "ui_btn_blank_violet_normal",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_violet_normal.png",
+    "1x": "1x/ui_btn_blank_violet_normal.png",
+    "2x": "2x/ui_btn_blank_violet_normal.png",
+    "3x": "3x/ui_btn_blank_violet_normal.png"
+   },
+   "button": "blank_violet",
+   "state": "normal",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#ffffff",
+   "text_shadow": "#3a1266",
+   "builder_key": "ui_btn_blank_violet",
+   "builder_alias": [
+    "ui_btn_endless_blank"
+   ],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_violet_normal_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_violet_normal_hc.png",
+    "1x": "1x/ui_btn_blank_violet_normal_hc.png",
+    "2x": "2x/ui_btn_blank_violet_normal_hc.png",
+    "3x": "3x/ui_btn_blank_violet_normal_hc.png"
+   },
+   "button": "blank_violet",
+   "state": "normal",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#ffffff"
+  },
+  {
+   "name": "ui_btn_blank_violet_pressed",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_violet_pressed.png",
+    "1x": "1x/ui_btn_blank_violet_pressed.png",
+    "2x": "2x/ui_btn_blank_violet_pressed.png",
+    "3x": "3x/ui_btn_blank_violet_pressed.png"
+   },
+   "button": "blank_violet",
+   "state": "pressed",
+   "label_free": true,
+   "text_area": [
+    4,
+    6,
+    59,
+    20
+   ],
+   "text_colour": "#ffffff",
+   "text_shadow": "#3a1266",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_violet_pressed_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_violet_pressed_hc.png",
+    "1x": "1x/ui_btn_blank_violet_pressed_hc.png",
+    "2x": "2x/ui_btn_blank_violet_pressed_hc.png",
+    "3x": "3x/ui_btn_blank_violet_pressed_hc.png"
+   },
+   "button": "blank_violet",
+   "state": "pressed",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    6,
+    59,
+    20
+   ],
+   "text_colour": "#ffffff"
+  },
+  {
+   "name": "ui_btn_blank_violet_disabled",
+   "category": "ui",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_violet_disabled.png",
+    "1x": "1x/ui_btn_blank_violet_disabled.png",
+    "2x": "2x/ui_btn_blank_violet_disabled.png",
+    "3x": "3x/ui_btn_blank_violet_disabled.png"
+   },
+   "button": "blank_violet",
+   "state": "disabled",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#2a2a3a",
+   "text_shadow": "#5e5e72",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    128,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_violet_disabled_hc",
+   "category": "ui_hc",
+   "native_size": [
+    64,
+    24
+   ],
+   "css_size": [
+    128,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_violet_disabled_hc.png",
+    "1x": "1x/ui_btn_blank_violet_disabled_hc.png",
+    "2x": "2x/ui_btn_blank_violet_disabled_hc.png",
+    "3x": "3x/ui_btn_blank_violet_disabled_hc.png"
+   },
+   "button": "blank_violet",
+   "state": "disabled",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    59,
+    18
+   ],
+   "text_colour": "#2a2a3a"
+  },
+  {
+   "name": "ui_btn_blank_icon_normal",
+   "category": "ui",
+   "native_size": [
+    24,
+    24
+   ],
+   "css_size": [
+    48,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_icon_normal.png",
+    "1x": "1x/ui_btn_blank_icon_normal.png",
+    "2x": "2x/ui_btn_blank_icon_normal.png",
+    "3x": "3x/ui_btn_blank_icon_normal.png"
+   },
+   "button": "blank_icon",
+   "state": "normal",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    19,
+    18
+   ],
+   "text_colour": "#1a1030",
+   "text_shadow": "#9a9ab8",
+   "builder_key": "ui_btn_blank_icon",
+   "builder_alias": [
+    "ui_btn_pause_blank",
+    "ui_btn_settings_blank",
+    "ui_btn_info_blank"
+   ],
+   "min_touch_css": [
+    48,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_icon_normal_hc",
+   "category": "ui_hc",
+   "native_size": [
+    24,
+    24
+   ],
+   "css_size": [
+    48,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_icon_normal_hc.png",
+    "1x": "1x/ui_btn_blank_icon_normal_hc.png",
+    "2x": "2x/ui_btn_blank_icon_normal_hc.png",
+    "3x": "3x/ui_btn_blank_icon_normal_hc.png"
+   },
+   "button": "blank_icon",
+   "state": "normal",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    19,
+    18
+   ],
+   "text_colour": "#1a1030"
+  },
+  {
+   "name": "ui_btn_blank_icon_pressed",
+   "category": "ui",
+   "native_size": [
+    24,
+    24
+   ],
+   "css_size": [
+    48,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_icon_pressed.png",
+    "1x": "1x/ui_btn_blank_icon_pressed.png",
+    "2x": "2x/ui_btn_blank_icon_pressed.png",
+    "3x": "3x/ui_btn_blank_icon_pressed.png"
+   },
+   "button": "blank_icon",
+   "state": "pressed",
+   "label_free": true,
+   "text_area": [
+    4,
+    6,
+    19,
+    20
+   ],
+   "text_colour": "#1a1030",
+   "text_shadow": "#9a9ab8",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    48,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_icon_pressed_hc",
+   "category": "ui_hc",
+   "native_size": [
+    24,
+    24
+   ],
+   "css_size": [
+    48,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_icon_pressed_hc.png",
+    "1x": "1x/ui_btn_blank_icon_pressed_hc.png",
+    "2x": "2x/ui_btn_blank_icon_pressed_hc.png",
+    "3x": "3x/ui_btn_blank_icon_pressed_hc.png"
+   },
+   "button": "blank_icon",
+   "state": "pressed",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    6,
+    19,
+    20
+   ],
+   "text_colour": "#1a1030"
+  },
+  {
+   "name": "ui_btn_blank_icon_disabled",
+   "category": "ui",
+   "native_size": [
+    24,
+    24
+   ],
+   "css_size": [
+    48,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_icon_disabled.png",
+    "1x": "1x/ui_btn_blank_icon_disabled.png",
+    "2x": "2x/ui_btn_blank_icon_disabled.png",
+    "3x": "3x/ui_btn_blank_icon_disabled.png"
+   },
+   "button": "blank_icon",
+   "state": "disabled",
+   "label_free": true,
+   "text_area": [
+    4,
+    4,
+    19,
+    18
+   ],
+   "text_colour": "#2a2a3a",
+   "text_shadow": "#5e5e72",
+   "builder_key": null,
+   "builder_alias": [],
+   "min_touch_css": [
+    48,
+    48
+   ],
+   "note": "label-free: the game draws its own text centred in text_area (inclusive native rect; x2 for CSS px). Pressed art is 2 native px lower."
+  },
+  {
+   "name": "ui_btn_blank_icon_disabled_hc",
+   "category": "ui_hc",
+   "native_size": [
+    24,
+    24
+   ],
+   "css_size": [
+    48,
+    48
+   ],
+   "files": {
+    "native": "native/ui_btn_blank_icon_disabled_hc.png",
+    "1x": "1x/ui_btn_blank_icon_disabled_hc.png",
+    "2x": "2x/ui_btn_blank_icon_disabled_hc.png",
+    "3x": "3x/ui_btn_blank_icon_disabled_hc.png"
+   },
+   "button": "blank_icon",
+   "state": "disabled",
+   "variant": "high_contrast",
+   "text_area": [
+    4,
+    4,
+    19,
+    18
+   ],
+   "text_colour": "#2a2a3a"
   },
   {
    "name": "ui_btn_pause_normal",
@@ -13680,6 +14944,25 @@
    "builder_key": "icon_coin"
   },
   {
+   "name": "ui_coin_hc",
+   "category": "ui_hc",
+   "native_size": [
+    24,
+    24
+   ],
+   "css_size": [
+    48,
+    48
+   ],
+   "files": {
+    "native": "native/ui_coin_hc.png",
+    "1x": "1x/ui_coin_hc.png",
+    "2x": "2x/ui_coin_hc.png",
+    "3x": "3x/ui_coin_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
    "name": "ui_coin_small",
    "category": "ui",
    "native_size": [
@@ -13697,6 +14980,25 @@
     "3x": "3x/ui_coin_small.png"
    },
    "effect_colour": "#e09a1a"
+  },
+  {
+   "name": "ui_coin_small_hc",
+   "category": "ui_hc",
+   "native_size": [
+    12,
+    12
+   ],
+   "css_size": [
+    24,
+    24
+   ],
+   "files": {
+    "native": "native/ui_coin_small_hc.png",
+    "1x": "1x/ui_coin_small_hc.png",
+    "2x": "2x/ui_coin_small_hc.png",
+    "3x": "3x/ui_coin_small_hc.png"
+   },
+   "variant": "high_contrast"
   },
   {
    "name": "ui_round_pip_done",
@@ -13794,6 +15096,25 @@
    "builder_key": "icon_lock"
   },
   {
+   "name": "ui_icon_lock_hc",
+   "category": "ui_hc",
+   "native_size": [
+    12,
+    12
+   ],
+   "css_size": [
+    24,
+    24
+   ],
+   "files": {
+    "native": "native/ui_icon_lock_hc.png",
+    "1x": "1x/ui_icon_lock_hc.png",
+    "2x": "2x/ui_icon_lock_hc.png",
+    "3x": "3x/ui_icon_lock_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
    "name": "ui_icon_reroll",
    "category": "ui",
    "native_size": [
@@ -13810,6 +15131,25 @@
     "2x": "2x/ui_icon_reroll.png",
     "3x": "3x/ui_icon_reroll.png"
    }
+  },
+  {
+   "name": "ui_icon_reroll_hc",
+   "category": "ui_hc",
+   "native_size": [
+    12,
+    12
+   ],
+   "css_size": [
+    24,
+    24
+   ],
+   "files": {
+    "native": "native/ui_icon_reroll_hc.png",
+    "1x": "1x/ui_icon_reroll_hc.png",
+    "2x": "2x/ui_icon_reroll_hc.png",
+    "3x": "3x/ui_icon_reroll_hc.png"
+   },
+   "variant": "high_contrast"
   },
   {
    "name": "ui_icon_target",
@@ -13830,6 +15170,25 @@
    }
   },
   {
+   "name": "ui_icon_target_hc",
+   "category": "ui_hc",
+   "native_size": [
+    12,
+    12
+   ],
+   "css_size": [
+    24,
+    24
+   ],
+   "files": {
+    "native": "native/ui_icon_target_hc.png",
+    "1x": "1x/ui_icon_target_hc.png",
+    "2x": "2x/ui_icon_target_hc.png",
+    "3x": "3x/ui_icon_target_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
    "name": "ui_icon_boss",
    "category": "ui",
    "native_size": [
@@ -13846,6 +15205,25 @@
     "2x": "2x/ui_icon_boss.png",
     "3x": "3x/ui_icon_boss.png"
    }
+  },
+  {
+   "name": "ui_icon_boss_hc",
+   "category": "ui_hc",
+   "native_size": [
+    12,
+    12
+   ],
+   "css_size": [
+    24,
+    24
+   ],
+   "files": {
+    "native": "native/ui_icon_boss_hc.png",
+    "1x": "1x/ui_icon_boss_hc.png",
+    "2x": "2x/ui_icon_boss_hc.png",
+    "3x": "3x/ui_icon_boss_hc.png"
+   },
+   "variant": "high_contrast"
   },
   {
    "name": "ui_logo",
@@ -13866,6 +15244,25 @@
    },
    "builder_key": "ui_logo",
    "note": "working-title wordmark"
+  },
+  {
+   "name": "ui_logo_hc",
+   "category": "ui_hc",
+   "native_size": [
+    124,
+    22
+   ],
+   "css_size": [
+    248,
+    44
+   ],
+   "files": {
+    "native": "native/ui_logo_hc.png",
+    "1x": "1x/ui_logo_hc.png",
+    "2x": "2x/ui_logo_hc.png",
+    "3x": "3x/ui_logo_hc.png"
+   },
+   "variant": "high_contrast"
   },
   {
    "name": "fx_pop_points_1",
@@ -15407,6 +16804,28 @@
    "note": "tile with background-repeat; keeps the pixel grid at any integer scale"
   },
   {
+   "name": "bg_table_tile_hc",
+   "category": "backgrounds_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/bg_table_tile_hc.png",
+    "1x": "1x/bg_table_tile_hc.png",
+    "2x": "2x/bg_table_tile_hc.png",
+    "3x": "3x/bg_table_tile_hc.png"
+   },
+   "theme": "table_hc",
+   "seamless": true,
+   "variant": "high_contrast",
+   "note": "HC twin: near-black so white HC sprites read at max contrast; keeps a faint tint so table vs shop stays recognisable"
+  },
+  {
    "name": "bg_table_full",
    "category": "backgrounds",
    "native_size": [
@@ -15446,6 +16865,28 @@
    "theme": "shop",
    "seamless": true,
    "note": "tile with background-repeat; keeps the pixel grid at any integer scale"
+  },
+  {
+   "name": "bg_shop_tile_hc",
+   "category": "backgrounds_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/bg_shop_tile_hc.png",
+    "1x": "1x/bg_shop_tile_hc.png",
+    "2x": "2x/bg_shop_tile_hc.png",
+    "3x": "3x/bg_shop_tile_hc.png"
+   },
+   "theme": "shop_hc",
+   "seamless": true,
+   "variant": "high_contrast",
+   "note": "HC twin: near-black so white HC sprites read at max contrast; keeps a faint tint so table vs shop stays recognisable"
   },
   {
    "name": "bg_shop_full",
@@ -15507,6 +16948,4618 @@
    },
    "theme": "hc",
    "note": "phone portrait: native 180x320, 3x export = 1080x1920. Scale with object-fit: cover; centre-crop for taller phones (tile fills the rest)"
+  },
+  {
+   "name": "counter_4bit_body",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_body.png",
+    "1x": "1x/counter_4bit_body.png",
+    "2x": "2x/counter_4bit_body.png",
+    "3x": "3x/counter_4bit_body.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "builder_key": "counter_4bit_body",
+   "builder_alias": [
+    "die_bin4_body"
+   ],
+   "note": "housing + empty screen: compose bits on top"
+  },
+  {
+   "name": "counter_4bit_body_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_body_hc.png",
+    "1x": "1x/counter_4bit_body_hc.png",
+    "2x": "2x/counter_4bit_body_hc.png",
+    "3x": "3x/counter_4bit_body_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_blank",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_blank.png",
+    "1x": "1x/counter_4bit_blank.png",
+    "2x": "2x/counter_4bit_blank.png",
+    "3x": "3x/counter_4bit_blank.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "builder_key": "counter_4bit_blank",
+   "builder_alias": [
+    "die_bin4_blank"
+   ],
+   "note": "all segments unlit (face-down / unrolled)"
+  },
+  {
+   "name": "counter_4bit_blank_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_blank_hc.png",
+    "1x": "1x/counter_4bit_blank_hc.png",
+    "2x": "2x/counter_4bit_blank_hc.png",
+    "3x": "3x/counter_4bit_blank_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_roll_1",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_roll_1.png",
+    "1x": "1x/counter_4bit_roll_1.png",
+    "2x": "2x/counter_4bit_roll_1.png",
+    "3x": "3x/counter_4bit_roll_1.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "frame": 1,
+   "builder_key": "counter_4bit_roll_1",
+   "note": "scramble: cycle roll_1..3 at ~12fps, then settle bit by bit, MSB first"
+  },
+  {
+   "name": "counter_4bit_roll_1_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_roll_1_hc.png",
+    "1x": "1x/counter_4bit_roll_1_hc.png",
+    "2x": "2x/counter_4bit_roll_1_hc.png",
+    "3x": "3x/counter_4bit_roll_1_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_roll_2",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_roll_2.png",
+    "1x": "1x/counter_4bit_roll_2.png",
+    "2x": "2x/counter_4bit_roll_2.png",
+    "3x": "3x/counter_4bit_roll_2.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "frame": 2,
+   "builder_key": "counter_4bit_roll_2",
+   "note": "scramble: cycle roll_1..3 at ~12fps, then settle bit by bit, MSB first"
+  },
+  {
+   "name": "counter_4bit_roll_2_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_roll_2_hc.png",
+    "1x": "1x/counter_4bit_roll_2_hc.png",
+    "2x": "2x/counter_4bit_roll_2_hc.png",
+    "3x": "3x/counter_4bit_roll_2_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_roll_3",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_roll_3.png",
+    "1x": "1x/counter_4bit_roll_3.png",
+    "2x": "2x/counter_4bit_roll_3.png",
+    "3x": "3x/counter_4bit_roll_3.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "frame": 3,
+   "builder_key": "counter_4bit_roll_3",
+   "note": "scramble: cycle roll_1..3 at ~12fps, then settle bit by bit, MSB first"
+  },
+  {
+   "name": "counter_4bit_roll_3_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_roll_3_hc.png",
+    "1x": "1x/counter_4bit_roll_3_hc.png",
+    "2x": "2x/counter_4bit_roll_3_hc.png",
+    "3x": "3x/counter_4bit_roll_3_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_0000",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0000.png",
+    "1x": "1x/counter_4bit_0000.png",
+    "2x": "2x/counter_4bit_0000.png",
+    "3x": "3x/counter_4bit_0000.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "0000",
+   "value_decimal": 0,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_0000_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0000_hc.png",
+    "1x": "1x/counter_4bit_0000_hc.png",
+    "2x": "2x/counter_4bit_0000_hc.png",
+    "3x": "3x/counter_4bit_0000_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_0001",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0001.png",
+    "1x": "1x/counter_4bit_0001.png",
+    "2x": "2x/counter_4bit_0001.png",
+    "3x": "3x/counter_4bit_0001.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "0001",
+   "value_decimal": 1,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_0001_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0001_hc.png",
+    "1x": "1x/counter_4bit_0001_hc.png",
+    "2x": "2x/counter_4bit_0001_hc.png",
+    "3x": "3x/counter_4bit_0001_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_0010",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0010.png",
+    "1x": "1x/counter_4bit_0010.png",
+    "2x": "2x/counter_4bit_0010.png",
+    "3x": "3x/counter_4bit_0010.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "0010",
+   "value_decimal": 2,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_0010_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0010_hc.png",
+    "1x": "1x/counter_4bit_0010_hc.png",
+    "2x": "2x/counter_4bit_0010_hc.png",
+    "3x": "3x/counter_4bit_0010_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_0011",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0011.png",
+    "1x": "1x/counter_4bit_0011.png",
+    "2x": "2x/counter_4bit_0011.png",
+    "3x": "3x/counter_4bit_0011.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "0011",
+   "value_decimal": 3,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_0011_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0011_hc.png",
+    "1x": "1x/counter_4bit_0011_hc.png",
+    "2x": "2x/counter_4bit_0011_hc.png",
+    "3x": "3x/counter_4bit_0011_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_0100",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0100.png",
+    "1x": "1x/counter_4bit_0100.png",
+    "2x": "2x/counter_4bit_0100.png",
+    "3x": "3x/counter_4bit_0100.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "0100",
+   "value_decimal": 4,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_0100_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0100_hc.png",
+    "1x": "1x/counter_4bit_0100_hc.png",
+    "2x": "2x/counter_4bit_0100_hc.png",
+    "3x": "3x/counter_4bit_0100_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_0101",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0101.png",
+    "1x": "1x/counter_4bit_0101.png",
+    "2x": "2x/counter_4bit_0101.png",
+    "3x": "3x/counter_4bit_0101.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "0101",
+   "value_decimal": 5,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_0101_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0101_hc.png",
+    "1x": "1x/counter_4bit_0101_hc.png",
+    "2x": "2x/counter_4bit_0101_hc.png",
+    "3x": "3x/counter_4bit_0101_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_0110",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0110.png",
+    "1x": "1x/counter_4bit_0110.png",
+    "2x": "2x/counter_4bit_0110.png",
+    "3x": "3x/counter_4bit_0110.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "0110",
+   "value_decimal": 6,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_0110_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0110_hc.png",
+    "1x": "1x/counter_4bit_0110_hc.png",
+    "2x": "2x/counter_4bit_0110_hc.png",
+    "3x": "3x/counter_4bit_0110_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_0111",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0111.png",
+    "1x": "1x/counter_4bit_0111.png",
+    "2x": "2x/counter_4bit_0111.png",
+    "3x": "3x/counter_4bit_0111.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "0111",
+   "value_decimal": 7,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_0111_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_0111_hc.png",
+    "1x": "1x/counter_4bit_0111_hc.png",
+    "2x": "2x/counter_4bit_0111_hc.png",
+    "3x": "3x/counter_4bit_0111_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_1000",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1000.png",
+    "1x": "1x/counter_4bit_1000.png",
+    "2x": "2x/counter_4bit_1000.png",
+    "3x": "3x/counter_4bit_1000.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "1000",
+   "value_decimal": 8,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_1000_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1000_hc.png",
+    "1x": "1x/counter_4bit_1000_hc.png",
+    "2x": "2x/counter_4bit_1000_hc.png",
+    "3x": "3x/counter_4bit_1000_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_1001",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1001.png",
+    "1x": "1x/counter_4bit_1001.png",
+    "2x": "2x/counter_4bit_1001.png",
+    "3x": "3x/counter_4bit_1001.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "1001",
+   "value_decimal": 9,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_1001_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1001_hc.png",
+    "1x": "1x/counter_4bit_1001_hc.png",
+    "2x": "2x/counter_4bit_1001_hc.png",
+    "3x": "3x/counter_4bit_1001_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_1010",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1010.png",
+    "1x": "1x/counter_4bit_1010.png",
+    "2x": "2x/counter_4bit_1010.png",
+    "3x": "3x/counter_4bit_1010.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "1010",
+   "value_decimal": 10,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_1010_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1010_hc.png",
+    "1x": "1x/counter_4bit_1010_hc.png",
+    "2x": "2x/counter_4bit_1010_hc.png",
+    "3x": "3x/counter_4bit_1010_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_1011",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1011.png",
+    "1x": "1x/counter_4bit_1011.png",
+    "2x": "2x/counter_4bit_1011.png",
+    "3x": "3x/counter_4bit_1011.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "1011",
+   "value_decimal": 11,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_1011_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1011_hc.png",
+    "1x": "1x/counter_4bit_1011_hc.png",
+    "2x": "2x/counter_4bit_1011_hc.png",
+    "3x": "3x/counter_4bit_1011_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_1100",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1100.png",
+    "1x": "1x/counter_4bit_1100.png",
+    "2x": "2x/counter_4bit_1100.png",
+    "3x": "3x/counter_4bit_1100.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "1100",
+   "value_decimal": 12,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_1100_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1100_hc.png",
+    "1x": "1x/counter_4bit_1100_hc.png",
+    "2x": "2x/counter_4bit_1100_hc.png",
+    "3x": "3x/counter_4bit_1100_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_1101",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1101.png",
+    "1x": "1x/counter_4bit_1101.png",
+    "2x": "2x/counter_4bit_1101.png",
+    "3x": "3x/counter_4bit_1101.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "1101",
+   "value_decimal": 13,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_1101_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1101_hc.png",
+    "1x": "1x/counter_4bit_1101_hc.png",
+    "2x": "2x/counter_4bit_1101_hc.png",
+    "3x": "3x/counter_4bit_1101_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_1110",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1110.png",
+    "1x": "1x/counter_4bit_1110.png",
+    "2x": "2x/counter_4bit_1110.png",
+    "3x": "3x/counter_4bit_1110.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "1110",
+   "value_decimal": 14,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_1110_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1110_hc.png",
+    "1x": "1x/counter_4bit_1110_hc.png",
+    "2x": "2x/counter_4bit_1110_hc.png",
+    "3x": "3x/counter_4bit_1110_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_4bit_1111",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1111.png",
+    "1x": "1x/counter_4bit_1111.png",
+    "2x": "2x/counter_4bit_1111.png",
+    "3x": "3x/counter_4bit_1111.png"
+   },
+   "device": "binary_counter",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    9,
+    28,
+    19
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "1111",
+   "value_decimal": 15,
+   "note": "every 4-bit value pre-rendered"
+  },
+  {
+   "name": "counter_4bit_1111_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_4bit_1111_hc.png",
+    "1x": "1x/counter_4bit_1111_hc.png",
+    "2x": "2x/counter_4bit_1111_hc.png",
+    "3x": "3x/counter_4bit_1111_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 4,
+   "bit_cells": [
+    [
+     5,
+     11
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     23,
+     11
+    ]
+   ]
+  },
+  {
+   "name": "counter_8bit_body",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_body.png",
+    "1x": "1x/counter_8bit_body.png",
+    "2x": "2x/counter_8bit_body.png",
+    "3x": "3x/counter_8bit_body.png"
+   },
+   "device": "binary_counter",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "builder_key": "counter_8bit_body",
+   "builder_alias": [
+    "die_bin8_body"
+   ],
+   "note": "housing + empty screen: compose bits on top"
+  },
+  {
+   "name": "counter_8bit_body_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_body_hc.png",
+    "1x": "1x/counter_8bit_body_hc.png",
+    "2x": "2x/counter_8bit_body_hc.png",
+    "3x": "3x/counter_8bit_body_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ]
+  },
+  {
+   "name": "counter_8bit_blank",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_blank.png",
+    "1x": "1x/counter_8bit_blank.png",
+    "2x": "2x/counter_8bit_blank.png",
+    "3x": "3x/counter_8bit_blank.png"
+   },
+   "device": "binary_counter",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "builder_key": "counter_8bit_blank",
+   "builder_alias": [
+    "die_bin8_blank"
+   ],
+   "note": "all segments unlit (face-down / unrolled)"
+  },
+  {
+   "name": "counter_8bit_blank_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_blank_hc.png",
+    "1x": "1x/counter_8bit_blank_hc.png",
+    "2x": "2x/counter_8bit_blank_hc.png",
+    "3x": "3x/counter_8bit_blank_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ]
+  },
+  {
+   "name": "counter_8bit_roll_1",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_roll_1.png",
+    "1x": "1x/counter_8bit_roll_1.png",
+    "2x": "2x/counter_8bit_roll_1.png",
+    "3x": "3x/counter_8bit_roll_1.png"
+   },
+   "device": "binary_counter",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "frame": 1,
+   "builder_key": "counter_8bit_roll_1",
+   "note": "scramble: cycle roll_1..3 at ~12fps, then settle bit by bit, MSB first"
+  },
+  {
+   "name": "counter_8bit_roll_1_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_roll_1_hc.png",
+    "1x": "1x/counter_8bit_roll_1_hc.png",
+    "2x": "2x/counter_8bit_roll_1_hc.png",
+    "3x": "3x/counter_8bit_roll_1_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ]
+  },
+  {
+   "name": "counter_8bit_roll_2",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_roll_2.png",
+    "1x": "1x/counter_8bit_roll_2.png",
+    "2x": "2x/counter_8bit_roll_2.png",
+    "3x": "3x/counter_8bit_roll_2.png"
+   },
+   "device": "binary_counter",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "frame": 2,
+   "builder_key": "counter_8bit_roll_2",
+   "note": "scramble: cycle roll_1..3 at ~12fps, then settle bit by bit, MSB first"
+  },
+  {
+   "name": "counter_8bit_roll_2_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_roll_2_hc.png",
+    "1x": "1x/counter_8bit_roll_2_hc.png",
+    "2x": "2x/counter_8bit_roll_2_hc.png",
+    "3x": "3x/counter_8bit_roll_2_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ]
+  },
+  {
+   "name": "counter_8bit_roll_3",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_roll_3.png",
+    "1x": "1x/counter_8bit_roll_3.png",
+    "2x": "2x/counter_8bit_roll_3.png",
+    "3x": "3x/counter_8bit_roll_3.png"
+   },
+   "device": "binary_counter",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "frame": 3,
+   "builder_key": "counter_8bit_roll_3",
+   "note": "scramble: cycle roll_1..3 at ~12fps, then settle bit by bit, MSB first"
+  },
+  {
+   "name": "counter_8bit_roll_3_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_roll_3_hc.png",
+    "1x": "1x/counter_8bit_roll_3_hc.png",
+    "2x": "2x/counter_8bit_roll_3_hc.png",
+    "3x": "3x/counter_8bit_roll_3_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ]
+  },
+  {
+   "name": "counter_8bit_10100110",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_10100110.png",
+    "1x": "1x/counter_8bit_10100110.png",
+    "2x": "2x/counter_8bit_10100110.png",
+    "3x": "3x/counter_8bit_10100110.png"
+   },
+   "device": "binary_counter",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "10100110",
+   "value_decimal": 166,
+   "note": "settled example; compose other values from counter_bit_* at bit_cells"
+  },
+  {
+   "name": "counter_8bit_10100110_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_10100110_hc.png",
+    "1x": "1x/counter_8bit_10100110_hc.png",
+    "2x": "2x/counter_8bit_10100110_hc.png",
+    "3x": "3x/counter_8bit_10100110_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ]
+  },
+  {
+   "name": "counter_8bit_00000000",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_00000000.png",
+    "1x": "1x/counter_8bit_00000000.png",
+    "2x": "2x/counter_8bit_00000000.png",
+    "3x": "3x/counter_8bit_00000000.png"
+   },
+   "device": "binary_counter",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "00000000",
+   "value_decimal": 0,
+   "note": "settled example; compose other values from counter_bit_* at bit_cells"
+  },
+  {
+   "name": "counter_8bit_00000000_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_00000000_hc.png",
+    "1x": "1x/counter_8bit_00000000_hc.png",
+    "2x": "2x/counter_8bit_00000000_hc.png",
+    "3x": "3x/counter_8bit_00000000_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ]
+  },
+  {
+   "name": "counter_8bit_11111111",
+   "category": "counters",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_11111111.png",
+    "1x": "1x/counter_8bit_11111111.png",
+    "2x": "2x/counter_8bit_11111111.png",
+    "3x": "3x/counter_8bit_11111111.png"
+   },
+   "device": "binary_counter",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ],
+   "cell_size": [
+    4,
+    7
+   ],
+   "screen": [
+    3,
+    3,
+    28,
+    22
+   ],
+   "bit_cells_note": "top-left of each 4x7 cell, MSB first; 8-bit: row 1 = MSB nibble, row 2 = LSB nibble",
+   "value_bits": "11111111",
+   "value_decimal": 255,
+   "note": "settled example; compose other values from counter_bit_* at bit_cells"
+  },
+  {
+   "name": "counter_8bit_11111111_hc",
+   "category": "counters_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/counter_8bit_11111111_hc.png",
+    "1x": "1x/counter_8bit_11111111_hc.png",
+    "2x": "2x/counter_8bit_11111111_hc.png",
+    "3x": "3x/counter_8bit_11111111_hc.png"
+   },
+   "variant": "high_contrast",
+   "bits": 8,
+   "bit_cells": [
+    [
+     5,
+     5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     23,
+     5
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     11,
+     14
+    ],
+    [
+     17,
+     14
+    ],
+    [
+     23,
+     14
+    ]
+   ]
+  },
+  {
+   "name": "counter_bit_1",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_1.png",
+    "1x": "1x/counter_bit_1.png",
+    "2x": "2x/counter_bit_1.png",
+    "3x": "3x/counter_bit_1.png"
+   },
+   "builder_key": "counter_bit_1",
+   "builder_alias": [
+    "led_bit_on"
+   ],
+   "note": "bit = 1 (4x7 cell incl. unlit segments)"
+  },
+  {
+   "name": "counter_bit_1_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_1_hc.png",
+    "1x": "1x/counter_bit_1_hc.png",
+    "2x": "2x/counter_bit_1_hc.png",
+    "3x": "3x/counter_bit_1_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_bit_0",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_0.png",
+    "1x": "1x/counter_bit_0.png",
+    "2x": "2x/counter_bit_0.png",
+    "3x": "3x/counter_bit_0.png"
+   },
+   "builder_key": "counter_bit_0",
+   "builder_alias": [
+    "led_bit_off"
+   ],
+   "note": "bit = 0"
+  },
+  {
+   "name": "counter_bit_0_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_0_hc.png",
+    "1x": "1x/counter_bit_0_hc.png",
+    "2x": "2x/counter_bit_0_hc.png",
+    "3x": "3x/counter_bit_0_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_bit_off",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_off.png",
+    "1x": "1x/counter_bit_off.png",
+    "2x": "2x/counter_bit_off.png",
+    "3x": "3x/counter_bit_off.png"
+   },
+   "builder_key": "counter_bit_off",
+   "note": "nothing lit (blank / not rolled)"
+  },
+  {
+   "name": "counter_bit_off_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_off_hc.png",
+    "1x": "1x/counter_bit_off_hc.png",
+    "2x": "2x/counter_bit_off_hc.png",
+    "3x": "3x/counter_bit_off_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_bit_tumble_1",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_tumble_1.png",
+    "1x": "1x/counter_bit_tumble_1.png",
+    "2x": "2x/counter_bit_tumble_1.png",
+    "3x": "3x/counter_bit_tumble_1.png"
+   },
+   "builder_key": "counter_bit_tumble_1",
+   "builder_alias": [
+    "led_bit_tumble_1"
+   ],
+   "note": "per-cell tumble frame (1: half-lit flicker, 2: middle bar)"
+  },
+  {
+   "name": "counter_bit_tumble_1_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_tumble_1_hc.png",
+    "1x": "1x/counter_bit_tumble_1_hc.png",
+    "2x": "2x/counter_bit_tumble_1_hc.png",
+    "3x": "3x/counter_bit_tumble_1_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_bit_tumble_2",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_tumble_2.png",
+    "1x": "1x/counter_bit_tumble_2.png",
+    "2x": "2x/counter_bit_tumble_2.png",
+    "3x": "3x/counter_bit_tumble_2.png"
+   },
+   "builder_key": "counter_bit_tumble_2",
+   "builder_alias": [
+    "led_bit_tumble_2"
+   ],
+   "note": "per-cell tumble frame (1: half-lit flicker, 2: middle bar)"
+  },
+  {
+   "name": "counter_bit_tumble_2_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_bit_tumble_2_hc.png",
+    "1x": "1x/counter_bit_tumble_2_hc.png",
+    "2x": "2x/counter_bit_tumble_2_hc.png",
+    "3x": "3x/counter_bit_tumble_2_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_0",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_0.png",
+    "1x": "1x/counter_seg_0.png",
+    "2x": "2x/counter_seg_0.png",
+    "3x": "3x/counter_seg_0.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_0_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_0_hc.png",
+    "1x": "1x/counter_seg_0_hc.png",
+    "2x": "2x/counter_seg_0_hc.png",
+    "3x": "3x/counter_seg_0_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_1",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_1.png",
+    "1x": "1x/counter_seg_1.png",
+    "2x": "2x/counter_seg_1.png",
+    "3x": "3x/counter_seg_1.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_1_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_1_hc.png",
+    "1x": "1x/counter_seg_1_hc.png",
+    "2x": "2x/counter_seg_1_hc.png",
+    "3x": "3x/counter_seg_1_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_2",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_2.png",
+    "1x": "1x/counter_seg_2.png",
+    "2x": "2x/counter_seg_2.png",
+    "3x": "3x/counter_seg_2.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_2_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_2_hc.png",
+    "1x": "1x/counter_seg_2_hc.png",
+    "2x": "2x/counter_seg_2_hc.png",
+    "3x": "3x/counter_seg_2_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_3",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_3.png",
+    "1x": "1x/counter_seg_3.png",
+    "2x": "2x/counter_seg_3.png",
+    "3x": "3x/counter_seg_3.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_3_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_3_hc.png",
+    "1x": "1x/counter_seg_3_hc.png",
+    "2x": "2x/counter_seg_3_hc.png",
+    "3x": "3x/counter_seg_3_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_4",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_4.png",
+    "1x": "1x/counter_seg_4.png",
+    "2x": "2x/counter_seg_4.png",
+    "3x": "3x/counter_seg_4.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_4_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_4_hc.png",
+    "1x": "1x/counter_seg_4_hc.png",
+    "2x": "2x/counter_seg_4_hc.png",
+    "3x": "3x/counter_seg_4_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_5",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_5.png",
+    "1x": "1x/counter_seg_5.png",
+    "2x": "2x/counter_seg_5.png",
+    "3x": "3x/counter_seg_5.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_5_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_5_hc.png",
+    "1x": "1x/counter_seg_5_hc.png",
+    "2x": "2x/counter_seg_5_hc.png",
+    "3x": "3x/counter_seg_5_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_6",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_6.png",
+    "1x": "1x/counter_seg_6.png",
+    "2x": "2x/counter_seg_6.png",
+    "3x": "3x/counter_seg_6.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_6_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_6_hc.png",
+    "1x": "1x/counter_seg_6_hc.png",
+    "2x": "2x/counter_seg_6_hc.png",
+    "3x": "3x/counter_seg_6_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_7",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_7.png",
+    "1x": "1x/counter_seg_7.png",
+    "2x": "2x/counter_seg_7.png",
+    "3x": "3x/counter_seg_7.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_7_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_7_hc.png",
+    "1x": "1x/counter_seg_7_hc.png",
+    "2x": "2x/counter_seg_7_hc.png",
+    "3x": "3x/counter_seg_7_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_8",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_8.png",
+    "1x": "1x/counter_seg_8.png",
+    "2x": "2x/counter_seg_8.png",
+    "3x": "3x/counter_seg_8.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_8_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_8_hc.png",
+    "1x": "1x/counter_seg_8_hc.png",
+    "2x": "2x/counter_seg_8_hc.png",
+    "3x": "3x/counter_seg_8_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_seg_9",
+   "category": "counters",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_9.png",
+    "1x": "1x/counter_seg_9.png",
+    "2x": "2x/counter_seg_9.png",
+    "3x": "3x/counter_seg_9.png"
+   },
+   "note": "decimal digit in the same LCD cell (on-screen decimal option)"
+  },
+  {
+   "name": "counter_seg_9_hc",
+   "category": "counters_hc",
+   "native_size": [
+    4,
+    7
+   ],
+   "css_size": [
+    8,
+    14
+   ],
+   "files": {
+    "native": "native/counter_seg_9_hc.png",
+    "1x": "1x/counter_seg_9_hc.png",
+    "2x": "2x/counter_seg_9_hc.png",
+    "3x": "3x/counter_seg_9_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "counter_readout",
+   "category": "counters",
+   "native_size": [
+    34,
+    14
+   ],
+   "css_size": [
+    68,
+    28
+   ],
+   "files": {
+    "native": "native/counter_readout.png",
+    "1x": "1x/counter_readout.png",
+    "2x": "2x/counter_readout.png",
+    "3x": "3x/counter_readout.png"
+   },
+   "builder_key": "counter_readout",
+   "value_area": [
+    7,
+    2,
+    31,
+    10
+   ],
+   "anchor": {
+    "rule": "x = counter_x - 1, y = counter_y - 12 (pointer touches the bezel top); for a chain, centre it over the run"
+   },
+   "note": "decimal tag: '=' + up to 4 digits in ui_font_bold_blue (12-bit chain max 4095)"
+  },
+  {
+   "name": "counter_readout_hc",
+   "category": "counters_hc",
+   "native_size": [
+    34,
+    14
+   ],
+   "css_size": [
+    68,
+    28
+   ],
+   "files": {
+    "native": "native/counter_readout_hc.png",
+    "1x": "1x/counter_readout_hc.png",
+    "2x": "2x/counter_readout_hc.png",
+    "3x": "3x/counter_readout_hc.png"
+   },
+   "variant": "high_contrast",
+   "value_area": [
+    7,
+    2,
+    31,
+    10
+   ],
+   "anchor": {
+    "rule": "x = counter_x - 1, y = counter_y - 12 (pointer touches the bezel top); for a chain, centre it over the run"
+   }
+  },
+  {
+   "name": "fx_ring_counter_points",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_ring_counter_points.png",
+    "1x": "1x/fx_ring_counter_points.png",
+    "2x": "2x/fx_ring_counter_points.png",
+    "3x": "3x/fx_ring_counter_points.png"
+   },
+   "layer": "points",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   }
+  },
+  {
+   "name": "fx_ring_counter_mult",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_ring_counter_mult.png",
+    "1x": "1x/fx_ring_counter_mult.png",
+    "2x": "2x/fx_ring_counter_mult.png",
+    "3x": "3x/fx_ring_counter_mult.png"
+   },
+   "layer": "mult",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   }
+  },
+  {
+   "name": "fx_ring_counter_gold",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_ring_counter_gold.png",
+    "1x": "1x/fx_ring_counter_gold.png",
+    "2x": "2x/fx_ring_counter_gold.png",
+    "3x": "3x/fx_ring_counter_gold.png"
+   },
+   "layer": "gold",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   }
+  },
+  {
+   "name": "fx_ring_counter_rule",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_ring_counter_rule.png",
+    "1x": "1x/fx_ring_counter_rule.png",
+    "2x": "2x/fx_ring_counter_rule.png",
+    "3x": "3x/fx_ring_counter_rule.png"
+   },
+   "layer": "rule",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   }
+  },
+  {
+   "name": "fx_ring_counter_rule_hc",
+   "category": "counters_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_ring_counter_rule_hc.png",
+    "1x": "1x/fx_ring_counter_rule_hc.png",
+    "2x": "2x/fx_ring_counter_rule_hc.png",
+    "3x": "3x/fx_ring_counter_rule_hc.png"
+   },
+   "layer": "rule",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_select_counter",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_select_counter.png",
+    "1x": "1x/fx_select_counter.png",
+    "2x": "2x/fx_select_counter.png",
+    "3x": "3x/fx_select_counter.png"
+   },
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "note": "selected / resolving"
+  },
+  {
+   "name": "fx_locked_counter",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_locked_counter.png",
+    "1x": "1x/fx_locked_counter.png",
+    "2x": "2x/fx_locked_counter.png",
+    "3x": "3x/fx_locked_counter.png"
+   },
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "note": "locked: white ring + padlock tab"
+  },
+  {
+   "name": "fx_locked_counter_hc",
+   "category": "counters_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_locked_counter_hc.png",
+    "1x": "1x/fx_locked_counter_hc.png",
+    "2x": "2x/fx_locked_counter_hc.png",
+    "3x": "3x/fx_locked_counter_hc.png"
+   },
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_disabled_counter",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_disabled_counter.png",
+    "1x": "1x/fx_disabled_counter.png",
+    "2x": "2x/fx_disabled_counter.png",
+    "3x": "3x/fx_disabled_counter.png"
+   },
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "note": "disabled: grey wash + X"
+  },
+  {
+   "name": "fx_disabled_counter_hc",
+   "category": "counters_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_disabled_counter_hc.png",
+    "1x": "1x/fx_disabled_counter_hc.png",
+    "2x": "2x/fx_disabled_counter_hc.png",
+    "3x": "3x/fx_disabled_counter_hc.png"
+   },
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "note": "disabled: grey wash + X"
+  },
+  {
+   "name": "special_chain_overlay",
+   "category": "specials",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/special_chain_overlay.png",
+    "1x": "1x/special_chain_overlay.png",
+    "2x": "2x/special_chain_overlay.png",
+    "3x": "3x/special_chain_overlay.png"
+   },
+   "special": "chain",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "overlay_for_shape": "counter (4-bit and 8-bit)",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "builder_key": "overlay_chain",
+   "note": "violet ring + half-link stub on the LEFT edge (links to the counter on its left) + badge top-right"
+  },
+  {
+   "name": "counter_4bit_chain_example",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/counter_4bit_chain_example.png",
+    "1x": "1x/counter_4bit_chain_example.png",
+    "2x": "2x/counter_4bit_chain_example.png",
+    "3x": "3x/counter_4bit_chain_example.png"
+   },
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "note": "preview: settled counter + chain overlay"
+  },
+  {
+   "name": "counter_8bit_chain_example",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/counter_8bit_chain_example.png",
+    "1x": "1x/counter_8bit_chain_example.png",
+    "2x": "2x/counter_8bit_chain_example.png",
+    "3x": "3x/counter_8bit_chain_example.png"
+   },
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "note": "preview: settled counter + chain overlay"
+  },
+  {
+   "name": "special_chain_overlay_hc",
+   "category": "specials_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/special_chain_overlay_hc.png",
+    "1x": "1x/special_chain_overlay_hc.png",
+    "2x": "2x/special_chain_overlay_hc.png",
+    "3x": "3x/special_chain_overlay_hc.png"
+   },
+   "special": "chain",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "overlay_for_shape": "counter (4-bit and 8-bit)",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "builder_key": null,
+   "note": "violet ring + half-link stub on the LEFT edge (links to the counter on its left) + badge top-right"
+  },
+  {
+   "name": "counter_4bit_chain_example_hc",
+   "category": "counters_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/counter_4bit_chain_example_hc.png",
+    "1x": "1x/counter_4bit_chain_example_hc.png",
+    "2x": "2x/counter_4bit_chain_example_hc.png",
+    "3x": "3x/counter_4bit_chain_example_hc.png"
+   },
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "note": "preview: settled counter + chain overlay"
+  },
+  {
+   "name": "counter_8bit_chain_example_hc",
+   "category": "counters_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/counter_8bit_chain_example_hc.png",
+    "1x": "1x/counter_8bit_chain_example_hc.png",
+    "2x": "2x/counter_8bit_chain_example_hc.png",
+    "3x": "3x/counter_8bit_chain_example_hc.png"
+   },
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "note": "preview: settled counter + chain overlay"
+  },
+  {
+   "name": "fx_chain_glow_1",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_chain_glow_1.png",
+    "1x": "1x/fx_chain_glow_1.png",
+    "2x": "2x/fx_chain_glow_1.png",
+    "3x": "3x/fx_chain_glow_1.png"
+   },
+   "layer": "rule",
+   "frame": 1,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "builder_key": "fx_chain_glow_1",
+   "builder_alias": [
+    "fx_link_glow_1"
+   ],
+   "note": "glow pulse on linked counters: 1-2-3-2 at ~10fps"
+  },
+  {
+   "name": "fx_chain_glow_2",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_chain_glow_2.png",
+    "1x": "1x/fx_chain_glow_2.png",
+    "2x": "2x/fx_chain_glow_2.png",
+    "3x": "3x/fx_chain_glow_2.png"
+   },
+   "layer": "rule",
+   "frame": 2,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "builder_key": "fx_chain_glow_2",
+   "builder_alias": [
+    "fx_link_glow_2"
+   ],
+   "note": "glow pulse on linked counters: 1-2-3-2 at ~10fps"
+  },
+  {
+   "name": "fx_chain_glow_3",
+   "category": "counters",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_chain_glow_3.png",
+    "1x": "1x/fx_chain_glow_3.png",
+    "2x": "2x/fx_chain_glow_3.png",
+    "3x": "3x/fx_chain_glow_3.png"
+   },
+   "layer": "rule",
+   "frame": 3,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "rule": "same as dice: draw the counter at (2,8) inside this 42x42 canvas"
+   },
+   "builder_key": "fx_chain_glow_3",
+   "builder_alias": [
+    "fx_link_glow_3"
+   ],
+   "note": "glow pulse on linked counters: 1-2-3-2 at ~10fps"
+  },
+  {
+   "name": "special_chain_icon",
+   "category": "specials",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_chain_icon.png",
+    "1x": "1x/special_chain_icon.png",
+    "2x": "2x/special_chain_icon.png",
+    "3x": "3x/special_chain_icon.png"
+   },
+   "special": "chain",
+   "brief_title": "Chain counter (user idea, not in brief)",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "badge_shape": "hexagon",
+   "builder_key": "icon_link"
+  },
+  {
+   "name": "special_chain_icon_hc",
+   "category": "specials_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_chain_icon_hc.png",
+    "1x": "1x/special_chain_icon_hc.png",
+    "2x": "2x/special_chain_icon_hc.png",
+    "3x": "3x/special_chain_icon_hc.png"
+   },
+   "special": "chain",
+   "brief_title": "Chain counter (user idea, not in brief)",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "badge_shape": "hexagon",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_chain_icon_disabled",
+   "category": "specials",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_chain_icon_disabled.png",
+    "1x": "1x/special_chain_icon_disabled.png",
+    "2x": "2x/special_chain_icon_disabled.png",
+    "3x": "3x/special_chain_icon_disabled.png"
+   },
+   "special": "chain",
+   "brief_title": "Chain counter (user idea, not in brief)",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "badge_shape": "hexagon",
+   "state": "disabled"
+  },
+  {
+   "name": "special_chain_badge",
+   "category": "specials",
+   "native_size": [
+    18,
+    11
+   ],
+   "css_size": [
+    36,
+    22
+   ],
+   "files": {
+    "native": "native/special_chain_badge.png",
+    "1x": "1x/special_chain_badge.png",
+    "2x": "2x/special_chain_badge.png",
+    "3x": "3x/special_chain_badge.png"
+   },
+   "special": "chain",
+   "brief_title": "Chain counter (user idea, not in brief)",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "badge_shape": "hexagon",
+   "anchor": {
+    "offset_from_die_origin": [
+     21,
+     -8
+    ],
+    "rule": "badge top-left = counter top-left + offset (same as dice badges)"
+   }
+  },
+  {
+   "name": "special_chain_badge_hc",
+   "category": "specials_hc",
+   "native_size": [
+    18,
+    11
+   ],
+   "css_size": [
+    36,
+    22
+   ],
+   "files": {
+    "native": "native/special_chain_badge_hc.png",
+    "1x": "1x/special_chain_badge_hc.png",
+    "2x": "2x/special_chain_badge_hc.png",
+    "3x": "3x/special_chain_badge_hc.png"
+   },
+   "special": "chain",
+   "brief_title": "Chain counter (user idea, not in brief)",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "badge_shape": "hexagon",
+   "anchor": {
+    "offset_from_die_origin": [
+     21,
+     -8
+    ],
+    "rule": "badge top-left = counter top-left + offset (same as dice badges)"
+   }
+  },
+  {
+   "name": "special_counter_4bit_icon",
+   "category": "specials",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_counter_4bit_icon.png",
+    "1x": "1x/special_counter_4bit_icon.png",
+    "2x": "2x/special_counter_4bit_icon.png",
+    "3x": "3x/special_counter_4bit_icon.png"
+   },
+   "special": "counter_4bit",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "badge_shape": "rounded square",
+   "builder_key": "icon_counter4"
+  },
+  {
+   "name": "special_counter_4bit_icon_hc",
+   "category": "specials_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_counter_4bit_icon_hc.png",
+    "1x": "1x/special_counter_4bit_icon_hc.png",
+    "2x": "2x/special_counter_4bit_icon_hc.png",
+    "3x": "3x/special_counter_4bit_icon_hc.png"
+   },
+   "special": "counter_4bit",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "badge_shape": "rounded square",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_counter_4bit_icon_disabled",
+   "category": "specials",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_counter_4bit_icon_disabled.png",
+    "1x": "1x/special_counter_4bit_icon_disabled.png",
+    "2x": "2x/special_counter_4bit_icon_disabled.png",
+    "3x": "3x/special_counter_4bit_icon_disabled.png"
+   },
+   "special": "counter_4bit",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "badge_shape": "rounded square",
+   "state": "disabled"
+  },
+  {
+   "name": "special_counter_8bit_icon",
+   "category": "specials",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_counter_8bit_icon.png",
+    "1x": "1x/special_counter_8bit_icon.png",
+    "2x": "2x/special_counter_8bit_icon.png",
+    "3x": "3x/special_counter_8bit_icon.png"
+   },
+   "special": "counter_8bit",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "badge_shape": "rounded square",
+   "builder_key": "icon_counter8"
+  },
+  {
+   "name": "special_counter_8bit_icon_hc",
+   "category": "specials_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_counter_8bit_icon_hc.png",
+    "1x": "1x/special_counter_8bit_icon_hc.png",
+    "2x": "2x/special_counter_8bit_icon_hc.png",
+    "3x": "3x/special_counter_8bit_icon_hc.png"
+   },
+   "special": "counter_8bit",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "badge_shape": "rounded square",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_counter_8bit_icon_disabled",
+   "category": "specials",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_counter_8bit_icon_disabled.png",
+    "1x": "1x/special_counter_8bit_icon_disabled.png",
+    "2x": "2x/special_counter_8bit_icon_disabled.png",
+    "3x": "3x/special_counter_8bit_icon_disabled.png"
+   },
+   "special": "counter_8bit",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "badge_shape": "rounded square",
+   "state": "disabled"
+  },
+  {
+   "name": "fx_chain_link",
+   "category": "counters",
+   "native_size": [
+    16,
+    8
+   ],
+   "css_size": [
+    32,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_link.png",
+    "1x": "1x/fx_chain_link.png",
+    "2x": "2x/fx_chain_link.png",
+    "3x": "3x/fx_chain_link.png"
+   },
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "builder_key": "fx_chain_link",
+   "anchor": {
+    "rule": "between two adjacent slots: x = right_counter_x - 9, y = counter_y + 23 (lower bezel, clear of both screens)"
+   },
+   "note": "idle link"
+  },
+  {
+   "name": "fx_chain_link_hc",
+   "category": "counters_hc",
+   "native_size": [
+    16,
+    8
+   ],
+   "css_size": [
+    32,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_link_hc.png",
+    "1x": "1x/fx_chain_link_hc.png",
+    "2x": "2x/fx_chain_link_hc.png",
+    "3x": "3x/fx_chain_link_hc.png"
+   },
+   "layer": "rule",
+   "variant": "high_contrast",
+   "anchor": {
+    "rule": "between two adjacent slots: x = right_counter_x - 9, y = counter_y + 23 (lower bezel, clear of both screens)"
+   }
+  },
+  {
+   "name": "fx_chain_link_lit",
+   "category": "counters",
+   "native_size": [
+    16,
+    8
+   ],
+   "css_size": [
+    32,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_link_lit.png",
+    "1x": "1x/fx_chain_link_lit.png",
+    "2x": "2x/fx_chain_link_lit.png",
+    "3x": "3x/fx_chain_link_lit.png"
+   },
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "builder_key": "fx_chain_link_lit",
+   "anchor": {
+    "rule": "between two adjacent slots: x = right_counter_x - 9, y = counter_y + 23 (lower bezel, clear of both screens)"
+   },
+   "note": "flash when the chain fires"
+  },
+  {
+   "name": "fx_chain_link_lit_hc",
+   "category": "counters_hc",
+   "native_size": [
+    16,
+    8
+   ],
+   "css_size": [
+    32,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_link_lit_hc.png",
+    "1x": "1x/fx_chain_link_lit_hc.png",
+    "2x": "2x/fx_chain_link_lit_hc.png",
+    "3x": "3x/fx_chain_link_lit_hc.png"
+   },
+   "layer": "rule",
+   "variant": "high_contrast",
+   "anchor": {
+    "rule": "between two adjacent slots: x = right_counter_x - 9, y = counter_y + 23 (lower bezel, clear of both screens)"
+   }
+  },
+  {
+   "name": "fx_chain_bracket_l",
+   "category": "counters",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_bracket_l.png",
+    "1x": "1x/fx_chain_bracket_l.png",
+    "2x": "2x/fx_chain_bracket_l.png",
+    "3x": "3x/fx_chain_bracket_l.png"
+   },
+   "layer": "rule",
+   "builder_key": "fx_chain_bracket_l",
+   "builder_alias": [
+    "fx_link_bracket_l"
+   ],
+   "note": "UNUSED by the game (dropped for connector + glow); kept in the pack. Bracket over a linked run: l cap + m repeated + r cap"
+  },
+  {
+   "name": "fx_chain_bracket_l_hc",
+   "category": "counters_hc",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_bracket_l_hc.png",
+    "1x": "1x/fx_chain_bracket_l_hc.png",
+    "2x": "2x/fx_chain_bracket_l_hc.png",
+    "3x": "3x/fx_chain_bracket_l_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_chain_bracket_m",
+   "category": "counters",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_bracket_m.png",
+    "1x": "1x/fx_chain_bracket_m.png",
+    "2x": "2x/fx_chain_bracket_m.png",
+    "3x": "3x/fx_chain_bracket_m.png"
+   },
+   "layer": "rule",
+   "builder_key": "fx_chain_bracket_m",
+   "builder_alias": [
+    "fx_link_bracket_m"
+   ],
+   "note": "UNUSED by the game (dropped for connector + glow); kept in the pack. Bracket over a linked run: l cap + m repeated + r cap"
+  },
+  {
+   "name": "fx_chain_bracket_m_hc",
+   "category": "counters_hc",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_bracket_m_hc.png",
+    "1x": "1x/fx_chain_bracket_m_hc.png",
+    "2x": "2x/fx_chain_bracket_m_hc.png",
+    "3x": "3x/fx_chain_bracket_m_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_chain_bracket_r",
+   "category": "counters",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_bracket_r.png",
+    "1x": "1x/fx_chain_bracket_r.png",
+    "2x": "2x/fx_chain_bracket_r.png",
+    "3x": "3x/fx_chain_bracket_r.png"
+   },
+   "layer": "rule",
+   "builder_key": "fx_chain_bracket_r",
+   "builder_alias": [
+    "fx_link_bracket_r"
+   ],
+   "note": "UNUSED by the game (dropped for connector + glow); kept in the pack. Bracket over a linked run: l cap + m repeated + r cap"
+  },
+  {
+   "name": "fx_chain_bracket_r_hc",
+   "category": "counters_hc",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_chain_bracket_r_hc.png",
+    "1x": "1x/fx_chain_bracket_r_hc.png",
+    "2x": "2x/fx_chain_bracket_r_hc.png",
+    "3x": "3x/fx_chain_bracket_r_hc.png"
+   },
+   "variant": "high_contrast"
   }
  ]
 }
