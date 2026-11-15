@@ -13,7 +13,7 @@ export function scoreThrow(dice, env = {}, rng = null) {
     const s = specialOf(die), E = s && EFFECTS[s.effect.type];
     if (!E || !E.value) return;
     const r = E.value({ die, i, dice, pts, p: s.effect, env, rng });
-    if (r) { pts[i] = r.value; lines.push({ layer: 'rule', who: s.name, text: r.note }); }
+    if (r) { pts[i] = r.value; lines.push({ layer: 'rule', who: s.name, text: r.note, i, value: r.value, pre: true }); }
   });
   let points = pts.reduce((a, b) => a + b, 0), mult = 1, gold = 0, pending = false;
   lines.push({ layer: 'points', who: 'Faces', text: `${pts.join(' + ')} = ${points}`, points, mult });
@@ -30,7 +30,7 @@ export function scoreThrow(dice, env = {}, rng = null) {
     if (r.pending) pending = true;
     if (r.breakForRound) broken.push(die.uid);
     if (r.shatter) shattered.push(die.uid);
-    lines.push({ layer: r.layer, who: s.name, text: r.note, points, mult: round2(mult), idle: !!r.idle });
+    lines.push({ layer: r.layer, who: s.name, text: r.note, points, mult: round2(mult), idle: !!r.idle, i, addPoints: r.addPoints || 0, addMult: r.addMult || 0, xMult: r.xMult || 0, gold: r.gold || 0, shatter: !!r.shatter });
   });
   mult = round2(mult);
   const total = Math.floor(points * mult);

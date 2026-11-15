@@ -14,7 +14,7 @@ python3 -m http.server 8000   # then open http://localhost:8000/
 ## Rules (current prototype)
 
 - Start: a bag of **8 plain d6**, $4.
-- Each round: **3 throws**. A throw draws **5 dice** from the bag and rolls them. **2 re-rolls** per round, shared across throws; locked dice are kept.
+- Each round: **3 throws**. A throw draws **5 dice** from the bag into your **hand**; **Roll** throws them onto the **table**. Tap a table die to hold it (it drops back to your hand and keeps its face); **2 re-rolls** per round, shared across throws, re-roll the dice left on the table.
 - Score = (sum of faces + point bonuses) × multiplier, specials resolving left to right, shown step by step.
 - Reach the target before your throws run out, or the run ends. **8 rounds** win the run; then optional **endless** mode (linear-ish target growth).
 - Earnings: round reward + $1 per unused throw + $1 interest per $5 held (max $5).
@@ -53,7 +53,9 @@ js/round.js       draw, lock, re-roll, score
 js/shop.js        offers, buy, reroll, sell
 js/run.js         run loop: round -> shop -> ... -> win/lose, endless, save/load
 js/art.js         all visuals via assets/manifest.json (srcset, pack folders, CSS fallback)
-js/ui/*.js        screens (title, round, shop, win/lose) as HTML templates
+js/ui/*.js        screens (title, round, shop, win/lose, settings, info) as HTML templates
+js/ui/anim.js     promise-based animation queue (transform/opacity only; reduced motion = instant)
+js/ui/roundAnim.js roll tumble, hold slide, scoring sequence, total flying into the points bar
 data/balance.json all tuning
 assets/           manifest.json + placeholder SVGs
 tests/sim.mjs     unit checks + seeded headless run simulations (node tests/sim.mjs)

@@ -49,6 +49,26 @@ const ICONS = {
   ui_btn_new_run: svg('<path d="M50 14 V86 M14 50 H86" stroke="#fff" stroke-width="12" stroke-linecap="round"/>'),
 };
 
+// Animation placeholders: blank/tumble die bodies, particle bursts, flames, coin spin, glass shatter.
+function blank(shape, rot = 0, mark = '') {
+  const b = BODY[shape];
+  const body = b.circle ? `<circle cx="50" cy="50" r="45" fill="${b.fill}" stroke="#2b2118" stroke-width="4"/>` : `<path d="${b.d}" fill="${b.fill}" stroke="#2b2118" stroke-width="4" stroke-linejoin="round"/>`;
+  return svg(`<g transform="rotate(${rot} 50 50)">${body}${mark}</g>`);
+}
+const LCOL = { points: BLUE, mult: RED, gold: GOLD, rule: '#7a4fd0' };
+const pop = (col, n) => svg(Array.from({ length: 8 }, (_, k) => { const a = k * Math.PI / 4, r = 12 + n * 9; return `<circle cx="${50 + Math.cos(a) * r}" cy="${50 + Math.sin(a) * r}" r="${Math.max(2, 9 - n * 2)}" fill="${col}"/>`; }).join(''));
+const flame = (col, n) => svg(`<path d="M50 ${8 + n * 4} C ${70 + n * 3} 40 85 60 70 88 Q 50 98 30 88 C 15 60 ${30 - n * 3} 40 50 ${8 + n * 4} Z" fill="${col}" opacity=".9"/><path d="M50 50 C 60 62 62 76 56 88 Q 50 92 44 88 C 38 76 40 62 50 50 Z" fill="#fff6c0"/>`);
+for (const shape of Object.keys(BODY)) {
+  ICONS[`die_${shape}_blank`] = blank(shape);
+  ICONS[`die_${shape}_roll_1`] = blank(shape, 30, '<circle cx="40" cy="40" r="6" fill="#2b2118"/>');
+  ICONS[`die_${shape}_roll_2`] = blank(shape, 60, '<circle cx="60" cy="60" r="6" fill="#2b2118"/>');
+}
+for (const [l, col] of Object.entries(LCOL)) for (let n = 1; n <= 4; n++) ICONS[`fx_pop_${l}_${n}`] = pop(col, n);
+for (const [c, col] of [['blue', '#3d8ef0'], ['red', '#e8434a']]) for (let n = 1; n <= 4; n++) ICONS[`fx_flame_${c}_${n}`] = flame(col, n);
+for (let n = 1; n <= 4; n++) ICONS[`fx_coin_spin_${n}`] = svg(`<ellipse cx="50" cy="50" rx="${[40, 26, 8, 26][n - 1]}" ry="40" fill="${GOLD}" stroke="#1a1a1a" stroke-width="5"/>`);
+for (let n = 1; n <= 3; n++) ICONS[`fx_glass_shatter_${n}`] = svg(Array.from({ length: 6 }, (_, k) => { const a = k * Math.PI / 3, r = n * 14; return `<path d="M${50 + Math.cos(a) * r} ${50 + Math.sin(a) * r} l10 -6 l-4 12 z" fill="#8fd3e8" stroke="#1a1a1a" stroke-width="2"/>`; }).join(''));
+ICONS.ui_btn_reroll = ICONS.ui_btn_shop_reroll;
+
 const assets = {};
 for (const key of requiredKeys()) {
   let content;

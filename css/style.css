@@ -174,3 +174,70 @@ body.hc .btn.primary:not(.skinned) { background: #b33c00; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after { animation: none !important; transition: none !important; }
+
+/* ===== Layout 2: round screen = slim bar / felt table / hand. Fits 390x844 without scrolling. ===== */
+#app[data-screen="round"] { max-width: 560px; height: 100vh; height: 100dvh; padding: 8px 8px max(8px, env(safe-area-inset-bottom)); overflow: hidden; }
+.r2 { height: 100%; display: flex; flex-direction: column; gap: 8px; }
+.hudbar { position: relative; flex: none; display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 6px; background: #120c24e6; border: 2px solid #3a2e66; border-radius: 12px; padding: 6px 10px 10px; }
+.hudbar .stat { display: flex; flex-direction: column; line-height: 1.05; }
+.hudbar small { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.hudbar b { font-size: 1.55rem; font-variant-numeric: tabular-nums; }
+.st-pts b { color: var(--pts); display: inline-block; transform-origin: left center; } .st-tgt b { color: var(--ink); }
+.st-rolls { flex-direction: row !important; gap: 12px; justify-content: flex-end; }
+.st-rolls span { display: flex; flex-direction: column; align-items: flex-end; } .st-rolls b { font-size: 1.25rem; }
+.hudbar .prog { position: absolute; left: 10px; right: 10px; bottom: 4px; height: 4px; border-radius: 2px; background: #0008; overflow: hidden; }
+.hudbar .prog > i { display: block; height: 100%; background: linear-gradient(90deg, var(--pts), var(--gold)); transform-origin: left; transition: transform .4s; }
+
+.table { position: relative; flex: 1 1 auto; min-height: 0; border-radius: 16px; border: 3px solid #10301f; box-shadow: inset 0 0 0 2px #357a5b, inset 0 8px 24px #0006;
+  background: #225640; background-image: var(--table-bg, none); background-size: 64px 64px; image-rendering: pixelated; display: flex; flex-direction: column; justify-content: center; padding: 60px 8px 44px; }
+.table > * { image-rendering: auto; }
+.tcorner { position: absolute; top: 6px; display: flex; align-items: center; gap: 8px; }
+.tcorner.tl { left: 10px; top: 14px; } .tcorner.tr { right: 4px; }
+.iconbar.compact { margin: 0; gap: 2px; } .iconbar.compact .btn.skinned { min-width: 48px; min-height: 48px; padding: 0; }
+.slots { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; justify-items: center; align-items: end; }
+.slot { width: 100%; display: flex; justify-content: center; align-items: center; min-height: 72px; }
+.ghost { width: 56px; height: 56px; border: 2px dashed #ffffff30; border-radius: 10px; }
+.r2 .die { aspect-ratio: auto; min-height: 0; width: 68px; height: 72px; padding: 0; background: none; border: 0; border-radius: 10px; will-change: transform; }
+.r2 .die[disabled] { opacity: 1; cursor: default; }
+.r2 .die .die-art { width: 64px; height: 64px; transition: none; }
+.r2 .die.locked .die-art { transform: none; filter: none; }
+.r2 .die.locked { box-shadow: 0 0 0 3px var(--gold); background: #f2c04122; }
+.r2 .die.special.l-mult { box-shadow: 0 0 0 2px #ff5a6688; } .r2 .die.special.l-points { box-shadow: 0 0 0 2px #7cc6ff88; }
+.r2 .die.special.l-gold { box-shadow: 0 0 0 2px #ffd23a88; } .r2 .die.special.l-rule { box-shadow: 0 0 0 2px #c27cff88; }
+.r2 .die.locked.special { box-shadow: 0 0 0 3px var(--gold); }
+.r2 .lockmark { top: -12px; }
+.r2 .die.flash { z-index: 2; }
+.tally { margin-top: 14px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; position: relative; }
+.tally .breakdown { width: 100%; margin: 0; background: #0a0618b3; padding: 8px 10px; }
+.tally .breakdown ol { font-size: .82rem; } .tally .bd-total { font-size: 1.05rem; }
+.tally .run { font-size: 2.2rem; font-weight: 900; background: #0a0618cc; border-radius: 12px; padding: 4px 16px; font-variant-numeric: tabular-nums; }
+.tally .run .pts, .tally .run .mul { display: inline-block; } .tally .run .x { color: var(--muted); }
+.ttotal, .flying { font-size: 2.4rem; font-weight: 900; color: var(--gold); text-shadow: 0 3px 0 #000; display: inline-block; }
+.flying { position: fixed; z-index: 50; margin: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; will-change: transform; }
+.flames { display: flex; gap: 0; margin-top: -8px; } .flames img { width: 64px; height: 64px; }
+.float { position: absolute; left: 50%; top: -8px; z-index: 5; font-weight: 900; font-size: 1.3rem; text-shadow: 0 2px 0 #000, 0 0 6px #000; pointer-events: none; white-space: nowrap; will-change: transform, opacity; }
+.float.l-points { color: #7cc6ff; } .float.l-mult { color: #ff7b85; } .float.l-gold { color: var(--gold); } .float.l-rule { color: #d0a8ff; }
+img.fx { position: absolute; left: 50%; top: 50%; width: 48px; height: 48px; margin: -24px 0 0 -24px; pointer-events: none; z-index: 4; }
+img.fx.glass { width: 96px; height: 96px; margin: -48px 0 0 -48px; }
+.tfoot { position: absolute; left: 8px; right: 8px; bottom: 6px; display: flex; align-items: flex-end; gap: 8px; }
+.tfoot .bag { margin: 0; padding: 0 10px; background: #0a0618b3; max-height: 60vh; overflow: auto; } .tfoot .bag[open] { position: absolute; bottom: 0; left: 0; right: 0; z-index: 10; }
+.tfoot .bag summary { min-height: 44px; }
+.tfoot .seed { font-size: .72rem; color: var(--muted); margin-left: auto; text-align: right; padding-bottom: 4px; }
+
+.hand { flex: none; background: #2a1d14e6; border: 3px solid #120c08; border-radius: 16px; box-shadow: inset 0 3px 0 #5a3d28; padding: 6px 8px 4px; }
+.handlabel { font-size: .8rem; color: var(--muted); padding: 0 4px 2px; } .handlabel b { color: var(--ink); }
+.hand .slots { margin: 6px 0 4px; }
+.hand .actions { margin: 4px 0 0; }
+.hand .actions .btn.skinned .cap { font-size: .72rem; }
+
+@media (min-width: 900px) and (min-height: 760px) {
+  #app[data-screen="round"] { max-width: 820px; padding-top: 12px; }
+  .r2 .die { width: 132px; height: 136px; } .r2 .die .die-art { width: 128px; height: 128px; }
+  .slot { min-height: 136px; } .ghost { width: 112px; height: 112px; }
+  .hudbar b { font-size: 2rem; }
+}
+body.hc .table { background-color: #0c0c14; box-shadow: inset 0 0 0 2px #fff; }
+body.hc .hand, body.hc .hudbar { background: #000; border-color: #fff; }
+
+.tally.fade-in { animation: fadein .25s ease-out both; }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }

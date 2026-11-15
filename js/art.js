@@ -3,9 +3,21 @@
 import { SHAPES, faceKey } from './dice.js';
 import { SPECIALS } from './specials.js';
 
-export const UI_KEYS = ['ui_logo', 'ui_btn_roll', 'ui_btn_score', 'ui_btn_buy', 'ui_btn_shop_reroll', 'ui_btn_sell', 'ui_btn_next', 'ui_btn_new_run', 'ui_btn_settings', 'ui_btn_pause', 'ui_btn_info'];
+export const UI_KEYS = ['ui_logo', 'ui_btn_roll', 'ui_btn_score', 'ui_btn_buy', 'ui_btn_shop_reroll', 'ui_btn_sell', 'ui_btn_next', 'ui_btn_new_run', 'ui_btn_settings', 'ui_btn_pause', 'ui_btn_info', 'ui_btn_reroll'];
 export const ICON_KEYS = ['icon_coin', 'icon_lock'];
 export const BG_KEYS = ['bg_table_tile', 'bg_shop_tile', 'bg_hc_tile'];
+// Animation frames: roll tumble per shape (blank -> roll_1 -> roll_2), score particles per colour layer,
+// target-cleared flames, coin spin (money) and glass shatter.
+export const FX_LAYERS = ['points', 'mult', 'gold', 'rule'];
+export function fxKeys() {
+  const k = [];
+  for (const shape of Object.keys(SHAPES)) k.push(`die_${shape}_blank`, `die_${shape}_roll_1`, `die_${shape}_roll_2`);
+  for (const l of FX_LAYERS) for (let n = 1; n <= 4; n++) k.push(`fx_pop_${l}_${n}`);
+  for (const c of ['blue', 'red']) for (let n = 1; n <= 4; n++) k.push(`fx_flame_${c}_${n}`);
+  for (let n = 1; n <= 4; n++) k.push(`fx_coin_spin_${n}`);
+  for (let n = 1; n <= 3; n++) k.push(`fx_glass_shatter_${n}`);
+  return k;
+}
 
 // Every key the game can ask for (pure; used by tests and ASSETS.md).
 export function requiredKeys() {
@@ -15,7 +27,7 @@ export function requiredKeys() {
   for (const s of SPECIALS) if (s.faces) s.faces.forEach(f => faces[s.shape].add(f));
   for (const [shape, set] of Object.entries(faces)) [...set].sort((a, b) => a - b).forEach(f => keys.push(faceKey(shape, f)));
   for (const s of SPECIALS) if (!keys.includes(s.icon)) keys.push(s.icon);
-  return keys.concat(ICON_KEYS, UI_KEYS, BG_KEYS);
+  return keys.concat(ICON_KEYS, UI_KEYS, BG_KEYS, fxKeys());
 }
 
 let M = { base: 'assets/', assets: {} }, F = null, variant = '';
@@ -70,11 +82,13 @@ export function buttonSkin(key, disabled) {
 }
 
 // CSS background for a tile key: image-set over 1x/2x/3x.
+// URLs are made absolute so the value also works inside CSS custom properties (resolved against the stylesheet).
 export function bgCSS(key) {
   const c = resolve(key)[0];
   if (!c) return '';
-  if (!c.srcset) return `url("${c.src}")`;
-  return `image-set(${c.srcset.split(', ').map(p => { const [u, d] = p.split(' '); return `url("${u}") ${d}`; }).join(', ')})`;
+  const abs = u => (typeof document !== 'undefined' ? new URL(u, document.baseURI).href : u);
+  if (!c.srcset) return `url("${abs(c.src)}")`;
+  return `image-set(${c.srcset.split(', ').map(p => { const [u, d] = p.split(' '); return `url("${abs(u)}") ${d}`; }).join(', ')})`;
 }
 
 const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -106,4 +120,18 @@ export function installArtFallbacks(root = document) {
     t.innerHTML = img.dataset.fallback || '';
     img.replaceWith(t.content);
   }, true);
+}
+
+// First candidate {src, srcset} for a key (used by animations to swap frames on an existing <img>).
+export function artSrc(key) { return resolve(key)[0] || null; }
+export function setImg(img, key) {
+  const c = artSrc(key);
+  if (!c) return false;
+  if (c.srcset) img.srcset = c.srcset; else img.removeAttribute('srcset');
+  img.src = c.src;
+  return true;
+}
+// Warm the cache so frame swaps don't flash.
+export function preload(keys) {
+  for (const k of keys) { const c = artSrc(k); if (!c) continue; const i = new Image(); if (c.srcset) i.srcset = c.srcset; i.src = c.src; }
 }

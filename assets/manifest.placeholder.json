@@ -270,6 +270,9 @@
   "ui_btn_info": {
    "src": "placeholder/ui_btn_info.svg"
   },
+  "ui_btn_reroll": {
+   "src": "placeholder/ui_btn_reroll.svg"
+  },
   "bg_table_tile": {
    "src": "placeholder/bg_table_tile.svg"
   },
@@ -278,6 +281,162 @@
   },
   "bg_hc_tile": {
    "src": "placeholder/bg_hc_tile.svg"
+  },
+  "die_d4_blank": {
+   "src": "placeholder/die_d4_blank.svg"
+  },
+  "die_d4_roll_1": {
+   "src": "placeholder/die_d4_roll_1.svg"
+  },
+  "die_d4_roll_2": {
+   "src": "placeholder/die_d4_roll_2.svg"
+  },
+  "die_d6_blank": {
+   "src": "placeholder/die_d6_blank.svg"
+  },
+  "die_d6_roll_1": {
+   "src": "placeholder/die_d6_roll_1.svg"
+  },
+  "die_d6_roll_2": {
+   "src": "placeholder/die_d6_roll_2.svg"
+  },
+  "die_d8_blank": {
+   "src": "placeholder/die_d8_blank.svg"
+  },
+  "die_d8_roll_1": {
+   "src": "placeholder/die_d8_roll_1.svg"
+  },
+  "die_d8_roll_2": {
+   "src": "placeholder/die_d8_roll_2.svg"
+  },
+  "die_d10_blank": {
+   "src": "placeholder/die_d10_blank.svg"
+  },
+  "die_d10_roll_1": {
+   "src": "placeholder/die_d10_roll_1.svg"
+  },
+  "die_d10_roll_2": {
+   "src": "placeholder/die_d10_roll_2.svg"
+  },
+  "die_d12_blank": {
+   "src": "placeholder/die_d12_blank.svg"
+  },
+  "die_d12_roll_1": {
+   "src": "placeholder/die_d12_roll_1.svg"
+  },
+  "die_d12_roll_2": {
+   "src": "placeholder/die_d12_roll_2.svg"
+  },
+  "die_d20_blank": {
+   "src": "placeholder/die_d20_blank.svg"
+  },
+  "die_d20_roll_1": {
+   "src": "placeholder/die_d20_roll_1.svg"
+  },
+  "die_d20_roll_2": {
+   "src": "placeholder/die_d20_roll_2.svg"
+  },
+  "die_coin_blank": {
+   "src": "placeholder/die_coin_blank.svg"
+  },
+  "die_coin_roll_1": {
+   "src": "placeholder/die_coin_roll_1.svg"
+  },
+  "die_coin_roll_2": {
+   "src": "placeholder/die_coin_roll_2.svg"
+  },
+  "fx_pop_points_1": {
+   "src": "placeholder/fx_pop_points_1.svg"
+  },
+  "fx_pop_points_2": {
+   "src": "placeholder/fx_pop_points_2.svg"
+  },
+  "fx_pop_points_3": {
+   "src": "placeholder/fx_pop_points_3.svg"
+  },
+  "fx_pop_points_4": {
+   "src": "placeholder/fx_pop_points_4.svg"
+  },
+  "fx_pop_mult_1": {
+   "src": "placeholder/fx_pop_mult_1.svg"
+  },
+  "fx_pop_mult_2": {
+   "src": "placeholder/fx_pop_mult_2.svg"
+  },
+  "fx_pop_mult_3": {
+   "src": "placeholder/fx_pop_mult_3.svg"
+  },
+  "fx_pop_mult_4": {
+   "src": "placeholder/fx_pop_mult_4.svg"
+  },
+  "fx_pop_gold_1": {
+   "src": "placeholder/fx_pop_gold_1.svg"
+  },
+  "fx_pop_gold_2": {
+   "src": "placeholder/fx_pop_gold_2.svg"
+  },
+  "fx_pop_gold_3": {
+   "src": "placeholder/fx_pop_gold_3.svg"
+  },
+  "fx_pop_gold_4": {
+   "src": "placeholder/fx_pop_gold_4.svg"
+  },
+  "fx_pop_rule_1": {
+   "src": "placeholder/fx_pop_rule_1.svg"
+  },
+  "fx_pop_rule_2": {
+   "src": "placeholder/fx_pop_rule_2.svg"
+  },
+  "fx_pop_rule_3": {
+   "src": "placeholder/fx_pop_rule_3.svg"
+  },
+  "fx_pop_rule_4": {
+   "src": "placeholder/fx_pop_rule_4.svg"
+  },
+  "fx_flame_blue_1": {
+   "src": "placeholder/fx_flame_blue_1.svg"
+  },
+  "fx_flame_blue_2": {
+   "src": "placeholder/fx_flame_blue_2.svg"
+  },
+  "fx_flame_blue_3": {
+   "src": "placeholder/fx_flame_blue_3.svg"
+  },
+  "fx_flame_blue_4": {
+   "src": "placeholder/fx_flame_blue_4.svg"
+  },
+  "fx_flame_red_1": {
+   "src": "placeholder/fx_flame_red_1.svg"
+  },
+  "fx_flame_red_2": {
+   "src": "placeholder/fx_flame_red_2.svg"
+  },
+  "fx_flame_red_3": {
+   "src": "placeholder/fx_flame_red_3.svg"
+  },
+  "fx_flame_red_4": {
+   "src": "placeholder/fx_flame_red_4.svg"
+  },
+  "fx_coin_spin_1": {
+   "src": "placeholder/fx_coin_spin_1.svg"
+  },
+  "fx_coin_spin_2": {
+   "src": "placeholder/fx_coin_spin_2.svg"
+  },
+  "fx_coin_spin_3": {
+   "src": "placeholder/fx_coin_spin_3.svg"
+  },
+  "fx_coin_spin_4": {
+   "src": "placeholder/fx_coin_spin_4.svg"
+  },
+  "fx_glass_shatter_1": {
+   "src": "placeholder/fx_glass_shatter_1.svg"
+  },
+  "fx_glass_shatter_2": {
+   "src": "placeholder/fx_glass_shatter_2.svg"
+  },
+  "fx_glass_shatter_3": {
+   "src": "placeholder/fx_glass_shatter_3.svg"
   }
  }
 }

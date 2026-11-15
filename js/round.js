@@ -19,6 +19,15 @@ export function drawThrow(run) {
   r.hand = pool.slice(0, B.handSize);
   r.locked = r.hand.map(() => false);
   for (const d of handDice(run)) rollDie(d, run.rng);
+  // Faces are decided at draw time (keeps the RNG sequence independent of the UI); the UI shows the dice
+  // in the hand face-down until the player rolls them onto the table (reveal). Engine logic ignores this flag.
+  r.revealed = false;
+}
+
+export function reveal(run) {
+  if (!run.round || run.round.status !== 'playing' || run.round.revealed) return false;
+  run.round.revealed = true;
+  return true;
 }
 
 export function toggleLock(run, i) {
@@ -53,7 +62,7 @@ export function scoreCurrent(run) {
   r.broken.push(...res.broken);
   if (res.shattered.length) run.bag = run.bag.filter(d => !res.shattered.includes(d.uid));
   r.throwsLeft--;
-  r.last = { total: res.total, points: res.points, mult: res.mult, lines: res.lines, gold: res.gold, shattered: res.shattered.length };
+  r.last = { total: res.total, points: res.points, mult: res.mult, lines: res.lines, gold: res.gold, shattered: res.shattered.length, pts: res.pts };
   run.stats.throws++;
   run.stats.bestThrow = Math.max(run.stats.bestThrow, res.total);
   run.stats.totalScore += res.total;

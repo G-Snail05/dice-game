@@ -8,7 +8,7 @@ const { makeRng, hashSeed } = await import('../js/rng.js');
 const { SPECIALS, validateSpecials } = await import('../js/specials.js');
 const { scoreThrow } = await import('../js/scoring.js');
 const { newRun, serialize, deserialize, settleRound, continueEndless, nextRound } = await import('../js/run.js');
-const { toggleLock, reroll, scoreCurrent, handDice, preview } = await import('../js/round.js');
+const { toggleLock, reroll, scoreCurrent, handDice, preview, reveal } = await import('../js/round.js');
 const { buy, sell, rerollShop } = await import('../js/shop.js');
 const { faceKey, facesOf, SHAPE_ORDER } = await import('../js/dice.js');
 const { requiredKeys } = await import('../js/art.js');
@@ -47,6 +47,15 @@ eq(scoreThrow([D(6), D(6, 'gold'), D(2)]).gold, 2, 'gold die pays $1 per six');
 ok(scoreThrow([D(1), D(2)]).lines.length >= 1, 'breakdown has lines');
 eq(facesOf({ shape: 'coin', special: 'coin' }), [0, 10], 'coin faces');
 eq(facesOf({ shape: 'd6', special: 'overcharged' }), [4, 5, 6, 7, 8, 9], 'overcharged faces');
+
+{ const r = scoreThrow([D(6), D(2, 'echo'), D(3, 'ruby')]); eq(r.lines.filter(l => l.i != null).map(l => [l.who, l.i]), [['Echo', 1], ['Ruby', 2]], 'breakdown lines carry the die index for the animation');
+  eq(r.pts, [6, 6, 3], 'pts after value changers'); }
+
+// --- Reveal (UI flag): faces fixed at draw time, reveal changes nothing else
+{ const run = newRun('reveal'); const faces = handDice(run).map(d => d.face), st = run.rng.state;
+  eq(run.round.revealed, false, 'new throw starts face-down in the hand'); ok(reveal(run), 'reveal'); ok(!reveal(run), 'reveal once');
+  eq([handDice(run).map(d => d.face), run.rng.state], [faces, st], 'reveal does not reroll or touch the RNG');
+  scoreCurrent(run); eq(run.round.revealed, false, 'next throw is face-down again'); }
 
 // --- Balance / schedule
 eq(totalRounds(), BAL.rounds, 'rounds from balance');

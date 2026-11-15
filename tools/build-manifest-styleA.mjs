@@ -18,7 +18,7 @@ const withHc = e => {
 const swap = (e, from, to) => ({ src: e.src.replace(from, to), srcset: Object.fromEntries(Object.entries(e.srcset || {}).map(([k, v]) => [k, v.replace(from, to)])) });
 
 const assets = { ...src.assets };
-if (!assets.ui_btn_settings && assets.ui_btn_settings_normal) assets.ui_btn_settings = assets.ui_btn_settings_normal;
+for (const b of ['settings', 'reroll', 'pause', 'info']) if (!assets[`ui_btn_${b}`] && assets[`ui_btn_${b}_normal`]) assets[`ui_btn_${b}`] = assets[`ui_btn_${b}_normal`];
 for (const [key, e0] of Object.entries(assets)) {
   const e = { ...e0 };
   const hc = withHc(e);
