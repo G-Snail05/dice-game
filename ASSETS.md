@@ -90,3 +90,12 @@ Played by `js/ui/roundAnim.js` through the promise-based queue in `js/ui/anim.js
 | `fx_coin_spin_1..4` | a Gold die paying out | 12 fps |
 | `fx_glass_shatter_1..3` | a Glass die shattering for good | 10 fps |
 | `fx_flame_<blue\|red>_1..4` | row of flames under the total on a big throw (≥ half the target, or mult ≥ 3); red when a multiplier fired | 10 fps |
+
+## Pick 5 of 7 (layout 3): no new art
+
+The hand shows the 7 drawn dice before the roll using existing keys only: `die_<shape>_blank` for the body,
+the special's badge icon (its `icon` key from `js/specials.js`), and a CSS text tag with the shape or special name. Selection is pure CSS:
+picked dice lift 6px with a gold ring and a CSS tick (`.die.pick.picked`, `.pickmark`); the unpicked dice after
+the roll are the same blank sprite dimmed with `opacity` + `grayscale` (`.die.benched`). If a pack later wants a
+dedicated selection frame, add a `ui_select_ring` key to the manifest and swap it in `pickBtn` in
+`js/ui/roundView.js`.

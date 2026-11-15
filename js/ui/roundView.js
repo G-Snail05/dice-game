@@ -1,8 +1,11 @@
 // Round screen, layout 2: slim HUD bar (points / target / throws + re-rolls), a felt TABLE where rolled
-// dice land, and the HAND at the bottom (drawn dice face-down before the roll, held dice after).
-// Die i always owns column i in both rows, so it moves straight up/down between hand and table.
+// dice land, and the HAND at the bottom in two rows. Before the roll the hand holds the 7 drawn dice
+// (5 in the top row, the rest below) and the player picks 5 to roll. After the roll, die i of the throw
+// owns column i in the top hand row and on the table (hold = straight down), and the unpicked dice sit
+// dimmed in the bottom row, out of play for this throw.
 import { totalRounds } from '../balance.js';
-import { handDice, preview, canReroll } from '../round.js';
+import { handDice, benchDice, preview, canReroll, canRoll, rollNeed, selectedCount } from '../round.js';
+import { B } from '../balance.js';
 import { artHTML } from '../art.js';
 import { dieArt, badge, cssDie, staticDie } from './dieView.js';
 import { btn, coin, esc, fmtMult } from './dom.js';
@@ -24,6 +27,22 @@ export function bar(run) {
     <div class="stat st-rolls"><span><small>Throws</small><b>${r.throwsLeft}</b></span><span><small>Re-rolls</small><b>${r.rerollsLeft}</b></span></div>
     <i class="prog" aria-hidden="true"><i style="transform:scaleX(${p.toFixed(3)})"></i></i>
   </header>`;
+}
+
+// A drawn die before the roll: shows its shape and special badge so the pick is meaningful.
+function pickBtn(run, d, i) {
+  const r = run.round, s = specialOf(d), on = !!(r.selected && r.selected[i]);
+  const full = !on && selectedCount(run) >= rollNeed(run);
+  const label = `${dieName(d)}${on ? ', picked' : ''}. Tap to ${on ? 'put it back' : 'pick it for this roll'}.`;
+  return `<button class="die pick ${on ? 'picked' : ''} ${full ? 'full' : ''} ${s ? 'special l-' + s.layer : ''}" data-act="pick" data-i="${i}" data-uid="${d.uid}" aria-pressed="${on}" aria-label="${esc(label)}${s ? ' ' + esc(s.desc) : ''}">
+    ${artHTML(`die_${d.shape}_blank`, { cls: 'die-art', alt: '', fallback: cssDie(d.shape, '?') })}${badge(d)}<span class="shapetag">${esc(s ? s.name : d.shape)}</span>${on ? '<span class="pickmark" aria-hidden="true">✓</span>' : ''}</button>`;
+}
+
+// An unpicked die after the roll: dimmed, not interactive, not scored.
+function benchBtn(d) {
+  const s = specialOf(d);
+  return `<span class="die benched ${s ? 'special l-' + s.layer : ''}" data-uid="${d.uid}" aria-label="${esc(dieName(d))}, sitting out this throw">
+    ${artHTML(`die_${d.shape}_blank`, { cls: 'die-art', alt: '', fallback: cssDie(d.shape, '') })}${badge(d)}<span class="shapetag">${esc(s ? s.name : d.shape)}</span></span>`;
 }
 
 function dieBtn(run, d, i, where) {
@@ -50,28 +69,46 @@ export function bagView(run) {
 
 export function tallyHTML(run) {
   const r = run.round;
-  if (!r.revealed) return `<p class="hint">Roll to throw your hand onto the table.</p>`;
+  if (!r.revealed) return `<p class="hint">Pick ${rollNeed(run)} dice from your hand, then roll them onto the table.</p>`;
   return breakdown(preview(run), { title: 'This throw' });
 }
 
 export function roundView(run, opts = {}) {
-  const r = run.round, dice = handDice(run);
-  const cols = dice.map((d, i) => ({ d, i, hand: inHand(run, i, opts) }));
+  const r = run.round, dice = handDice(run), cols = B.rollCount;
+  const tableCols = r.revealed ? dice.map((d, i) => ({ d, i, hand: inHand(run, i, opts) })) : [];
+  while (tableCols.length < cols) tableCols.push({ empty: true });
+  // Hand rows: top row = `cols` slots, bottom row = the rest (bench).
+  let top, bottom;
+  if (r.revealed) {
+    top = tableCols.map(c => (!c.empty && c.hand ? dieBtn(run, c.d, c.i, 'hand') : '<span class="ghost"></span>'));
+    bottom = benchDice(run).map(benchBtn);
+  } else {
+    const picks = dice.map((d, i) => pickBtn(run, d, i));
+    top = picks.slice(0, cols); bottom = picks.slice(cols);
+    while (top.length < cols) top.push('<span class="ghost"></span>');
+  }
+  const benchN = Math.max(0, B.handDraw - B.rollCount);
+  while (bottom.length < benchN) bottom.push('<span class="ghost small"></span>');
+  const n = selectedCount(run), need = rollNeed(run);
+  const label = r.revealed
+    ? `Tap a die to hold it here; re-roll the rest.${bottom.some(b => b.includes('benched')) ? ' Dimmed dice sit out this throw.' : ''}`
+    : `<span class="pickcount ${n === need ? 'done' : ''}" aria-live="polite">${n}/${need} selected</span> · pick ${need} of ${dice.length} to roll`;
   return `<section class="screen round r2">
     ${bar(run)}
     <div class="table">
       <div class="tcorner tl"><span class="rlabel">${esc(r.label)}</span>${coin(run.gold)}</div>
       <div class="tcorner tr">${iconBar(true)}</div>
-      <div class="slots tslots" role="group" aria-label="Table">${cols.map(c => `<div class="slot">${c.hand ? '<span class="ghost"></span>' : dieBtn(run, c.d, c.i, 'table')}</div>`).join('')}</div>
+      <div class="slots tslots" role="group" aria-label="Table">${tableCols.map(c => `<div class="slot">${c.empty || c.hand ? '<span class="ghost"></span>' : dieBtn(run, c.d, c.i, 'table')}</div>`).join('')}</div>
       <div class="tally" aria-live="polite">${tallyHTML(run)}</div>
       <div class="tfoot">${bagView(run)}<span class="seed">Seed ${esc(run.seed)}${run.endless ? ' · endless' : ` · ${totalRounds()} rounds`}${r.last ? ` · last throw +${r.last.total}` : ''}</span></div>
     </div>
-    <div class="hand">
-      <div class="handlabel"><b>Hand</b> <small>${r.revealed ? 'Tap a die to hold it here; re-roll the rest.' : `${dice.length} dice drawn from your bag`}</small></div>
-      <div class="slots hslots" role="group" aria-label="Hand">${cols.map(c => `<div class="slot">${c.hand ? dieBtn(run, c.d, c.i, 'hand') : '<span class="ghost"></span>'}</div>`).join('')}</div>
+    <div class="hand ${r.revealed ? 'rolled' : 'picking'}">
+      <div class="handlabel"><b>Hand</b> <small>${label}</small></div>
+      <div class="slots hslots" role="group" aria-label="Hand">${top.map(h => `<div class="slot">${h}</div>`).join('')}</div>
+      <div class="slots hslots bench" role="group" aria-label="${r.revealed ? 'Sitting out' : 'Hand, second row'}">${bottom.map(h => `<div class="slot">${h}</div>`).join('')}</div>
       <div class="actions">${r.revealed
         ? btn('reroll', `Re-roll (${r.rerollsLeft} left)`, { icon: 'ui_btn_reroll', disabled: !canReroll(run), caption: `${r.rerollsLeft} re-roll${r.rerollsLeft === 1 ? '' : 's'} left` }) + btn('score', 'Score throw', { icon: 'ui_btn_score', cls: 'primary', caption: `${r.throwsLeft} throw${r.throwsLeft === 1 ? '' : 's'} left` })
-        : btn('roll', 'Roll', { icon: 'ui_btn_roll', cls: 'primary', caption: 'Throw your hand' })}</div>
+        : btn('roll', canRoll(run) ? `Roll ${need} dice` : `Pick ${need - n} more`, { icon: 'ui_btn_roll', cls: 'primary', disabled: !canRoll(run), caption: canRoll(run) ? `Roll ${need} dice` : `Pick ${need - n} more` })}</div>
     </div>
   </section>`;
 }

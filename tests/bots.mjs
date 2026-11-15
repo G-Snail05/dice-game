@@ -1,5 +1,5 @@
 // Headless players for tests/sim.mjs. Engine only, no DOM.
-import { handDice, toggleLock, reroll, canReroll, preview, scoreCurrent } from '../js/round.js';
+import { handDice, toggleLock, reroll, canReroll, preview, scoreCurrent, selectIndices, reveal, rollNeed } from '../js/round.js';
 import { settleRound, nextRound, continueEndless } from '../js/run.js';
 import { buy, rerollShop, sell, sellValue, canSell } from '../js/shop.js';
 import { meanFace, maxFace, specialOf } from '../js/dice.js';
@@ -16,10 +16,21 @@ function wantLock(d, i, dice) {
   return d.face > meanFace(d);
 }
 
+// Pick which `rollNeed` dice of the drawn hand to roll: highest value first, with Last Call only worth it
+// on the final throw.
+export function chooseBest(run) {
+  const r = run.round;
+  const v = d => (d.special === 'lastcall' ? (r.throwsLeft === 1 ? 12 : 3) : dieValue(d));
+  const order = handDice(run).map((d, i) => [i, v(d)]).sort((a, b) => b[1] - a[1]).map(x => x[0]);
+  selectIndices(run, order.slice(0, rollNeed(run)));
+  reveal(run);
+}
+
 export const sensible = {
   name: 'sensible',
   playThrow(run) {
     const r = run.round;
+    if (!r.revealed) chooseBest(run);
     const perThrow = r.throwsLeft <= 1 ? r.rerollsLeft : 1;
     for (let k = 0; k < perThrow; k++) {
       if (r.score + preview(run).total >= r.target) break;
@@ -53,6 +64,7 @@ export function randomBot(seed) {
     name: 'random',
     playThrow(run) {
       const r = run.round;
+      if (!r.revealed) { const idx = rng.shuffle(r.hand.map((_, i) => i)); selectIndices(run, idx.slice(0, rollNeed(run))); reveal(run); }
       while (rng.next() < 0.5 && canReroll(run)) {
         r.hand.forEach((_, i) => { if (rng.next() < 0.5) toggleLock(run, i); });
         if (!canReroll(run)) break;

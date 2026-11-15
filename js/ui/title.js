@@ -24,10 +24,11 @@ export function titleView({ save, best }) {
 export function howToPlay() {
   return `
       <ul>
-        <li>Each round you get <b>${B.throws} throws</b>. A throw draws <b>${B.handSize} dice</b> from your bag and rolls them.</li>
-        <li>Tap dice to <b>lock</b> them, then <b>Re-roll</b> the rest. You have <b>${B.rerolls} re-rolls</b> per round, shared across throws.</li>
+        <li>Each round you get <b>${B.throws} throws</b>. A throw draws <b>${B.handDraw} dice</b> from your bag into your hand. <b>Pick ${B.rollCount}</b> (their shape and special badge are shown), then <b>Roll</b> them onto the table. The other ${B.handDraw - B.rollCount} sit out that throw and are not scored.</li>
+        <li>Tap table dice to <b>hold</b> them, then <b>Re-roll</b> the rest. You have <b>${B.rerolls} re-rolls</b> per round, shared across throws.</li>
         <li><b>Score</b> adds the faces (<span class="pts">points</span>), then special dice apply left to right (<span class="mul">mult</span>, <span class="gold">$</span>). Score = points × mult.</li>
         <li>Reach the target before your throws run out. Unused throws pay $1 each, plus $1 interest per $5 held (max $5).</li>
+        <li>After each throw every die goes back into the bag, and the next throw draws a fresh ${B.handDraw}.</li>
         <li>Buy dice in the shop, sell weak ones for half. Win after round ${totalRounds()}, then keep going in endless mode.</li>
       </ul>`;
 }

@@ -14,7 +14,7 @@ python3 -m http.server 8000   # then open http://localhost:8000/
 ## Rules (current prototype)
 
 - Start: a bag of **8 plain d6**, $4.
-- Each round: **3 throws**. A throw draws **5 dice** from the bag into your **hand**; **Roll** throws them onto the **table**. Tap a table die to hold it (it drops back to your hand and keeps its face); **2 re-rolls** per round, shared across throws, re-roll the dice left on the table.
+- Each round: **3 throws**. A throw draws **7 dice** (`handDraw`) from the bag into your **hand** (two rows, shape and special badge visible). **Pick 5** (`rollCount`; fewer if the bag is short) and **Roll** throws those onto the **table**; the other 2 stay in the hand, dimmed, out of play and unscored for that throw. After scoring, every die (rolled or not) returns to the bag and the next throw draws a fresh 7. Tap a table die to hold it (it drops back to your hand and keeps its face); **2 re-rolls** per round, shared across throws, re-roll the dice left on the table.
 - Score = (sum of faces + point bonuses) × multiplier, specials resolving left to right, shown step by step.
 - Reach the target before your throws run out, or the run ends. **8 rounds** win the run; then optional **endless** mode (linear-ish target growth).
 - Earnings: round reward + $1 per unused throw + $1 interest per $5 held (max $5).
@@ -66,8 +66,8 @@ tools/            placeholder generator, target tuner, headless screenshot scrip
 
 ```sh
 node tests/sim.mjs            # SIM_N=1000 for more runs
-node tools/tune.mjs           # grid-search target curves against the bots
+node tools/tune.mjs [t1,t1..]  # grid-search target curves against the bots (G=1.3,1.36 sets growth values)
 ```
 
-The sim plays seeded runs with a "sensible" bot (locks above-average dice, buys the best value die, sells weak ones) and a random bot.
-Targets were tuned so the sensible bot wins about 40–45% of runs and the random bot almost never wins.
+The sim plays seeded runs with a "sensible" bot (picks the 5 highest-value dice of the 7 drawn, Last Call only on the final throw; holds above-average dice, buys the best value die, sells weak ones) and a random bot (picks 5 at random).
+Picking 5 of 7 made the sensible bot much stronger (73% wins on the old 40…205 curve), so targets were retuned to 40, 55, 75, 100, 135, 185, 255, 345 (round 1 × ~1.36 per round): the sensible bot wins about 40–44% of runs and the random bot never wins.

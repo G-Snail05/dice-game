@@ -1,15 +1,15 @@
 {
-  "_notes": "All tuning lives here. Targets tuned with tests/sim.mjs (see README). Set `antes` to an object like `antesExample` to switch to antes x blinds.",
+  "_notes": "All tuning lives here. Targets tuned with tests/sim.mjs + tools/tune.mjs (see README). Each throw draws handDraw dice and the player rolls rollCount of them. Set `antes` to an object like `antesExample` to switch to antes x blinds.",
   "rounds": 8,
   "targets": [
     40,
-    50,
-    65,
-    85,
-    105,
-    130,
-    165,
-    205
+    55,
+    75,
+    100,
+    135,
+    185,
+    255,
+    345
   ],
   "rewards": [
     3,
@@ -28,10 +28,10 @@
       55,
       75,
       100,
-      130,
-      170,
-      215,
-      270
+      135,
+      185,
+      255,
+      345
     ],
     "blinds": [
       {
@@ -52,11 +52,12 @@
     ]
   },
   "endless": {
-    "step": 50,
+    "step": 90,
     "stepGrowth": 1.15,
     "reward": 5
   },
-  "handSize": 5,
+  "handDraw": 7,
+  "rollCount": 5,
   "throws": 3,
   "rerolls": 2,
   "startingBag": [

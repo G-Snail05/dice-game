@@ -4,7 +4,7 @@ import { enqueue, busy, snapshotRects, setReduced, setSpeed } from './ui/anim.js
 import { rollIn, slide, deal, scoreSequence } from './ui/roundAnim.js';
 import { randomSeed } from './rng.js';
 import { newRun, settleRound, continueEndless, nextRound, serialize, deserialize } from './run.js';
-import { toggleLock, reroll, scoreCurrent, reveal, handDice } from './round.js';
+import { toggleLock, toggleSelect, reroll, scoreCurrent, reveal, handDice, benchDice } from './round.js';
 import { buy, rerollShop, sell } from './shop.js';
 import { titleView, infoView } from './ui/title.js';
 import { roundView } from './ui/roundView.js';
@@ -74,8 +74,10 @@ const actions = {
     const before = rects(), run = state.run;
     if (!reveal(run)) return;
     commit();
-    await rollIn(app, before, handDice(run));
+    // Unpicked dice slide to the bench row while the picked ones fly onto the table (rollIn sets the phase last).
+    await Promise.all([slide(app, before, benchDice(run).map(d => String(d.uid)), 300), rollIn(app, before, handDice(run))]);
   }),
+  pick: el => { toggleSelect(state.run, +el.dataset.i); },
   lock: el => animated(async () => {
     const before = rects(), uid = el.dataset.uid;
     toggleLock(state.run, +el.dataset.i);

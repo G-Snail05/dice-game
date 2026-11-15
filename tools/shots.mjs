@@ -30,8 +30,13 @@ for (const [name, { only, ...opt }] of Object.entries(sizes)) {
     if (s[1] < 44 || s[2] < 44) small.add(`${name}/${n}: "${s[0]}" ${s[1]}x${s[2]}`); };
   const idle = () => p.waitForFunction(() => !window.DG || !DG.busy(), null, { timeout: 30000 });
   const act = async (a, extra = '') => { await p.click(`[data-act="${a}"]${extra}`); await idle(); };
-  // Layout 2: a throw is rolled onto the table before it can be held or scored.
-  const rollIfNeeded = async () => { if (await p.$('[data-act="roll"]')) await act('roll'); };
+  // Draw 7, pick 5: tap dice until Roll is enabled, then roll.
+  const rollIfNeeded = async () => {
+    if (!(await p.$('[data-act="roll"]'))) return;
+    const n = (await p.$$('[data-act="pick"]')).length;
+    for (let i = 0; i < n && (await p.$eval('[data-act="roll"]', e => e.disabled)); i++) await p.click(`[data-act="pick"][data-i="${i}"]`);
+    await act('roll');
+  };
   const score = async () => { await rollIfNeeded(); await act('score'); };
   await p.goto(BASE); await p.waitForSelector('.title'); await p.waitForLoadState('networkidle');
   if (only === 'srcset') { await act('new'); await p.waitForSelector('.round'); await p.waitForLoadState('networkidle'); await checkArt('round'); await ctx.close(); continue; }

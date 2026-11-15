@@ -6,7 +6,8 @@ import { faceKey } from '../dice.js';
 import { fmtMult } from './dom.js';
 
 const dieEl = (root, uid) => root.querySelector(`.die[data-uid="${uid}"]`);
-const rel = (a, b) => ({ dx: b.left - a.left, dy: b.top - a.top });
+// Offset from rect a to rect b, centre to centre (so a size change can be animated with scale()).
+const rel = (a, b) => ({ dx: b.left + b.width / 2 - a.left - a.width / 2, dy: b.top + b.height / 2 - a.top - a.height / 2 });
 
 // Dice fly from where they were (hand slot) onto the table in an arc, tumbling through the pack's
 // roll frames, then land on their face with a squash and bounce. `hop` = re-roll in place.
@@ -24,13 +25,15 @@ async function tumble(root, before, d, k) {
   const img = el.querySelector('img.die-art');
   const old = before.get(String(d.uid)), now = el.getBoundingClientRect();
   const { dx, dy } = old ? rel(now, old) : { dx: 0, dy: 0 };
+  // Hand and table dice can differ in size (desktop: 64px hand, 128px table): scale from the old size too.
+  const k0 = old && now.width ? old.width / now.width : 1, km = (k0 + 1) / 2;
   const lift = Math.max(70, Math.abs(dy) * 0.35);
   const delay = k * 70, dur = 560;
   const final = img && { src: img.src, srcset: img.getAttribute('srcset') };
   const spin = (k % 2 ? -1 : 1) * 360;
   const flight = play(el, [
-    { transform: `translate(${dx}px, ${dy}px) rotate(0deg)` },
-    { transform: `translate(${dx * 0.45}px, ${dy * 0.45 - lift}px) rotate(${spin / 2}deg)`, offset: 0.45 },
+    { transform: `translate(${dx}px, ${dy}px) rotate(0deg) scale(${k0})` },
+    { transform: `translate(${dx * 0.45}px, ${dy * 0.45 - lift}px) rotate(${spin / 2}deg) scale(${km})`, offset: 0.45 },
     { transform: 'translate(0, 0) rotate(' + spin + 'deg)' },
   ], { duration: dur, delay, easing: 'cubic-bezier(.35,.1,.45,1)' });
   if (img && artSrc(`die_${d.shape}_roll_1`)) {
@@ -52,9 +55,9 @@ export async function slide(root, before, uids, dur = 220) {
   await Promise.all(uids.map(uid => {
     const el = dieEl(root, uid), old = before.get(String(uid));
     if (!el || !old) return null;
-    const { dx, dy } = rel(el.getBoundingClientRect(), old);
-    if (!dx && !dy) return null;
-    return play(el, [{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], { duration: dur, easing: 'cubic-bezier(.2,.8,.3,1.2)' });
+    const now = el.getBoundingClientRect(), { dx, dy } = rel(now, old), k = now.width ? old.width / now.width : 1;
+    if (!dx && !dy && k === 1) return null;
+    return play(el, [{ transform: `translate(${dx}px, ${dy}px) scale(${k})` }, { transform: 'none' }], { duration: dur, easing: 'cubic-bezier(.2,.8,.3,1.2)' });
   }));
 }
 

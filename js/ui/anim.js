@@ -17,7 +17,9 @@ export function play(el, keyframes, opts) {
   if (o.duration) o.duration *= speed;
   if (o.delay) o.delay *= speed;
   const a = el.animate(keyframes, o);
-  return a.finished.catch(() => {});
+  // Safety net: never let one stuck animation (seen in Chrome after pause/resume) hold the queue forever.
+  const cap = new Promise(r => setTimeout(r, (o.duration || 0) + (o.delay || 0) + 1000));
+  return Promise.race([a.finished.catch(() => {}), cap]);
 }
 
 // Swap an <img> through frame keys at `fps` (setter does the src swap), `loops` times.

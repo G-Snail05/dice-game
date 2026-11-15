@@ -1,12 +1,14 @@
-// One round: up to `throws` throws; each throw draws `handSize` dice from the bag and rolls them.
-// `rerolls` is a shared pool for the round: re-roll every unlocked die, keep the locked ones.
+// One round: up to `throws` throws. Each throw draws `handDraw` dice (7) from the bag into the hand; the player
+// picks `rollCount` of them (5) and rolls those onto the table (reveal). The rest sit out this throw.
+// `rerolls` is a shared pool for the round: re-roll every unlocked (not held) die, keep the held ones.
+// After scoring, every die (rolled or not) goes back to the bag and the next throw draws a fresh 7.
 import { B, roundInfo } from './balance.js';
 import { rollDie, facesOf } from './dice.js';
 import { scoreThrow } from './scoring.js';
 
 export function startRound(run) {
   const info = roundInfo(run.roundNo);
-  run.round = { ...info, score: 0, throwsLeft: B.throws, rerollsLeft: B.rerolls, hand: [], locked: [], broken: [], last: null, status: 'playing', goldEarned: 0 };
+  run.round = { ...info, score: 0, throwsLeft: B.throws, rerollsLeft: B.rerolls, hand: [], bench: [], selected: [], locked: [], broken: [], last: null, status: 'playing', goldEarned: 0 };
   drawThrow(run);
 }
 
@@ -16,28 +18,60 @@ export function drawThrow(run) {
   const r = run.round;
   const pool = run.bag.filter(d => !r.broken.includes(d.uid)).map(d => d.uid);
   run.rng.shuffle(pool);
-  r.hand = pool.slice(0, B.handSize);
-  r.locked = r.hand.map(() => false);
-  for (const d of handDice(run)) rollDie(d, run.rng);
-  // Faces are decided at draw time (keeps the RNG sequence independent of the UI); the UI shows the dice
-  // in the hand face-down until the player rolls them onto the table (reveal). Engine logic ignores this flag.
+  r.hand = pool.slice(0, B.handDraw);
+  r.bench = [];
+  r.selected = r.hand.map(() => false);
+  r.locked = [];
+  for (const d of handDice(run)) d.face = null;
   r.revealed = false;
 }
 
-export function reveal(run) {
-  if (!run.round || run.round.status !== 'playing' || run.round.revealed) return false;
-  run.round.revealed = true;
+// How many dice must be picked before rolling (fewer if the hand is short).
+export const rollNeed = run => Math.min(B.rollCount, run.round.hand.length);
+export const selectedCount = run => (run.round.selected || []).filter(Boolean).length;
+export const canRoll = run => run.round.status === 'playing' && !run.round.revealed && selectedCount(run) === rollNeed(run);
+
+export function toggleSelect(run, i) {
+  const r = run.round;
+  if (r.status !== 'playing' || r.revealed || i < 0 || i >= r.hand.length) return false;
+  if (!r.selected) r.selected = r.hand.map(() => false);
+  if (!r.selected[i] && selectedCount(run) >= rollNeed(run)) return false;
+  r.selected[i] = !r.selected[i];
   return true;
 }
 
+// Set the selection to exactly these hand indices (used by bots and tests).
+export function selectIndices(run, idx) {
+  const r = run.round;
+  if (r.revealed) return false;
+  r.selected = r.hand.map((_, i) => idx.includes(i));
+  return selectedCount(run) === rollNeed(run);
+}
+
+// Roll the selected dice onto the table: they become the throw (`hand`), the rest go to the `bench`.
+export function reveal(run) {
+  const r = run.round;
+  if (!r || !canRoll(run)) return false;
+  const keep = r.hand.filter((_, i) => r.selected[i]);
+  r.bench = r.hand.filter((_, i) => !r.selected[i]);
+  r.hand = keep;
+  r.selected = [];
+  r.locked = r.hand.map(() => false);
+  for (const d of handDice(run)) rollDie(d, run.rng);
+  r.revealed = true;
+  return true;
+}
+
+export const benchDice = run => (run.round.bench || []).map(uid => run.bag.find(d => d.uid === uid)).filter(Boolean);
+
 export function toggleLock(run, i) {
   const r = run.round;
-  if (r.status !== 'playing' || i < 0 || i >= r.hand.length) return false;
+  if (r.status !== 'playing' || !r.revealed || i < 0 || i >= r.hand.length) return false;
   r.locked[i] = !r.locked[i];
   return true;
 }
 
-export const canReroll = run => run.round.status === 'playing' && run.round.rerollsLeft > 0 && run.round.locked.some(l => !l);
+export const canReroll = run => run.round.status === 'playing' && run.round.revealed && run.round.rerollsLeft > 0 && run.round.locked.some(l => !l);
 
 export function reroll(run) {
   if (!canReroll(run)) return false;
@@ -54,7 +88,7 @@ export function preview(run) {
 // Score the current throw. Returns the scoring result; sets round.status to 'won' / 'lost' / 'playing'.
 export function scoreCurrent(run) {
   const r = run.round;
-  if (r.status !== 'playing') return null;
+  if (r.status !== 'playing' || !r.revealed) return null;
   const res = scoreThrow(handDice(run), { throwsLeft: r.throwsLeft, gold: run.gold, facesOf }, run.rng);
   r.score += res.total;
   run.gold += res.gold;

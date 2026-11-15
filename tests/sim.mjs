@@ -8,7 +8,9 @@ const { makeRng, hashSeed } = await import('../js/rng.js');
 const { SPECIALS, validateSpecials } = await import('../js/specials.js');
 const { scoreThrow } = await import('../js/scoring.js');
 const { newRun, serialize, deserialize, settleRound, continueEndless, nextRound } = await import('../js/run.js');
-const { toggleLock, reroll, scoreCurrent, handDice, preview, reveal } = await import('../js/round.js');
+const { toggleLock, reroll, scoreCurrent, handDice, preview, reveal, toggleSelect, selectIndices, canRoll, rollNeed, benchDice, selectedCount } = await import('../js/round.js');
+const rollFirst = run => { if (!run.round.revealed) { selectIndices(run, run.round.hand.map((_, i) => i).slice(0, rollNeed(run))); reveal(run); } };
+const scoreNow = run => { rollFirst(run); return scoreCurrent(run); };
 const { buy, sell, rerollShop } = await import('../js/shop.js');
 const { faceKey, facesOf, SHAPE_ORDER } = await import('../js/dice.js');
 const { requiredKeys } = await import('../js/art.js');
@@ -51,11 +53,25 @@ eq(facesOf({ shape: 'd6', special: 'overcharged' }), [4, 5, 6, 7, 8, 9], 'overch
 { const r = scoreThrow([D(6), D(2, 'echo'), D(3, 'ruby')]); eq(r.lines.filter(l => l.i != null).map(l => [l.who, l.i]), [['Echo', 1], ['Ruby', 2]], 'breakdown lines carry the die index for the animation');
   eq(r.pts, [6, 6, 3], 'pts after value changers'); }
 
-// --- Reveal (UI flag): faces fixed at draw time, reveal changes nothing else
-{ const run = newRun('reveal'); const faces = handDice(run).map(d => d.face), st = run.rng.state;
-  eq(run.round.revealed, false, 'new throw starts face-down in the hand'); ok(reveal(run), 'reveal'); ok(!reveal(run), 'reveal once');
-  eq([handDice(run).map(d => d.face), run.rng.state], [faces, st], 'reveal does not reroll or touch the RNG');
-  scoreCurrent(run); eq(run.round.revealed, false, 'next throw is face-down again'); }
+// --- Draw 7, pick 5, roll
+{ const run = newRun('pick'); const r = run.round;
+  eq([r.hand.length, r.revealed, selectedCount(run), rollNeed(run)], [BAL.handDraw, false, 0, BAL.rollCount], 'draws handDraw face-down, nothing selected, need rollCount');
+  ok(handDice(run).every(d => d.face === null), 'drawn dice have no face before the roll');
+  ok(!canRoll(run) && !reveal(run), 'cannot roll before picking');
+  ok(scoreCurrent(run) === null && !reroll(run) && !toggleLock(run, 0), 'cannot score, re-roll or hold before rolling');
+  for (let i = 0; i < BAL.rollCount; i++) ok(toggleSelect(run, i), 'select ' + i);
+  ok(!toggleSelect(run, BAL.rollCount), 'cannot select more than rollCount');
+  ok(toggleSelect(run, 0) && toggleSelect(run, BAL.handDraw - 1), 'swap a selection');
+  const picked = r.hand.filter((_, i) => r.selected[i]), others = r.hand.filter((_, i) => !r.selected[i]);
+  ok(canRoll(run) && reveal(run), 'roll with exactly rollCount picked');
+  eq([r.hand, r.bench], [picked, others], 'picked dice are the throw, the rest are benched');
+  eq([handDice(run).length, benchDice(run).length], [BAL.rollCount, BAL.handDraw - BAL.rollCount], '5 on the table, 2 benched');
+  ok(handDice(run).every(d => d.face >= 1) && benchDice(run).every(d => d.face === null), 'only rolled dice get faces');
+  const res = scoreCurrent(run); eq(res.pts.length, BAL.rollCount, 'only the rolled dice are scored');
+  eq([r.hand.length, r.bench.length, r.revealed], [BAL.handDraw, 0, false], 'next throw redraws a full 7 from the bag'); }
+{ const run = newRun('short'); run.bag = run.bag.slice(0, 4); run.round.broken = []; scoreNow(run); // force a short hand
+  const r = run.round; ok(r.hand.length === 4 && rollNeed(run) === 4, 'short bag: need = dice in hand');
+  ok(selectIndices(run, [0, 1, 2, 3]) && reveal(run), 'can roll a short hand'); }
 
 // --- Balance / schedule
 eq(totalRounds(), BAL.rounds, 'rounds from balance');
@@ -65,16 +81,16 @@ ok(Array.from({ length: 12 }, (_, i) => roundInfo(i + 1).target).every((t, i, a)
 // --- Round / run mechanics
 { const run = newRun('mech');
   eq([run.bag.length, run.bag.every(d => d.shape === 'd6' && !d.special), run.gold], [8, true, BAL.startGold], 'starting bag 8 plain d6, start gold');
-  eq([run.round.hand.length, run.round.throwsLeft, run.round.rerollsLeft], [BAL.handSize, BAL.throws, BAL.rerolls], 'hand/throws/rerolls');
-  toggleLock(run, 0); const kept = handDice(run)[0].face;
+  eq([run.round.hand.length, run.round.throwsLeft, run.round.rerollsLeft], [BAL.handDraw, BAL.throws, BAL.rerolls], 'hand/throws/rerolls');
+  rollFirst(run); toggleLock(run, 0); const kept = handDice(run)[0].face;
   for (let i = 0; i < BAL.rerolls; i++) ok(reroll(run), 'reroll allowed');
   ok(!reroll(run), 'reroll pool exhausted'); eq(handDice(run)[0].face, kept, 'locked die kept its face');
   const pv = preview(run).total; const res = scoreCurrent(run); eq(res.total, pv, 'preview matches score (no rng specials)');
   // saving mid-run round-trips exactly
-  const copy = deserialize(serialize(run)); scoreCurrent(run); scoreCurrent(copy); eq(serialize(copy), serialize(run), 'save/load resumes identically'); }
+  const copy = deserialize(serialize(run)); scoreNow(run); scoreNow(copy); eq(serialize(copy), serialize(run), 'save/load resumes identically'); }
 
 // --- Shop
-{ const run = newRun('shop'); run.round.score = 999; scoreCurrent(run); settleRound(run);
+{ const run = newRun('shop'); run.round.score = 999; scoreNow(run); settleRound(run);
   eq(run.phase, 'shop', 'won round goes to shop'); ok(run.shop.offers.length === BAL.shop.slots, 'shop slots');
   ok(!!run.shop.offers[0].special, 'first shop guarantees a special');
   run.gold = 50; const n = run.bag.length; ok(buy(run, 0), 'buy'); eq(run.bag.length, n + 1, 'bought die joins bag'); ok(!buy(run, 0), 'cannot buy sold slot');
@@ -84,7 +100,7 @@ ok(Array.from({ length: 12 }, (_, i) => roundInfo(i + 1).target).every((t, i, a)
   ok(nextRound(run) && run.roundNo === 2 && run.phase === 'round', 'next round'); }
 
 // --- Lose path
-{ const run = newRun('lose'); run.round.target = 10 ** 9; for (let i = 0; i < BAL.throws; i++) scoreCurrent(run); settleRound(run); eq(run.phase, 'lose', 'missing target loses'); }
+{ const run = newRun('lose'); run.round.target = 10 ** 9; for (let i = 0; i < BAL.throws; i++) scoreNow(run); settleRound(run); eq(run.phase, 'lose', 'missing target loses'); }
 
 // --- Art keys: active manifest (style A pack) and the placeholder fallback both cover every key; every file exists.
 { const keys = requiredKeys();
