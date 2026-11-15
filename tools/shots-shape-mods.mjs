@@ -8,9 +8,13 @@ const b = await chromium.launch({ executablePath: process.env.CHROME || '/opt/go
 const errs = [], notes = [];
 const sizes = { phone: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, desktop: { viewport: { width: 1280, height: 800 } } };
 const idle = p => p.waitForFunction(() => !DG.busy(), null, { timeout: 30000 });
+// Flip a setting through the game's own change handler (same path as the Settings toggle).
+const setSetting = (p, key, on) => p.evaluate(([key, on]) => { const app = document.getElementById('app') || document.body.firstElementChild;
+  const el = Object.assign(document.createElement('input'), { type: 'checkbox', checked: on }); el.dataset.setting = key; el.hidden = true;
+  app.append(el); el.dispatchEvent(new Event('change', { bubbles: true })); el.remove(); }, [key, on]);
 const frozen = async (p, fn) => { await p.evaluate(() => document.getAnimations().forEach(a => a.pause())); await fn(); await p.evaluate(() => document.getAnimations().forEach(a => a.play())); };
-// Hand: Ruby d12, Gold d10, Overcharged d20, Glass d4, Ember d8 (picked), plus two plain d6.
-const HAND = [['d12', 'ruby'], ['d10', 'gold'], ['d20', 'overcharged'], ['d4', 'glass'], ['d8', 'ember']];
+// Hand: Ruby d12, Gold d10, Overcharged d20, Glass d4, Ember d8 (picked), Overcharged d6 + a plain d6 (held back).
+const HAND = [['d12', 'ruby'], ['d10', 'gold'], ['d20', 'overcharged'], ['d4', 'glass'], ['d8', 'ember'], ['d6', 'overcharged']]; // the d6 Overcharged stays in hand (not thrown)
 
 for (const [name, opt] of Object.entries(sizes)) {
   const ctx = await b.newContext(opt), p = await ctx.newPage();
@@ -30,6 +34,10 @@ for (const [name, opt] of Object.entries(sizes)) {
   notes.push(`${name} offers: ${offers.join(' | ')}`);
   if (!offers[1].includes('12 or more') || !offers[2].includes('4–7')) errs.push(`${name}: shape-specific desc missing`);
   await shot('01-shop-modified-shapes', true);
+  await setSetting(p, 'hc', true); await p.waitForLoadState('networkidle'); await p.waitForTimeout(150);
+  if (!(await p.evaluate(() => document.body.classList.contains('hc')))) errs.push(`${name}: hc did not switch on`);
+  await shot('01b-shop-modified-shapes-hc', true);
+  await setSetting(p, 'hc', false); await p.waitForTimeout(150);
   // Buy the d12 Gold to show it in the bag list.
   await p.click('[data-act="buy"][data-i="1"]'); await p.waitForTimeout(150); await shot('02-shop-bought', true);
   await p.click('[data-act="next"]'); await p.waitForSelector('.r2');
@@ -41,9 +49,17 @@ for (const [name, opt] of Object.entries(sizes)) {
   await p.waitForLoadState('networkidle'); await shot('03-hand-modified-shapes');
   for (const i of [0, 1, 2, 3, 4]) await p.click(`.die[data-act="pick"][data-i="${i}"]`);
   await p.click('[data-act="roll"]'); await idle(p); await p.waitForTimeout(200);
+  const mods = await p.$$eval('.modwrap', ws => ws.map(w => [...w.querySelectorAll('img')].map(i => (i.complete && i.naturalWidth ? '' : 'BROKEN:') + i.currentSrc.split('/').pop()).join('+')));
+  notes.push(`${name} mod layers: ${mods.join(' | ')}`);
+  if (mods.some(m => /BROKEN/.test(m))) errs.push(`${name}: broken mod art`);
   const lines = await p.$$eval('.tally li', els => els.map(e => e.textContent.trim()));
   notes.push(`${name} throw: ${lines.join(' / ')}`);
   await shot('04-throw-modified-shapes');
+  await setSetting(p, 'hc', true); await p.waitForLoadState('networkidle'); await p.waitForTimeout(150);
+  const hcSrc = await p.$$eval('.tray .modovl, .modwrap .modovl', im => im.map(i => i.currentSrc));
+  if (!hcSrc.length || !hcSrc.every(s => /_hc\.png/.test(s))) errs.push(`${name}: hc mod sprites not used: ${hcSrc.join(', ')}`);
+  await shot('04b-throw-modified-shapes-hc');
+  await setSetting(p, 'hc', false); await p.waitForTimeout(150);
   await p.evaluate(() => DG.setSpeed(2));
   await p.click('[data-act="score"]'); await p.waitForSelector('body[data-anim="score-pop"]'); await p.waitForTimeout(3600); await frozen(p, () => shot('05-scoring'));
   await p.evaluate(() => DG.setSpeed(1)); await idle(p);

@@ -44,12 +44,14 @@
   }
  },
  "counts": {
-  "dice": 88,
-  "dice_hc": 88,
+  "dice": 103,
+  "dice_hc": 103,
   "specials": 96,
   "specials_hc": 71,
   "fx": 80,
   "fx_hc": 42,
+  "shape_mods": 63,
+  "shape_mods_hc": 63,
   "ui": 85,
   "ui_hc": 72,
   "font": 8,
@@ -58,7 +60,7 @@
   "counters": 62,
   "counters_hc": 55
  },
- "total": 755,
+ "total": 911,
  "assets": [
   {
    "name": "die_d4_1",
@@ -230,6 +232,138 @@
    },
    "shape": "d4",
    "face": 4,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d4_5",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d4_5.png",
+    "1x": "1x/die_d4_5.png",
+    "2x": "2x/die_d4_5.png",
+    "3x": "3x/die_d4_5.png"
+   },
+   "shape": "d4",
+   "face": 5,
+   "builder_key": "die_d4_face5",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d4_5_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d4_5_hc.png",
+    "1x": "1x/die_d4_5_hc.png",
+    "2x": "2x/die_d4_5_hc.png",
+    "3x": "3x/die_d4_5_hc.png"
+   },
+   "shape": "d4",
+   "face": 5,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d4_6",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d4_6.png",
+    "1x": "1x/die_d4_6.png",
+    "2x": "2x/die_d4_6.png",
+    "3x": "3x/die_d4_6.png"
+   },
+   "shape": "d4",
+   "face": 6,
+   "builder_key": "die_d4_face6",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d4_6_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d4_6_hc.png",
+    "1x": "1x/die_d4_6_hc.png",
+    "2x": "2x/die_d4_6_hc.png",
+    "3x": "3x/die_d4_6_hc.png"
+   },
+   "shape": "d4",
+   "face": 6,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d4_7",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d4_7.png",
+    "1x": "1x/die_d4_7.png",
+    "2x": "2x/die_d4_7.png",
+    "3x": "3x/die_d4_7.png"
+   },
+   "shape": "d4",
+   "face": 7,
+   "builder_key": "die_d4_face7",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d4_7_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d4_7_hc.png",
+    "1x": "1x/die_d4_7_hc.png",
+    "2x": "2x/die_d4_7_hc.png",
+    "3x": "3x/die_d4_7_hc.png"
+   },
+   "shape": "d4",
+   "face": 7,
    "variant": "high_contrast"
   },
   {
@@ -1257,6 +1391,138 @@
    "variant": "high_contrast"
   },
   {
+   "name": "die_d8_9",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d8_9.png",
+    "1x": "1x/die_d8_9.png",
+    "2x": "2x/die_d8_9.png",
+    "3x": "3x/die_d8_9.png"
+   },
+   "shape": "d8",
+   "face": 9,
+   "builder_key": "die_d8_face9",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d8_9_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d8_9_hc.png",
+    "1x": "1x/die_d8_9_hc.png",
+    "2x": "2x/die_d8_9_hc.png",
+    "3x": "3x/die_d8_9_hc.png"
+   },
+   "shape": "d8",
+   "face": 9,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d8_10",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d8_10.png",
+    "1x": "1x/die_d8_10.png",
+    "2x": "2x/die_d8_10.png",
+    "3x": "3x/die_d8_10.png"
+   },
+   "shape": "d8",
+   "face": 10,
+   "builder_key": "die_d8_face10",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d8_10_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d8_10_hc.png",
+    "1x": "1x/die_d8_10_hc.png",
+    "2x": "2x/die_d8_10_hc.png",
+    "3x": "3x/die_d8_10_hc.png"
+   },
+   "shape": "d8",
+   "face": 10,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d8_11",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d8_11.png",
+    "1x": "1x/die_d8_11.png",
+    "2x": "2x/die_d8_11.png",
+    "3x": "3x/die_d8_11.png"
+   },
+   "shape": "d8",
+   "face": 11,
+   "builder_key": "die_d8_face11",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d8_11_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d8_11_hc.png",
+    "1x": "1x/die_d8_11_hc.png",
+    "2x": "2x/die_d8_11_hc.png",
+    "3x": "3x/die_d8_11_hc.png"
+   },
+   "shape": "d8",
+   "face": 11,
+   "variant": "high_contrast"
+  },
+  {
    "name": "die_d8_blank",
    "category": "dice",
    "native_size": [
@@ -1809,6 +2075,138 @@
    },
    "shape": "d10",
    "face": 10,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d10_11",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d10_11.png",
+    "1x": "1x/die_d10_11.png",
+    "2x": "2x/die_d10_11.png",
+    "3x": "3x/die_d10_11.png"
+   },
+   "shape": "d10",
+   "face": 11,
+   "builder_key": "die_d10_face11",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d10_11_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d10_11_hc.png",
+    "1x": "1x/die_d10_11_hc.png",
+    "2x": "2x/die_d10_11_hc.png",
+    "3x": "3x/die_d10_11_hc.png"
+   },
+   "shape": "d10",
+   "face": 11,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d10_12",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d10_12.png",
+    "1x": "1x/die_d10_12.png",
+    "2x": "2x/die_d10_12.png",
+    "3x": "3x/die_d10_12.png"
+   },
+   "shape": "d10",
+   "face": 12,
+   "builder_key": "die_d10_face12",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d10_12_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d10_12_hc.png",
+    "1x": "1x/die_d10_12_hc.png",
+    "2x": "2x/die_d10_12_hc.png",
+    "3x": "3x/die_d10_12_hc.png"
+   },
+   "shape": "d10",
+   "face": 12,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d10_13",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d10_13.png",
+    "1x": "1x/die_d10_13.png",
+    "2x": "2x/die_d10_13.png",
+    "3x": "3x/die_d10_13.png"
+   },
+   "shape": "d10",
+   "face": 13,
+   "builder_key": "die_d10_face13",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d10_13_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d10_13_hc.png",
+    "1x": "1x/die_d10_13_hc.png",
+    "2x": "2x/die_d10_13_hc.png",
+    "3x": "3x/die_d10_13_hc.png"
+   },
+   "shape": "d10",
+   "face": 13,
    "variant": "high_contrast"
   },
   {
@@ -2450,6 +2848,138 @@
    },
    "shape": "d12",
    "face": 12,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d12_13",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d12_13.png",
+    "1x": "1x/die_d12_13.png",
+    "2x": "2x/die_d12_13.png",
+    "3x": "3x/die_d12_13.png"
+   },
+   "shape": "d12",
+   "face": 13,
+   "builder_key": "die_d12_face13",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d12_13_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d12_13_hc.png",
+    "1x": "1x/die_d12_13_hc.png",
+    "2x": "2x/die_d12_13_hc.png",
+    "3x": "3x/die_d12_13_hc.png"
+   },
+   "shape": "d12",
+   "face": 13,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d12_14",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d12_14.png",
+    "1x": "1x/die_d12_14.png",
+    "2x": "2x/die_d12_14.png",
+    "3x": "3x/die_d12_14.png"
+   },
+   "shape": "d12",
+   "face": 14,
+   "builder_key": "die_d12_face14",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d12_14_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d12_14_hc.png",
+    "1x": "1x/die_d12_14_hc.png",
+    "2x": "2x/die_d12_14_hc.png",
+    "3x": "3x/die_d12_14_hc.png"
+   },
+   "shape": "d12",
+   "face": 14,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d12_15",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d12_15.png",
+    "1x": "1x/die_d12_15.png",
+    "2x": "2x/die_d12_15.png",
+    "3x": "3x/die_d12_15.png"
+   },
+   "shape": "d12",
+   "face": 15,
+   "builder_key": "die_d12_face15",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d12_15_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d12_15_hc.png",
+    "1x": "1x/die_d12_15_hc.png",
+    "2x": "2x/die_d12_15_hc.png",
+    "3x": "3x/die_d12_15_hc.png"
+   },
+   "shape": "d12",
+   "face": 15,
    "variant": "high_contrast"
   },
   {
@@ -3435,6 +3965,138 @@
    },
    "shape": "d20",
    "face": 20,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d20_21",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d20_21.png",
+    "1x": "1x/die_d20_21.png",
+    "2x": "2x/die_d20_21.png",
+    "3x": "3x/die_d20_21.png"
+   },
+   "shape": "d20",
+   "face": 21,
+   "builder_key": "die_d20_face21",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d20_21_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d20_21_hc.png",
+    "1x": "1x/die_d20_21_hc.png",
+    "2x": "2x/die_d20_21_hc.png",
+    "3x": "3x/die_d20_21_hc.png"
+   },
+   "shape": "d20",
+   "face": 21,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d20_22",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d20_22.png",
+    "1x": "1x/die_d20_22.png",
+    "2x": "2x/die_d20_22.png",
+    "3x": "3x/die_d20_22.png"
+   },
+   "shape": "d20",
+   "face": 22,
+   "builder_key": "die_d20_face22",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d20_22_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d20_22_hc.png",
+    "1x": "1x/die_d20_22_hc.png",
+    "2x": "2x/die_d20_22_hc.png",
+    "3x": "3x/die_d20_22_hc.png"
+   },
+   "shape": "d20",
+   "face": 22,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_d20_23",
+   "category": "dice",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d20_23.png",
+    "1x": "1x/die_d20_23.png",
+    "2x": "2x/die_d20_23.png",
+    "3x": "3x/die_d20_23.png"
+   },
+   "shape": "d20",
+   "face": 23,
+   "builder_key": "die_d20_face23",
+   "overcharged_face": true,
+   "note": "Overcharged (+3) face above the normal top face; numeral style as die_d6_7-9"
+  },
+  {
+   "name": "die_d20_23_hc",
+   "category": "dice_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_d20_23_hc.png",
+    "1x": "1x/die_d20_23_hc.png",
+    "2x": "2x/die_d20_23_hc.png",
+    "3x": "3x/die_d20_23_hc.png"
+   },
+   "shape": "d20",
+   "face": 23,
    "variant": "high_contrast"
   },
   {
@@ -11396,6 +12058,5073 @@
      8
     ]
    }
+  },
+  {
+   "name": "mod_badge_ruby",
+   "category": "shape_mods",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_ruby.png",
+    "1x": "1x/mod_badge_ruby.png",
+    "2x": "2x/mod_badge_ruby.png",
+    "3x": "3x/mod_badge_ruby.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "builder_key": "mod_badge_ruby",
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   }
+  },
+  {
+   "name": "mod_ruby_d4",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d4.png",
+    "1x": "1x/mod_ruby_d4.png",
+    "2x": "2x/mod_ruby_d4.png",
+    "3x": "3x/mod_ruby_d4.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d4",
+   "builder_key": "mod_ruby_d4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ruby_d6",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d6.png",
+    "1x": "1x/mod_ruby_d6.png",
+    "2x": "2x/mod_ruby_d6.png",
+    "3x": "3x/mod_ruby_d6.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d6",
+   "builder_key": "mod_ruby_d6",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ruby_d8",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d8.png",
+    "1x": "1x/mod_ruby_d8.png",
+    "2x": "2x/mod_ruby_d8.png",
+    "3x": "3x/mod_ruby_d8.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d8",
+   "builder_key": "mod_ruby_d8",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ruby_d10",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d10.png",
+    "1x": "1x/mod_ruby_d10.png",
+    "2x": "2x/mod_ruby_d10.png",
+    "3x": "3x/mod_ruby_d10.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d10",
+   "builder_key": "mod_ruby_d10",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ruby_d12",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d12.png",
+    "1x": "1x/mod_ruby_d12.png",
+    "2x": "2x/mod_ruby_d12.png",
+    "3x": "3x/mod_ruby_d12.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d12",
+   "builder_key": "mod_ruby_d12",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ruby_d20",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d20.png",
+    "1x": "1x/mod_ruby_d20.png",
+    "2x": "2x/mod_ruby_d20.png",
+    "3x": "3x/mod_ruby_d20.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d20",
+   "builder_key": "mod_ruby_d20",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_badge_ruby_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_ruby_hc.png",
+    "1x": "1x/mod_badge_ruby_hc.png",
+    "2x": "2x/mod_badge_ruby_hc.png",
+    "3x": "3x/mod_badge_ruby_hc.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "builder_key": null,
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ruby_d4_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d4_hc.png",
+    "1x": "1x/mod_ruby_d4_hc.png",
+    "2x": "2x/mod_ruby_d4_hc.png",
+    "3x": "3x/mod_ruby_d4_hc.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d4",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ruby_d6_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d6_hc.png",
+    "1x": "1x/mod_ruby_d6_hc.png",
+    "2x": "2x/mod_ruby_d6_hc.png",
+    "3x": "3x/mod_ruby_d6_hc.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d6",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ruby_d8_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d8_hc.png",
+    "1x": "1x/mod_ruby_d8_hc.png",
+    "2x": "2x/mod_ruby_d8_hc.png",
+    "3x": "3x/mod_ruby_d8_hc.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d8",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ruby_d10_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d10_hc.png",
+    "1x": "1x/mod_ruby_d10_hc.png",
+    "2x": "2x/mod_ruby_d10_hc.png",
+    "3x": "3x/mod_ruby_d10_hc.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d10",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ruby_d12_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d12_hc.png",
+    "1x": "1x/mod_ruby_d12_hc.png",
+    "2x": "2x/mod_ruby_d12_hc.png",
+    "3x": "3x/mod_ruby_d12_hc.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d12",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ruby_d20_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ruby_d20_hc.png",
+    "1x": "1x/mod_ruby_d20_hc.png",
+    "2x": "2x/mod_ruby_d20_hc.png",
+    "3x": "3x/mod_ruby_d20_hc.png"
+   },
+   "mod": "ruby",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x1.5",
+   "shape": "d20",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_badge_ember",
+   "category": "shape_mods",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_ember.png",
+    "1x": "1x/mod_badge_ember.png",
+    "2x": "2x/mod_badge_ember.png",
+    "3x": "3x/mod_badge_ember.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "builder_key": "mod_badge_ember",
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   }
+  },
+  {
+   "name": "mod_ember_d4",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d4.png",
+    "1x": "1x/mod_ember_d4.png",
+    "2x": "2x/mod_ember_d4.png",
+    "3x": "3x/mod_ember_d4.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d4",
+   "builder_key": "mod_ember_d4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ember_d6",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d6.png",
+    "1x": "1x/mod_ember_d6.png",
+    "2x": "2x/mod_ember_d6.png",
+    "3x": "3x/mod_ember_d6.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d6",
+   "builder_key": "mod_ember_d6",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ember_d8",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d8.png",
+    "1x": "1x/mod_ember_d8.png",
+    "2x": "2x/mod_ember_d8.png",
+    "3x": "3x/mod_ember_d8.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d8",
+   "builder_key": "mod_ember_d8",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ember_d10",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d10.png",
+    "1x": "1x/mod_ember_d10.png",
+    "2x": "2x/mod_ember_d10.png",
+    "3x": "3x/mod_ember_d10.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d10",
+   "builder_key": "mod_ember_d10",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ember_d12",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d12.png",
+    "1x": "1x/mod_ember_d12.png",
+    "2x": "2x/mod_ember_d12.png",
+    "3x": "3x/mod_ember_d12.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d12",
+   "builder_key": "mod_ember_d12",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_ember_d20",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d20.png",
+    "1x": "1x/mod_ember_d20.png",
+    "2x": "2x/mod_ember_d20.png",
+    "3x": "3x/mod_ember_d20.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d20",
+   "builder_key": "mod_ember_d20",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_badge_ember_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_ember_hc.png",
+    "1x": "1x/mod_badge_ember_hc.png",
+    "2x": "2x/mod_badge_ember_hc.png",
+    "3x": "3x/mod_badge_ember_hc.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "builder_key": null,
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ember_d4_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d4_hc.png",
+    "1x": "1x/mod_ember_d4_hc.png",
+    "2x": "2x/mod_ember_d4_hc.png",
+    "3x": "3x/mod_ember_d4_hc.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d4",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ember_d6_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d6_hc.png",
+    "1x": "1x/mod_ember_d6_hc.png",
+    "2x": "2x/mod_ember_d6_hc.png",
+    "3x": "3x/mod_ember_d6_hc.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d6",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ember_d8_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d8_hc.png",
+    "1x": "1x/mod_ember_d8_hc.png",
+    "2x": "2x/mod_ember_d8_hc.png",
+    "3x": "3x/mod_ember_d8_hc.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d8",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ember_d10_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d10_hc.png",
+    "1x": "1x/mod_ember_d10_hc.png",
+    "2x": "2x/mod_ember_d10_hc.png",
+    "3x": "3x/mod_ember_d10_hc.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d10",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ember_d12_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d12_hc.png",
+    "1x": "1x/mod_ember_d12_hc.png",
+    "2x": "2x/mod_ember_d12_hc.png",
+    "3x": "3x/mod_ember_d12_hc.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d12",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_ember_d20_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_ember_d20_hc.png",
+    "1x": "1x/mod_ember_d20_hc.png",
+    "2x": "2x/mod_ember_d20_hc.png",
+    "3x": "3x/mod_ember_d20_hc.png"
+   },
+   "mod": "ember",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "+2",
+   "shape": "d20",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_badge_lastcall",
+   "category": "shape_mods",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_lastcall.png",
+    "1x": "1x/mod_badge_lastcall.png",
+    "2x": "2x/mod_badge_lastcall.png",
+    "3x": "3x/mod_badge_lastcall.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "builder_key": "mod_badge_lastcall",
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   }
+  },
+  {
+   "name": "mod_lastcall_d4",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d4.png",
+    "1x": "1x/mod_lastcall_d4.png",
+    "2x": "2x/mod_lastcall_d4.png",
+    "3x": "3x/mod_lastcall_d4.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d4",
+   "builder_key": "mod_lastcall_d4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_lastcall_d6",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d6.png",
+    "1x": "1x/mod_lastcall_d6.png",
+    "2x": "2x/mod_lastcall_d6.png",
+    "3x": "3x/mod_lastcall_d6.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d6",
+   "builder_key": "mod_lastcall_d6",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_lastcall_d8",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d8.png",
+    "1x": "1x/mod_lastcall_d8.png",
+    "2x": "2x/mod_lastcall_d8.png",
+    "3x": "3x/mod_lastcall_d8.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d8",
+   "builder_key": "mod_lastcall_d8",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_lastcall_d10",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d10.png",
+    "1x": "1x/mod_lastcall_d10.png",
+    "2x": "2x/mod_lastcall_d10.png",
+    "3x": "3x/mod_lastcall_d10.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d10",
+   "builder_key": "mod_lastcall_d10",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_lastcall_d12",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d12.png",
+    "1x": "1x/mod_lastcall_d12.png",
+    "2x": "2x/mod_lastcall_d12.png",
+    "3x": "3x/mod_lastcall_d12.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d12",
+   "builder_key": "mod_lastcall_d12",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_lastcall_d20",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d20.png",
+    "1x": "1x/mod_lastcall_d20.png",
+    "2x": "2x/mod_lastcall_d20.png",
+    "3x": "3x/mod_lastcall_d20.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d20",
+   "builder_key": "mod_lastcall_d20",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_badge_lastcall_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_lastcall_hc.png",
+    "1x": "1x/mod_badge_lastcall_hc.png",
+    "2x": "2x/mod_badge_lastcall_hc.png",
+    "3x": "3x/mod_badge_lastcall_hc.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "builder_key": null,
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_lastcall_d4_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d4_hc.png",
+    "1x": "1x/mod_lastcall_d4_hc.png",
+    "2x": "2x/mod_lastcall_d4_hc.png",
+    "3x": "3x/mod_lastcall_d4_hc.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d4",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_lastcall_d6_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d6_hc.png",
+    "1x": "1x/mod_lastcall_d6_hc.png",
+    "2x": "2x/mod_lastcall_d6_hc.png",
+    "3x": "3x/mod_lastcall_d6_hc.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d6",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_lastcall_d8_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d8_hc.png",
+    "1x": "1x/mod_lastcall_d8_hc.png",
+    "2x": "2x/mod_lastcall_d8_hc.png",
+    "3x": "3x/mod_lastcall_d8_hc.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d8",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_lastcall_d10_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d10_hc.png",
+    "1x": "1x/mod_lastcall_d10_hc.png",
+    "2x": "2x/mod_lastcall_d10_hc.png",
+    "3x": "3x/mod_lastcall_d10_hc.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d10",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_lastcall_d12_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d12_hc.png",
+    "1x": "1x/mod_lastcall_d12_hc.png",
+    "2x": "2x/mod_lastcall_d12_hc.png",
+    "3x": "3x/mod_lastcall_d12_hc.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d12",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_lastcall_d20_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_lastcall_d20_hc.png",
+    "1x": "1x/mod_lastcall_d20_hc.png",
+    "2x": "2x/mod_lastcall_d20_hc.png",
+    "3x": "3x/mod_lastcall_d20_hc.png"
+   },
+   "mod": "lastcall",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d20",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_badge_matching",
+   "category": "shape_mods",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_matching.png",
+    "1x": "1x/mod_badge_matching.png",
+    "2x": "2x/mod_badge_matching.png",
+    "3x": "3x/mod_badge_matching.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "builder_key": "mod_badge_matching",
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   }
+  },
+  {
+   "name": "mod_matching_d4",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d4.png",
+    "1x": "1x/mod_matching_d4.png",
+    "2x": "2x/mod_matching_d4.png",
+    "3x": "3x/mod_matching_d4.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d4",
+   "builder_key": "mod_matching_d4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_matching_d6",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d6.png",
+    "1x": "1x/mod_matching_d6.png",
+    "2x": "2x/mod_matching_d6.png",
+    "3x": "3x/mod_matching_d6.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d6",
+   "builder_key": "mod_matching_d6",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_matching_d8",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d8.png",
+    "1x": "1x/mod_matching_d8.png",
+    "2x": "2x/mod_matching_d8.png",
+    "3x": "3x/mod_matching_d8.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d8",
+   "builder_key": "mod_matching_d8",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_matching_d10",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d10.png",
+    "1x": "1x/mod_matching_d10.png",
+    "2x": "2x/mod_matching_d10.png",
+    "3x": "3x/mod_matching_d10.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d10",
+   "builder_key": "mod_matching_d10",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_matching_d12",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d12.png",
+    "1x": "1x/mod_matching_d12.png",
+    "2x": "2x/mod_matching_d12.png",
+    "3x": "3x/mod_matching_d12.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d12",
+   "builder_key": "mod_matching_d12",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_matching_d20",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d20.png",
+    "1x": "1x/mod_matching_d20.png",
+    "2x": "2x/mod_matching_d20.png",
+    "3x": "3x/mod_matching_d20.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d20",
+   "builder_key": "mod_matching_d20",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_badge_matching_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_matching_hc.png",
+    "1x": "1x/mod_badge_matching_hc.png",
+    "2x": "2x/mod_badge_matching_hc.png",
+    "3x": "3x/mod_badge_matching_hc.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "builder_key": null,
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_matching_d4_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d4_hc.png",
+    "1x": "1x/mod_matching_d4_hc.png",
+    "2x": "2x/mod_matching_d4_hc.png",
+    "3x": "3x/mod_matching_d4_hc.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d4",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_matching_d6_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d6_hc.png",
+    "1x": "1x/mod_matching_d6_hc.png",
+    "2x": "2x/mod_matching_d6_hc.png",
+    "3x": "3x/mod_matching_d6_hc.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d6",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_matching_d8_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d8_hc.png",
+    "1x": "1x/mod_matching_d8_hc.png",
+    "2x": "2x/mod_matching_d8_hc.png",
+    "3x": "3x/mod_matching_d8_hc.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d8",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_matching_d10_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d10_hc.png",
+    "1x": "1x/mod_matching_d10_hc.png",
+    "2x": "2x/mod_matching_d10_hc.png",
+    "3x": "3x/mod_matching_d10_hc.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d10",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_matching_d12_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d12_hc.png",
+    "1x": "1x/mod_matching_d12_hc.png",
+    "2x": "2x/mod_matching_d12_hc.png",
+    "3x": "3x/mod_matching_d12_hc.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d12",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_matching_d20_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_matching_d20_hc.png",
+    "1x": "1x/mod_matching_d20_hc.png",
+    "2x": "2x/mod_matching_d20_hc.png",
+    "3x": "3x/mod_matching_d20_hc.png"
+   },
+   "mod": "matching",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x2",
+   "shape": "d20",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_badge_overcharged",
+   "category": "shape_mods",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_overcharged.png",
+    "1x": "1x/mod_badge_overcharged.png",
+    "2x": "2x/mod_badge_overcharged.png",
+    "3x": "3x/mod_badge_overcharged.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "builder_key": "mod_badge_overcharged",
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   }
+  },
+  {
+   "name": "mod_overcharged_d4",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d4.png",
+    "1x": "1x/mod_overcharged_d4.png",
+    "2x": "2x/mod_overcharged_d4.png",
+    "3x": "3x/mod_overcharged_d4.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d4",
+   "builder_key": "mod_overcharged_d4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_overcharged_d6",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d6.png",
+    "1x": "1x/mod_overcharged_d6.png",
+    "2x": "2x/mod_overcharged_d6.png",
+    "3x": "3x/mod_overcharged_d6.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d6",
+   "builder_key": "mod_overcharged_d6",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_overcharged_d8",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d8.png",
+    "1x": "1x/mod_overcharged_d8.png",
+    "2x": "2x/mod_overcharged_d8.png",
+    "3x": "3x/mod_overcharged_d8.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d8",
+   "builder_key": "mod_overcharged_d8",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_overcharged_d10",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d10.png",
+    "1x": "1x/mod_overcharged_d10.png",
+    "2x": "2x/mod_overcharged_d10.png",
+    "3x": "3x/mod_overcharged_d10.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d10",
+   "builder_key": "mod_overcharged_d10",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_overcharged_d12",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d12.png",
+    "1x": "1x/mod_overcharged_d12.png",
+    "2x": "2x/mod_overcharged_d12.png",
+    "3x": "3x/mod_overcharged_d12.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d12",
+   "builder_key": "mod_overcharged_d12",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_overcharged_d20",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d20.png",
+    "1x": "1x/mod_overcharged_d20.png",
+    "2x": "2x/mod_overcharged_d20.png",
+    "3x": "3x/mod_overcharged_d20.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d20",
+   "builder_key": "mod_overcharged_d20",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_badge_overcharged_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_overcharged_hc.png",
+    "1x": "1x/mod_badge_overcharged_hc.png",
+    "2x": "2x/mod_badge_overcharged_hc.png",
+    "3x": "3x/mod_badge_overcharged_hc.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "builder_key": null,
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_overcharged_d4_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d4_hc.png",
+    "1x": "1x/mod_overcharged_d4_hc.png",
+    "2x": "2x/mod_overcharged_d4_hc.png",
+    "3x": "3x/mod_overcharged_d4_hc.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d4",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_overcharged_d6_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d6_hc.png",
+    "1x": "1x/mod_overcharged_d6_hc.png",
+    "2x": "2x/mod_overcharged_d6_hc.png",
+    "3x": "3x/mod_overcharged_d6_hc.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d6",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_overcharged_d8_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d8_hc.png",
+    "1x": "1x/mod_overcharged_d8_hc.png",
+    "2x": "2x/mod_overcharged_d8_hc.png",
+    "3x": "3x/mod_overcharged_d8_hc.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d8",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_overcharged_d10_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d10_hc.png",
+    "1x": "1x/mod_overcharged_d10_hc.png",
+    "2x": "2x/mod_overcharged_d10_hc.png",
+    "3x": "3x/mod_overcharged_d10_hc.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d10",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_overcharged_d12_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d12_hc.png",
+    "1x": "1x/mod_overcharged_d12_hc.png",
+    "2x": "2x/mod_overcharged_d12_hc.png",
+    "3x": "3x/mod_overcharged_d12_hc.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d12",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_overcharged_d20_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_overcharged_d20_hc.png",
+    "1x": "1x/mod_overcharged_d20_hc.png",
+    "2x": "2x/mod_overcharged_d20_hc.png",
+    "3x": "3x/mod_overcharged_d20_hc.png"
+   },
+   "mod": "overcharged",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": "+3",
+   "shape": "d20",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_badge_gold",
+   "category": "shape_mods",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_gold.png",
+    "1x": "1x/mod_badge_gold.png",
+    "2x": "2x/mod_badge_gold.png",
+    "3x": "3x/mod_badge_gold.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "builder_key": "mod_badge_gold",
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   }
+  },
+  {
+   "name": "mod_gold_d4",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d4.png",
+    "1x": "1x/mod_gold_d4.png",
+    "2x": "2x/mod_gold_d4.png",
+    "3x": "3x/mod_gold_d4.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d4",
+   "builder_key": "mod_gold_d4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_gold_d6",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d6.png",
+    "1x": "1x/mod_gold_d6.png",
+    "2x": "2x/mod_gold_d6.png",
+    "3x": "3x/mod_gold_d6.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d6",
+   "builder_key": "mod_gold_d6",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_gold_d8",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d8.png",
+    "1x": "1x/mod_gold_d8.png",
+    "2x": "2x/mod_gold_d8.png",
+    "3x": "3x/mod_gold_d8.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d8",
+   "builder_key": "mod_gold_d8",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_gold_d10",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d10.png",
+    "1x": "1x/mod_gold_d10.png",
+    "2x": "2x/mod_gold_d10.png",
+    "3x": "3x/mod_gold_d10.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d10",
+   "builder_key": "mod_gold_d10",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_gold_d12",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d12.png",
+    "1x": "1x/mod_gold_d12.png",
+    "2x": "2x/mod_gold_d12.png",
+    "3x": "3x/mod_gold_d12.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d12",
+   "builder_key": "mod_gold_d12",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_gold_d20",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d20.png",
+    "1x": "1x/mod_gold_d20.png",
+    "2x": "2x/mod_gold_d20.png",
+    "3x": "3x/mod_gold_d20.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d20",
+   "builder_key": "mod_gold_d20",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_badge_gold_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_gold_hc.png",
+    "1x": "1x/mod_badge_gold_hc.png",
+    "2x": "2x/mod_badge_gold_hc.png",
+    "3x": "3x/mod_badge_gold_hc.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "builder_key": null,
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_gold_d4_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d4_hc.png",
+    "1x": "1x/mod_gold_d4_hc.png",
+    "2x": "2x/mod_gold_d4_hc.png",
+    "3x": "3x/mod_gold_d4_hc.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d4",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_gold_d6_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d6_hc.png",
+    "1x": "1x/mod_gold_d6_hc.png",
+    "2x": "2x/mod_gold_d6_hc.png",
+    "3x": "3x/mod_gold_d6_hc.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d6",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_gold_d8_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d8_hc.png",
+    "1x": "1x/mod_gold_d8_hc.png",
+    "2x": "2x/mod_gold_d8_hc.png",
+    "3x": "3x/mod_gold_d8_hc.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d8",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_gold_d10_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d10_hc.png",
+    "1x": "1x/mod_gold_d10_hc.png",
+    "2x": "2x/mod_gold_d10_hc.png",
+    "3x": "3x/mod_gold_d10_hc.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d10",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_gold_d12_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d12_hc.png",
+    "1x": "1x/mod_gold_d12_hc.png",
+    "2x": "2x/mod_gold_d12_hc.png",
+    "3x": "3x/mod_gold_d12_hc.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d12",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_gold_d20_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_gold_d20_hc.png",
+    "1x": "1x/mod_gold_d20_hc.png",
+    "2x": "2x/mod_gold_d20_hc.png",
+    "3x": "3x/mod_gold_d20_hc.png"
+   },
+   "mod": "gold",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "effect_colour_name": "money (gold)",
+   "badge_shape": "octagon",
+   "badge_label": null,
+   "shape": "d20",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_badge_twin",
+   "category": "shape_mods",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_twin.png",
+    "1x": "1x/mod_badge_twin.png",
+    "2x": "2x/mod_badge_twin.png",
+    "3x": "3x/mod_badge_twin.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "builder_key": "mod_badge_twin",
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   }
+  },
+  {
+   "name": "mod_twin_d4",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d4.png",
+    "1x": "1x/mod_twin_d4.png",
+    "2x": "2x/mod_twin_d4.png",
+    "3x": "3x/mod_twin_d4.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d4",
+   "builder_key": "mod_twin_d4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_twin_d6",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d6.png",
+    "1x": "1x/mod_twin_d6.png",
+    "2x": "2x/mod_twin_d6.png",
+    "3x": "3x/mod_twin_d6.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d6",
+   "builder_key": "mod_twin_d6",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_twin_d8",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d8.png",
+    "1x": "1x/mod_twin_d8.png",
+    "2x": "2x/mod_twin_d8.png",
+    "3x": "3x/mod_twin_d8.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d8",
+   "builder_key": "mod_twin_d8",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_twin_d10",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d10.png",
+    "1x": "1x/mod_twin_d10.png",
+    "2x": "2x/mod_twin_d10.png",
+    "3x": "3x/mod_twin_d10.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d10",
+   "builder_key": "mod_twin_d10",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_twin_d12",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d12.png",
+    "1x": "1x/mod_twin_d12.png",
+    "2x": "2x/mod_twin_d12.png",
+    "3x": "3x/mod_twin_d12.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d12",
+   "builder_key": "mod_twin_d12",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_twin_d20",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d20.png",
+    "1x": "1x/mod_twin_d20.png",
+    "2x": "2x/mod_twin_d20.png",
+    "3x": "3x/mod_twin_d20.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d20",
+   "builder_key": "mod_twin_d20",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_badge_twin_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_twin_hc.png",
+    "1x": "1x/mod_badge_twin_hc.png",
+    "2x": "2x/mod_badge_twin_hc.png",
+    "3x": "3x/mod_badge_twin_hc.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "builder_key": null,
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_twin_d4_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d4_hc.png",
+    "1x": "1x/mod_twin_d4_hc.png",
+    "2x": "2x/mod_twin_d4_hc.png",
+    "3x": "3x/mod_twin_d4_hc.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d4",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_twin_d6_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d6_hc.png",
+    "1x": "1x/mod_twin_d6_hc.png",
+    "2x": "2x/mod_twin_d6_hc.png",
+    "3x": "3x/mod_twin_d6_hc.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d6",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_twin_d8_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d8_hc.png",
+    "1x": "1x/mod_twin_d8_hc.png",
+    "2x": "2x/mod_twin_d8_hc.png",
+    "3x": "3x/mod_twin_d8_hc.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d8",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_twin_d10_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d10_hc.png",
+    "1x": "1x/mod_twin_d10_hc.png",
+    "2x": "2x/mod_twin_d10_hc.png",
+    "3x": "3x/mod_twin_d10_hc.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d10",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_twin_d12_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d12_hc.png",
+    "1x": "1x/mod_twin_d12_hc.png",
+    "2x": "2x/mod_twin_d12_hc.png",
+    "3x": "3x/mod_twin_d12_hc.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d12",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_twin_d20_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_twin_d20_hc.png",
+    "1x": "1x/mod_twin_d20_hc.png",
+    "2x": "2x/mod_twin_d20_hc.png",
+    "3x": "3x/mod_twin_d20_hc.png"
+   },
+   "mod": "twin",
+   "layer": "points",
+   "effect_colour": "#2563c9",
+   "effect_colour_name": "points (blue)",
+   "badge_shape": "rounded square",
+   "badge_label": null,
+   "shape": "d20",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_badge_echo",
+   "category": "shape_mods",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_echo.png",
+    "1x": "1x/mod_badge_echo.png",
+    "2x": "2x/mod_badge_echo.png",
+    "3x": "3x/mod_badge_echo.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "builder_key": "mod_badge_echo",
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   }
+  },
+  {
+   "name": "mod_echo_d4",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d4.png",
+    "1x": "1x/mod_echo_d4.png",
+    "2x": "2x/mod_echo_d4.png",
+    "3x": "3x/mod_echo_d4.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d4",
+   "builder_key": "mod_echo_d4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_echo_d6",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d6.png",
+    "1x": "1x/mod_echo_d6.png",
+    "2x": "2x/mod_echo_d6.png",
+    "3x": "3x/mod_echo_d6.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d6",
+   "builder_key": "mod_echo_d6",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_echo_d8",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d8.png",
+    "1x": "1x/mod_echo_d8.png",
+    "2x": "2x/mod_echo_d8.png",
+    "3x": "3x/mod_echo_d8.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d8",
+   "builder_key": "mod_echo_d8",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_echo_d10",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d10.png",
+    "1x": "1x/mod_echo_d10.png",
+    "2x": "2x/mod_echo_d10.png",
+    "3x": "3x/mod_echo_d10.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d10",
+   "builder_key": "mod_echo_d10",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_echo_d12",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d12.png",
+    "1x": "1x/mod_echo_d12.png",
+    "2x": "2x/mod_echo_d12.png",
+    "3x": "3x/mod_echo_d12.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d12",
+   "builder_key": "mod_echo_d12",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_echo_d20",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d20.png",
+    "1x": "1x/mod_echo_d20.png",
+    "2x": "2x/mod_echo_d20.png",
+    "3x": "3x/mod_echo_d20.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d20",
+   "builder_key": "mod_echo_d20",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_badge_echo_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_echo_hc.png",
+    "1x": "1x/mod_badge_echo_hc.png",
+    "2x": "2x/mod_badge_echo_hc.png",
+    "3x": "3x/mod_badge_echo_hc.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "builder_key": null,
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_echo_d4_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d4_hc.png",
+    "1x": "1x/mod_echo_d4_hc.png",
+    "2x": "2x/mod_echo_d4_hc.png",
+    "3x": "3x/mod_echo_d4_hc.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d4",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_echo_d6_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d6_hc.png",
+    "1x": "1x/mod_echo_d6_hc.png",
+    "2x": "2x/mod_echo_d6_hc.png",
+    "3x": "3x/mod_echo_d6_hc.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d6",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_echo_d8_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d8_hc.png",
+    "1x": "1x/mod_echo_d8_hc.png",
+    "2x": "2x/mod_echo_d8_hc.png",
+    "3x": "3x/mod_echo_d8_hc.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d8",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_echo_d10_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d10_hc.png",
+    "1x": "1x/mod_echo_d10_hc.png",
+    "2x": "2x/mod_echo_d10_hc.png",
+    "3x": "3x/mod_echo_d10_hc.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d10",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_echo_d12_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d12_hc.png",
+    "1x": "1x/mod_echo_d12_hc.png",
+    "2x": "2x/mod_echo_d12_hc.png",
+    "3x": "3x/mod_echo_d12_hc.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d12",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_echo_d20_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_echo_d20_hc.png",
+    "1x": "1x/mod_echo_d20_hc.png",
+    "2x": "2x/mod_echo_d20_hc.png",
+    "3x": "3x/mod_echo_d20_hc.png"
+   },
+   "mod": "echo",
+   "layer": "rule",
+   "effect_colour": "#8a3ad0",
+   "effect_colour_name": "rule-bending (violet)",
+   "badge_shape": "hexagon",
+   "badge_label": null,
+   "shape": "d20",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_badge_glass",
+   "category": "shape_mods",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_glass.png",
+    "1x": "1x/mod_badge_glass.png",
+    "2x": "2x/mod_badge_glass.png",
+    "3x": "3x/mod_badge_glass.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "builder_key": "mod_badge_glass",
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   }
+  },
+  {
+   "name": "mod_glass_d4",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d4.png",
+    "1x": "1x/mod_glass_d4.png",
+    "2x": "2x/mod_glass_d4.png",
+    "3x": "3x/mod_glass_d4.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d4",
+   "builder_key": "mod_glass_d4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_glass_d6",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d6.png",
+    "1x": "1x/mod_glass_d6.png",
+    "2x": "2x/mod_glass_d6.png",
+    "3x": "3x/mod_glass_d6.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d6",
+   "builder_key": "mod_glass_d6",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_glass_d8",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d8.png",
+    "1x": "1x/mod_glass_d8.png",
+    "2x": "2x/mod_glass_d8.png",
+    "3x": "3x/mod_glass_d8.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d8",
+   "builder_key": "mod_glass_d8",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_glass_d10",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d10.png",
+    "1x": "1x/mod_glass_d10.png",
+    "2x": "2x/mod_glass_d10.png",
+    "3x": "3x/mod_glass_d10.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d10",
+   "builder_key": "mod_glass_d10",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_glass_d12",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d12.png",
+    "1x": "1x/mod_glass_d12.png",
+    "2x": "2x/mod_glass_d12.png",
+    "3x": "3x/mod_glass_d12.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d12",
+   "builder_key": "mod_glass_d12",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_glass_d20",
+   "category": "shape_mods",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d20.png",
+    "1x": "1x/mod_glass_d20.png",
+    "2x": "2x/mod_glass_d20.png",
+    "3x": "3x/mod_glass_d20.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d20",
+   "builder_key": "mod_glass_d20",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   }
+  },
+  {
+   "name": "mod_badge_glass_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/mod_badge_glass_hc.png",
+    "1x": "1x/mod_badge_glass_hc.png",
+    "2x": "2x/mod_badge_glass_hc.png",
+    "3x": "3x/mod_badge_glass_hc.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "builder_key": null,
+   "anchor": {
+    "offset_from_die_origin": [
+     11,
+     -8
+    ],
+    "rule": "badge top-left = die top-left + (11,-8); works on any shape (pill is right-aligned in the 28x11 box)"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_glass_d4_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d4_hc.png",
+    "1x": "1x/mod_glass_d4_hc.png",
+    "2x": "2x/mod_glass_d4_hc.png",
+    "3x": "3x/mod_glass_d4_hc.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d4",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_glass_d6_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d6_hc.png",
+    "1x": "1x/mod_glass_d6_hc.png",
+    "2x": "2x/mod_glass_d6_hc.png",
+    "3x": "3x/mod_glass_d6_hc.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d6",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_glass_d8_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d8_hc.png",
+    "1x": "1x/mod_glass_d8_hc.png",
+    "2x": "2x/mod_glass_d8_hc.png",
+    "3x": "3x/mod_glass_d8_hc.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d8",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_glass_d10_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d10_hc.png",
+    "1x": "1x/mod_glass_d10_hc.png",
+    "2x": "2x/mod_glass_d10_hc.png",
+    "3x": "3x/mod_glass_d10_hc.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d10",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_glass_d12_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d12_hc.png",
+    "1x": "1x/mod_glass_d12_hc.png",
+    "2x": "2x/mod_glass_d12_hc.png",
+    "3x": "3x/mod_glass_d12_hc.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d12",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "mod_glass_d20_hc",
+   "category": "shape_mods_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/mod_glass_d20_hc.png",
+    "1x": "1x/mod_glass_d20_hc.png",
+    "2x": "2x/mod_glass_d20_hc.png",
+    "3x": "3x/mod_glass_d20_hc.png"
+   },
+   "mod": "glass",
+   "layer": "mult",
+   "effect_colour": "#d22a36",
+   "effect_colour_name": "multiplier (red)",
+   "badge_shape": "circle",
+   "badge_label": "x3",
+   "shape": "d20",
+   "builder_key": null,
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ],
+    "badge_at": [
+     13,
+     0
+    ],
+    "rule": "draw the 32x32 die at (2,8) inside this 42x42 canvas; overlay goes on top"
+   },
+   "variant": "high_contrast"
   },
   {
    "name": "ui_btn_roll_normal",

@@ -125,17 +125,33 @@ manifest but stay out of `requiredKeys()` (the placeholder manifest does not cov
 
 The pack's bracket pieces (`fx_chain_bracket_*`) are not used: the chain animation is overlay + connector + glow + one readout.
 
-## Modifiers on every shape (art wanted)
+## Modifiers on every shape (style A art shipped)
 
 The nine modifiers (Ruby, Ember, Last Call, Matching, Overcharged, Gold, Twin, Echo, Glass) can sit on any d4–d20.
-Until art exists the die is the plain shape sprite with the modifier's icon (`icon_*` above) as a CSS badge in its corner.
+Ælfstan's style A pack delivers all 78 keys below with `_hc` twins (synced by `tools/sync-pack-styleA.mjs`, which now ships
+`modArtKeys()` + `modRingKeys()`). Overcharged uses `mod_overcharged_<shape>` (badge "+3") on every shape, d6 included;
+the old d6-only `special_overcharged_*` sprites ("4-9") are not used for modifier dice.
 `modArt()` in `js/ui/dieView.js` tries, per die, first hit wins:
 
 1. `mod_<mod>_<shape>`: per-shape overlay, **42×42 native** (84×84 CSS at 1x), the 32×32 die drawn at (2,8), the same canvas as
    `special_*_overlay` / `fx_ring_*`: a layer-coloured ring traced to that shape plus the badge top-right. It is drawn over the
    plain face sprite, so faces are not redrawn per modifier.
 2. `mod_badge_<mod>`: generic badge, **28×11 native** (56×22 CSS), top-left at die origin + (11, −8), any shape, like `special_*_badge`.
-3. The special's `icon` key as the corner badge (what ships now).
+3. The special's `icon` key as the corner badge (only if neither sprite exists).
+
+**Pointed tops (d4, d8, d10, d20): badge nudged up 2 native px** (`MOD_BADGE_NUDGE` in `js/art.js`) so the apex and its ring show.
+The per-shape sprite has the badge baked in at (13,0) with the ring erased under it, so for these shapes `modArt()` draws
+three layers: `mod_<mod>_<shape>` clipped out of the badge zone (x ≥ 12 + pill_x, y < 12), `fx_ring_<shape>_<layer>` for
+rows 10–11 of that zone (row 9 stays the 1px gap), and `mod_badge_<mod>` at (13,−2). Outside the badge zone
+`mod_<mod>_<shape>` and `fx_ring_<shape>_<layer>` are pixel-identical in the pack (normal and hc), so this is the same art with
+the badge 2px higher. `pill_x` (left edge of the right-aligned pill: ruby 0; ember, last call, matching, overcharged, glass 6;
+gold, twin, echo 15) is measured from the PNG by `tools/build-manifest-styleA.mjs`. Flat tops (d6, d12) use the sprite as drawn.
+`tools/mod-art-check.mjs` + `tools/mod-art-check.py` render every modifier on every shape in the browser (normal + hc) and
+compare them pixel by pixel with the pack's native layers composed this way.
+
+Layout: the badge sits 10 native px above the die (40px at the desktop table's 2x). The wide round layout reserves that
+(table padding 90px, two-column breakdown, 20px side padding on the dice row) and drops table dice to 3x (96px) at
+760–799px tall so everything fits; shop offer dice get 12px top / 14px right margin.
 
 Each key also wants an `_hc` twin. They are listed by `modArtKeys()` in `js/art.js` (kept out of `requiredKeys()`, so missing art is fine).
 `<mod>` ∈ `ruby, ember, lastcall, matching, overcharged, gold, twin, echo, glass`; `<shape>` ∈ `d4, d6, d8, d10, d12, d20`.

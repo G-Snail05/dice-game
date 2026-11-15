@@ -5,7 +5,8 @@
 //   - aliases for game keys the drop-in lists under pack names (ui_btn_settings)
 // The placeholder manifest (assets/manifest.placeholder.json) stays as the per-key fallback.
 import fs from 'node:fs';
-import { requiredKeys, counterArtKeys } from '../js/art.js';
+import zlib from 'node:zlib';
+import { requiredKeys, counterArtKeys, modArtKeys, modRingKeys } from '../js/art.js';
 const ROOT = new URL('..', import.meta.url).pathname, A = ROOT + 'assets/';
 const src = JSON.parse(fs.readFileSync(A + 'pack-styleA/builder-manifest.styleA.json', 'utf8'));
 const exists = p => fs.existsSync(A + p);
@@ -37,13 +38,18 @@ for (const [key, e0] of Object.entries(assets)) {
 }
 // Ship only the keys the game asks for (the full sprite list stays in pack-styleA/builder-manifest.styleA.json).
 // Binary counters ride along (counterArtKeys), with each body's bit_cells from the pack's own manifest.json.
-const wanted = [...requiredKeys(), ...counterArtKeys()];
+const wanted = [...requiredKeys(), ...counterArtKeys(), ...modArtKeys(), ...modRingKeys()];
 for (const k of Object.keys(assets)) if (!wanted.includes(k)) delete assets[k];
 const packMan = JSON.parse(fs.readFileSync(A + 'pack-styleA/manifest.json', 'utf8'));
 const packByName = Object.fromEntries((Array.isArray(packMan.assets) ? packMan.assets : Object.values(packMan.assets)).map(e => [e.name, e]));
 for (const n of [4, 8]) for (const k of [`die_bin${n}_body`, `die_bin${n}_blank`]) {
   const pe = assets[k] && packByName[assets[k].src.split('/').pop().replace(/\.png$/, '')];
   if (pe && pe.bit_cells) Object.assign(assets[k], { bit_cells: pe.bit_cells, cell_size: pe.cell_size, screen: pe.screen });
+}
+// Mod badges: left edge of the opaque pill (pills are right-aligned in the 28x11 box), used for the pointed-shape nudge.
+for (const k of Object.keys(assets)) if (/^mod_badge_/.test(k)) {
+  const nat = pngWidthAndMinX(A + assets[k].src);
+  if (nat) assets[k].pill_x = Math.floor(nat.minX / (nat.w / 28));
 }
 const missing = wanted.filter(k => !assets[k]);
 if (missing.length) { console.error('missing keys:', missing); process.exit(1); }
@@ -56,3 +62,29 @@ const out = {
 };
 fs.writeFileSync(A + 'manifest.json', JSON.stringify(out, null, 1) + '\n');
 console.log(`wrote assets/manifest.json: ${Object.keys(assets).length} entries, ${requiredKeys().length} game keys + ${counterArtKeys().length} counter keys covered, hc for ${wanted.filter(k => assets[k].hc).length}; counter keys without hc: ${counterArtKeys().filter(k => !assets[k].hc).join(', ') || 'none'}`);
+
+// Minimal PNG reader (8-bit RGBA, non-interlaced, as the pack ships): width and the leftmost opaque column.
+function pngWidthAndMinX(file) {
+  const b = fs.readFileSync(file);
+  let o = 8, w = 0, h = 0, ct = 0, depth = 0, idat = [];
+  while (o < b.length) {
+    const len = b.readUInt32BE(o), type = b.toString('ascii', o + 4, o + 8), d = b.subarray(o + 8, o + 8 + len);
+    if (type === 'IHDR') { w = d.readUInt32BE(0); h = d.readUInt32BE(4); depth = d[8]; ct = d[9]; if (d[12]) return null; }
+    if (type === 'IDAT') idat.push(d);
+    o += 12 + len;
+  }
+  if (ct !== 6 || depth !== 8) return null;
+  const raw = zlib.inflateSync(Buffer.concat(idat)), bpp = 4, stride = w * bpp, px = Buffer.alloc(h * stride);
+  for (let y = 0; y < h; y++) {
+    const f = raw[y * (stride + 1)], src = raw.subarray(y * (stride + 1) + 1, (y + 1) * (stride + 1));
+    for (let x = 0; x < stride; x++) {
+      const a = x >= bpp ? px[y * stride + x - bpp] : 0, up = y ? px[(y - 1) * stride + x] : 0, c = y && x >= bpp ? px[(y - 1) * stride + x - bpp] : 0;
+      const p = a + up - c, pa = Math.abs(p - a), pb = Math.abs(p - up), pc = Math.abs(p - c);
+      const pred = [0, a, up, (a + up) >> 1, pa <= pb && pa <= pc ? a : pb <= pc ? up : c][f];
+      px[y * stride + x] = (src[x] + pred) & 255;
+    }
+  }
+  let minX = w;
+  for (let y = 0; y < h; y++) for (let x = 0; x < minX; x++) if (px[y * stride + x * 4 + 3]) { minX = x; break; }
+  return { w, minX };
+}

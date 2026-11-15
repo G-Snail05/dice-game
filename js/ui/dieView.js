@@ -1,4 +1,4 @@
-import { artHTML, artSrc, bitCells } from '../art.js';
+import { artHTML, artSrc, bitCells, POINTED_SHAPES, MOD_BADGE_NUDGE, badgePillX } from '../art.js';
 import { faceKey, specialOf, dieName, facesOf, isCounter, isLink, bitsOf, counterBits } from '../dice.js';
 import { descOf } from '../specials.js';
 import { esc } from './dom.js';
@@ -27,13 +27,24 @@ export function blankArt(die, alt = '') {
 }
 
 // Modifier art hook (see modArtKeys in art.js): per-shape overlay, else a generic badge sprite, else null
-// (the icon badge from badge() is used).
+// (the icon badge from badge() is used). On pointed shapes the badge sits MOD_BADGE_NUDGE px higher so the apex
+// shows: the per-shape sprite is clipped out of the old badge zone, the layer ring fills the uncovered rows, and
+// the badge sprite is drawn 2px up. All in native px of the 42x42 overlay (die at 2,8; badge at 13,0).
+const P42 = v => `${+(v / 42 * 100).toFixed(4)}%`;
 export function modArt(die) {
   const s = specialOf(die);
   if (!s || !s.mod) return null;
-  const per = `mod_${s.id}_${die.shape}`, gen = `mod_badge_${s.id}`;
-  if (artSrc(per)) return artHTML(per, { cls: 'modovl', alt: '' });
-  if (artSrc(gen)) return artHTML(gen, { cls: 'modbadge', alt: '' });
+  const per = `mod_${s.id}_${die.shape}`, gen = `mod_badge_${s.id}`, ring = `fx_ring_${die.shape}_${s.layer}`;
+  const pointed = POINTED_SHAPES.includes(die.shape), pill = badgePillX(gen);
+  if (artSrc(per)) {
+    if (!pointed || pill == null || !artSrc(gen) || !artSrc(ring)) return artHTML(per, { cls: 'modovl', alt: '' });
+    // Badge zone in the per-shape sprite: x >= 12 + pill (pill + 1px gap), y < 12 (11 rows + 1px gap).
+    const zx = P42(12 + pill), zy = P42(12), gy = P42(11 - MOD_BADGE_NUDGE + 1); // first ring row below the nudged badge + gap
+    return artHTML(per, { cls: 'modovl', alt: '' }).replace('<img ', `<img style="clip-path:polygon(0 0,${zx} 0,${zx} ${zy},100% ${zy},100% 100%,0 100%)" `)
+      + artHTML(ring, { cls: 'modovl modring', alt: '' }).replace('<img ', `<img style="clip-path:polygon(${zx} ${gy},100% ${gy},100% ${zy},${zx} ${zy})" `)
+      + artHTML(gen, { cls: 'modbadge nudge', alt: '' });
+  }
+  if (artSrc(gen)) return artHTML(gen, { cls: `modbadge${pointed ? ' nudge' : ''}`, alt: '' });
   return null;
 }
 const withMod = (die, html) => { const m = modArt(die); return m ? `<span class="modwrap">${html}${m}</span>` : html; };

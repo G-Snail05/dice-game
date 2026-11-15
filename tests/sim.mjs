@@ -59,6 +59,7 @@ eq(facesOf({ shape: 'd6', special: 'overcharged' }), [4, 5, 6, 7, 8, 9], 'overch
   const { priceOf } = await import('../js/shop.js');
   const { modArtKeys, initArt } = await import('../js/art.js');
   const MODS = ['ruby', 'ember', 'lastcall', 'matching', 'overcharged', 'gold', 'twin', 'echo', 'glass'];
+  const SHAPES_N = { d4: 4, d6: 6, d8: 8, d10: 10, d12: 12, d20: 20 };
   eq(MODS.filter(m => !SB[m].mod), [], 'all nine d6 modifiers (and Glass) are shape-free modifiers');
   ok(!SB.coin.mod && !SB.counter4.mod && !SB.link4.mod, 'Coin and counters are not modifiers');
   eq(MOD_SHAPES, ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'], 'modifier shapes d4–d20');
@@ -111,6 +112,23 @@ eq(facesOf({ shape: 'd6', special: 'overcharged' }), [4, 5, 6, 7, 8, 9], 'overch
     initArt({ assets: {} }); ok(modArt(die) === null && /icon_mult_x1_5|<i>R<\/i>/.test(badgeHTML(die)), 'no mod art: icon badge');
     initArt({ assets: { mod_badge_ruby: { src: 'b.png' } } }); ok(/modbadge/.test(modArt(die)) && badgeHTML(die) === '', 'generic mod_badge_<mod> replaces the icon badge');
     initArt({ assets: { mod_badge_ruby: { src: 'b.png' }, mod_ruby_d10: { src: 'o.png' } } }); ok(/modovl/.test(modArt(die)) && /o\.png/.test(modArt(die)), 'per-shape mod_<mod>_<shape> wins over the generic badge');
+    // Pointed tops: per-shape sprite clipped out of the badge zone + layer ring strip + badge 2px up; flat tops: per-shape only.
+    initArt({ assets: { mod_ruby_d10: { src: 'o.png' }, mod_badge_ruby: { src: 'b.png', pill_x: 0 }, fx_ring_d10_mult: { src: 'r.png' }, mod_ruby_d12: { src: 'o12.png' } } });
+    const pt = modArt(die);
+    ok(/o\.png/.test(pt) && /clip-path:polygon\(0 0,28\.5714% 0/.test(pt) && /modring[^>]*>/.test(pt) && /r\.png/.test(pt) && /modbadge nudge/.test(pt), 'pointed d10: per-shape sprite first, badge zone rebuilt from the ring, badge nudged up');
+    ok(/polygon\(28\.5714% 23\.8095%,100% 23\.8095%,100% 28\.5714%,28\.5714% 28\.5714%\)/.test(pt), 'ring strip fills rows 10-11 under the nudged badge (row 9 stays a 1px gap)');
+    const flat = modArt({ shape: 'd12', special: 'ruby', face: 2 }); ok(/o12\.png/.test(flat) && !/nudge|modring|clip-path/.test(flat), 'flat d12: per-shape sprite as drawn, no nudge');
+    initArt({ assets: { mod_ruby_d10: { src: 'o.png' }, mod_badge_ruby: { src: 'b.png' } } }); ok(/o\.png/.test(modArt(die)) && !/nudge/.test(modArt(die)), 'pointed without ring/pill data: per-shape sprite unclipped');
+    initArt({ assets: { mod_badge_ruby: { src: 'b.png' } } }); ok(/modbadge nudge/.test(modArt(die)) && !/nudge/.test(modArt({ shape: 'd6', special: 'ruby', face: 1 })), 'generic badge: nudged on pointed tops only');
+    { const man = JSON.parse(fs.readFileSync(ROOT + 'assets/manifest.json', 'utf8')); initArt(man);
+      const { modRingKeys } = await import('../js/art.js');
+      const ship = [...modArtKeys(), ...modRingKeys()];
+      eq(ship.filter(k => !man.assets[k] || !man.assets[k].hc), [], 'active manifest ships all 78 mod keys + pointed layer rings, each with an hc twin');
+      eq(ship.flatMap(k => [man.assets[k].src, man.assets[k].hc.src]).filter(f => !fs.existsSync(ROOT + 'assets/' + f)), [], 'every shipped mod sprite file exists');
+      eq(MODS.map(m => man.assets[`mod_badge_${m}`].pill_x), [0, 6, 6, 6, 6, 15, 15, 15, 6], 'badge pill offsets measured from the art');
+      const oc6 = modArt({ shape: 'd6', special: 'overcharged', face: 9 });
+      ok(/mod_overcharged_d6\.png/.test(oc6) && !/special_overcharged/.test(oc6) && badgeHTML({ shape: 'd6', special: 'overcharged', face: 9 }) === '', 'Overcharged d6 uses mod_overcharged_d6 (+3), not the old 4-9 sprites');
+      ok(MODS.every(m => Object.keys(SHAPES_N).every(sh => new RegExp(`mod_${m}_${sh}\\.png`).test(modArt({ shape: sh, special: m, face: 1 })))), 'real manifest: per-shape sprite used for every mod on every shape'); }
     initArt({ assets: {} });
     const mk = modArtKeys(); eq(mk.length, 9 * 6 + 9 + 15, 'mod art keys: 54 per-shape overlays + 9 badges + 15 Overcharged faces');
     ok(mk.every(k => !requiredKeys().includes(k)), 'mod art keys stay optional (not in requiredKeys)');

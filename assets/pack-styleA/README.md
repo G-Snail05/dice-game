@@ -2,10 +2,10 @@
 
 This is the full pack in the style G picked (A, 16-bit pixel). It was built by extending `style-samples/style_a.py` and `pix.py`, so it uses the same 32×32 dice grid, 1px `#1a1030` outlines, three-tone shading and palette. It follows the art and mobile notes in `docs/research-brief.md` §4 and §6.
 
-- **755 sprites**, each exported 4 times (`native/`, `1x/`, `2x/`, `3x/`), giving 3,020 PNGs. This includes the binary counters (see below).
+- **911 sprites**, each exported 4 times (`native/`, `1x/`, `2x/`, `3x/`), giving 3,644 PNGs. This includes the binary counters (see below).
 - `manifest.json` lists every sprite: its files, native and CSS size, category, layer and effect colour, anchors, value areas and the Builder's key.
-- `builder-manifest.styleA.json` is a drop-in for the game's `assets/manifest.json` format. It covers **all 144 keys** that `js/art.js → requiredKeys()` asks for, and every entry that has a high-contrast sprite carries an `hc` twin (used by `setVariant('hc')`).
-- Contact sheets are in `sheets/`: `sheet_dice`, `sheet_specials`, `sheet_ui`, `sheet_fx`, `sheet_backgrounds`, `sheet_high_contrast`, `sheet_counters` and `sheet_overview` (two phone mock-ups).
+- `builder-manifest.styleA.json` is a drop-in for the game's `assets/manifest.json` format. It covers **all 146 keys** that `js/art.js → requiredKeys()` asks for, and every entry that has a high-contrast sprite carries an `hc` twin (used by `setVariant('hc')`).
+- Contact sheets are in `sheets/`: `sheet_dice`, `sheet_specials`, `sheet_ui`, `sheet_fx`, `sheet_backgrounds`, `sheet_high_contrast`, `sheet_counters`, `sheet_shape_mods` and `sheet_overview` (two phone mock-ups).
 
 ## Scales: one pixel grid everywhere
 | folder | scale | use |
@@ -25,6 +25,7 @@ Use `<img src="1x/x.png" srcset="2x/x.png 2x, 3x/x.png 3x">` (the Builder's mani
   - d6 **0** (blank, for the Sleeper) to 9. 1–6 are pips and 7–9 are bold numerals, for Overcharged.
   - d8 1–8, d10 1–10, d12 1–12, d20 1–20
   - coin 0 and 10
+  - **Overcharged +3 faces** above each normal top face: d4 5–7, d8 9–11, d10 11–13, d12 13–15, d20 21–23 (d6 7–9 were already there). Builder keys `die_<shape>_face<n>`.
   - `die_d6_x2`, the Sleeper's red ×2 face
   - Per shape: `die_<shape>_blank`, `die_<shape>_roll_1` and `die_<shape>_roll_2` (tumble frames). Cycle blank → roll_1 → roll_2 at about 12 fps while rolling, then show the face.
   - Builder key mapping: `die_d6_face3` → `die_d6_3.png`. This is listed in `manifest.json` as `builder_key`.
@@ -40,6 +41,7 @@ Use `<img src="1x/x.png" srcset="2x/x.png 2x, 3x/x.png 3x">` (the Builder's mani
   - `fx_coin_spin_1..4` and `fx_glass_shatter_1..3`
 - `ui_font_bold_<white|blue|red|gold|violet|grey|dark>` and `ui_font_text_white`: bitmap-font strips. Glyph x and width for each are in `manifest.json → glyphs`, and the height is 9.
 - `bg_<table|shop|hc>_tile.png` (32×32, seamless) and `bg_<table|shop|hc>_full.png` (180×320 native).
+- `mod_<mod>_<shape>.png` and `mod_badge_<mod>.png`: modifiers on every die shape (see below).
 - `*_hc.png`: the **high-contrast** variant of the same sprite (brief §6, "High-contrast mode").
 
 ## Overlay anchoring (special dice are overlays, not new sprites)
@@ -110,6 +112,31 @@ Cues 1, 2 and 7 (lift, squash-and-stretch, bounce) are cheaper as CSS transforms
 
 ## Panels and value areas
 The panels have their label baked in and an empty value area. `manifest.json → value_area` is an inclusive native rect: multiply it by the scale and draw the number there with `ui_font_bold_*`. `ui_panel_frame` is a 9-slice: use `border-image-slice: 6` at native, which is 12 at 1x. Shop cards have a die window at (8,14) for a 32×32 die, and a name strip at `name_strip`.
+
+## Modifiers on every die shape
+For The Builder's `modArtKeys()` (`js/art.js`). Mods: `ruby`, `ember`, `lastcall`, `matching`, `overcharged`, `gold`, `twin`, `echo`, `glass`. Shapes: `d4 d6 d8 d10 d12 d20`. All 78 keys are listed in `builder-manifest.styleA.json → _newKeys_shapeMods`, and each one has an `_hc` twin.
+
+| key | count | what |
+|---|---|---|
+| `mod_<mod>_<shape>` | 54 | 42×42 overlay, die drawn at (2,8): the usual overlay convention. A 2px ring (bright inner, dark outer) traced tightly to **that** shape's silhouette (triangle, square, diamond, kite, pentagon, icosahedron), in the mod's effect colour, plus the badge. |
+| `mod_badge_<mod>` | 9 | 28×11 badge. Top-left = die top-left + **(11,−8)** on any shape (in the overlay canvas that is (13,0)). The pill is right-aligned in the 28×11 box, so narrower badges keep transparent space on the left. |
+| `die_<shape>_face<n>` (Overcharged) | 15 | 32×32 faces above each top face, using the same numerals as the existing faces: single digits in the 7×10 face font (like d6 7–9), two digits in the bold 5×7 font. On the d8, two-digit numbers sit 2px lower, where the triangle is wider. |
+
+**Badge text doesn't depend on shape:**
+- ruby `x1.5`, ember `+2`, lastcall `x3`, matching `x2` and glass `x3`: red, circle family.
+- overcharged **`+3`**: blue. The old d6-only `special_overcharged_*` sprites still say "4-9"; use `mod_*` for any shape.
+- gold: glyph only, gold.
+- twin: glyph only, blue.
+- echo: glyph only, violet.
+
+The badges are the existing special badges padded to the shared 28×11 box. Last Call is keyed `lastcall` (sprite names use the game id).
+
+**The ring and the badge:**
+- Ring pixels under the badge, and in a 1px gap around it, are removed, so the ring tucks behind the tab instead of running into it.
+- On pointed tops (d4, d8, d10, d20), the badge sits over the top 1–2 rows of the apex, just as the fixed (11,−8) anchor implies. The widest badge (ruby `x1.5`) covers the tip on those shapes. The narrower ones sit just right of it.
+- The numerals sit on the front face, well inside the ring.
+
+Stacking: die → `mod_<mod>_<shape>` (or `fx_ring_<shape>_<layer>` + `mod_badge_<mod>`) → state → fx.
 
 ## Buttons
 **Colour logic** (unchanged): green = go forward / primary (roll, buy, next, new run, **continue**); blue = score; slate = secondary (reroll, shop, shop reroll, sell, icon buttons); grey = disabled. **ENDLESS is violet**, the rule-bending colour: endless mode changes the run's rules, and on the win screen it sits next to the green NEW RUN, so the two choices look different. Violet buttons use white text (5.8:1).

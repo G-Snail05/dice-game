@@ -53,6 +53,18 @@ export function modArtKeys() {
   for (const sh of MOD_ART_SHAPES) if (sh !== 'd6') for (let f = SHAPES[sh] + 1; f <= SHAPES[sh] + 3; f++) k.push(faceKey(sh, f));
   return k;
 }
+// Pointed tops (d4, d8, d10, d20): the badge is nudged up 2 native px so the apex shows. The per-shape sprite has
+// the badge baked in (ring erased under it), so the nudge rebuilds that corner from the pack's own layer ring
+// fx_ring_<shape>_<layer> (pixel-identical to mod_<mod>_<shape> outside the badge zone) + mod_badge_<mod>.
+export const POINTED_SHAPES = ['d4', 'd8', 'd10', 'd20'];
+export const MOD_BADGE_NUDGE = 2;
+export function modRingKeys() {
+  const layers = [...new Set(SPECIALS.filter(s => s.mod).map(s => s.layer))];
+  return POINTED_SHAPES.flatMap(sh => layers.map(l => `fx_ring_${sh}_${l}`));
+}
+// Left edge (native px) of a badge's opaque pill inside its 28x11 box (pills are right-aligned). The manifest
+// carries it as `pill_x` (measured by tools/build-manifest-styleA.mjs); null if unknown.
+export const badgePillX = key => { const e = M.assets[key]; return e && Number.isInteger(e.pill_x) ? e.pill_x : null; };
 
 // Native top-left corners of each bit cell (MSB first) on a 32x32 counter; 8-bit = MSB nibble on top.
 // The active manifest's body entry can override them with `bit_cells` (copied from the pack manifest).
