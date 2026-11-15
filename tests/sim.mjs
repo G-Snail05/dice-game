@@ -6,14 +6,16 @@ const BAL = JSON.parse(fs.readFileSync(ROOT + 'data/balance.json', 'utf8'));
 setBalance(BAL);
 const { makeRng, hashSeed } = await import('../js/rng.js');
 const { SPECIALS, validateSpecials } = await import('../js/specials.js');
-const { scoreThrow } = await import('../js/scoring.js');
+const { scoreThrow, chains } = await import('../js/scoring.js');
 const { newRun, serialize, deserialize, settleRound, continueEndless, nextRound } = await import('../js/run.js');
 const { toggleLock, reroll, scoreCurrent, handDice, preview, reveal, toggleSelect, selectIndices, canRoll, rollNeed, benchDice, selectedCount } = await import('../js/round.js');
 const rollFirst = run => { if (!run.round.revealed) { selectIndices(run, run.round.hand.map((_, i) => i).slice(0, rollNeed(run))); reveal(run); } };
 const scoreNow = run => { rollFirst(run); return scoreCurrent(run); };
 const { buy, sell, rerollShop } = await import('../js/shop.js');
-const { faceKey, facesOf, SHAPE_ORDER } = await import('../js/dice.js');
-const { requiredKeys } = await import('../js/art.js');
+const { faceKey, facesOf, SHAPE_ORDER, makeDie } = await import('../js/dice.js');
+const makeTestDie = (run, special) => makeDie(run, null, special, 0);
+const { requiredKeys, counterArtKeys } = await import('../js/art.js');
+const { rollDie, isCounter, counterBits } = await import('../js/dice.js');
 const { sensible, randomBot, playRun } = await import('./bots.mjs');
 
 let pass = 0, fail = 0;
@@ -53,6 +55,70 @@ eq(facesOf({ shape: 'd6', special: 'overcharged' }), [4, 5, 6, 7, 8, 9], 'overch
 { const r = scoreThrow([D(6), D(2, 'echo'), D(3, 'ruby')]); eq(r.lines.filter(l => l.i != null).map(l => [l.who, l.i]), [['Echo', 1], ['Ruby', 2]], 'breakdown lines carry the die index for the animation');
   eq(r.pts, [6, 6, 3], 'pts after value changers'); }
 
+// --- Binary counters
+const C = (bits, special, uid = Math.random()) => { const [n, link] = special === 'link4' ? [4, 1] : special === 'link8' ? [8, 1] : special === 'counter8' ? [8, 0] : [4, 0];
+  const b = bits.split('').map(Number); if (b.length !== n) throw new Error('bad test counter'); return { uid, shape: n === 4 ? 'bin4' : 'bin8', special, bits: b, face: parseInt(bits, 2) }; };
+{ const rng = makeRng(42), seen4 = new Set(), seen8 = new Set();
+  const d4 = { shape: 'bin4', special: 'counter4' }, d8 = { shape: 'bin8', special: 'counter8' };
+  let okBits = true;
+  for (let i = 0; i < 4000; i++) { seen4.add(rollDie(d4, rng)); seen8.add(rollDie(d8, rng)); if (d4.bits.length !== 4 || d8.bits.length !== 8 || parseInt(d8.bits.join(''), 2) !== d8.face) okBits = false; }
+  ok(okBits, 'counter bits match their face and bit count');
+  eq([Math.min(...seen4), Math.max(...seen4), seen4.size], [0, 15, 16], '4-bit counter rolls every value 0-15');
+  eq([Math.min(...seen8), Math.max(...seen8), seen8.size], [0, 255, 256], '8-bit counter rolls every value 0-255');
+  ok(isCounter(d4) && !isCounter(D(3)), 'isCounter');
+  eq(facesOf(d4).length, 16, '4-bit counter has 16 faces'); }
+eq(scoreThrow([C('1111', 'counter4'), D(3)]).total, 18, '4-bit counter scores its raw value (15 + 3)');
+eq(scoreThrow([C('11111111', 'counter8')]).total, 255, '8-bit counter scores raw 255');
+eq(scoreThrow([C('0000', 'counter4'), D(2)]).total, 2, 'a counter can score 0');
+// chain concatenation order: leftmost = most significant
+{ const r = scoreThrow([C('1010', 'counter4'), C('0011', 'link4')]);
+  eq([r.chains.length, r.chains[0].binary, r.chains[0].value, r.total], [1, '10100011', 0b10100011, 163], 'link concatenates left (MSB) to right');
+  eq(r.pts, [0, 163], 'chain value sits on the Link counter, members score 0'); }
+eq(scoreThrow([C('0011', 'link4'), C('1010', 'counter4')]).chains, [], 'link only absorbs to its LEFT');
+eq(scoreThrow([C('0001', 'counter4'), C('0010', 'counter4'), C('0011', 'link4')]).total, 0b000100100011, 'three-counter chain = 12-bit number');
+// a regular die breaks the chain
+{ const r = scoreThrow([C('0101', 'counter4'), D(3), C('0001', 'link4')]); eq([r.chains.length, r.total], [0, 9], 'regular die between breaks the chain (5+3+1)'); }
+{ const r = scoreThrow([C('1111', 'counter4'), D(2), C('0001', 'counter4'), C('0001', 'link4')]); eq([r.chains[0].members, r.total], [[2, 3], 15 + 2 + 17], 'chain stops at the regular die, counter beyond scores alone'); }
+// 12-bit cap
+{ const r = scoreThrow([C('1111', 'counter4'), C('1111', 'counter4'), C('1111', 'counter4'), C('1111', 'link4')]);
+  eq([r.chains[0].members, r.chains[0].bits, r.chains[0].value, r.total], [[1, 2, 3], 12, 4095, 4095 + 15], '12-bit cap: 4+4+4, the fourth counter scores alone'); }
+eq(scoreThrow([C('11111111', 'counter8'), C('11111111', 'link8')]).chains, [], '8+8 exceeds the cap: no chain');
+eq(scoreThrow([C('11111111', 'counter8'), C('11111111', 'link8')]).total, 510, '8+8: both score alone');
+{ const r = scoreThrow([C('11111111', 'counter8'), C('1111', 'link4')]); eq([r.chains[0].bits, r.total], [12, 4095], '8+4 = 12-bit max 4095'); }
+{ const r = scoreThrow([C('11111111', 'counter8'), C('0001', 'counter4'), C('0001', 'link4')]); eq([r.chains[0].members, r.total], [[1, 2], 255 + 17], 'walk stops at the counter that would pass 12 bits'); }
+eq(chains([C('0001', 'link4')]).length, 0, 'a lone Link counter is not a chain');
+eq(scoreThrow([D(4), C('0101', 'link4')]).total, 9, 'a Link next to a regular die scores alone');
+// multiple Link counters: right to left, claimed counters cannot be reused
+{ const r = scoreThrow([C('0001', 'link4'), C('0010', 'link4')]); eq([r.chains.length, r.chains[0].members, r.total], [1, [0, 1], 0b00010010], 'Link + Link: right one absorbs the left one'); }
+{ const r = scoreThrow([C('0001', 'counter4'), C('0010', 'link4'), C('0011', 'counter4'), C('0100', 'link4')]);
+  eq([r.chains.length, r.chains[0].members, r.total], [1, [1, 2, 3], 1 + 0b001000110100], 'rightmost Link claims first; the swallowed Link does not chain again'); }
+{ const r = scoreThrow([C('0001', 'counter4'), C('0010', 'link4'), D(1), C('0011', 'counter4'), C('0100', 'link4')]);
+  eq([r.chains.map(c => c.members), r.total], [[[0, 1], [3, 4]], 0b00010010 + 1 + 0b00110100], 'two separate chains either side of a regular die'); }
+{ const r = scoreThrow([C('11111111', 'counter8'), C('1111', 'link4'), C('1111', 'link4')]);
+  eq([r.chains.map(c => c.members), r.total], [[[1, 2]], 255 + 255], 'second Link stops at the 12-bit cap and the 8-bit scores alone'); }
+{ const r = scoreThrow([C('0001', 'counter4'), C('0001', 'link4'), D(2, 'ruby')]); eq(r.total, Math.floor((17 + 2) * 1.5), 'chain total is multiplied by mult specials'); }
+// landing order: shuffled, deterministic per seed, a permutation of the picks, fixed through re-rolls
+{ const land = seed => { const run = newRun(seed); const r = run.round; selectIndices(run, [0, 1, 2, 3, 4]); const picked = r.hand.slice(0, 5); reveal(run); return { picked, hand: [...r.hand], run }; };
+  const a = land('shuffle-1'), b = land('shuffle-1');
+  eq(a.hand, b.hand, 'same seed, same landing order');
+  eq([...a.hand].sort((x, y) => x - y), [...a.picked].sort((x, y) => x - y), 'landing order is a permutation of the picked dice');
+  let moved = 0; for (let i = 0; i < 40; i++) { const x = land('shuffle-' + i); if (JSON.stringify(x.hand) !== JSON.stringify(x.picked)) moved++; }
+  ok(moved >= 30, `landing order is shuffled (${moved}/40 seeds differ from pick order)`);
+  const order = [...a.run.round.hand]; reroll(a.run); eq(a.run.round.hand, order, 're-rolls keep the landing order'); }
+// counters in a run: shop offers them, bought counters roll bits, save/load keeps the bits
+{ let seen = 0; for (let i = 0; i < 200; i++) { const run = newRun('ctr-shop-' + i); run.round.score = 999; scoreNow(run); settleRound(run); for (let k = 0; k < 3; k++) { if (run.shop.offers.some(o => /counter|link/.test(o.special || ''))) seen++; run.gold = 99; rerollShop(run); } }
+  ok(seen > 20 && seen < 400, `shop offers counters sometimes (${seen} of 600 shops)`); }
+{ const run = newRun('ctr-run'); run.bag.push(makeTestDie(run, 'link4'), makeTestDie(run, 'counter8'));
+  const ids = run.bag.slice(-2).map(d => d.uid); run.round.hand = [...ids, ...run.round.hand.slice(0, 5)]; run.round.selected = run.round.hand.map(() => false);
+  selectIndices(run, [0, 1, 2, 3, 4]); reveal(run);
+  const ctr = handDice(run).filter(isCounter); eq(ctr.length, 2, 'picked counters land on the table');
+  ok(ctr.every(d => d.bits && d.bits.length === (d.shape === 'bin8' ? 8 : 4) && parseInt(d.bits.join(''), 2) === d.face), 'rolled counters carry their bits');
+  const copy = deserialize(serialize(run)); eq(copy.bag.find(d => d.uid === ctr[0].uid).bits, ctr[0].bits, 'save/load keeps counter bits');
+  eq(preview(run).total, scoreCurrent(run).total, 'preview matches score with counters'); }
+eq(SPECIALS.filter(s => s.counter).map(s => [s.id, s.rarity, s.price]), Object.entries(BAL.counters.dice).map(([k, v]) => [k, v.rarity, v.price]), 'counter rarity/price come from balance.json');
+{ const ck = counterArtKeys(); ok(ck.length >= 10 && ck.every(k => !requiredKeys().includes(k)), 'counter art keys are listed separately (CSS fallback until the pack has them)');
+  const doc = fs.readFileSync(ROOT + 'ASSETS.md', 'utf8'); eq(ck.filter(k => !doc.includes(k)), [], 'ASSETS.md lists the counter art keys'); }
+
 // --- Draw 7, pick 5, roll
 { const run = newRun('pick'); const r = run.round;
   eq([r.hand.length, r.revealed, selectedCount(run), rollNeed(run)], [BAL.handDraw, false, 0, BAL.rollCount], 'draws handDraw face-down, nothing selected, need rollCount');
@@ -64,7 +130,7 @@ eq(facesOf({ shape: 'd6', special: 'overcharged' }), [4, 5, 6, 7, 8, 9], 'overch
   ok(toggleSelect(run, 0) && toggleSelect(run, BAL.handDraw - 1), 'swap a selection');
   const picked = r.hand.filter((_, i) => r.selected[i]), others = r.hand.filter((_, i) => !r.selected[i]);
   ok(canRoll(run) && reveal(run), 'roll with exactly rollCount picked');
-  eq([r.hand, r.bench], [picked, others], 'picked dice are the throw, the rest are benched');
+  eq([[...r.hand].sort((a, b) => a - b), r.bench], [[...picked].sort((a, b) => a - b), others], 'picked dice are the throw (landing order shuffled), the rest are benched');
   eq([handDice(run).length, benchDice(run).length], [BAL.rollCount, BAL.handDraw - BAL.rollCount], '5 on the table, 2 benched');
   ok(handDice(run).every(d => d.face >= 1) && benchDice(run).every(d => d.face === null), 'only rolled dice get faces');
   const res = scoreCurrent(run); eq(res.pts.length, BAL.rollCount, 'only the rolled dice are scored');

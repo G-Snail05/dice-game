@@ -99,3 +99,25 @@ picked dice lift 6px with a gold ring and a CSS tick (`.die.pick.picked`, `.pick
 the roll are the same blank sprite dimmed with `opacity` + `grayscale` (`.die.benched`). If a pack later wants a
 dedicated selection frame, add a `ui_select_ring` key to the manifest and swap it in `pickBtn` in
 `js/ui/roundView.js`.
+
+## Binary counters: art wanted (CSS placeholder until then)
+
+Counters (`bin4`, `bin8` shapes) are drawn in CSS: a dark housing with one LED per bit (8-bit = two rows of 4) and a
+decimal readout. When the active manifest gains any of these keys, `main.js` exposes it as a `--art-<key>` CSS custom property
+and it replaces the CSS look (the LED and body keys are used as backgrounds, so plain square sprites work). Each key also wants an `_hc` twin.
+They are listed by `counterArtKeys()` in `js/art.js` and kept out of `requiredKeys()` until the pack has them.
+
+| Key | What |
+|---|---|
+| `die_bin4_body` | 4-bit counter housing (no LEDs), 64×64 @1x |
+| `die_bin8_body` | 8-bit counter housing (two LED rows), 64×64 @1x |
+| `die_bin4_blank` | 4-bit counter face-down / unrolled (hand, bench, shop) |
+| `die_bin8_blank` | 8-bit counter face-down / unrolled |
+| `led_bit_on` | one lit LED (bit = 1), ~12×12 @1x |
+| `led_bit_off` | one dark LED (bit = 0) |
+| `led_bit_tumble_1`, `led_bit_tumble_2` | LED flicker frames while bits tumble |
+| `icon_counter4` | badge: 4-bit counter (32×32 like other badges) |
+| `icon_counter8` | badge: 8-bit counter |
+| `icon_link` | badge: Link modifier |
+| `fx_link_bracket_l`, `fx_link_bracket_m`, `fx_link_bracket_r` | glowing chain bracket: left cap, stretchable middle, right cap |
+| `fx_link_glow_1`, `fx_link_glow_2`, `fx_link_glow_3` | glow pulse frames on linked counters |

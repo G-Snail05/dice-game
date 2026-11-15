@@ -7,7 +7,7 @@ import { totalRounds } from '../balance.js';
 import { handDice, benchDice, preview, canReroll, canRoll, rollNeed, selectedCount } from '../round.js';
 import { B } from '../balance.js';
 import { artHTML } from '../art.js';
-import { dieArt, badge, cssDie, staticDie } from './dieView.js';
+import { dieArt, badge, cssDie, staticDie, blankArt } from './dieView.js';
 import { btn, coin, esc, fmtMult } from './dom.js';
 import { dieName, specialOf } from '../dice.js';
 
@@ -35,19 +35,19 @@ function pickBtn(run, d, i) {
   const full = !on && selectedCount(run) >= rollNeed(run);
   const label = `${dieName(d)}${on ? ', picked' : ''}. Tap to ${on ? 'put it back' : 'pick it for this roll'}.`;
   return `<button class="die pick ${on ? 'picked' : ''} ${full ? 'full' : ''} ${s ? 'special l-' + s.layer : ''}" data-act="pick" data-i="${i}" data-uid="${d.uid}" aria-pressed="${on}" aria-label="${esc(label)}${s ? ' ' + esc(s.desc) : ''}">
-    ${artHTML(`die_${d.shape}_blank`, { cls: 'die-art', alt: '', fallback: cssDie(d.shape, '?') })}${badge(d)}<span class="shapetag">${esc(s ? s.name : d.shape)}</span>${on ? '<span class="pickmark" aria-hidden="true">✓</span>' : ''}</button>`;
+    ${blankArt(d)}${badge(d)}<span class="shapetag">${esc(s ? s.tag || s.name : d.shape)}</span>${on ? '<span class="pickmark" aria-hidden="true">✓</span>' : ''}</button>`;
 }
 
 // An unpicked die after the roll: dimmed, not interactive, not scored.
 function benchBtn(d) {
   const s = specialOf(d);
   return `<span class="die benched ${s ? 'special l-' + s.layer : ''}" data-uid="${d.uid}" aria-label="${esc(dieName(d))}, sitting out this throw">
-    ${artHTML(`die_${d.shape}_blank`, { cls: 'die-art', alt: '', fallback: cssDie(d.shape, '') })}${badge(d)}<span class="shapetag">${esc(s ? s.name : d.shape)}</span></span>`;
+    ${blankArt(d)}${badge(d)}<span class="shapetag">${esc(s ? s.tag || s.name : d.shape)}</span></span>`;
 }
 
 function dieBtn(run, d, i, where) {
   const r = run.round, s = specialOf(d), held = r.revealed && r.locked[i];
-  const face = r.revealed ? dieArt(d) : artHTML(`die_${d.shape}_blank`, { cls: 'die-art', alt: `${dieName(d)}, not rolled yet`, fallback: cssDie(d.shape, '?') });
+  const face = r.revealed ? dieArt(d) : blankArt(d, `${dieName(d)}, not rolled yet`);
   const label = r.revealed ? `${dieName(d)} showing ${d.face}${held ? ', held' : ''}. Tap to ${held ? 'return it to the table' : 'hold it'}.` : `${dieName(d)}, in your hand`;
   return `<button class="die ${held ? 'locked' : ''} ${s ? 'special l-' + s.layer : ''} at-${where}" data-act="lock" data-i="${i}" data-uid="${d.uid}" ${r.revealed ? '' : 'disabled'} aria-pressed="${held}" aria-label="${esc(label)}${s ? ' ' + esc(s.desc) : ''}">
     ${face}${badge(d)}${held ? `<span class="lockmark">${artHTML('icon_lock', { alt: '', fallback: '🔒' })} HELD</span>` : ''}</button>`;
@@ -100,7 +100,7 @@ export function roundView(run, opts = {}) {
       <div class="tcorner tr">${iconBar(true)}</div>
       <div class="slots tslots" role="group" aria-label="Table">${tableCols.map(c => `<div class="slot">${c.empty || c.hand ? '<span class="ghost"></span>' : dieBtn(run, c.d, c.i, 'table')}</div>`).join('')}</div>
       <div class="tally" aria-live="polite">${tallyHTML(run)}</div>
-      <div class="tfoot">${bagView(run)}<span class="seed">Seed ${esc(run.seed)}${run.endless ? ' · endless' : ` · ${totalRounds()} rounds`}${r.last ? ` · last throw +${r.last.total}` : ''}</span></div>
+      <div class="tfoot">${bagView(run)}<span class="seed">Seed ${esc(run.seed)}${run.demo ? ` · demo ${esc(run.demo)}` : ""}${run.endless ? ' · endless' : ` · ${totalRounds()} rounds`}${r.last ? ` · last throw +${r.last.total}` : ''}</span></div>
     </div>
     <div class="hand ${r.revealed ? 'rolled' : 'picking'}">
       <div class="handlabel"><b>Hand</b> <small>${label}</small></div>

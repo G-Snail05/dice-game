@@ -42,6 +42,8 @@ async function tumble(root, before, d, k) {
     await frames(key => setImg(img, key), keys, 12, 2);
     setImg(img, faceKey(d.shape, d.face)) || (final && (img.src = final.src));
   }
+  const ctr = el.querySelector('.ctr');
+  if (ctr) { await Promise.all([flight, ledRoll(ctr, delay, dur)]); return; }
   await flight;
   if (img) await play(img, [
     { transform: 'scale(1.28, .7)' }, { transform: 'scale(.9, 1.1) translateY(-6px)', offset: 0.45 },
@@ -65,6 +67,80 @@ export async function slide(root, before, uids, dur = 220) {
 export function deal(root) {
   return Promise.all([...root.querySelectorAll('.hslots .die')].map((el, k) =>
     play(el, [{ transform: 'translateY(48px) scale(.8)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 260, delay: k * 50, easing: 'cubic-bezier(.2,.8,.3,1.2)', fill: 'backwards' })));
+}
+
+// Binary counter roll: the LEDs tumble (random flicker, visual only) while the counter is in the air, then
+// lock in one by one, most significant bit first, and the decimal readout appears. The DOM already
+// holds the final bits; we only flicker over them and restore them.
+async function ledRoll(ctr, delay, dur) {
+  if (reduced()) return;
+  const leds = [...ctr.querySelectorAll('.led')], val = ctr.querySelector('.ctrval');
+  const final = leds.map(l => l.classList.contains('on')), txt = val ? val.textContent : '';
+  const set = (l, on) => { l.classList.toggle('on', on); l.classList.toggle('off', !on); };
+  ctr.classList.add('tumbling');
+  if (val) val.textContent = '····';
+  try {
+    const t0 = performance.now(), until = delay + dur * 0.8;
+    // Bounded loop (wait() is a timer, so this ends even if the tab is throttled).
+    for (let n = 0; n < 40 && performance.now() - t0 < until; n++) { leds.forEach(l => set(l, Math.random() < 0.5)); await wait(55); }
+    const step = Math.max(35, Math.round(260 / leds.length));
+    for (let j = 0; j < leds.length; j++) {
+      set(leds[j], final[j]); leds[j].classList.add('lockin');
+      play(leds[j], [{ transform: 'scale(1.7)' }, { transform: 'none' }], { duration: 160, easing: 'ease-out' });
+      for (const l of leds.slice(j + 1)) set(l, Math.random() < 0.5);
+      await wait(step);
+    }
+  } finally {
+    leds.forEach((l, j) => { set(l, final[j]); l.classList.remove('lockin'); });
+    ctr.classList.remove('tumbling');
+    if (val) val.textContent = txt;
+  }
+  if (val) await play(val, [{ transform: 'scale(1.5)', opacity: 0.3 }, { transform: 'none', opacity: 1 }], { duration: 200, easing: 'ease-out' });
+}
+
+// Link chain: a glowing bracket spans the linked counters with the concatenated binary string, which
+// types in left to right (one group per counter), then the decimal value; the readout then flies into
+// the throw's points (the tally), which the total later carries into the points bar.
+async function chainSequence(root, els, chain, ptsEl, ptsBefore) {
+  const live = els.filter(Boolean);
+  if (!live.length || reduced()) { ptsEl.textContent = String(ptsBefore + chain.value); return; }
+  phase('chain');
+  const rs = live.map(e => e.getBoundingClientRect());
+  const left = Math.min(...rs.map(r => r.left)) - 6, right = Math.max(...rs.map(r => r.right)) + 6, top = Math.min(...rs.map(r => r.top));
+  const br = document.createElement('div');
+  br.className = 'chainbr';
+  br.setAttribute('aria-hidden', 'true');
+  Object.assign(br.style, { left: `${left}px`, top: `${top - 8}px`, width: `${right - left}px`, height: `${Math.max(...rs.map(r => r.bottom)) - top + 14}px` });
+  br.innerHTML = `<div class="chainlbl"><span class="bin">${chain.parts.map(p => `<span class="grp">${p.split('').map(b => `<i class="b${b}">${b}</i>`).join('')}</span>`).join('')}</span><b class="dec"></b></div>`;
+  document.body.appendChild(br);
+  live.forEach(e => e.classList.add('linked'));
+  try {
+    await play(br, [{ transform: 'scaleX(.1)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 260, easing: 'cubic-bezier(.2,.8,.3,1.2)' });
+    const bitsEls = [...br.querySelectorAll('.bin i')], per = Math.max(25, Math.round(420 / bitsEls.length));
+    for (const b of bitsEls) { b.classList.add('show'); await wait(per); }
+    const dec = br.querySelector('.dec');
+    dec.textContent = `= ${chain.value}`;
+    await play(dec, [{ transform: 'scale(.3)', opacity: 0 }, { transform: 'scale(1.4)', opacity: 1, offset: 0.6 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'ease-out' });
+    live.forEach(e => { bump(e, 1.12); burst(e, 'fx_pop_rule_', 4); });
+    await wait(450);
+    // Fly the decimal readout into the tally's points.
+    const a = dec.getBoundingClientRect(), b = ptsEl.getBoundingClientRect();
+    const fly = document.createElement('div');
+    fly.className = 'flying chainfly';
+    fly.textContent = `+${chain.value}`;
+    Object.assign(fly.style, { left: `${a.left}px`, top: `${a.top}px`, width: `${a.width}px`, height: `${a.height}px` });
+    document.body.appendChild(fly);
+    dec.style.opacity = '0';
+    const dx = b.left + b.width / 2 - (a.left + a.width / 2), dy = b.top + b.height / 2 - (a.top + a.height / 2);
+    play(br, [{ opacity: 1 }, { opacity: 0 }], { duration: 300, fill: 'forwards' });
+    await play(fly, [{ transform: 'none' }, { transform: `translate(${dx * 0.5}px, ${dy * 0.5 - 30}px) scale(1.15)`, offset: 0.4 }, { transform: `translate(${dx}px, ${dy}px) scale(.5)`, opacity: 0.9 }], { duration: 480, easing: 'cubic-bezier(.5,0,.7,1)', fill: 'forwards' });
+    fly.remove();
+  } finally {
+    br.remove();
+    live.forEach(e => e.classList.remove('linked'));
+  }
+  ptsEl.textContent = String(ptsBefore + chain.value);
+  play(ptsEl, [{ transform: 'scale(1.5)' }, { transform: 'none' }], { duration: 220 });
 }
 
 function floatLabel(root, el, text, layer) {
@@ -99,15 +175,23 @@ export async function scoreSequence(root, { dice, last, oldScore, newScore, targ
   const ptsEl = tally.querySelector('.pts'), mulEl = tally.querySelector('.mul'), totEl = tally.querySelector('.ttotal');
   phase('score-pop');
   const step = reduced() ? 0 : 230;
-  // Value changers (Echo) first.
-  for (const l of last.lines.filter(x => x.pre)) {
+  // Link chains first: they decide what the linked counters score.
+  let pts = 0;
+  const inChain = new Set();
+  for (const c of last.chains || []) {
+    c.members.forEach(j => inChain.add(j));
+    await chainSequence(root, c.members.map(byIndex), c, ptsEl, pts);
+    pts += c.value;
+  }
+  // Value changers (Echo) next.
+  for (const l of last.lines.filter(x => x.pre && !x.chain)) {
     const el = byIndex(l.i);
     if (!el) continue;
     floatLabel(root, el, `=${l.value}`, 'rule'); bump(el); burst(el, 'fx_pop_rule_', 4);
     await wait(step);
   }
-  let pts = 0;
   for (let i = 0; i < dice.length; i++) {
+    if (inChain.has(i)) continue;
     const el = byIndex(i), v = last.pts[i];
     pts += v;
     if (el) { floatLabel(root, el, `+${v}`, 'points'); bump(el); burst(el, 'fx_pop_points_', 4); }

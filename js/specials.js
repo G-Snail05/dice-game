@@ -1,3 +1,5 @@
+import { B } from './balance.js';
+
 // Special dice are pure data. Each one names an effect `type` from EFFECTS plus its parameters.
 // EFFECTS are small handlers the scorer calls left to right across the tray.
 //   value(ctx)  -> {value, note}            change this die's point value before summing (pre-pass)
@@ -82,6 +84,21 @@ export const SPECIALS = [
   { id: 'glass', name: 'Glass', idea: 19, shape: 'd8', rarity: 'rare', price: 8, icon: 'icon_glass', layer: 'mult',
     desc: '×3 to the throw, then breaks for the rest of the round. 1 in 4 chance to shatter for good.', effect: { type: 'glass', x: 3, shatterChance: 0.25 } },
 ];
+
+// Binary counters (exotic dice). Rarity, price and shop weight come from data/balance.json `counters.dice`
+// so they can be tuned without code. `link: true` = the Link modifier (see scoring.js chains()).
+const fromBal = (id, k, dflt) => (B && B.counters && B.counters.dice && B.counters.dice[id] && B.counters.dice[id][k] != null ? B.counters.dice[id][k] : dflt);
+const counter = (id, name, shape, bits, link, desc, rarity, price) => ({
+  id, name, tag: `${link ? 'Link ' : ''}${bits}-bit`, shape, bits, link, counter: true, icon: link ? 'icon_link' : `icon_counter${bits}`, layer: link ? 'rule' : 'points', desc, effect: { type: 'none' },
+  get rarity() { return fromBal(id, 'rarity', rarity); }, get price() { return fromBal(id, 'price', price); }, get weight() { return fromBal(id, 'weight', 1); },
+});
+SPECIALS.push(
+  counter('counter4', '4-bit Counter', 'bin4', 4, false, 'Rolls 4 bits: scores its raw binary value, 0–15.', 'uncommon', 6),
+  counter('counter8', '8-bit Counter', 'bin8', 8, false, 'Rolls 8 bits: scores its raw binary value, 0–255.', 'rare', 14),
+  counter('link4', 'Link 4-bit Counter', 'bin4', 4, true, 'A 4-bit counter that links the unbroken run of counters to its left into one binary number (max 12 bits). A regular die breaks the chain.', 'rare', 9),
+  counter('link8', 'Link 8-bit Counter', 'bin8', 8, true, 'An 8-bit counter that links the unbroken run of counters to its left into one binary number (max 12 bits). A regular die breaks the chain.', 'rare', 16),
+);
+export const COUNTER_IDS = SPECIALS.filter(s => s.counter).map(s => s.id);
 
 export const SPECIALS_BY_ID = Object.fromEntries(SPECIALS.map(s => [s.id, s]));
 

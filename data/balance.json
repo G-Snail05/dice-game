@@ -108,5 +108,33 @@
     "rerollStep": 1,
     "sellFraction": 0.5,
     "minBag": 5
+  },
+  "shuffleLanding": true,
+  "counters": {
+    "_notes": "Binary counter dice (exotic). Raw binary values; Link counters chain adjacent counters to their left up to maxChainBits. Each shop slot first rolls shopChance for a counter (separate from specialChance, so classic specials keep their odds); which counter = shop.rarityWeights[rarity] x weight.",
+    "maxChainBits": 12,
+    "dice": {
+      "counter4": {
+        "rarity": "uncommon",
+        "price": 4,
+        "weight": 1
+      },
+      "counter8": {
+        "rarity": "rare",
+        "price": 10,
+        "weight": 1
+      },
+      "link4": {
+        "rarity": "uncommon",
+        "price": 5,
+        "weight": 1
+      },
+      "link8": {
+        "rarity": "rare",
+        "price": 12,
+        "weight": 1
+      }
+    },
+    "shopChance": 0.15
   }
 }

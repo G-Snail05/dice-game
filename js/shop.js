@@ -8,13 +8,24 @@ export function priceOf(shape, special) {
   return B.prices[shape];
 }
 
+// Binary counters have their own roll per slot (counters.shopChance), so adding them does not dilute the
+// odds of the classic specials. Which counter: shop rarity weight x the counter's own weight.
+function rollCounter(rng) {
+  const pool = SPECIALS.filter(s => s.counter).map(s => [s, (B.shop.rarityWeights[s.rarity] || 0) * (s.weight ?? 1)]).filter(e => e[1] > 0);
+  if (!pool.length) return null;
+  const s = rng.weighted(pool);
+  return { shape: s.shape, special: s.id, price: s.price, sold: false };
+}
+
 function rollOffer(run, forceSpecial = false) {
   const rng = run.rng;
+  const C = B.counters;
+  if (!forceSpecial && C && C.shopChance && rng.next() < C.shopChance) { const o = rollCounter(rng); if (o) return o; }
   if (forceSpecial || rng.next() < B.shop.specialChance) {
     const rarity = rng.weighted(Object.entries(B.shop.rarityWeights));
-    let pool = SPECIALS.filter(s => s.rarity === rarity);
+    let pool = SPECIALS.filter(s => s.rarity === rarity && !s.counter);
     if (forceSpecial) pool = SPECIALS.filter(s => B.shop.firstShopPool.includes(s.id));
-    const s = rng.pick(pool.length ? pool : SPECIALS);
+    const s = rng.pick(pool.length ? pool : SPECIALS.filter(x => !x.counter));
     return { shape: s.shape, special: s.id, price: s.price, sold: false };
   }
   const shape = rng.weighted(SHAPE_ORDER.map(k => [k, B.shop.shapeWeights[k] || 0]));

@@ -7,13 +7,20 @@ import { openShop } from './shop.js';
 
 export const SAVE_VERSION = 1;
 
-export function newRun(seed) {
+// Showcase starting bags for ?demo=<name> (debug/preview links; normal runs use balance startingBag).
+export const DEMO_BAGS = {
+  counters: [{ shape: 'd6', count: 5 }, { shape: 'bin4', special: 'counter4', count: 2 }, { shape: 'bin4', special: 'link4', count: 1 }],
+};
+
+export function newRun(seed, { demo = null } = {}) {
   const run = {
     v: SAVE_VERSION, seed: String(seed), rng: makeRng(hashSeed(seed)), nextUid: 1, bag: [], gold: B.startGold,
     roundNo: 1, phase: 'round', endless: false, round: null, shop: null, earnings: null,
     stats: { throws: 0, bestThrow: 0, totalScore: 0, shops: 0, bought: 0, roundsWon: 0 },
   };
-  for (const { shape, special, count } of B.startingBag)
+  const bag = (demo && DEMO_BAGS[demo]) || B.startingBag;
+  if (bag !== B.startingBag) run.demo = demo;
+  for (const { shape, special, count } of bag)
     for (let i = 0; i < count; i++) run.bag.push(makeDie(run, shape, special || null, B.prices[shape] || 0));
   startRound(run);
   return run;

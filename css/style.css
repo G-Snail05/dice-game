@@ -255,3 +255,36 @@ body.hc .hand, body.hc .hudbar { background: #000; border-color: #fff; }
 
 .tally.fade-in { animation: fadein .25s ease-out both; }
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---- Binary counters (CSS LED placeholder until the pack has counter art; any --art-* var set by
+   main.js from the manifest replaces the CSS look). ---- */
+.ctr { display: grid; align-content: center; justify-items: center; gap: 8%; aspect-ratio: 1; box-sizing: border-box; padding: 10%;
+  background: var(--art-die_bin4_body, linear-gradient(160deg, #22332a, #0b130e)); background-size: cover; border: 3px solid #4d6b58; border-radius: 12%;
+  box-shadow: inset 0 0 0 2px #000, inset 0 0 12px #000a, 0 3px 0 #0008; container-type: inline-size; transform-origin: 50% 100%; }
+.ctr.b8 { background-image: var(--art-die_bin8_body, linear-gradient(160deg, #2a2a3a, #0d0d16)); border-color: #6a6aa0; }
+.ctr.link { border-color: #c27cff; box-shadow: inset 0 0 0 2px #000, inset 0 0 12px #000a, 0 0 8px #c27cff88, 0 3px 0 #0008; }
+.ctr .leds { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7cqw; width: 88%; }
+.led { display: block; aspect-ratio: 1; border-radius: 50%; background: var(--art-led_bit_off, radial-gradient(circle at 35% 35%, #3b4a40, #10170f)); background-size: cover;
+  box-shadow: inset 0 0 0 1px #000; transition: background-color .05s; }
+.led.on { background: var(--art-led_bit_on, radial-gradient(circle at 35% 35%, #f0ffe0, #4dff7c 45%, #0b8f33)); background-size: cover; box-shadow: 0 0 5px #4dff7c, 0 0 10px #4dff7c88; }
+.ctr.b8 .led.on { background: var(--art-led_bit_on, radial-gradient(circle at 35% 35%, #fff7e0, #ffc23d 45%, #b06a00)); box-shadow: 0 0 5px #ffc23d, 0 0 10px #ffc23d88; }
+.ctr.tumbling .led { opacity: .85; }
+.ctr .ctrval { font: 900 22cqw/1 ui-monospace, Menlo, Consolas, monospace; font-style: normal; color: #8dffab; text-shadow: 0 0 4px #4dff7c; font-variant-numeric: tabular-nums; }
+.ctr.b8 .ctrval { color: #ffd77a; text-shadow: 0 0 4px #ffc23d; }
+.ctr.dark .ctrval { font-size: 17cqw; color: #7d9a86; text-shadow: none; }
+.sdie .ctr { border-width: 2px; padding: 8%; } .sdie .ctr .ctrval { display: none; }
+.badge .ctrbadge { background: #3a2a5a; font-size: 10px; font-weight: 900; line-height: 32px; letter-spacing: -.02em; }
+.badge.l-rule .ctrbadge { background: #8a4bd8; } .sdie .badge .ctrbadge { font-size: 6px; line-height: 16px; }
+.r2 .die.linked { z-index: 3; } .r2 .die.linked .ctr { box-shadow: 0 0 0 3px #d9a8ff, 0 0 18px #c27cff, 0 0 30px #c27cff99; }
+.chainbr { position: fixed; z-index: 40; pointer-events: none; border: 3px solid #d9a8ff; border-bottom: 0; border-radius: 12px 12px 0 0;
+  box-shadow: 0 -2px 14px #c27cff, inset 0 2px 10px #c27cff88; transform-origin: 50% 0; }
+.chainbr .chainlbl { position: absolute; left: 50%; top: 0; transform: translate(-50%, calc(-100% - 4px)); display: flex; gap: 8px; align-items: baseline; white-space: nowrap;
+  background: #140a24f0; border: 2px solid #c27cff; border-radius: 10px; padding: 3px 10px; box-shadow: 0 0 14px #c27cffaa; }
+.chainbr .bin { font: 900 1rem/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .02em; display: flex; gap: 5px; }
+.chainbr .bin i { font-style: normal; opacity: 0; } .chainbr .bin i.show { opacity: 1; } .chainbr .bin i.b1 { color: #8dffab; text-shadow: 0 0 6px #4dff7c; } .chainbr .bin i.b0 { color: #6c7f72; }
+.chainbr .dec { font-size: 1.3rem; font-weight: 900; color: var(--gold); text-shadow: 0 2px 0 #000; }
+.flying.chainfly { color: #e3c2ff; text-shadow: 0 0 10px #c27cff, 0 3px 0 #000; font-size: 1.8rem; }
+@media (min-width: 900px) { .chainbr .bin { font-size: 1.4rem; } .chainbr .dec { font-size: 1.7rem; } }
+body.hc .led.on { background: #fff; box-shadow: none; } body.hc .led { background: #000; box-shadow: inset 0 0 0 2px #fff; }
+body.hc .ctr { background: #000; border-color: #fff; } body.hc .ctr .ctrval { color: #fff; text-shadow: none; } body.hc .chainbr { border-color: #fff; box-shadow: none; }
+body.hc .chainbr .chainlbl { background: #000; border-color: #fff; box-shadow: none; } body.hc .chainbr .bin i.b1 { color: #fff; text-shadow: none; }

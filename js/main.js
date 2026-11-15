@@ -1,5 +1,5 @@
 import { setBalance } from './balance.js';
-import { initArt, installArtFallbacks, setVariant, hasHighContrast, bgCSS, preload, fxKeys } from './art.js';
+import { initArt, installArtFallbacks, setVariant, hasHighContrast, bgCSS, preload, fxKeys, counterArtKeys, artSrc } from './art.js';
 import { enqueue, busy, snapshotRects, setReduced, setSpeed } from './ui/anim.js';
 import { rollIn, slide, deal, scoreSequence } from './ui/roundAnim.js';
 import { randomSeed } from './rng.js';
@@ -45,6 +45,8 @@ function applySettings() {
 function render(opts = {}) {
   const run = state.run;
   const screenName = state.screen === 'settings' || state.screen === 'info' ? state.screen : state.screen === 'title' || !run ? 'title' : run.phase;
+  // Counter art (when the manifest has it) replaces the CSS LED look via custom properties.
+  for (const k of counterArtKeys()) { if (artSrc(k)) document.documentElement.style.setProperty(`--art-${k}`, bgCSS(k)); else document.documentElement.style.removeProperty(`--art-${k}`); }
   document.documentElement.style.setProperty('--table-bg', bgCSS(state.settings.hc && hasHighContrast() ? 'bg_hc_tile' : 'bg_table_tile'));
   document.documentElement.style.backgroundImage = bgCSS(state.settings.hc && hasHighContrast() ? 'bg_hc_tile' : screenName === 'shop' || screenName === 'round' ? 'bg_shop_tile' : 'bg_table_tile');
   if (state.screen === 'settings') { app.innerHTML = settingsView(state.settings); app.dataset.screen = 'settings'; return; }
@@ -58,7 +60,7 @@ function render(opts = {}) {
   state.justScored = false;
 }
 
-function start(seed) { state.run = newRun(seed || randomSeed()); state.screen = 'run'; persist(); render(); window.scrollTo(0, 0); }
+function start(seed, demo = null) { state.run = newRun(seed || randomSeed(), { demo }); state.screen = 'run'; persist(); render(); window.scrollTo(0, 0); }
 
 const actions = {
   new: () => start(),
@@ -151,7 +153,7 @@ async function boot() {
   installArtFallbacks(document);
   preload(fxKeys());
   const q = new URLSearchParams(location.search);
-  if (q.has('seed')) start(q.get('seed')); else render();
+  if (q.has('seed')) start(q.get('seed'), q.get('demo')); else render();
   // Test/debug hook (used by the screenshot script); harmless in normal play.
   window.DG = { state, render, persist, busy, setSpeed };
 }

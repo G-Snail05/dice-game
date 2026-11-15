@@ -26,8 +26,15 @@ export function requiredKeys() {
   for (const shape of Object.keys(SHAPES)) if (shape !== 'coin') faces[shape] = new Set(Array.from({ length: SHAPES[shape] }, (_, i) => i + 1));
   for (const s of SPECIALS) if (s.faces) s.faces.forEach(f => faces[s.shape].add(f));
   for (const [shape, set] of Object.entries(faces)) [...set].sort((a, b) => a - b).forEach(f => keys.push(faceKey(shape, f)));
-  for (const s of SPECIALS) if (!keys.includes(s.icon)) keys.push(s.icon);
+  for (const s of SPECIALS) if (!s.counter && !keys.includes(s.icon)) keys.push(s.icon);
   return keys.concat(ICON_KEYS, UI_KEYS, BG_KEYS, fxKeys());
+}
+
+// Binary counter art (requested from Ælfstan, not in the pack yet). The game draws counters with CSS
+// (LED look) and uses any of these keys as soon as the manifest has them; each also wants an `_hc` twin.
+export function counterArtKeys() {
+  return ['die_bin4_body', 'die_bin8_body', 'die_bin4_blank', 'die_bin8_blank', 'led_bit_on', 'led_bit_off', 'led_bit_tumble_1', 'led_bit_tumble_2',
+    'icon_counter4', 'icon_counter8', 'icon_link', 'fx_link_bracket_l', 'fx_link_bracket_m', 'fx_link_bracket_r', 'fx_link_glow_1', 'fx_link_glow_2', 'fx_link_glow_3'];
 }
 
 let M = { base: 'assets/', assets: {} }, F = null, variant = '';

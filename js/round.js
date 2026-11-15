@@ -54,6 +54,9 @@ export function reveal(run) {
   if (!r || !canRoll(run)) return false;
   const keep = r.hand.filter((_, i) => r.selected[i]);
   r.bench = r.hand.filter((_, i) => !r.selected[i]);
+  // Landing order: the picked dice land on the table in a random (seeded) order, which matters for
+  // position-based effects (Link chains, Echo). The order then stays fixed for the throw's re-rolls.
+  if (B.shuffleLanding !== false) run.rng.shuffle(keep);
   r.hand = keep;
   r.selected = [];
   r.locked = r.hand.map(() => false);
@@ -96,7 +99,7 @@ export function scoreCurrent(run) {
   r.broken.push(...res.broken);
   if (res.shattered.length) run.bag = run.bag.filter(d => !res.shattered.includes(d.uid));
   r.throwsLeft--;
-  r.last = { total: res.total, points: res.points, mult: res.mult, lines: res.lines, gold: res.gold, shattered: res.shattered.length, pts: res.pts };
+  r.last = { total: res.total, points: res.points, mult: res.mult, lines: res.lines, gold: res.gold, shattered: res.shattered.length, pts: res.pts, chains: res.chains };
   run.stats.throws++;
   run.stats.bestThrow = Math.max(run.stats.bestThrow, res.total);
   run.stats.totalScore += res.total;

@@ -5,8 +5,19 @@ import { buy, rerollShop, sell, sellValue, canSell } from '../js/shop.js';
 import { meanFace, maxFace, specialOf } from '../js/dice.js';
 import { makeRng } from '../js/rng.js';
 
-const SPECIAL_VALUE = { ruby: 9, matching: 8, lastcall: 8, ember: 16, glass: 10, overcharged: 6.5, twin: 7.5, coin: 5, gold: 4.5, echo: 4 };
+const SPECIAL_VALUE = { ruby: 9, matching: 8, lastcall: 8, ember: 16, glass: 10, overcharged: 6.5, twin: 7.5, coin: 5, gold: 4.5, echo: 4,
+  counter4: 5.5, counter8: 127.5, link4: 12, link8: 135 };
 export const dieValue = d => (d.special ? SPECIAL_VALUE[d.special] ?? 5 : meanFace(d));
+// Shop value with the bag in mind: counters and Link counters are worth more together (chains).
+const isCtr = d => d && /^(counter|link)/.test(d.special || '');
+export function shopValue(d, bag) {
+  let v = dieValue(d);
+  if (!isCtr(d)) return v;
+  const links = bag.filter(x => /^link/.test(x.special || '')).length, ctrs = bag.filter(isCtr).length;
+  if (/^link/.test(d.special)) v += 20 * Math.min(ctrs, 2);
+  else if (links) v += 15 * Math.min(links, 2);
+  return v;
+}
 
 function wantLock(d, i, dice) {
   const s = specialOf(d);
@@ -45,7 +56,7 @@ export const sensible = {
     for (let pass = 0; pass < 3; pass++) {
       let bought = false;
       const worst = () => run.bag.reduce((w, d) => (dieValue(d) < dieValue(w) ? d : w), run.bag[0]);
-      const offers = run.shop.offers.map((o, i) => ({ o, i, v: dieValue(o) })).filter(x => !x.o.sold).sort((a, b) => b.v - a.v);
+      const offers = run.shop.offers.map((o, i) => ({ o, i, v: shopValue(o, run.bag) })).filter(x => !x.o.sold).sort((a, b) => b.v - a.v);
       for (const { o, i, v } of offers) {
         if (v <= dieValue(worst()) + 0.5) continue;
         const w = worst();

@@ -37,6 +37,27 @@ All numbers live in [`data/balance.json`](data/balance.json). Setting `"antes"` 
 | Echo | rule | scores the value of the die to its left |
 | Glass | mult / rule | ×3, breaks for the round; 1 in 4 chance to shatter for good |
 
+## Binary counters (exotic dice)
+
+Counters are not polyhedral dice: each rolls its bits one by one with the seeded RNG (most significant first) and scores the **raw binary value**.
+
+| Counter | Bits | Scores | Shop |
+|---|---|---|---|
+| 4-bit Counter | 4 | 0–15 | uncommon, $4 |
+| 8-bit Counter | 8 | 0–255 | rare, $10 |
+| Link 4-bit Counter | 4 | 0–15, or a chain | uncommon, $5 |
+| Link 8-bit Counter | 8 | 0–255, or a chain | rare, $12 |
+
+**Landing order.** The 5 picked dice land on the table in a random order (seeded, so `?seed=N` replays exactly). The order then stays fixed for that throw's re-rolls. Position matters for Link chains and Echo.
+
+**Link chains.** A Link counter absorbs the unbroken run of counters immediately to its **left** on the table and their bits concatenate, leftmost = most significant, into one binary number. That number is scored instead of the members' own values; it sits on the Link counter and the other members score 0. Rules:
+- A regular die (anything that is not a counter) breaks the chain.
+- **Cap: 12 bits.** Walking left from the Link counter, a counter joins only while the chain total stays ≤ 12 bits; the walk stops at the first counter that would pass the cap, and that counter scores alone. So 4+4+4 or 8+4 = 4095 max; 8+8 is not allowed (no chain, both score alone).
+- **Several Link counters.** They are resolved **right to left**. Each counter belongs to at most one chain. A Link counter that a chain to its right has already absorbed does not start its own chain. A Link counter with no counter it can take scores alone.
+- Chains resolve before every other effect, so mult specials (Ruby, Ember, …) multiply the chain value, and an Echo right of a chain's Link counter copies the chain value.
+
+Counters roll in the shop separately from the classic specials (`counters.shopChance` = 15% per slot), so the classic specials keep their odds. Which counter is offered = rarity weight × the counter's `weight`. Everything is tunable in `data/balance.json` under `counters`; `node tools/counter-stats.mjs [N]` reports the win rate, chain frequency and chain scores.
+
 Plain d4, d8, d10, d12 and d20 are sold in the shop too. Effects are data in `js/specials.js`; new dice reuse effect types or add a small handler.
 
 ## Code layout
@@ -71,3 +92,4 @@ node tools/tune.mjs [t1,t1..]  # grid-search target curves against the bots (G=1
 
 The sim plays seeded runs with a "sensible" bot (picks the 5 highest-value dice of the 7 drawn, Last Call only on the final throw; holds above-average dice, buys the best value die, sells weak ones) and a random bot (picks 5 at random).
 Picking 5 of 7 made the sensible bot much stronger (73% wins on the old 40…205 curve), so targets were retuned to 40, 55, 75, 100, 135, 185, 255, 345 (round 1 × ~1.36 per round): the sensible bot wins about 40–44% of runs and the random bot never wins.
+With binary counters in the shop (4-bit $4, Link 4-bit $5, 8-bit $10, Link 8-bit $12, 15% counter roll per slot) the sensible bot still wins ~41% (4,000 runs); Link chains form in ~5% of its throws.
