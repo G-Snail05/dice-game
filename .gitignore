@@ -1,0 +1,6 @@
+# Internal project docs (research brief, manifest) stay out of the public repo/site.
+docs/
+# Art style experiments live outside the game until the pack is ready.
+style-samples/
+node_modules/
+.DS_Store

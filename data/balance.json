@@ -1,0 +1,111 @@
+{
+  "_notes": "All tuning lives here. Targets tuned with tests/sim.mjs (see README). Set `antes` to an object like `antesExample` to switch to antes x blinds.",
+  "rounds": 8,
+  "targets": [
+    40,
+    50,
+    65,
+    85,
+    105,
+    130,
+    165,
+    205
+  ],
+  "rewards": [
+    3,
+    4,
+    5,
+    3,
+    4,
+    5,
+    4,
+    8
+  ],
+  "antes": null,
+  "antesExample": {
+    "base": [
+      40,
+      55,
+      75,
+      100,
+      130,
+      170,
+      215,
+      270
+    ],
+    "blinds": [
+      {
+        "name": "Small",
+        "mult": 1,
+        "reward": 3
+      },
+      {
+        "name": "Big",
+        "mult": 1.5,
+        "reward": 4
+      },
+      {
+        "name": "Boss",
+        "mult": 2,
+        "reward": 5
+      }
+    ]
+  },
+  "endless": {
+    "step": 50,
+    "stepGrowth": 1.15,
+    "reward": 5
+  },
+  "handSize": 5,
+  "throws": 3,
+  "rerolls": 2,
+  "startingBag": [
+    {
+      "shape": "d6",
+      "count": 8
+    }
+  ],
+  "startGold": 4,
+  "reward": {
+    "perUnusedThrow": 1,
+    "interestPer": 5,
+    "interestCap": 5
+  },
+  "prices": {
+    "d4": 1,
+    "d6": 2,
+    "d8": 3,
+    "d10": 4,
+    "d12": 5,
+    "d20": 7,
+    "coin": 3
+  },
+  "shop": {
+    "slots": 3,
+    "specialChance": 0.5,
+    "rarityWeights": {
+      "common": 70,
+      "uncommon": 25,
+      "rare": 5
+    },
+    "shapeWeights": {
+      "d4": 2,
+      "d6": 1,
+      "d8": 3,
+      "d10": 3,
+      "d12": 2,
+      "d20": 1
+    },
+    "guaranteeSpecialFirstShop": true,
+    "firstShopPool": [
+      "ruby",
+      "matching",
+      "overcharged",
+      "lastcall"
+    ],
+    "rerollBase": 3,
+    "rerollStep": 1,
+    "sellFraction": 0.5,
+    "minBag": 5
+  }
+}
