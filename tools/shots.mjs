@@ -13,6 +13,7 @@ for (const [name, { only, ...opt }] of Object.entries(sizes)) {
   const ctx = await b.newContext(opt), p = await ctx.newPage();
   // Art check: every visible sprite loaded from the style A pack at the density-matched folder.
   const checkArt = async n => {
+    await p.waitForFunction(() => [...document.querySelectorAll('img.art')].every(e => e.complete), null, { timeout: 20000 }).catch(() => {});
     const r = await p.$$eval('img.art', els => els.filter(e => e.offsetParent).map(e => ({ key: e.dataset.key, src: e.currentSrc, ok: e.complete && e.naturalWidth > 0 })));
     const want = { 1: '/1x/', 2: '/2x/', 3: '/3x/' }[opt.deviceScaleFactor || 1];
     const bad = r.filter(x => !x.ok || !x.src.includes('pack-styleA') || !x.src.includes(want));
