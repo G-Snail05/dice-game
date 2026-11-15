@@ -1,17 +1,18 @@
 import { setBalance } from './balance.js';
-import { initArt, installArtFallbacks } from './art.js';
+import { initArt, installArtFallbacks, setVariant, hasHighContrast, bgCSS } from './art.js';
 import { randomSeed } from './rng.js';
 import { newRun, settleRound, continueEndless, nextRound, serialize, deserialize } from './run.js';
 import { toggleLock, reroll, scoreCurrent } from './round.js';
 import { buy, rerollShop, sell } from './shop.js';
-import { titleView } from './ui/title.js';
+import { titleView, infoView } from './ui/title.js';
 import { roundView } from './ui/roundView.js';
 import { shopView } from './ui/shopView.js';
 import { winView, loseView } from './ui/endView.js';
+import { settingsView } from './ui/settingsView.js';
 
-const SAVE_KEY = 'diceGame.save', BEST_KEY = 'diceGame.best';
+const SAVE_KEY = 'diceGame.save', BEST_KEY = 'diceGame.best', SETTINGS_KEY = 'diceGame.settings';
 const app = document.getElementById('app');
-const state = { run: null, screen: 'title', justScored: false };
+const state = { run: null, screen: 'title', justScored: false, back: 'title', settings: { hc: false, reduceMotion: false } };
 
 const store = {
   get(k) { try { return localStorage.getItem(k); } catch { return null; } },
@@ -31,8 +32,19 @@ function persist() {
 }
 function recordWin() { const b = best() || { wins: 0, round: 0, throw: 0 }; b.wins++; store.set(BEST_KEY, JSON.stringify(b)); }
 
+function applySettings() {
+  const st = state.settings, hc = st.hc && hasHighContrast();
+  setVariant(hc ? 'hc' : '');
+  document.body.classList.toggle('hc', hc);
+  document.body.classList.toggle('reduce-motion', !!st.reduceMotion);
+}
+
 function render() {
   const run = state.run;
+  const screenName = state.screen === 'settings' || state.screen === 'info' ? state.screen : state.screen === 'title' || !run ? 'title' : run.phase;
+  document.documentElement.style.backgroundImage = bgCSS(state.settings.hc && hasHighContrast() ? 'bg_hc_tile' : screenName === 'shop' ? 'bg_shop_tile' : 'bg_table_tile');
+  if (state.screen === 'settings') { app.innerHTML = settingsView(state.settings); app.dataset.screen = 'settings'; return; }
+  if (state.screen === 'info') { app.innerHTML = infoView(); app.dataset.screen = 'info'; return; }
   if (state.screen === 'title' || !run) app.innerHTML = titleView({ save: loadSave(), best: best() });
   else if (run.phase === 'round') app.innerHTML = roundView(run, { justScored: state.justScored });
   else if (run.phase === 'shop') app.innerHTML = shopView(run);
@@ -49,6 +61,9 @@ const actions = {
   seeded: () => start((app.querySelector('input[name=seed]').value || '').trim().toUpperCase() || randomSeed()),
   continue: () => { state.run = loadSave(); state.screen = state.run ? 'run' : 'title'; render(); },
   quit: () => { state.screen = 'title'; render(); },
+  settings: () => { if (state.screen !== 'info') state.back = state.screen; state.screen = 'settings'; window.scrollTo(0, 0); },
+  info: () => { if (state.screen !== 'settings') state.back = state.screen; state.screen = 'info'; window.scrollTo(0, 0); },
+  back: () => { state.screen = state.back || 'title'; },
   lock: el => toggleLock(state.run, +el.dataset.i),
   reroll: () => reroll(state.run),
   score: () => {
@@ -77,12 +92,23 @@ app.addEventListener('click', ev => {
   persist();
   render();
 });
+app.addEventListener('change', ev => {
+  const el = ev.target.closest('[data-setting]');
+  if (!el) return;
+  state.settings[el.dataset.setting] = el.checked;
+  store.set(SETTINGS_KEY, JSON.stringify(state.settings));
+  applySettings();
+  render();
+});
 app.addEventListener('submit', ev => { ev.preventDefault(); actions.seeded(); });
 
 async function boot() {
   const [bal, man] = await Promise.all([fetch('data/balance.json').then(r => r.json()), fetch('assets/manifest.json').then(r => r.json())]);
+  const fb = man.fallback ? await fetch(man.fallback).then(r => (r.ok ? r.json() : null)).catch(() => null) : null;
   setBalance(bal);
-  initArt(man);
+  initArt(man, fb);
+  try { Object.assign(state.settings, JSON.parse(store.get(SETTINGS_KEY)) || {}); } catch { /* defaults */ }
+  applySettings();
   installArtFallbacks(document);
   const q = new URLSearchParams(location.search);
   if (q.has('seed')) start(q.get('seed')); else render();

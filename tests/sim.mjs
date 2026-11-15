@@ -32,7 +32,9 @@ eq(scoreThrow([D(1), D(2), D(3), D(4), D(5)]).total, 15, 'plain sum');
 eq(scoreThrow([D(2), D(2), D(3), D(4), D(5, 'ruby')]).total, 24, 'ruby x1.5 (16*1.5)');
 eq(scoreThrow([D(4), D(4, 'matching'), D(1)]).total, 18, 'matching x2 when pair');
 eq(scoreThrow([D(4), D(5, 'matching'), D(1)]).total, 10, 'matching idle without pair');
-eq(scoreThrow([D(2), D(4), D(1), D(3, 'ember')]).mult, 2, 'ember +0.5 per other even (2 evens)');
+eq(scoreThrow([D(2), D(4), D(1), D(3, 'ember')]).mult, 5, 'ember +2 mult per other even (2 evens)');
+eq(scoreThrow([D(2), D(4), D(1), D(3, 'ember')]).total, 50, 'ember total = 10 x 5');
+eq(scoreThrow([D(1), D(3), D(4, 'ember')]).mult, 1, 'ember ignores itself and odd dice');
 eq(scoreThrow([D(3), D(3, 'lastcall')], { throwsLeft: 1 }).total, 18, 'last call x3 on final throw');
 eq(scoreThrow([D(3), D(3, 'lastcall')], { throwsLeft: 2 }).total, 6, 'last call idle earlier');
 eq(scoreThrow([D(6), D(1, 'echo')]).total, 12, 'echo copies left die');
@@ -75,10 +77,23 @@ ok(Array.from({ length: 12 }, (_, i) => roundInfo(i + 1).target).every((t, i, a)
 // --- Lose path
 { const run = newRun('lose'); run.round.target = 10 ** 9; for (let i = 0; i < BAL.throws; i++) scoreCurrent(run); settleRound(run); eq(run.phase, 'lose', 'missing target loses'); }
 
-// --- Art keys
-{ const man = JSON.parse(fs.readFileSync(ROOT + 'assets/manifest.json', 'utf8')); const keys = requiredKeys();
-  const missing = keys.filter(k => !man.assets[k]); eq(missing, [], 'manifest covers every key');
-  const files = keys.filter(k => man.assets[k]).map(k => man.assets[k].src).filter(s => !fs.existsSync(ROOT + man.base + s)); eq(files, [], 'placeholder files exist');
+// --- Art keys: active manifest (style A pack) and the placeholder fallback both cover every key; every file exists.
+{ const keys = requiredKeys();
+  const files = e => { if (!e) return []; const out = [e.src, ...Object.values(e.srcset || {})]; if (e.hc) out.push(...files(e.hc)); for (const st of Object.values(e.states || {})) out.push(...files(st)); return out; };
+  for (const name of ['manifest.json', 'manifest.placeholder.json']) {
+    const man = JSON.parse(fs.readFileSync(ROOT + 'assets/' + name, 'utf8'));
+    eq(keys.filter(k => !man.assets[k]), [], `${name} covers every key (${keys.length})`);
+    eq(keys.flatMap(k => files(man.assets[k])).filter(f => !fs.existsSync(ROOT + man.base + f)), [], `${name}: every referenced file exists`);
+  }
+  const man = JSON.parse(fs.readFileSync(ROOT + 'assets/manifest.json', 'utf8'));
+  eq(man.fallback, 'assets/manifest.placeholder.json', 'active manifest names the placeholder fallback');
+  ok(man.pixelated === true, 'pixel pack sets pixelated');
+  const noSet = keys.filter(k => !(man.assets[k].srcset && man.assets[k].srcset['2x'] && man.assets[k].srcset['3x'])); eq(noSet, [], 'every key has 1x/2x/3x srcset');
+  // 2x/3x files really are 2x/3x the 1x pixel size (PNG IHDR width).
+  const pngW = f => fs.readFileSync(ROOT + man.base + f).readUInt32BE(16);
+  const badScale = keys.filter(k => { const e = man.assets[k]; const w = pngW(e.src); return pngW(e.srcset['2x']) !== 2 * w || pngW(e.srcset['3x']) !== 3 * w; }); eq(badScale, [], '2x/3x sprites are exact multiples');
+  ok(keys.filter(k => man.assets[k].hc).length >= 80, 'high-contrast twins present for most keys');
+  eq(keys.filter(k => /^ui_btn_/.test(k) && man.assets[k].kind !== 'button'), [], 'ui_btn_* keys are button skins with states');
   const doc = fs.readFileSync(ROOT + 'ASSETS.md', 'utf8'); eq(keys.filter(k => !doc.includes(k)), [], 'ASSETS.md lists every key'); }
 
 // --- Simulations

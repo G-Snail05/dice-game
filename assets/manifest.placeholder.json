@@ -1,0 +1,283 @@
+{
+ "_doc": "FALLBACK placeholder manifest (the active one is assets/manifest.json). Logical art keys -> files. See ASSETS.md. Paths are relative to `base`. Entry forms: {src}, {src, scales:[1,2,3]} (@2x/@3x suffixes), or {src, srcset:{\"2x\":..., \"3x\":...}}. Set `pack` (+ `preferPack`: true) to load a whole folder by key name.",
+ "version": 1,
+ "base": "assets/",
+ "pixelated": false,
+ "preferPack": false,
+ "pack": null,
+ "assets": {
+  "die_coin_face0": {
+   "src": "placeholder/die_coin_face0.svg"
+  },
+  "die_coin_face10": {
+   "src": "placeholder/die_coin_face10.svg"
+  },
+  "die_d4_face1": {
+   "src": "placeholder/die_d4_face1.svg"
+  },
+  "die_d4_face2": {
+   "src": "placeholder/die_d4_face2.svg"
+  },
+  "die_d4_face3": {
+   "src": "placeholder/die_d4_face3.svg"
+  },
+  "die_d4_face4": {
+   "src": "placeholder/die_d4_face4.svg"
+  },
+  "die_d6_face1": {
+   "src": "placeholder/die_d6_face1.svg"
+  },
+  "die_d6_face2": {
+   "src": "placeholder/die_d6_face2.svg"
+  },
+  "die_d6_face3": {
+   "src": "placeholder/die_d6_face3.svg"
+  },
+  "die_d6_face4": {
+   "src": "placeholder/die_d6_face4.svg"
+  },
+  "die_d6_face5": {
+   "src": "placeholder/die_d6_face5.svg"
+  },
+  "die_d6_face6": {
+   "src": "placeholder/die_d6_face6.svg"
+  },
+  "die_d6_face7": {
+   "src": "placeholder/die_d6_face7.svg"
+  },
+  "die_d6_face8": {
+   "src": "placeholder/die_d6_face8.svg"
+  },
+  "die_d6_face9": {
+   "src": "placeholder/die_d6_face9.svg"
+  },
+  "die_d8_face1": {
+   "src": "placeholder/die_d8_face1.svg"
+  },
+  "die_d8_face2": {
+   "src": "placeholder/die_d8_face2.svg"
+  },
+  "die_d8_face3": {
+   "src": "placeholder/die_d8_face3.svg"
+  },
+  "die_d8_face4": {
+   "src": "placeholder/die_d8_face4.svg"
+  },
+  "die_d8_face5": {
+   "src": "placeholder/die_d8_face5.svg"
+  },
+  "die_d8_face6": {
+   "src": "placeholder/die_d8_face6.svg"
+  },
+  "die_d8_face7": {
+   "src": "placeholder/die_d8_face7.svg"
+  },
+  "die_d8_face8": {
+   "src": "placeholder/die_d8_face8.svg"
+  },
+  "die_d10_face1": {
+   "src": "placeholder/die_d10_face1.svg"
+  },
+  "die_d10_face2": {
+   "src": "placeholder/die_d10_face2.svg"
+  },
+  "die_d10_face3": {
+   "src": "placeholder/die_d10_face3.svg"
+  },
+  "die_d10_face4": {
+   "src": "placeholder/die_d10_face4.svg"
+  },
+  "die_d10_face5": {
+   "src": "placeholder/die_d10_face5.svg"
+  },
+  "die_d10_face6": {
+   "src": "placeholder/die_d10_face6.svg"
+  },
+  "die_d10_face7": {
+   "src": "placeholder/die_d10_face7.svg"
+  },
+  "die_d10_face8": {
+   "src": "placeholder/die_d10_face8.svg"
+  },
+  "die_d10_face9": {
+   "src": "placeholder/die_d10_face9.svg"
+  },
+  "die_d10_face10": {
+   "src": "placeholder/die_d10_face10.svg"
+  },
+  "die_d12_face1": {
+   "src": "placeholder/die_d12_face1.svg"
+  },
+  "die_d12_face2": {
+   "src": "placeholder/die_d12_face2.svg"
+  },
+  "die_d12_face3": {
+   "src": "placeholder/die_d12_face3.svg"
+  },
+  "die_d12_face4": {
+   "src": "placeholder/die_d12_face4.svg"
+  },
+  "die_d12_face5": {
+   "src": "placeholder/die_d12_face5.svg"
+  },
+  "die_d12_face6": {
+   "src": "placeholder/die_d12_face6.svg"
+  },
+  "die_d12_face7": {
+   "src": "placeholder/die_d12_face7.svg"
+  },
+  "die_d12_face8": {
+   "src": "placeholder/die_d12_face8.svg"
+  },
+  "die_d12_face9": {
+   "src": "placeholder/die_d12_face9.svg"
+  },
+  "die_d12_face10": {
+   "src": "placeholder/die_d12_face10.svg"
+  },
+  "die_d12_face11": {
+   "src": "placeholder/die_d12_face11.svg"
+  },
+  "die_d12_face12": {
+   "src": "placeholder/die_d12_face12.svg"
+  },
+  "die_d20_face1": {
+   "src": "placeholder/die_d20_face1.svg"
+  },
+  "die_d20_face2": {
+   "src": "placeholder/die_d20_face2.svg"
+  },
+  "die_d20_face3": {
+   "src": "placeholder/die_d20_face3.svg"
+  },
+  "die_d20_face4": {
+   "src": "placeholder/die_d20_face4.svg"
+  },
+  "die_d20_face5": {
+   "src": "placeholder/die_d20_face5.svg"
+  },
+  "die_d20_face6": {
+   "src": "placeholder/die_d20_face6.svg"
+  },
+  "die_d20_face7": {
+   "src": "placeholder/die_d20_face7.svg"
+  },
+  "die_d20_face8": {
+   "src": "placeholder/die_d20_face8.svg"
+  },
+  "die_d20_face9": {
+   "src": "placeholder/die_d20_face9.svg"
+  },
+  "die_d20_face10": {
+   "src": "placeholder/die_d20_face10.svg"
+  },
+  "die_d20_face11": {
+   "src": "placeholder/die_d20_face11.svg"
+  },
+  "die_d20_face12": {
+   "src": "placeholder/die_d20_face12.svg"
+  },
+  "die_d20_face13": {
+   "src": "placeholder/die_d20_face13.svg"
+  },
+  "die_d20_face14": {
+   "src": "placeholder/die_d20_face14.svg"
+  },
+  "die_d20_face15": {
+   "src": "placeholder/die_d20_face15.svg"
+  },
+  "die_d20_face16": {
+   "src": "placeholder/die_d20_face16.svg"
+  },
+  "die_d20_face17": {
+   "src": "placeholder/die_d20_face17.svg"
+  },
+  "die_d20_face18": {
+   "src": "placeholder/die_d20_face18.svg"
+  },
+  "die_d20_face19": {
+   "src": "placeholder/die_d20_face19.svg"
+  },
+  "die_d20_face20": {
+   "src": "placeholder/die_d20_face20.svg"
+  },
+  "icon_mult_x1_5": {
+   "src": "placeholder/icon_mult_x1_5.svg"
+  },
+  "icon_ember": {
+   "src": "placeholder/icon_ember.svg"
+  },
+  "icon_mult_x3": {
+   "src": "placeholder/icon_mult_x3.svg"
+  },
+  "icon_mult_x2": {
+   "src": "placeholder/icon_mult_x2.svg"
+  },
+  "icon_overcharged": {
+   "src": "placeholder/icon_overcharged.svg"
+  },
+  "icon_coin_flip": {
+   "src": "placeholder/icon_coin_flip.svg"
+  },
+  "icon_gold": {
+   "src": "placeholder/icon_gold.svg"
+  },
+  "icon_twin": {
+   "src": "placeholder/icon_twin.svg"
+  },
+  "icon_echo": {
+   "src": "placeholder/icon_echo.svg"
+  },
+  "icon_glass": {
+   "src": "placeholder/icon_glass.svg"
+  },
+  "icon_coin": {
+   "src": "placeholder/icon_coin.svg"
+  },
+  "icon_lock": {
+   "src": "placeholder/icon_lock.svg"
+  },
+  "ui_logo": {
+   "src": "placeholder/ui_logo.svg"
+  },
+  "ui_btn_roll": {
+   "src": "placeholder/ui_btn_roll.svg"
+  },
+  "ui_btn_score": {
+   "src": "placeholder/ui_btn_score.svg"
+  },
+  "ui_btn_buy": {
+   "src": "placeholder/ui_btn_buy.svg"
+  },
+  "ui_btn_shop_reroll": {
+   "src": "placeholder/ui_btn_shop_reroll.svg"
+  },
+  "ui_btn_sell": {
+   "src": "placeholder/ui_btn_sell.svg"
+  },
+  "ui_btn_next": {
+   "src": "placeholder/ui_btn_next.svg"
+  },
+  "ui_btn_new_run": {
+   "src": "placeholder/ui_btn_new_run.svg"
+  },
+  "ui_btn_settings": {
+   "src": "placeholder/ui_btn_settings.svg"
+  },
+  "ui_btn_pause": {
+   "src": "placeholder/ui_btn_pause.svg"
+  },
+  "ui_btn_info": {
+   "src": "placeholder/ui_btn_info.svg"
+  },
+  "bg_table_tile": {
+   "src": "placeholder/bg_table_tile.svg"
+  },
+  "bg_shop_tile": {
+   "src": "placeholder/bg_shop_tile.svg"
+  },
+  "bg_hc_tile": {
+   "src": "placeholder/bg_hc_tile.svg"
+  }
+ }
+}

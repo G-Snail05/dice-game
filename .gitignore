@@ -4,3 +4,8 @@ docs/
 style-samples/
 node_modules/
 .DS_Store
+# Raw art pack + zip from Ælfstan: only the shipped copy in assets/pack-styleA/ is committed.
+/asset-pack/
+/*.zip
+# Office docs filed by teammates stay local
+*.docx

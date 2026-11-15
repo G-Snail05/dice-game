@@ -30,7 +30,7 @@ const badge = (bg, txt, fg = '#fff', size = 40) => svg(`<circle cx="50" cy="50" 
 const RED = '#d23b3b', BLUE = '#2f6fd6', GOLD = '#e0a91b', GREY = '#666';
 const ICONS = {
   icon_mult_x1_5: badge(RED, '×1.5', '#fff', 30), icon_mult_x2: badge(RED, '×2'), icon_mult_x3: badge(RED, '×3'),
-  icon_ember: badge(RED, '+½', '#fff', 40), icon_overcharged: badge(BLUE, '4–9', '#fff', 30), icon_coin_flip: badge(BLUE, '0|10', '#fff', 26),
+  icon_ember: badge(RED, '+2', '#fff', 40), icon_overcharged: badge(BLUE, '4–9', '#fff', 30), icon_coin_flip: badge(BLUE, '0|10', '#fff', 26),
   icon_gold: badge(GOLD, '$6', '#1a1a1a', 36), icon_twin: badge(BLUE, '×➋', '#fff', 30), icon_echo: badge('#7a4fd0', '◀=', '#fff', 34),
   icon_glass: badge('#8fd3e8', '◇×3', '#1a1a1a', 28), icon_coin: badge(GOLD, '$', '#1a1a1a', 52), icon_lock: badge(GREY, '🔒', '#fff', 44),
   ui_logo: svg('<rect x="4" y="22" width="56" height="56" rx="10" fill="#f6f1e3" stroke="#2b2118" stroke-width="4" transform="rotate(-12 32 50)"/><circle cx="24" cy="44" r="6" fill="#2b2118"/><circle cx="40" cy="58" r="6" fill="#2b2118"/><path d="M62 20 L96 50 L62 80 L44 50 Z" fill="#cfe3f7" stroke="#2b2118" stroke-width="4"/><text x="70" y="60" font-family="system-ui" font-weight="900" font-size="24" text-anchor="middle" fill="#2b2118">8</text>'),
@@ -40,6 +40,12 @@ const ICONS = {
   ui_btn_shop_reroll: svg('<path d="M80 50 A30 30 0 1 1 64 23" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/><path d="M56 8 L82 20 L60 38 Z" fill="#fff"/>'),
   ui_btn_sell: badge(GOLD, '−$', '#1a1a1a', 40),
   ui_btn_next: svg('<path d="M16 50 H78 M54 24 L82 50 L54 76" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>'),
+  ui_btn_settings: svg('<circle cx="50" cy="50" r="22" fill="none" stroke="#fff" stroke-width="12"/><path d="M50 6 V22 M50 78 V94 M6 50 H22 M78 50 H94 M19 19 L30 30 M70 70 L81 81 M19 81 L30 70 M70 30 L81 19" stroke="#fff" stroke-width="12" stroke-linecap="round"/>'),
+  ui_btn_pause: svg('<rect x="24" y="18" width="18" height="64" rx="4" fill="#fff"/><rect x="58" y="18" width="18" height="64" rx="4" fill="#fff"/>'),
+  ui_btn_info: badge('#2f6fd6', 'i', '#fff', 60),
+  bg_table_tile: svg('<rect width="100" height="100" fill="#1d4d36"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="#ffffff10" stroke-width="2"/>'),
+  bg_shop_tile: svg('<rect width="100" height="100" fill="#2b1f4a"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="#ffffff10" stroke-width="2"/>'),
+  bg_hc_tile: svg('<rect width="100" height="100" fill="#0c0c14"/>'),
   ui_btn_new_run: svg('<path d="M50 14 V86 M14 50 H86" stroke="#fff" stroke-width="12" stroke-linecap="round"/>'),
 };
 
@@ -53,7 +59,7 @@ for (const key of requiredKeys()) {
   assets[key] = { src: `placeholder/${key}.svg` };
 }
 const manifest = {
-  _doc: 'Logical art keys -> files. See ASSETS.md. Paths are relative to `base`. Entry forms: {src}, {src, scales:[1,2,3]} (@2x/@3x suffixes), or {src, srcset:{"2x":..., "3x":...}}. Set `pack` (+ `preferPack`: true) to load a whole folder by key name.',
+  _doc: 'FALLBACK placeholder manifest (the active one is assets/manifest.json). Logical art keys -> files. See ASSETS.md. Paths are relative to `base`. Entry forms: {src}, {src, scales:[1,2,3]} (@2x/@3x suffixes), or {src, srcset:{"2x":..., "3x":...}}. Set `pack` (+ `preferPack`: true) to load a whole folder by key name.',
   version: 1,
   base: 'assets/',
   pixelated: false,
@@ -61,5 +67,5 @@ const manifest = {
   pack: null,
   assets,
 };
-fs.writeFileSync(ROOT + 'assets/manifest.json', JSON.stringify(manifest, null, 1) + '\n');
+fs.writeFileSync(ROOT + 'assets/manifest.placeholder.json', JSON.stringify(manifest, null, 1) + '\n');
 console.log('wrote', Object.keys(assets).length, 'placeholder assets');

@@ -13,7 +13,7 @@ export function winView(run) {
     <h1>Run won! 🎉</h1>
     <p class="lede">You beat all ${totalRounds()} rounds.</p>
     ${stats(run)}
-    <div class="stack">${btn('endless', 'Keep going: endless mode', { icon: 'ui_btn_next', cls: 'primary' })}${btn('new', 'New run', { icon: 'ui_btn_new_run' })}${btn('quit', 'Menu', { cls: 'link' })}</div>
+    <div class="stack">${btn('endless', 'Keep going: endless mode', { icon: 'ui_btn_next', cls: 'primary', caption: 'Keep going: endless mode' })}${btn('new', 'New run', { icon: 'ui_btn_new_run' })}${btn('quit', 'Menu', { cls: 'link' })}</div>
   </section>`;
 }
 

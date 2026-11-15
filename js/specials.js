@@ -63,8 +63,8 @@ const COND = {
 export const SPECIALS = [
   { id: 'ruby', name: 'Ruby', idea: 7, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_mult_x1_5', layer: 'mult',
     desc: '×1.5 to the throw.', effect: { type: 'xMult', x: 1.5 } },
-  { id: 'ember', name: 'Ember', idea: 8, shape: 'd6', rarity: 'uncommon', price: 6, icon: 'icon_ember', layer: 'mult',
-    desc: '+0.5 mult for each other die showing an even number.', effect: { type: 'addMultPerEven', add: 0.5 } },
+  { id: 'ember', name: 'Ember', idea: 8, shape: 'd6', rarity: 'uncommon', price: 8, icon: 'icon_ember', layer: 'mult',
+    desc: '+2 mult for each other die showing an even number.', effect: { type: 'addMultPerEven', add: 2 } },
   { id: 'lastcall', name: 'Last Call', idea: 9, shape: 'd6', rarity: 'uncommon', price: 5, icon: 'icon_mult_x3', layer: 'mult',
     desc: '×3 on your final throw of the round.', effect: { type: 'xMultIf', x: 3, cond: 'lastThrow', label: 'final throw' } },
   { id: 'matching', name: 'Matching', idea: 10, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_mult_x2', layer: 'mult',

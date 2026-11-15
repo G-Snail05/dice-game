@@ -27,7 +27,7 @@ All numbers live in [`data/balance.json`](data/balance.json). Setting `"antes"` 
 | Die | Layer | Effect |
 |---|---|---|
 | Ruby | mult | ×1.5 to the throw |
-| Ember | mult | +0.5 mult per other even die |
+| Ember | mult | +2 mult per other even die (uncommon, $8) |
 | Last Call | mult | ×3 on the final throw of the round |
 | Matching | mult | ×2 if another die shows the same face |
 | Overcharged | points | faces 4–9 |

@@ -44,10 +44,14 @@ export function roundView(run, { justScored }) {
     <p class="hint">${r.rerollsLeft ? 'Tap dice to lock them, then re-roll the rest.' : 'No re-rolls left this round. Score this throw.'}</p>
     ${breakdown(pv, { title: 'This throw would score' })}
     <div class="actions">
-      ${btn('reroll', `Re-roll (${r.rerollsLeft})`, { icon: 'ui_btn_roll', disabled: !canReroll(run) })}
-      ${btn('score', `Score throw`, { icon: 'ui_btn_score', cls: 'primary' })}
+      ${btn('reroll', `Re-roll (${r.rerollsLeft} left)`, { icon: 'ui_btn_roll', disabled: !canReroll(run), caption: `Re-roll · ${r.rerollsLeft} left` })}
+      ${btn('score', `Score throw`, { icon: 'ui_btn_score', cls: 'primary', caption: `${r.throwsLeft} throw${r.throwsLeft === 1 ? '' : 's'} left` })}
     </div>
     ${bagView(run)}
-    <p class="seedline">Seed ${esc(run.seed)}${run.endless ? ' · endless' : ` · ${totalRounds()} rounds`} · ${btn('quit', 'Menu', { cls: 'link' })}</p>
+    ${iconBar()}
+    <p class="seedline">Seed ${esc(run.seed)}${run.endless ? ' · endless' : ` · ${totalRounds()} rounds`} · saved automatically</p>
   </section>`;
 }
+
+// Pause (back to the menu; the run is saved), info and settings icon buttons.
+export const iconBar = () => `<div class="iconbar">${btn('quit', 'Pause and go to the menu (run is saved)', { icon: 'ui_btn_pause', caption: 'Pause' })}${btn('info', 'How to play', { icon: 'ui_btn_info', caption: 'Info' })}${btn('settings', 'Settings', { icon: 'ui_btn_settings', caption: 'Settings' })}</div>`;

@@ -5,7 +5,7 @@ import { buy, rerollShop, sell, sellValue, canSell } from '../js/shop.js';
 import { meanFace, maxFace, specialOf } from '../js/dice.js';
 import { makeRng } from '../js/rng.js';
 
-const SPECIAL_VALUE = { ruby: 9, matching: 8, lastcall: 8, ember: 8, glass: 10, overcharged: 6.5, twin: 7.5, coin: 5, gold: 4.5, echo: 4 };
+const SPECIAL_VALUE = { ruby: 9, matching: 8, lastcall: 8, ember: 16, glass: 10, overcharged: 6.5, twin: 7.5, coin: 5, gold: 4.5, echo: 4 };
 export const dieValue = d => (d.special ? SPECIAL_VALUE[d.special] ?? 5 : meanFace(d));
 
 function wantLock(d, i, dice) {

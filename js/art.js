@@ -3,8 +3,9 @@
 import { SHAPES, faceKey } from './dice.js';
 import { SPECIALS } from './specials.js';
 
-export const UI_KEYS = ['ui_logo', 'ui_btn_roll', 'ui_btn_score', 'ui_btn_buy', 'ui_btn_shop_reroll', 'ui_btn_sell', 'ui_btn_next', 'ui_btn_new_run'];
+export const UI_KEYS = ['ui_logo', 'ui_btn_roll', 'ui_btn_score', 'ui_btn_buy', 'ui_btn_shop_reroll', 'ui_btn_sell', 'ui_btn_next', 'ui_btn_new_run', 'ui_btn_settings', 'ui_btn_pause', 'ui_btn_info'];
 export const ICON_KEYS = ['icon_coin', 'icon_lock'];
+export const BG_KEYS = ['bg_table_tile', 'bg_shop_tile', 'bg_hc_tile'];
 
 // Every key the game can ask for (pure; used by tests and ASSETS.md).
 export function requiredKeys() {
@@ -14,20 +15,26 @@ export function requiredKeys() {
   for (const s of SPECIALS) if (s.faces) s.faces.forEach(f => faces[s.shape].add(f));
   for (const [shape, set] of Object.entries(faces)) [...set].sort((a, b) => a - b).forEach(f => keys.push(faceKey(shape, f)));
   for (const s of SPECIALS) if (!keys.includes(s.icon)) keys.push(s.icon);
-  return keys.concat(ICON_KEYS, UI_KEYS);
+  return keys.concat(ICON_KEYS, UI_KEYS, BG_KEYS);
 }
 
-let M = { base: 'assets/', assets: {} };
-export function initArt(manifest) { M = { base: 'assets/', assets: {}, ...manifest }; }
+let M = { base: 'assets/', assets: {} }, F = null, variant = '';
+// `fallback` is the placeholder manifest: used per key when the active one lacks it or its file fails.
+export function initArt(manifest, fallback = null) { M = { base: 'assets/', assets: {}, ...manifest }; F = fallback ? { base: 'assets/', assets: {}, ...fallback } : null; }
+// '' (normal) or 'hc' (high contrast: entries with an `hc` twin use it).
+export function setVariant(v) { variant = v || ''; }
+export const hasHighContrast = () => Object.values(M.assets).some(e => e && e.hc);
+export const entryOf = key => M.assets[key] || null;
 
 const srcsetOf = (src, scales) => scales.map(n => (n === 1 ? `${src} 1x` : `${src.replace(/(\.\w+)$/, `@${n}x$1`)} ${n}x`)).join(', ');
 
-function fromEntry(e) {
+function fromEntry(e, base = M.base) {
   if (!e) return null;
   if (typeof e === 'string') e = { src: e };
-  const src = M.base + e.src;
+  if (variant && e[variant]) e = e[variant];
+  const src = base + e.src;
   let srcset = '';
-  if (e.srcset) srcset = [`${src} 1x`, ...Object.entries(e.srcset).map(([k, v]) => `${M.base + v} ${k}`)].join(', ');
+  if (e.srcset) srcset = [`${src} 1x`, ...Object.entries(e.srcset).map(([k, v]) => `${base + v} ${k}`)].join(', ');
   else if (e.scales && e.scales.length > 1) srcset = srcsetOf(src, e.scales);
   return { src, srcset };
 }
@@ -44,11 +51,30 @@ function fromPack(key) {
   return { src, srcset: scales.length > 1 ? srcsetOf(src, scales) : '' };
 }
 
-// Candidate sources in order: pack (when preferPack, or no explicit entry) -> explicit entry.
+// Candidate sources in order: pack (when preferPack) -> explicit entry -> pack -> fallback (placeholder) manifest.
 export function resolve(key) {
-  const entry = fromEntry(M.assets[key]), pack = fromPack(key);
-  const c = M.preferPack ? [pack, entry] : [entry, pack];
-  return c.filter(Boolean);
+  const entry = fromEntry(M.assets[key]), pack = fromPack(key), fb = F ? fromEntry(F.assets[key], F.base) : null;
+  const c = M.preferPack ? [pack, entry, fb] : [entry, pack, fb];
+  return c.filter(Boolean).filter((x, i, a) => a.findIndex(y => y.src === x.src) === i);
+}
+
+// Button skin (labels baked into the art): normal/pressed/disabled images; null if the key is not a skin.
+export function buttonSkin(key, disabled) {
+  const e = M.assets[key];
+  if (!e || e.kind !== 'button') return null;
+  const st = e.states || {};
+  const pick = s => fromEntry(s);
+  const show = disabled && st.disabled ? pick(st.disabled) : fromEntry(e);
+  const img = (r, cls) => `<img class="art px skin ${cls}" src="${esc(r.src)}"${r.srcset ? ` srcset="${esc(r.srcset)}"` : ''} alt="" draggable="false" data-key="${esc(key)}" data-next="[]" data-fallback="">`;
+  return img(show, 'skin-normal') + (!disabled && st.pressed ? img(pick(st.pressed), 'skin-pressed') : '');
+}
+
+// CSS background for a tile key: image-set over 1x/2x/3x.
+export function bgCSS(key) {
+  const c = resolve(key)[0];
+  if (!c) return '';
+  if (!c.srcset) return `url("${c.src}")`;
+  return `image-set(${c.srcset.split(', ').map(p => { const [u, d] = p.split(' '); return `url("${u}") ${d}`; }).join(', ')})`;
 }
 
 const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
