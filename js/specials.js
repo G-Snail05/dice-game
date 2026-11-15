@@ -24,10 +24,13 @@ export const EFFECTS = {
       return n ? { addMult: c.p.add * n, note: `+${c.p.add * n} mult (${n} other even)`, layer: 'mult' } : { note: 'no other even dice', layer: 'mult', idle: true };
     },
   },
-  goldPerSix: {
+  // Gold: pays for every die in the throw (itself included) showing at least the Gold die's own top face;
+  // the payout per hit depends on the Gold die's shape (balance.json mods.goldPayout).
+  goldPerHigh: {
     score: c => {
-      const n = c.pts.filter(v => v === 6).length;
-      return n ? { gold: c.p.gold * n, note: `+$${c.p.gold * n} (${n} six${n > 1 ? 'es' : ''})`, layer: 'gold' } : { note: 'no sixes', layer: 'gold', idle: true };
+      const t = goldThreshold(c.die, c.env.facesOf), pay = goldPay(c.die.shape);
+      const n = c.pts.filter(v => v >= t).length;
+      return n ? { gold: pay * n, note: `+$${pay * n} (${n} at ${t}+)`, layer: 'gold' } : { note: `none at ${t}+`, layer: 'gold', idle: true };
     },
   },
   echo: {
@@ -63,25 +66,25 @@ const COND = {
 
 // The chosen ~10 (numbers refer to the research brief's 22 ideas).
 export const SPECIALS = [
-  { id: 'ruby', name: 'Ruby', idea: 7, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_mult_x1_5', layer: 'mult',
+  { id: 'ruby', mod: true, name: 'Ruby', idea: 7, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_mult_x1_5', layer: 'mult',
     desc: '×1.5 to the throw.', effect: { type: 'xMult', x: 1.5 } },
-  { id: 'ember', name: 'Ember', idea: 8, shape: 'd6', rarity: 'uncommon', price: 8, icon: 'icon_ember', layer: 'mult',
+  { id: 'ember', mod: true, name: 'Ember', idea: 8, shape: 'd6', rarity: 'uncommon', price: 8, icon: 'icon_ember', layer: 'mult',
     desc: '+2 mult for each other die showing an even number.', effect: { type: 'addMultPerEven', add: 2 } },
-  { id: 'lastcall', name: 'Last Call', idea: 9, shape: 'd6', rarity: 'uncommon', price: 5, icon: 'icon_mult_x3', layer: 'mult',
+  { id: 'lastcall', mod: true, name: 'Last Call', idea: 9, shape: 'd6', rarity: 'uncommon', price: 5, icon: 'icon_mult_x3', layer: 'mult',
     desc: '×3 on your final throw of the round.', effect: { type: 'xMultIf', x: 3, cond: 'lastThrow', label: 'final throw' } },
-  { id: 'matching', name: 'Matching', idea: 10, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_mult_x2', layer: 'mult',
+  { id: 'matching', mod: true, name: 'Matching', idea: 10, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_mult_x2', layer: 'mult',
     desc: '×2 if any other die shows the same face.', effect: { type: 'xMultIf', x: 2, cond: 'match', label: 'a matching face' } },
-  { id: 'overcharged', name: 'Overcharged', idea: 6, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_overcharged', layer: 'points',
-    desc: 'Faces 4–9 instead of 1–6.', faces: [4, 5, 6, 7, 8, 9], effect: { type: 'none' } },
+  { id: 'overcharged', mod: true, name: 'Overcharged', idea: 6, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_overcharged', layer: 'points',
+    desc: '+3 on every face (d6: 4–9, d20: 4–23).', faceOffset: 3, effect: { type: 'none' } },
   { id: 'coin', name: 'Coin', idea: 3, shape: 'coin', rarity: 'common', price: 3, icon: 'icon_coin_flip', layer: 'points',
     desc: 'Two faces: 0 or 10. Pure variance.', faces: [0, 10], effect: { type: 'none' } },
-  { id: 'gold', name: 'Gold', idea: 18, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_gold', layer: 'gold',
-    desc: '+$1 for every 6 in the throw (paid before interest).', effect: { type: 'goldPerSix', gold: 1 } },
-  { id: 'twin', name: 'Twin', idea: 13, shape: 'd6', rarity: 'uncommon', price: 6, icon: 'icon_twin', layer: 'points',
+  { id: 'gold', mod: true, name: 'Gold', idea: 18, shape: 'd6', rarity: 'common', price: 4, icon: 'icon_gold', layer: 'gold',
+    desc: 'Pays for every die showing at least its own top face (d6: 6+, $1 each; d8/d10 $2, d12 $3, d20 $4 per hit).', effect: { type: 'goldPerHigh' } },
+  { id: 'twin', mod: true, name: 'Twin', idea: 13, shape: 'd6', rarity: 'uncommon', price: 6, icon: 'icon_twin', layer: 'points',
     desc: 'When scored, a copy of the highest die rolls once more and adds its face.', effect: { type: 'twinReroll' } },
-  { id: 'echo', name: 'Echo', idea: 12, shape: 'd6', rarity: 'uncommon', price: 5, icon: 'icon_echo', layer: 'rule',
+  { id: 'echo', mod: true, name: 'Echo', idea: 12, shape: 'd6', rarity: 'uncommon', price: 5, icon: 'icon_echo', layer: 'rule',
     desc: 'Scores the value of the die to its left. Its place in the tray matters.', effect: { type: 'echo' } },
-  { id: 'glass', name: 'Glass', idea: 19, shape: 'd8', rarity: 'rare', price: 8, icon: 'icon_glass', layer: 'mult',
+  { id: 'glass', mod: true, name: 'Glass', idea: 19, shape: 'd8', rarity: 'rare', price: 8, icon: 'icon_glass', layer: 'mult',
     desc: '×3 to the throw, then breaks for the rest of the round. 1 in 4 chance to shatter for good.', effect: { type: 'glass', x: 3, shatterChance: 0.25 } },
 ];
 
@@ -100,6 +103,23 @@ SPECIALS.push(
 );
 export const COUNTER_IDS = SPECIALS.filter(s => s.counter).map(s => s.id);
 
+// Modifiers (mod: true) fit any polyhedral shape (d4–d20; not the Coin or binary counters). Their `shape` above
+// is only the default (info screen, tests); a bought die keeps the shape it was offered on.
+export const MOD_SHAPES = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
+const SIDES = { d4: 4, d6: 6, d8: 8, d10: 10, d12: 12, d20: 20 };
+const M = () => (B && B.mods) || {};
+export const goldPay = shape => (M().goldPayout && M().goldPayout[shape]) || 1;
+export const goldThreshold = (die, facesOf) => Math.max(...facesOf(die));
+export function modPrice(shape) { return ((B && B.prices && B.prices[shape]) || 0) + (M().priceAdd ?? 2); }
+// Description for a special on a given shape (shape-dependent for Overcharged and Gold).
+export function descOf(s, shape = s.shape) {
+  if (!s) return '';
+  const n = SIDES[shape];
+  if (s.mod && s.faceOffset && n) return `Faces ${1 + s.faceOffset}–${n + s.faceOffset} instead of 1–${n} (+${s.faceOffset} on every face).`;
+  if (s.mod && s.effect.type === 'goldPerHigh' && n) return `+$${goldPay(shape)} for every die showing ${n} or more, itself included (paid before interest).`;
+  return s.desc;
+}
+
 export const SPECIALS_BY_ID = Object.fromEntries(SPECIALS.map(s => [s.id, s]));
 
 export function validateSpecials() {
@@ -107,6 +127,7 @@ export function validateSpecials() {
   for (const s of SPECIALS) {
     if (!EFFECTS[s.effect.type]) errs.push(`${s.id}: unknown effect ${s.effect.type}`);
     if (s.effect.cond && !COND[s.effect.cond]) errs.push(`${s.id}: unknown cond ${s.effect.cond}`);
+    if (s.mod && (s.counter || s.shape === 'coin')) errs.push(`${s.id}: modifiers cannot be counters or coins`);
   }
   return errs;
 }

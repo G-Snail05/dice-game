@@ -27,15 +27,15 @@ All numbers live in [`data/balance.json`](data/balance.json). Setting `"antes"` 
 | Die | Layer | Effect |
 |---|---|---|
 | Ruby | mult | ×1.5 to the throw |
-| Ember | mult | +2 mult per other even die (uncommon, $8) |
+| Ember | mult | +2 mult per other even die (uncommon) |
 | Last Call | mult | ×3 on the final throw of the round |
 | Matching | mult | ×2 if another die shows the same face |
-| Overcharged | points | faces 4–9 |
+| Overcharged | points | +3 on every face (d6: 4–9) |
 | Coin | points | 0 or 10 |
 | Twin | points / re-roll | a copy of the highest die re-rolls and adds its face |
-| Gold | money | +$1 per 6 in the throw |
+| Gold | money | +$ per die showing at least its own top face (d6: $1 per 6) |
 | Echo | rule | scores the value of the die to its left |
-| Glass | mult / rule | ×3, breaks for the round; 1 in 4 chance to shatter for good |
+| Glass | mult / rule | ×3, breaks for the round; 1 in 4 chance to shatter for good (any shape now; was d8) |
 
 ## Binary counters (exotic dice)
 
@@ -57,6 +57,16 @@ Counters are not polyhedral dice: each rolls its bits one by one with the seeded
 - Chains resolve before every other effect, so mult specials (Ruby, Ember, …) multiply the chain value, and an Echo right of a chain's Link counter copies the chain value.
 
 Counters roll in the shop separately from the classic specials (`counters.shopChance` = 15% per slot), so the classic specials keep their odds. Which counter is offered = rarity weight × the counter's `weight`. Everything is tunable in `data/balance.json` under `counters`; `node tools/counter-stats.mjs [N]` reports the win rate, chain frequency and chain scores.
+
+### Modifiers on every shape
+
+The nine d6 specials above (everything except Coin) are **modifiers**: the shop offers each one on any shape d4–d20.
+- **Price** = the plain shape's price + **$2** (`mods.priceAdd`), the same for every modifier and shape (d6 Ruby $4, d20 Ember $9).
+- **Shop:** a special roll picks the modifier by rarity as before, then its shape by `mods.shapeWeights` (d4 2, d6 3, d8 3, d10 2, d12 2, d20 1). Counters keep their own 15% roll.
+- **Overcharged** = +3 on every face (d4 4–7, d6 4–9, d20 4–23).
+- **Gold** pays for every die in the throw, itself included, showing at least the Gold die's own top face (d6 Gold: 6+, d10 Gold: 10+). Per hit: d4 $1, d6 $1, d8 $2, d10 $2, d12 $3, d20 $4 (`mods.goldPayout`). Several Gold dice each pay on their own.
+- **Glass** (was d8 only) and the rest work the same on any shape; Ember counts even faces, Matching any equal face, Echo copies the left die whatever its shape.
+- To stay near 40–45% for the sensible bot with cheaper modifiers, `shop.specialChance` went from 0.5 to 0.45 (targets unchanged).
 
 Plain d4, d8, d10, d12 and d20 are sold in the shop too. Effects are data in `js/specials.js`; new dice reuse effect types or add a small handler.
 

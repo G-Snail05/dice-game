@@ -11,7 +11,7 @@ const { newRun, serialize, deserialize, settleRound, continueEndless, nextRound 
 const { toggleLock, reroll, scoreCurrent, handDice, preview, reveal, toggleSelect, selectIndices, canRoll, rollNeed, benchDice, selectedCount } = await import('../js/round.js');
 const rollFirst = run => { if (!run.round.revealed) { selectIndices(run, run.round.hand.map((_, i) => i).slice(0, rollNeed(run))); reveal(run); } };
 const scoreNow = run => { rollFirst(run); return scoreCurrent(run); };
-const { buy, sell, rerollShop } = await import('../js/shop.js');
+const { buy, sell, rerollShop, sellValue } = await import('../js/shop.js');
 const { faceKey, facesOf, SHAPE_ORDER, makeDie } = await import('../js/dice.js');
 const makeTestDie = (run, special) => makeDie(run, null, special, 0);
 const { requiredKeys, counterArtKeys } = await import('../js/art.js');
@@ -43,7 +43,6 @@ eq(scoreThrow([D(3), D(3, 'lastcall')], { throwsLeft: 1 }).total, 18, 'last call
 eq(scoreThrow([D(3), D(3, 'lastcall')], { throwsLeft: 2 }).total, 6, 'last call idle earlier');
 eq(scoreThrow([D(6), D(1, 'echo')]).total, 12, 'echo copies left die');
 eq(scoreThrow([D(1, 'echo'), D(6)]).total, 7, 'echo leftmost keeps own face');
-eq(scoreThrow([D(6), D(6, 'gold'), D(2)]).gold, 2, 'gold die pays $1 per six');
 { const r = scoreThrow([D(2), D(3, 'glass', 'd8', 7)], {}, makeRng(5)); eq([r.total, r.broken], [15, [7]], 'glass x3 and breaks for round'); }
 { const p = scoreThrow([D(5), D(2, 'twin')]); ok(p.pending && p.total === 7, 'twin preview pending');
   const r = scoreThrow([D(5), D(2, 'twin')], {}, makeRng(9)); ok(r.total >= 8 && r.total <= 13, 'twin adds a d6 reroll ' + r.total); }
@@ -54,6 +53,69 @@ eq(facesOf({ shape: 'd6', special: 'overcharged' }), [4, 5, 6, 7, 8, 9], 'overch
 
 { const r = scoreThrow([D(6), D(2, 'echo'), D(3, 'ruby')]); eq(r.lines.filter(l => l.i != null).map(l => [l.who, l.i]), [['Echo', 1], ['Ruby', 2]], 'breakdown lines carry the die index for the animation');
   eq(r.pts, [6, 6, 3], 'pts after value changers'); }
+
+// --- Modifiers on every shape (d4–d20)
+{ const { SPECIALS_BY_ID: SB, MOD_SHAPES, descOf } = await import('../js/specials.js');
+  const { priceOf } = await import('../js/shop.js');
+  const { modArtKeys, initArt } = await import('../js/art.js');
+  const MODS = ['ruby', 'ember', 'lastcall', 'matching', 'overcharged', 'gold', 'twin', 'echo', 'glass'];
+  eq(MODS.filter(m => !SB[m].mod), [], 'all nine d6 modifiers (and Glass) are shape-free modifiers');
+  ok(!SB.coin.mod && !SB.counter4.mod && !SB.link4.mod, 'Coin and counters are not modifiers');
+  eq(MOD_SHAPES, ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'], 'modifier shapes d4–d20');
+  // 1. price = plain shape price + $2 for every modifier and shape
+  eq(MODS.flatMap(m => MOD_SHAPES.map(sh => priceOf(sh, m) - BAL.prices[sh])).filter(x => x !== BAL.mods.priceAdd), [], 'every modifier on every shape costs plain + priceAdd');
+  eq([BAL.mods.priceAdd, priceOf('d6', 'ruby'), priceOf('d20', 'ember'), priceOf('d8', 'glass'), priceOf('d4', 'gold')], [2, 4, 9, 5, 3], 'price examples (d6 Ruby $4, d20 Ember $9, d8 Glass $5, d4 Gold $3)');
+  eq([priceOf('coin', 'coin'), priceOf('bin4', 'counter4')], [SB.coin.price, BAL.counters.dice.counter4.price], 'Coin and counters keep their own prices');
+  // 2. Overcharged: +3 on every face, per shape
+  eq(facesOf({ shape: 'd6', special: 'overcharged' }), [4, 5, 6, 7, 8, 9], 'overcharged d6 = 4–9');
+  eq(facesOf({ shape: 'd20', special: 'overcharged' }), Array.from({ length: 20 }, (_, i) => i + 4), 'overcharged d20 = 4–23');
+  eq(MOD_SHAPES.map(sh => { const f = facesOf({ shape: sh, special: 'overcharged' }); return [f.length, f[0], f[f.length - 1]]; }), [[4, 4, 7], [6, 4, 9], [8, 4, 11], [10, 4, 13], [12, 4, 15], [20, 4, 23]], 'overcharged faces per shape');
+  { const rng = makeRng(3), d = { shape: 'd12', special: 'overcharged' }, seen = new Set(); for (let i = 0; i < 3000; i++) seen.add(rollDie(d, rng)); eq([Math.min(...seen), Math.max(...seen), seen.size], [4, 15, 12], 'overcharged d12 rolls 4–15'); }
+  eq(descOf(SB.overcharged, 'd10'), 'Faces 4–13 instead of 1–10 (+3 on every face).', 'overcharged desc per shape');
+  // 3. Gold: threshold = its own top face, payout by its shape, each Gold die pays independently
+  eq(MOD_SHAPES.map(sh => BAL.mods.goldPayout[sh]), [1, 1, 2, 2, 3, 4], 'gold payout per shape from balance.json');
+  eq(scoreThrow([D(6), D(6, 'gold'), D(2)]).gold, 2, 'd6 Gold: $1 per die showing 6+ (itself included)');
+  eq(scoreThrow([D(4), D(3, 'gold', 'd4'), D(5), D(9, 'overcharged')]).gold, 3, 'd4 Gold: $1 per die showing 4+ (4, 5, 9)');
+  eq(scoreThrow([D(9, null, 'd10'), D(10, null, 'd10'), D(4, 'gold', 'd10'), D(12, null, 'd12')]).gold, 4, 'd10 Gold: $2 per die showing 10+ (10, 12)');
+  eq(scoreThrow([D(20, 'gold', 'd20'), D(19, null, 'd20'), D(6)]).gold, 4, 'd20 Gold: $4 per die showing 20+');
+  eq(scoreThrow([D(12, 'gold', 'd12'), D(8, 'gold', 'd8'), D(11, null, 'd12')]).gold, 3 + 3 * 2, 'two Gold dice pay independently (d12 Gold: 12 -> $3; d8 Gold: 12, 8, 11 -> $6)');
+  eq(scoreThrow([D(5, 'gold', 'd8'), D(7)]).gold, 0, 'd8 Gold idle when nothing shows 8+');
+  eq(descOf(SB.gold, 'd12'), '+$3 for every die showing 12 or more, itself included (paid before interest).', 'gold desc per shape');
+  // Glass and the other modifiers work on other shapes
+  { const r = scoreThrow([D(2), D(15, 'glass', 'd20', 9)], {}, makeRng(5)); eq([r.mult, r.total, r.broken], [3, 51, [9]], 'Glass d20: x3 and breaks for the round'); }
+  { const r = scoreThrow([D(4, null, 'd4'), D(9, 'ruby', 'd12')]); eq(r.total, Math.floor(13 * 1.5), 'Ruby d12 x1.5 on its own face'); }
+  { const r = scoreThrow([D(8, null, 'd8'), D(8, 'matching', 'd10')]); eq(r.total, 32, 'Matching d10 x2 with a matching d8'); }
+  { const r = scoreThrow([D(2), D(4, null, 'd8'), D(7, 'ember', 'd20')]); eq(r.mult, 5, 'Ember d20 +2 per other even'); }
+  { const r = scoreThrow([D(10, null, 'd12'), D(1, 'echo', 'd4')]); eq(r.total, 20, 'Echo d4 copies a d12'); }
+  { const r = scoreThrow([D(3, 'lastcall', 'd8')], { throwsLeft: 1 }); eq(r.total, 9, 'Last Call d8 x3 on the final throw'); }
+  { const r = scoreThrow([D(20, null, 'd20'), D(1, 'twin', 'd4')], {}, makeRng(2)); ok(r.total >= 22 && r.total <= 41, 'Twin d4 re-rolls a copy of the highest (d20) ' + r.total); }
+  // 4. Shop rolls modifiers on many shapes; save/load keeps shape + modifier
+  { const seen = new Set(); let ctr = 0;
+    for (let i = 0; i < 300; i++) { const run = newRun('modshop-' + i); run.round.score = 999; scoreNow(run); settleRound(run);
+      for (let k = 0; k < 3; k++) { for (const o of run.shop.offers) { if (o.special && SB[o.special].mod) { seen.add(o.shape); if (o.price !== BAL.prices[o.shape] + BAL.mods.priceAdd) ctr = -1e9; } if (o.special && SB[o.special].counter) ctr++; } run.gold = 99; rerollShop(run); } }
+    eq([...seen].sort(), [...MOD_SHAPES].sort(), 'shop offers modifiers on every shape d4–d20');
+    ok(ctr > 0, 'shop modifier prices = plain + $2, and counters still roll separately'); }
+  { const run = newRun('modsave'); run.round.score = 999; scoreNow(run); settleRound(run);
+    run.shop.offers = [{ shape: 'd20', special: 'glass', price: priceOf('d20', 'glass'), sold: false }, { shape: 'd4', special: 'overcharged', price: priceOf('d4', 'overcharged'), sold: false }, { shape: 'd12', special: 'gold', price: priceOf('d12', 'gold'), sold: false }];
+    run.gold = 99; ok(buy(run, 0) && buy(run, 1) && buy(run, 2), 'buy modified dice');
+    const got = run.bag.slice(-3).map(d => [d.shape, d.special, d.cost]);
+    eq(got, [['d20', 'glass', 9], ['d4', 'overcharged', 3], ['d12', 'gold', 7]], 'bought modifiers keep the offered shape and price');
+    const copy = deserialize(serialize(run)); eq(copy.bag.slice(-3).map(d => [d.shape, d.special, d.cost]), got, 'save/load keeps shape + modifier');
+    eq(sellValue(copy.bag[copy.bag.length - 1]), 3, 'a modified die sells for half its price');
+    nextRound(copy); const r = copy.round; r.hand = copy.bag.slice(-3).map(d => d.uid).concat(r.hand.slice(0, 4)); selectIndices(copy, [0, 1, 2, 3, 4]); reveal(copy);
+    const ds = handDice(copy).filter(d => d.special); ok(ds.length === 3 && ds.every(d => facesOf(d).includes(d.face)), 'loaded modified dice roll their own faces');
+    eq(preview(copy).total, (() => { const c2 = deserialize(serialize(copy)); return preview(c2).total; })(), 'preview identical after save/load'); }
+  // 5. Art hook: per-shape overlay -> generic badge -> icon badge
+  { const { modArt, badge: badgeHTML } = await import('../js/ui/dieView.js');
+    const die = { shape: 'd10', special: 'ruby', face: 3 };
+    initArt({ assets: {} }); ok(modArt(die) === null && /icon_mult_x1_5|<i>R<\/i>/.test(badgeHTML(die)), 'no mod art: icon badge');
+    initArt({ assets: { mod_badge_ruby: { src: 'b.png' } } }); ok(/modbadge/.test(modArt(die)) && badgeHTML(die) === '', 'generic mod_badge_<mod> replaces the icon badge');
+    initArt({ assets: { mod_badge_ruby: { src: 'b.png' }, mod_ruby_d10: { src: 'o.png' } } }); ok(/modovl/.test(modArt(die)) && /o\.png/.test(modArt(die)), 'per-shape mod_<mod>_<shape> wins over the generic badge');
+    initArt({ assets: {} });
+    const mk = modArtKeys(); eq(mk.length, 9 * 6 + 9 + 15, 'mod art keys: 54 per-shape overlays + 9 badges + 15 Overcharged faces');
+    ok(mk.every(k => !requiredKeys().includes(k)), 'mod art keys stay optional (not in requiredKeys)');
+    const doc = fs.readFileSync(ROOT + 'ASSETS.md', 'utf8'); ok(['mod_<mod>_<shape>', 'mod_badge_<mod>', 'die_d20_face23'].every(k => doc.includes(k)), 'ASSETS.md documents the mod art keys'); }
+}
 
 // --- Binary counters
 const C = (bits, special, uid = Math.random()) => { const [n, link] = special === 'link4' ? [4, 1] : special === 'link8' ? [8, 1] : special === 'counter8' ? [8, 0] : [4, 0];

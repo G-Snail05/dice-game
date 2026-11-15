@@ -39,7 +39,7 @@ export function infoView() {
     <h1>How to play</h1>
     <div class="panel">${howToPlay()}</div>
     <h2>Special dice</h2>
-    <ul class="baglist panel">${SPECIALS.map(s => `<li>${staticDie({ shape: s.shape, special: s.id })}<span><b>${esc(s.name)}</b> <small class="rar r-${s.rarity}">${s.rarity} · $${s.price}</small><br><small>${esc(s.desc)}</small></span></li>`).join('')}</ul>
+    <ul class="baglist panel">${SPECIALS.map(s => `<li>${staticDie({ shape: s.shape, special: s.id })}<span><b>${esc(s.name)}</b> <small class="rar r-${s.rarity}">${s.rarity} · ${s.mod ? `any d4–d20 · plain price + $${(B.mods && B.mods.priceAdd) ?? 2}` : `$${s.price}`}</small><br><small>${esc(s.desc)}</small></span></li>`).join('')}</ul>
     <div class="stack">${btn('back', 'Back', { cls: 'primary' })}</div>
   </section>`;
 }

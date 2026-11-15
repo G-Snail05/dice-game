@@ -83,7 +83,7 @@
   },
   "shop": {
     "slots": 3,
-    "specialChance": 0.5,
+    "specialChance": 0.45,
     "rarityWeights": {
       "common": 70,
       "uncommon": 25,
@@ -136,5 +136,25 @@
       }
     },
     "shopChance": 0.15
+  },
+  "mods": {
+    "_notes": "Modifier dice (Ruby, Ember, Last Call, Matching, Overcharged, Gold, Twin, Echo, Glass) on any shape d4–d20. Price = prices[shape] + priceAdd. Shop: a special roll picks the modifier by rarity, then its shape by shapeWeights. Gold pays goldPayout[shape] per die showing >= the Gold die's top face.",
+    "priceAdd": 2,
+    "shapeWeights": {
+      "d4": 2,
+      "d6": 3,
+      "d8": 3,
+      "d10": 2,
+      "d12": 2,
+      "d20": 1
+    },
+    "goldPayout": {
+      "d4": 1,
+      "d6": 1,
+      "d8": 2,
+      "d10": 2,
+      "d12": 3,
+      "d20": 4
+    }
   }
 }

@@ -7,7 +7,14 @@ import { makeRng } from '../js/rng.js';
 
 const SPECIAL_VALUE = { ruby: 9, matching: 8, lastcall: 8, ember: 16, glass: 10, overcharged: 6.5, twin: 7.5, coin: 5, gold: 4.5, echo: 4,
   counter4: 5.5, counter8: 127.5, link4: 12, link8: 135 };
-export const dieValue = d => (d.special ? SPECIAL_VALUE[d.special] ?? 5 : meanFace(d));
+// Modifier dice: the d6 value of the effect, shifted by how much bigger the shape's average face is
+// (Overcharged is just its +3 faces). Gold on a big shape rarely pays: its threshold is its own top face.
+const MODV = d => {
+  if (d.special === 'overcharged') return meanFace(d);
+  if (d.special === 'gold') return meanFace(d) + 0.6 * (({ d4: 1, d6: 1, d8: 2, d10: 2, d12: 3, d20: 4 })[d.shape] || 1) * (6 / maxFace(d));
+  return (SPECIAL_VALUE[d.special] ?? 5) - 3.5 + meanFace(d);
+};
+export const dieValue = d => (!d.special ? meanFace(d) : specialOf(d) && specialOf(d).mod ? MODV(d) : SPECIAL_VALUE[d.special] ?? 5);
 // Shop value with the bag in mind: counters and Link counters are worth more together (chains).
 const isCtr = d => d && /^(counter|link)/.test(d.special || '');
 export function shopValue(d, bag) {
@@ -22,7 +29,7 @@ export function shopValue(d, bag) {
 function wantLock(d, i, dice) {
   const s = specialOf(d);
   if (s && s.effect.type === 'echo') return true;
-  if (s && ['xMult', 'glass', 'addMultPerEven', 'goldPerSix', 'twinReroll'].includes(s.effect.type) && d.face >= meanFace(d)) return true;
+  if (s && ['xMult', 'glass', 'addMultPerEven', 'goldPerHigh', 'twinReroll'].includes(s.effect.type) && d.face >= meanFace(d)) return true;
   if (d.special === 'matching' && dice.some((o, j) => j !== i && o.face === d.face)) return true;
   return d.face > meanFace(d);
 }

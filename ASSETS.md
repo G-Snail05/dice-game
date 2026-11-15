@@ -124,3 +124,24 @@ manifest but stay out of `requiredKeys()` (the placeholder manifest does not cov
 | `fx_link_glow_1`, `fx_link_glow_2`, `fx_link_glow_3` | `fx_chain_glow_1..3` | glow pulse on linked counters, 1-2-3-2 at ~10 fps (no `_hc` twin in the pack) |
 
 The pack's bracket pieces (`fx_chain_bracket_*`) are not used: the chain animation is overlay + connector + glow + one readout.
+
+## Modifiers on every shape (art wanted)
+
+The nine modifiers (Ruby, Ember, Last Call, Matching, Overcharged, Gold, Twin, Echo, Glass) can sit on any d4–d20.
+Until art exists the die is the plain shape sprite with the modifier's icon (`icon_*` above) as a CSS badge in its corner.
+`modArt()` in `js/ui/dieView.js` tries, per die, first hit wins:
+
+1. `mod_<mod>_<shape>`: per-shape overlay, **42×42 native** (84×84 CSS at 1x), the 32×32 die drawn at (2,8), the same canvas as
+   `special_*_overlay` / `fx_ring_*`: a layer-coloured ring traced to that shape plus the badge top-right. It is drawn over the
+   plain face sprite, so faces are not redrawn per modifier.
+2. `mod_badge_<mod>`: generic badge, **28×11 native** (56×22 CSS), top-left at die origin + (11, −8), any shape, like `special_*_badge`.
+3. The special's `icon` key as the corner badge (what ships now).
+
+Each key also wants an `_hc` twin. They are listed by `modArtKeys()` in `js/art.js` (kept out of `requiredKeys()`, so missing art is fine).
+`<mod>` ∈ `ruby, ember, lastcall, matching, overcharged, gold, twin, echo, glass`; `<shape>` ∈ `d4, d6, d8, d10, d12, d20`.
+
+| Keys | Count | Notes |
+|---|---|---|
+| `mod_<mod>_<shape>` | 54 (+54 `_hc`) | e.g. `mod_glass_d20`, `mod_gold_d4`. Badge text should not be shape-specific (Overcharged "+3", not "4-9"; Gold "$" or "$+"). |
+| `mod_badge_<mod>` | 9 (+9 `_hc`) | shape-free badge; the pack's `special_<name>_badge` works except Overcharged ("4-9") and Last Call (id `lastcall`) naming |
+| `die_d4_face5`…`die_d4_face7`, `die_d8_face9`…`die_d8_face11`, `die_d10_face11`…`die_d10_face13`, `die_d12_face13`…`die_d12_face15`, `die_d20_face21`…`die_d20_face23` | 15 (+15 `_hc`) | Overcharged faces above each shape's top face, 32×32 native, numerals like `die_d6_face7`–`face9`. Without them those faces render as CSS dice. |

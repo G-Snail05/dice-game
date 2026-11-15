@@ -1,9 +1,11 @@
 // Shop between rounds: dice for sale, a paid reroll of the offers, and selling dice for half.
 import { B } from './balance.js';
 import { makeDie, SHAPE_ORDER } from './dice.js';
-import { SPECIALS, SPECIALS_BY_ID } from './specials.js';
+import { SPECIALS, SPECIALS_BY_ID, MOD_SHAPES, modPrice } from './specials.js';
 
+// Modifier dice cost their plain shape's price + mods.priceAdd ($2); other specials have their own price.
 export function priceOf(shape, special) {
+  if (special && SPECIALS_BY_ID[special].mod) return modPrice(shape);
   if (special) return SPECIALS_BY_ID[special].price;
   return B.prices[shape];
 }
@@ -26,7 +28,11 @@ function rollOffer(run, forceSpecial = false) {
     let pool = SPECIALS.filter(s => s.rarity === rarity && !s.counter);
     if (forceSpecial) pool = SPECIALS.filter(s => B.shop.firstShopPool.includes(s.id));
     const s = rng.pick(pool.length ? pool : SPECIALS.filter(x => !x.counter));
-    return { shape: s.shape, special: s.id, price: s.price, sold: false };
+    if (!s.mod) return { shape: s.shape, special: s.id, price: s.price, sold: false };
+    // Modifier: roll the shape it comes on (mods.shapeWeights, else the plain-dice shapeWeights).
+    const W = (B.mods && B.mods.shapeWeights) || B.shop.shapeWeights;
+    const shape = rng.weighted(MOD_SHAPES.map(k => [k, W[k] || 0]));
+    return { shape, special: s.id, price: priceOf(shape, s.id), sold: false };
   }
   const shape = rng.weighted(SHAPE_ORDER.map(k => [k, B.shop.shapeWeights[k] || 0]));
   return { shape, special: null, price: B.prices[shape], sold: false };

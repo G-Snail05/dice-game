@@ -1,4 +1,5 @@
-import { SPECIALS_BY_ID } from './specials.js';
+import { SPECIALS_BY_ID, MOD_SHAPES } from './specials.js';
+const MOD_SHAPE_SET = new Set(MOD_SHAPES);
 
 export const SHAPES = { d4: 4, d6: 6, d8: 8, d10: 10, d12: 12, d20: 20, coin: 2 };
 export const SHAPE_ORDER = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
@@ -17,13 +18,16 @@ export const intToBits = (v, n) => Array.from({ length: n }, (_, i) => (v >> (n 
 export function facesOf(die) {
   const s = specialOf(die);
   if (s && s.faces) return s.faces;
+  if (s && s.faceOffset && SHAPES[die.shape]) return Array.from({ length: SHAPES[die.shape] }, (_, i) => i + 1 + s.faceOffset);
   if (isCounter(die)) return Array.from({ length: 2 ** bitsOf(die) }, (_, i) => i);
   return Array.from({ length: SHAPES[die.shape] }, (_, i) => i + 1);
 }
 
 export function makeDie(run, shape, special = null, cost = 0) {
   const s = special ? SPECIALS_BY_ID[special] : null;
-  return { uid: run.nextUid++, shape: s ? s.shape : shape, special, cost, face: null };
+  // Modifiers keep the shape they were bought on (any d4–d20); other specials have a fixed shape.
+  const sh = s ? (s.mod && MOD_SHAPE_SET.has(shape) ? shape : s.shape) : shape;
+  return { uid: run.nextUid++, shape: sh, special, cost, face: null };
 }
 
 export function rollDie(die, rng) {

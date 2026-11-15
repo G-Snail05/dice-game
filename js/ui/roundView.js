@@ -7,7 +7,7 @@ import { totalRounds } from '../balance.js';
 import { handDice, benchDice, preview, canReroll, canRoll, rollNeed, selectedCount } from '../round.js';
 import { B } from '../balance.js';
 import { artHTML } from '../art.js';
-import { dieArt, badge, cssDie, staticDie, blankArt } from './dieView.js';
+import { dieArt, badge, cssDie, staticDie, blankArt, specialDesc } from './dieView.js';
 import { btn, coin, esc, fmtMult } from './dom.js';
 import { dieName, specialOf } from '../dice.js';
 
@@ -34,7 +34,7 @@ function pickBtn(run, d, i) {
   const r = run.round, s = specialOf(d), on = !!(r.selected && r.selected[i]);
   const full = !on && selectedCount(run) >= rollNeed(run);
   const label = `${dieName(d)}${on ? ', picked' : ''}. Tap to ${on ? 'put it back' : 'pick it for this roll'}.`;
-  return `<button class="die pick ${on ? 'picked' : ''} ${full ? 'full' : ''} ${s ? 'special l-' + s.layer : ''}" data-act="pick" data-i="${i}" data-uid="${d.uid}" aria-pressed="${on}" aria-label="${esc(label)}${s ? ' ' + esc(s.desc) : ''}">
+  return `<button class="die pick ${on ? 'picked' : ''} ${full ? 'full' : ''} ${s ? 'special l-' + s.layer : ''}" data-act="pick" data-i="${i}" data-uid="${d.uid}" aria-pressed="${on}" aria-label="${esc(label)}${s ? ' ' + esc(specialDesc(d)) : ''}">
     ${blankArt(d)}${badge(d)}<span class="shapetag">${esc(s ? s.tag || s.name : d.shape)}</span>${on ? '<span class="pickmark" aria-hidden="true">✓</span>' : ''}</button>`;
 }
 
@@ -49,7 +49,7 @@ function dieBtn(run, d, i, where) {
   const r = run.round, s = specialOf(d), held = r.revealed && r.locked[i];
   const face = r.revealed ? dieArt(d) : blankArt(d, `${dieName(d)}, not rolled yet`);
   const label = r.revealed ? `${dieName(d)} showing ${d.face}${held ? ', held' : ''}. Tap to ${held ? 'return it to the table' : 'hold it'}.` : `${dieName(d)}, in your hand`;
-  return `<button class="die ${held ? 'locked' : ''} ${s ? 'special l-' + s.layer : ''} at-${where}" data-act="lock" data-i="${i}" data-uid="${d.uid}" ${r.revealed ? '' : 'disabled'} aria-pressed="${held}" aria-label="${esc(label)}${s ? ' ' + esc(s.desc) : ''}">
+  return `<button class="die ${held ? 'locked' : ''} ${s ? 'special l-' + s.layer : ''} at-${where}" data-act="lock" data-i="${i}" data-uid="${d.uid}" ${r.revealed ? '' : 'disabled'} aria-pressed="${held}" aria-label="${esc(label)}${s ? ' ' + esc(specialDesc(d)) : ''}">
     ${face}${badge(d)}${held ? `<span class="lockmark">${artHTML('icon_lock', { alt: '', fallback: '🔒' })} HELD</span>` : ''}</button>`;
 }
 
@@ -63,7 +63,7 @@ export function bagView(run) {
   for (const d of run.bag) { const k = dieName(d); counts.set(k, { d, n: (counts.get(k)?.n || 0) + 1 }); }
   return `<details class="bag"><summary>Bag (${run.bag.length})</summary><ul class="baglist">${[...counts.values()].map(({ d, n }) => {
     const s = specialOf(d);
-    return `<li>${staticDie(d)}<span><b>${esc(dieName(d))}</b> ×${n}${s ? `<br><small>${esc(s.desc)}</small>` : ''}</span></li>`;
+    return `<li>${staticDie(d)}<span><b>${esc(dieName(d))}</b> ×${n}${s ? `<br><small>${esc(specialDesc(d))}</small>` : ''}</span></li>`;
   }).join('')}</ul></details>`;
 }
 

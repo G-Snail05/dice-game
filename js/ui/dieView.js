@@ -1,5 +1,6 @@
 import { artHTML, artSrc, bitCells } from '../art.js';
 import { faceKey, specialOf, dieName, facesOf, isCounter, isLink, bitsOf, counterBits } from '../dice.js';
+import { descOf } from '../specials.js';
 import { esc } from './dom.js';
 
 // CSS-drawn fallback die (used if a key has no art or its image fails to load).
@@ -22,17 +23,34 @@ const ctrBitsFor = (die, face) => (face == null ? null : face === die.face ? cou
 // Face-down art for a die in the hand (before the roll).
 export function blankArt(die, alt = '') {
   if (isCounter(die)) return counterHTML(die, null, { alt: alt || `${dieName(die)}, not rolled yet` });
-  return artHTML(`die_${die.shape}_blank`, { cls: 'die-art', alt, fallback: cssDie(die.shape, '?') });
+  return withMod(die, artHTML(`die_${die.shape}_blank`, { cls: 'die-art', alt, fallback: cssDie(die.shape, '?') }));
 }
+
+// Modifier art hook (see modArtKeys in art.js): per-shape overlay, else a generic badge sprite, else null
+// (the icon badge from badge() is used).
+export function modArt(die) {
+  const s = specialOf(die);
+  if (!s || !s.mod) return null;
+  const per = `mod_${s.id}_${die.shape}`, gen = `mod_badge_${s.id}`;
+  if (artSrc(per)) return artHTML(per, { cls: 'modovl', alt: '' });
+  if (artSrc(gen)) return artHTML(gen, { cls: 'modbadge', alt: '' });
+  return null;
+}
+const withMod = (die, html) => { const m = modArt(die); return m ? `<span class="modwrap">${html}${m}</span>` : html; };
+export const specialDesc = die => descOf(specialOf(die), die.shape);
 
 export function dieArt(die, face = die.face) {
   if (isCounter(die)) return counterHTML(die, ctrBitsFor(die, face), { alt: `${dieName(die)} showing ${face}` });
+  return withMod(die, dieArtPlain(die, face));
+}
+function dieArtPlain(die, face) {
   return artHTML(faceKey(die.shape, face), { cls: 'die-art', alt: `${dieName(die)} showing ${face}`, fallback: cssDie(die.shape, face) });
 }
 
 export function badge(die) {
   const s = specialOf(die);
   if (!s) return '';
+  if (modArt(die)) return ''; // the mod overlay/badge sprite replaces the icon badge
   if (s.link && artSrc('overlay_chain')) return ''; // the Link overlay sprite carries its own badge
   const fb = s.counter ? (s.link ? '<i class="ctrbadge">LINK</i>' : `<i class="ctrbadge">${s.bits}b</i>`) : `<i>${esc(s.name[0])}</i>`;
   return `<span class="badge l-${s.layer}">${artHTML(s.icon, { alt: s.name, fallback: fb })}</span>`;
@@ -42,7 +60,7 @@ export function badge(die) {
 export function trayDie(die, i, { locked = false, broken = false, disabled = false } = {}) {
   const s = specialOf(die);
   return `<button class="die ${locked ? 'locked' : ''} ${s ? 'special l-' + s.layer : ''}" data-act="lock" data-i="${i}" aria-pressed="${locked}" ${disabled ? 'disabled' : ''}
-    aria-label="${esc(dieName(die))} showing ${die.face}${locked ? ', locked' : ''}${s ? '. ' + esc(s.desc) : ''}">
+    aria-label="${esc(dieName(die))} showing ${die.face}${locked ? ', locked' : ''}${s ? '. ' + esc(specialDesc(die)) : ''}">
     ${dieArt(die)}${badge(die)}${locked ? `<span class="lockmark">${artHTML('icon_lock', { alt: '', fallback: '🔒' })} LOCKED</span>` : ''}
     <span class="dname">${esc(dieName(die))}</span></button>`;
 }

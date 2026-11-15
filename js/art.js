@@ -25,6 +25,8 @@ export function requiredKeys() {
   const faces = { coin: new Set([0, 10]) };
   for (const shape of Object.keys(SHAPES)) if (shape !== 'coin') faces[shape] = new Set(Array.from({ length: SHAPES[shape] }, (_, i) => i + 1));
   for (const s of SPECIALS) if (s.faces) s.faces.forEach(f => faces[s.shape].add(f));
+  // Overcharged's default shape (d6 -> faces 7-9). Other shapes' high faces are optional art (modArtKeys).
+  for (const s of SPECIALS) if (s.faceOffset && faces[s.shape]) for (let f = 1; f <= SHAPES[s.shape]; f++) faces[s.shape].add(f + s.faceOffset);
   for (const [shape, set] of Object.entries(faces)) [...set].sort((a, b) => a - b).forEach(f => keys.push(faceKey(shape, f)));
   for (const s of SPECIALS) if (!s.counter && !keys.includes(s.icon)) keys.push(s.icon);
   return keys.concat(ICON_KEYS, UI_KEYS, BG_KEYS, fxKeys());
@@ -37,6 +39,21 @@ export function counterArtKeys() {
   return ['die_bin4_body', 'die_bin8_body', 'die_bin4_blank', 'die_bin8_blank', 'led_bit_on', 'led_bit_off', 'counter_bit_tumble_1', 'counter_bit_tumble_2',
     'icon_counter4', 'icon_counter8', 'icon_link', 'overlay_chain', 'fx_chain_link', 'fx_chain_link_lit', 'counter_readout', 'fx_link_glow_1', 'fx_link_glow_2', 'fx_link_glow_3'];
 }
+// Modifier dice on any shape (d4–d20). Fallback chain per die, first hit wins:
+//   1. mod_<mod>_<shape>   42x42 native overlay (die drawn at 2,8): ring traced to the shape + badge
+//   2. mod_badge_<mod>     28x11 native badge, top-left at die origin + (11, -8), works on any shape
+//   3. the special's icon  (s.icon) as the CSS badge in the die's corner (what ships today)
+// Overcharged (+3 faces) also wants face art above each shape's top face (d6 7-9 already exists).
+export const MOD_IDS = ['ruby', 'ember', 'lastcall', 'matching', 'overcharged', 'gold', 'twin', 'echo', 'glass'];
+export const MOD_ART_SHAPES = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
+export function modArtKeys() {
+  const k = [];
+  for (const m of MOD_IDS) for (const sh of MOD_ART_SHAPES) k.push(`mod_${m}_${sh}`);
+  for (const m of MOD_IDS) k.push(`mod_badge_${m}`);
+  for (const sh of MOD_ART_SHAPES) if (sh !== 'd6') for (let f = SHAPES[sh] + 1; f <= SHAPES[sh] + 3; f++) k.push(faceKey(sh, f));
+  return k;
+}
+
 // Native top-left corners of each bit cell (MSB first) on a 32x32 counter; 8-bit = MSB nibble on top.
 // The active manifest's body entry can override them with `bit_cells` (copied from the pack manifest).
 export const DEFAULT_BIT_CELLS = { 4: [[5, 11], [11, 11], [17, 11], [23, 11]], 8: [[5, 5], [11, 5], [17, 5], [23, 5], [5, 14], [11, 14], [17, 14], [23, 14]] };
