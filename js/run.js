@@ -10,6 +10,8 @@ export const SAVE_VERSION = 1;
 // Showcase starting bags for ?demo=<name> (debug/preview links; normal runs use balance startingBag).
 export const DEMO_BAGS = {
   counters: [{ shape: 'd6', count: 5 }, { shape: 'bin4', special: 'counter4', count: 2 }, { shape: 'bin4', special: 'link4', count: 1 }],
+  casino: [{ shape: 'd6', count: 5 }, { shape: 'd12', special: 'casino12', count: 1 }, { shape: 'd20', special: 'casino20', count: 1 }],
+  parity: [{ shape: 'd6', count: 4 }, { shape: 'd6', special: 'odds', count: 1 }, { shape: 'd6', special: 'evens', count: 1 }, { shape: 'coin', special: 'paritycoin', count: 1 }],
 };
 
 export function newRun(seed, { demo = null } = {}) {

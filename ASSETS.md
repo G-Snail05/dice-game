@@ -161,3 +161,29 @@ Each key also wants an `_hc` twin. They are listed by `modArtKeys()` in `js/art.
 | `mod_<mod>_<shape>` | 54 (+54 `_hc`) | e.g. `mod_glass_d20`, `mod_gold_d4`. Badge text should not be shape-specific (Overcharged "+3", not "4-9"; Gold "$" or "$+"). |
 | `mod_badge_<mod>` | 9 (+9 `_hc`) | shape-free badge; the pack's `special_<name>_badge` works except Overcharged ("4-9") and Last Call (id `lastcall`) naming |
 | `die_d4_face5`…`die_d4_face7`, `die_d8_face9`…`die_d8_face11`, `die_d10_face11`…`die_d10_face13`, `die_d12_face13`…`die_d12_face15`, `die_d20_face21`…`die_d20_face23` | 15 (+15 `_hc`) | Overcharged faces above each shape's top face, 32×32 native, numerals like `die_d6_face7`–`face9`. Without them those faces render as CSS dice. |
+
+
+## Casino d12 / d20 and Odds & Evens (style A art shipped)
+
+Ælfstan's pack sections "Casino D12 / D20 and the jackpot" (41 keys) and "Odds & Evens" (48 keys), every key with an `_hc` twin.
+They are listed by `casinoArtKeys()` / `parityArtKeys()` (`exoticArtKeys()`) in `js/art.js`, kept out of `requiredKeys()` like the
+counters (without art the dice fall back to CSS dice reading 7 / 77 / 777 / ODD / EVEN), shipped by `tools/sync-pack-styleA.mjs` and
+`tools/build-manifest-styleA.mjs`. These dice name their own sprites through the special's `art` (see `faceArtKey`, `blankArtKey`,
+`rollArtKeys` in `js/dice.js`); shop, bag and info lists show the `icon_*` (`_disabled` when the offer is unaffordable).
+
+- Casino faces: `die_casino_<d12|d20>_<7|slot7|slot77|slot777>`; tumble `blank → roll_1 → roll_2` (12 fps, twice) like plain dice.
+- JACKPOT (a slot777 scores, `jackpot()` in `js/ui/roundAnim.js`): `fx_jackpot_01..12` once at 15 fps centred on the die (anchor 48,36),
+  `fx_jackpot_banner`/`_2` dropping in over frames 03–06 (y −22, −8, +3, −1, 0 native) with bulbs chasing at 6 fps, then
+  `fx_jackpot_rays_1/2` at 8 fps for 1 s behind the banner, then a 260 ms fade. 2 CSS px per native px on phones (192×128 burst,
+  192×52 banner; fits a 360 px phone), up to 4× next to the big desktop table dice; clamped to the viewport. Reduced motion: the banner alone for 0.9 s.
+  `fx_jackpot_coin_1..4` and `fx_jackpot_sparkle_1..3` ship and are preloaded for extra particles (not used yet; the burst already has coins).
+- Odds/Evens faces: `die_odds_d6_<1|3|5|7|9|11>`, `die_evens_d6_<2..12>`, tumble `die_<odds|evens>_d6_blank/roll_1/roll_2`.
+- Parity Coin: lands on `die_parity_coin_<odd|even>` after the 8-frame flip `die_parity_coin_flip_1..8` once at 15 fps; face-down in the hand it shows flip_1.
+- Matched dice: `ui_parity_tag_<odd|even>_blank` under the die with the bonus (+2, +4 with two coins) drawn in the manifest's `textArea`
+  in the pack's text colour (`#2e2604` odd / `#082038` even; black in high contrast); while scoring, `fx_parity_match_<odd|even>_1..4`
+  (42×42, die at 2,8) pulses 1-2-3-2-1-2-3-4 at 12 fps on every matched die. `ui_parity_tag_<side>_<x2|x3>` ship but are unused (the rule is additive).
+
+| Keys | Count |
+|---|---|
+| `die_casino_d12_7`, `die_casino_d12_slot7`, `die_casino_d12_slot77`, `die_casino_d12_slot777`, `die_casino_d12_blank`, `die_casino_d12_roll_1`, `die_casino_d12_roll_2`, `icon_casino_d12`, `icon_casino_d12_disabled`, `die_casino_d20_7`, `die_casino_d20_slot7`, `die_casino_d20_slot77`, `die_casino_d20_slot777`, `die_casino_d20_blank`, `die_casino_d20_roll_1`, `die_casino_d20_roll_2`, `icon_casino_d20`, `icon_casino_d20_disabled`, `fx_jackpot_01`, `fx_jackpot_02`, `fx_jackpot_03`, `fx_jackpot_04`, `fx_jackpot_05`, `fx_jackpot_06`, `fx_jackpot_07`, `fx_jackpot_08`, `fx_jackpot_09`, `fx_jackpot_10`, `fx_jackpot_11`, `fx_jackpot_12`, `fx_jackpot_rays_1`, `fx_jackpot_rays_2`, `fx_jackpot_banner`, `fx_jackpot_banner_2`, `fx_jackpot_coin_1`, `fx_jackpot_coin_2`, `fx_jackpot_coin_3`, `fx_jackpot_coin_4`, `fx_jackpot_sparkle_1`, `fx_jackpot_sparkle_2`, `fx_jackpot_sparkle_3` | 41 (+41 `_hc`) |
+| `die_odds_d6_1`, `die_odds_d6_3`, `die_odds_d6_5`, `die_odds_d6_7`, `die_odds_d6_9`, `die_odds_d6_11`, `die_odds_d6_blank`, `die_odds_d6_roll_1`, `die_odds_d6_roll_2`, `icon_odds_d6`, `icon_odds_d6_disabled`, `die_evens_d6_2`, `die_evens_d6_4`, `die_evens_d6_6`, `die_evens_d6_8`, `die_evens_d6_10`, `die_evens_d6_12`, `die_evens_d6_blank`, `die_evens_d6_roll_1`, `die_evens_d6_roll_2`, `icon_evens_d6`, `icon_evens_d6_disabled`, `die_parity_coin_odd`, `die_parity_coin_even`, `die_parity_coin_flip_1`, `die_parity_coin_flip_2`, `die_parity_coin_flip_3`, `die_parity_coin_flip_4`, `die_parity_coin_flip_5`, `die_parity_coin_flip_6`, `die_parity_coin_flip_7`, `die_parity_coin_flip_8`, `icon_parity_coin`, `icon_parity_coin_disabled`, `ui_parity_tag_odd_blank`, `ui_parity_tag_odd_x2`, `ui_parity_tag_odd_x3`, `fx_parity_match_odd_1`, `fx_parity_match_odd_2`, `fx_parity_match_odd_3`, `fx_parity_match_odd_4`, `ui_parity_tag_even_blank`, `ui_parity_tag_even_x2`, `ui_parity_tag_even_x3`, `fx_parity_match_even_1`, `fx_parity_match_even_2`, `fx_parity_match_even_3`, `fx_parity_match_even_4` | 48 (+48 `_hc`) |

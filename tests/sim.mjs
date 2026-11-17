@@ -207,6 +207,102 @@ eq(SPECIALS.filter(s => s.counter).map(s => [s.id, s.rarity, s.price]), Object.e
   eq([pngW(man.assets.die_bin8_body.src), pngW(man.assets.led_bit_on.src), pngH(man.assets.led_bit_on.src), pngW(man.assets.counter_readout.src), pngW(man.assets.overlay_chain.src)], [64, 8, 14, 68, 84], 'counter sprite sizes at 1x (die 64, cell 8x14, readout 68, overlay 84)');
   const doc = fs.readFileSync(ROOT + 'ASSETS.md', 'utf8'); eq(ck.filter(k => !doc.includes(k)), [], 'ASSETS.md lists the counter art keys'); }
 
+// --- Casino d12 / d20 and Odds & Evens
+{ const { SPECIALS_BY_ID: SB, casinoFaceMult } = await import('../js/specials.js');
+  const { faceArtKey, blankArtKey, rollArtKeys, faceLabel } = await import('../js/dice.js');
+  const { exoticArtKeys, casinoArtKeys, parityArtKeys } = await import('../js/art.js');
+  const { priceOf } = await import('../js/shop.js');
+  const T = (face, special, shape, tag, uid = Math.random()) => ({ uid, shape, special, face, tag });
+  const CZ = (tag, n = 12) => T(7, `casino${n}`, `d${n}`, tag);
+  const PC = side => T(0, 'paritycoin', 'coin', side);
+  // face sets
+  const s12 = SB.casino12.sides('d12'), s20 = SB.casino20.sides('d20');
+  eq([s12.length, s12.filter(x => !x.tag).length, s12.filter(x => x.tag).map(x => x.tag)], [12, 9, ['slot7', 'slot77', 'slot777']], 'casino d12: 9 plain 7s + 3 slot faces');
+  eq([s20.length, s20.filter(x => !x.tag).length, s20.filter(x => x.tag).map(x => x.tag)], [20, 17, ['slot7', 'slot77', 'slot777']], 'casino d20: 17 plain 7s + 3 slot faces');
+  ok([...s12, ...s20].every(x => x.v === 7), 'every casino face scores 7 points');
+  eq(facesOf({ shape: 'd6', special: 'odds' }), [1, 3, 5, 7, 9, 11], 'odds d6 faces');
+  eq(facesOf({ shape: 'd6', special: 'evens' }), [2, 4, 6, 8, 10, 12], 'evens d6 faces');
+  eq(SB.paritycoin.sides().map(x => [x.v, x.tag]), [[0, 'odd'], [0, 'even']], 'parity coin: odd/even sides, 0 points');
+  { const rng = makeRng(77), tags = {}, faces = new Set(), coin = {}, odd = new Set(), ev = new Set();
+    const c = { shape: 'd12', special: 'casino12' }, pc = { shape: 'coin', special: 'paritycoin' }, o = { shape: 'd6', special: 'odds' }, e = { shape: 'd6', special: 'evens' };
+    for (let i = 0; i < 6000; i++) { rollDie(c, rng); tags[c.tag || '7'] = (tags[c.tag || '7'] || 0) + 1; faces.add(c.face); rollDie(pc, rng); coin[pc.tag] = (coin[pc.tag] || 0) + 1; odd.add(rollDie(o, rng)); ev.add(rollDie(e, rng)); }
+    eq([[...faces], Object.keys(tags).sort()], [[7], ['7', 'slot7', 'slot77', 'slot777']], 'casino rolls: always 7 points, every side shows up');
+    ok(tags.slot777 > 400 && tags.slot777 < 600 && tags['7'] > 4300 && tags['7'] < 4700, `casino d12 slot faces 1/12 each, plain 9/12 (${JSON.stringify(tags)})`);
+    ok(coin.odd > 2800 && coin.even > 2800, `parity coin is a fair flip (${JSON.stringify(coin)})`);
+    eq([[...odd].sort((a, b) => a - b), [...ev].sort((a, b) => a - b)], [[1, 3, 5, 7, 9, 11], [2, 4, 6, 8, 10, 12]], 'odds/evens roll only their own faces'); }
+  // casino mult (G: plain 7 = 7 points only; slot faces +7 / +14 / +21 mult, additive)
+  { const r = scoreThrow([CZ(null), D(3)]); eq([r.points, r.mult, r.total], [10, 1, 10], 'plain casino 7: 7 points, no mult'); }
+  { const r = scoreThrow([CZ('slot7'), D(3)]); eq([r.points, r.mult, r.total], [10, 8, 80], 'slot 7: +7 mult'); }
+  { const r = scoreThrow([CZ('slot77', 20), D(3)]); eq([r.points, r.mult, r.total], [10, 15, 150], 'slot 77 (d20): +14 mult'); }
+  { const r = scoreThrow([CZ('slot777'), D(3)]); const l = r.lines.find(x => x.who === 'Casino');
+    eq([r.mult, r.total, l.jackpot, l.addMult], [22, 220, true, 21], 'slot 777: +21 mult and the JACKPOT flag'); }
+  { const r = scoreThrow([CZ('slot777'), D(2, 'ruby')]); eq([r.mult, r.total], [33, 297], 'casino mult is additive, then later ×mult multiplies it (left to right)'); }
+  { const r = scoreThrow([D(2, 'ruby'), CZ('slot777')]); eq([r.mult, r.total], [22.5, 202], 'order matters: ×1.5 first, then +21'); }
+  { const r = scoreThrow([CZ('slot7'), CZ('slot777', 20)]); eq([r.points, r.mult, r.total], [14, 29, 406], 'two casino dice stack their mult'); }
+  { const fm = BAL.casino.faceMult; BAL.casino.faceMult = { slot7: 1, slot77: 2, slot777: 3 }; BAL.casino.basePoints = 5;
+    eq([casinoFaceMult('slot777'), SB.casino12.sides('d12')[0].v, scoreThrow([CZ('slot77')]).mult], [3, 5, 3], 'casino values come from balance.json');
+    BAL.casino.faceMult = fm; BAL.casino.basePoints = 7; }
+  // parity coin
+  { const r = scoreThrow([PC('even'), D(2), D(3), D(4)]); const l = r.lines.find(x => x.parity);
+    eq([r.points, r.mult, r.total, l.matches, l.parity], [9, 5, 45, [1, 3], 'even'], 'even coin: +2 mult per even die'); }
+  { const r = scoreThrow([D(1), PC('odd'), D(3), D(4)]); eq([r.mult, r.lines.find(x => x.parity).matches], [5, [0, 2]], 'odd coin: +2 mult per odd die (either side of the coin)'); }
+  { const r = scoreThrow([PC('odd'), D(2), D(4)]); eq([r.mult, r.total], [1, 6], 'no matching dice: no mult'); }
+  { const r = scoreThrow([PC('even'), T(9, 'odds', 'd6'), T(12, 'evens', 'd6'), D(6, 'ruby')]); eq([r.points, r.mult, r.total], [27, 7.5, 202], 'even coin with Odds 9 / Evens 12 / Ruby 6: two even matches (1+4), then Ruby x1.5'); }
+  { const r = scoreThrow([PC('even'), T(0, 'coin', 'coin'), T(10, 'coin', 'coin'), C('0110', 'counter4'), C('0000', 'counter4')]);
+    eq(r.lines.find(x => x.parity).matches, [2, 3], 'zero counts as neither: Coin 0 and a 0 counter skipped; Coin 10 and counter 6 match'); }
+  { const r = scoreThrow([PC('even'), C('0001', 'counter4'), C('0001', 'link4')]); eq([r.pts, r.lines.find(x => x.parity).matches, r.mult], [[0, 0, 17], [], 1], 'chains resolve first: an odd chain value (17) does not match even; members score 0'); }
+  { const r = scoreThrow([D(5), T(1, 'echo', 'd6'), PC('odd')]); eq([r.pts, r.lines.find(x => x.parity).matches], [[5, 5, 0], [0, 1]], 'parity uses the scored value (Echo copy counts)'); }
+  // multiple coins
+  { const r = scoreThrow([PC('even'), D(2), PC('even'), D(4), D(5)]); const ls = r.lines.filter(x => x.parity);
+    eq([ls.length, ls.map(l => l.matches), r.mult, r.total], [2, [[1, 3], [1, 3]], 9, 99], 'two even coins each apply (+2 x 2 each); coins never match each other'); }
+  { const r = scoreThrow([PC('even'), D(2), PC('odd'), D(3), D(5)]); eq([r.lines.filter(x => x.parity).map(l => l.matches), r.mult], [[[1], [3, 4]], 7], 'an odd and an even coin each pay their own parity'); }
+  // art keys
+  eq([faceArtKey(CZ('slot777')), faceArtKey(CZ(null, 20)), blankArtKey(CZ(null)), faceArtKey(PC('even')), faceArtKey(T(11, 'odds', 'd6')), faceArtKey(T(12, 'evens', 'd6')), rollArtKeys(PC('odd')).length, faceLabel(CZ('slot77'))],
+    ['die_casino_d12_slot777', 'die_casino_d20_7', 'die_casino_d12_blank', 'die_parity_coin_even', 'die_odds_d6_11', 'die_evens_d6_12', 8, '77'], 'face/blank/roll art keys for the new dice');
+  { const xk = exoticArtKeys(); eq([casinoArtKeys().length, parityArtKeys().length], [41, 48], 'every Casino (41) and Odds & Evens (48) pack key is wired');
+    ok(xk.every(k => !requiredKeys().includes(k)), 'exotic art keys kept apart from requiredKeys (CSS fallback without art)');
+    const man = JSON.parse(fs.readFileSync(ROOT + 'assets/manifest.json', 'utf8'));
+    eq(xk.filter(k => !man.assets[k]), [], 'active manifest covers every Casino / Odds & Evens key');
+    eq(xk.filter(k => !man.assets[k].hc), [], 'every Casino / Odds & Evens key has its _hc twin');
+    const files = e => [e.src, ...Object.values(e.srcset || {}), ...(e.hc ? [e.hc.src, ...Object.values(e.hc.srcset || {})] : [])];
+    eq(xk.flatMap(k => files(man.assets[k])).filter(f => !fs.existsSync(ROOT + man.base + f)), [], 'every Casino / Odds & Evens sprite file ships in assets/');
+    eq([man.assets.ui_parity_tag_odd_blank.textArea, man.assets.ui_parity_tag_even_blank.textArea], [[11, 2, 25, 8], [12, 2, 25, 8]], 'parity tag text areas from the pack');
+    const doc = fs.readFileSync(ROOT + 'ASSETS.md', 'utf8'); eq(xk.filter(k => !doc.includes(k)), [], 'ASSETS.md lists the Casino / Odds & Evens keys'); }
+  // shop: prices/rarity from balance.json, classic pool untouched, offered sometimes
+  eq(['casino12', 'casino20'].map(id => [SB[id].rarity, SB[id].price, priceOf(SB[id].shape, id)]), Object.values(BAL.casino.dice).map(v => [v.rarity, v.price, v.price]), 'casino rarity/price come from balance.json');
+  eq(['odds', 'evens', 'paritycoin'].map(id => [SB[id].rarity, SB[id].price]), Object.values(BAL.parity.dice).map(v => [v.rarity, v.price]), 'odds & evens rarity/price come from balance.json');
+  { const seen = { casino: 0, parity: 0 }; for (let i = 0; i < 300; i++) { const run = newRun('cp-shop-' + i); run.round.score = 999; scoreNow(run); settleRound(run);
+      for (let k = 0; k < 3; k++) { for (const o of run.shop.offers) { const sp = SB[o.special]; if (sp && sp.set) { seen[sp.set]++; if (o.price !== sp.price || o.shape !== sp.shape) seen.bad = 1; } } run.gold = 99; rerollShop(run); } }
+    ok(seen.casino > 2 && seen.casino < seen.parity && !seen.bad, `shop offers Casino rarely, Odds & Evens more often, at balance prices (${JSON.stringify(seen)} in 900 shops)`); }
+  { const { setBalance: sb } = await import('../js/balance.js'); sb({ ...BAL, casino: { ...BAL.casino, shopChance: 0 }, parity: { ...BAL.parity, shopChance: 0 } });
+    let n = 0; for (let i = 0; i < 100; i++) { const run = newRun('cp-off-' + i); run.round.score = 999; scoreNow(run); settleRound(run); n += run.shop.offers.filter(o => SB[o.special] && SB[o.special].set).length; }
+    sb(BAL); eq(n, 0, 'shopChance 0 switches a set off'); }
+  // in a run: re-rolls, holds, the next draw, save/load, preview, determinism
+  { const play = seed => { const run = newRun(seed, { demo: 'parity' }); const h = handDice(run), want = h.map((d, i) => i).filter(i => ['odds', 'evens', 'paritycoin'].includes(h[i].special));
+      selectIndices(run, [...want, ...h.map((_, i) => i).filter(i => !want.includes(i))].slice(0, 5)); reveal(run); return run; };
+    const a = play('pc-1'), b = play('pc-1');
+    eq(handDice(a).map(d => [d.special, d.face, d.tag || null]), handDice(b).map(d => [d.special, d.face, d.tag || null]), 'same seed, same parity throw (faces and coin side)');
+    const coinI = handDice(a).findIndex(d => d.special === 'paritycoin'); ok(coinI >= 0, 'parity coin lands on the table');
+    const side = handDice(a)[coinI].tag; ok(side === 'odd' || side === 'even', 'rolled coin has a side');
+    a.round.locked = a.round.locked.map((_, i) => i === coinI); reroll(a); reroll(a);
+    eq(handDice(a)[coinI].tag, side, 'a held parity coin keeps its side through re-rolls');
+    const copy = deserialize(serialize(a)); eq(copy.bag.find(d => d.special === 'paritycoin').tag, side, 'save/load keeps the coin side');
+    a.round.target = 1e9; eq(preview(a).total, scoreCurrent(a).total, 'preview matches score with a parity coin');
+    ok(a.round.hand.length && a.bag.filter(d => a.round.hand.includes(d.uid)).every(d => d.face === null && d.tag == null), 'the next draw clears faces and coin sides'); }
+  { let flips = 0; for (let s = 0; s < 40; s++) { const run = newRun('pcf-' + s, { demo: 'parity' }); selectIndices(run, [0, 1, 2, 3, 4]); reveal(run);
+      const c = handDice(run).find(d => d.special === 'paritycoin'); if (!c) continue; const t0 = c.tag; for (let k = 0; k < 2; k++) reroll(run); if (c.tag !== t0) flips++; }
+    ok(flips > 0, `an unheld parity coin re-flips on a re-roll (${flips} of the sampled seeds changed side)`); }
+  { const run = newRun('cz-1', { demo: 'casino' }), run2 = newRun('cz-1', { demo: 'casino' });
+    for (const r of [run, run2]) { const h = handDice(r), cz = h.map((d, i) => i).filter(i => /casino/.test(h[i].special || '')); selectIndices(r, [...cz, ...h.map((_, i) => i).filter(i => !cz.includes(i))].slice(0, 5)); reveal(r); }
+    eq(handDice(run).map(d => d.tag || d.face), handDice(run2).map(d => d.tag || d.face), 'same seed, same casino throw');
+    const ci = handDice(run).findIndex(d => /casino/.test(d.special || '')); const t = handDice(run)[ci].tag;
+    run.round.locked = run.round.locked.map((_, i) => i === ci); reroll(run); eq(handDice(run)[ci].tag, t, 'a held casino die keeps its slot face');
+    eq(preview(run).total, scoreCurrent(run).total, 'preview matches score with casino dice'); }
+  // demo seeds documented in the report
+  { const pick = (seed, demo, want) => { const run = newRun(seed, { demo }); const h = handDice(run), idx = h.map((d, i) => i).filter(i => want.includes(h[i].special)); for (let i = 0; i < h.length && idx.length < 5; i++) if (!idx.includes(i)) idx.push(i); selectIndices(run, idx.slice(0, 5)); reveal(run); return run; };
+    ok(handDice(pick('47', 'casino', ['casino12', 'casino20'])).filter(d => d.tag === 'slot777').length === 2, '?seed=47&demo=casino: both casino dice land on 777'); }
+}
+
 // --- Draw 7, pick 5, roll
 { const run = newRun('pick'); const r = run.round;
   eq([r.hand.length, r.revealed, selectedCount(run), rollNeed(run)], [BAL.handDraw, false, 0, BAL.rollCount], 'draws handDraw face-down, nothing selected, need rollCount');

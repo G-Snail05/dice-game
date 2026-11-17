@@ -2,7 +2,7 @@
 // (or, for scoring, the DOM still showing the scored dice) and only moves things around visually.
 import { play, wait, frames, phase, reduced, countUp } from './anim.js';
 import { setImg, artSrc } from '../art.js';
-import { faceKey } from '../dice.js';
+import { faceArtKey, rollArtKeys } from '../dice.js';
 import { fmtMult } from './dom.js';
 
 const dieEl = (root, uid) => root.querySelector(`.die[data-uid="${uid}"]`);
@@ -36,11 +36,13 @@ async function tumble(root, before, d, k) {
     { transform: `translate(${dx * 0.45}px, ${dy * 0.45 - lift}px) rotate(${spin / 2}deg) scale(${km})`, offset: 0.45 },
     { transform: 'translate(0, 0) rotate(' + spin + 'deg)' },
   ], { duration: dur, delay, easing: 'cubic-bezier(.35,.1,.45,1)' });
-  if (img && artSrc(`die_${d.shape}_roll_1`)) {
+  const keys = rollArtKeys(d);
+  if (img && artSrc(keys[1])) {
     await wait(delay);
-    const keys = [`die_${d.shape}_blank`, `die_${d.shape}_roll_1`, `die_${d.shape}_roll_2`];
-    await frames(key => setImg(img, key), keys, 12, 2);
-    setImg(img, faceKey(d.shape, d.face)) || (final && (img.src = final.src));
+    // Parity Coin: the pack's 8-frame flip loop once at 15 fps; dice: blank -> roll_1 -> roll_2 twice at 12 fps.
+    if (keys.length > 3) await frames(key => setImg(img, key), keys, 15, 1);
+    else await frames(key => setImg(img, key), keys, 12, 2);
+    setImg(img, faceArtKey(d)) || (final && (img.src = final.src));
   }
   const ctr = el.querySelector('.ctr');
   if (ctr) { await Promise.all([flight, ledRoll(ctr, delay, dur)]); return; }
@@ -188,6 +190,61 @@ async function burst(el, prefix, n, fps = 30, cls = 'fx') {
   img.remove();
 }
 
+// Fixed-position sprite over the page (for effects bigger than the die). Returns the <img>.
+function overlayImg(cls, made) {
+  const img = document.createElement('img');
+  img.className = `art px ${cls}`; img.alt = '';
+  document.body.appendChild(img); made.push(img);
+  return img;
+}
+const artRect = el => (el.querySelector('img.die-art, .cssdie, .ctr') || el).getBoundingClientRect();
+
+// JACKPOT (Casino slot777), following the pack's suggested timing: fx_jackpot_01..12 once at 15 fps centred on the
+// die (anchor (48,36)), the banner drops in over frames 03-06 (y -22, -8, +3, -1, 0 native px) with chasing bulbs
+// (banner / banner_2 at ~6 fps), fx_jackpot_rays_1/2 loop behind it for ~1 s at 8 fps, then everything fades.
+// Scale: 2 CSS px per native px on phones (burst 192x128, banner 192x52), up to 4 with the big desktop table dice,
+// clamped so the burst always fits the viewport width (a 360 px phone fits the 2x burst with room to spare).
+export async function jackpot(el) {
+  if (!el || !artSrc('fx_jackpot_01')) return;
+  phase('jackpot');
+  const made = [];
+  const r = artRect(el), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+  const k = Math.max(1, Math.min(4, Math.max(2, Math.round(r.width / 32)), Math.floor((window.innerWidth - 8) / 96)));
+  const W = 96 * k, H = 64 * k, left = Math.max(4, Math.min(window.innerWidth - W - 4, cx - 48 * k)), top = Math.max(4, cy - 36 * k);
+  const banner = overlayImg('jp jp-banner', made);
+  const bTop = Math.max(4, top + (H - 26 * k) / 2 - 6 * k);
+  Object.assign(banner.style, { left: `${left}px`, top: `${bTop}px`, width: `${W}px`, height: `${26 * k}px` });
+  setImg(banner, 'fx_jackpot_banner');
+  try {
+    if (reduced()) { await new Promise(res => setTimeout(res, 900)); return; }
+    const burst = overlayImg('jp jp-burst', made), rays = overlayImg('jp jp-rays', made);
+    for (const im of [burst, rays]) Object.assign(im.style, { left: `${left}px`, top: `${top}px`, width: `${W}px`, height: `${H}px` });
+    rays.style.opacity = '0'; banner.style.opacity = '0';
+    let chasing = true;
+    const chase = (async () => { for (let n = 0; chasing && n < 60; n++) { setImg(banner, n % 2 ? 'fx_jackpot_banner_2' : 'fx_jackpot_banner'); await wait(1000 / 6); } })();
+    const f = 1000 / 15, ny = v => `translateY(${v * k}px)`;
+    const drop = (async () => { await wait(2 * f); banner.style.opacity = '1';
+      await play(banner, [{ transform: ny(-22) }, { transform: ny(-8) }, { transform: ny(3) }, { transform: ny(-1) }, { transform: ny(0) }], { duration: 4 * f, easing: 'linear' }); })();
+    await frames(key => setImg(burst, key), Array.from({ length: 12 }, (_, i) => `fx_jackpot_${String(i + 1).padStart(2, '0')}`), 15, 1);
+    await drop;
+    burst.remove(); rays.style.opacity = '1';
+    await frames(key => setImg(rays, key), ['fx_jackpot_rays_1', 'fx_jackpot_rays_2'], 8, 4);
+    chasing = false; await chase;
+    await Promise.all([banner, rays].map(im => play(im, [{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: 'forwards' })));
+  } finally { made.forEach(m => m.remove()); }
+}
+
+// Parity Coin match: fx_parity_match_<side> pulse (42x42, die at 2,8) on each matched die, 12 fps 1-2-3-2 twice.
+export async function parityPulse(els, side) {
+  if (reduced() || !artSrc(`fx_parity_match_${side}_1`)) return;
+  const made = [];
+  try {
+    const imgs = els.filter(Boolean).map(el => { const r = artRect(el), k = r.width / 32, im = overlayImg('pmpulse', made);
+      Object.assign(im.style, { left: `${r.left - 2 * k}px`, top: `${r.top - 8 * k}px`, width: `${42 * k}px`, height: `${42 * k}px` }); return im; });
+    await frames(n => imgs.forEach(im => setImg(im, `fx_parity_match_${side}_${n}`)), [1, 2, 3, 2, 1, 2, 3, 4], 12, 1);
+  } finally { made.forEach(m => m.remove()); }
+}
+
 const bump = (el, s = 1.18) => play(el, [{ transform: 'none' }, { transform: `scale(${s}) translateY(-6px)` }, { transform: 'none' }], { duration: 220, easing: 'ease-out' });
 
 // Scoring: each die pops its value in turn, specials flash their effect, a running points x mult
@@ -237,6 +294,12 @@ export async function scoreSequence(root, { dice, last, oldScore, newScore, targ
     }
     if (l.points != null) { ptsEl.textContent = String(l.points); }
     if (l.mult != null) { mulEl.textContent = fmtMult(l.mult); play(mulEl, [{ transform: 'scale(1.5)' }, { transform: 'none' }], { duration: 200 }); }
+    if (l.parity && l.matches) {
+      const ms = l.matches.map(byIndex);
+      ms.forEach(m => m && floatLabel(root, m, `+${fmtMult(l.addMult / l.matches.length)}`, 'mult'));
+      await parityPulse(ms, l.parity);
+    }
+    if (l.jackpot) await jackpot(el);
     await wait(step + 90);
     el && el.classList.remove('flash');
   }

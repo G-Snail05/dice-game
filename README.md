@@ -58,6 +58,14 @@ Counters are not polyhedral dice: each rolls its bits one by one with the seeded
 
 Counters roll in the shop separately from the classic specials (`counters.shopChance` = 15% per slot), so the classic specials keep their odds. Which counter is offered = rarity weight × the counter's `weight`. Everything is tunable in `data/balance.json` under `counters`; `node tools/counter-stats.mjs [N]` reports the win rate, chain frequency and chain scores.
 
+## Casino and Odds & Evens (exotic sets)
+
+**Casino d12 / Casino d20.** Every face scores **7 points**. The d12 has 9 plain 7s and 3 slot faces, the d20 17 plain 7s and the same 3 slot faces. A plain 7 adds no mult. The slot faces add mult (additive, like Ember): **7 → +7, 77 → +14, 777 → +21 and the JACKPOT animation**. Rare: d12 $14, d20 $12 (the d20 lands on a slot face less often: 3/20 vs 3/12).
+
+**Odds & Evens.** Odds d6 (1, 3, 5, 7, 9, 11, $4, uncommon), Evens d6 (2, 4, …, 12, $4, uncommon) and the **Parity Coin** ($6, rare). The coin takes a table slot, scores 0 and lands ODD or EVEN. Every *other* die whose scored value (after Link chains and Echo) has that parity gets **+2 mult** (additive). Any die counts: plain, special, Odds/Evens, a Coin showing 10, or a counter (or chain total) by its value's parity. 0 counts as neither (a Coin on 0, a 0 counter, chain members). Each Parity Coin applies separately, so two EVEN coins give +4 per even die; coins never match each other. Matched dice get a parity tag (+2 / +4) on the table, and they pulse while scoring.
+
+Each set has its own share of the per-slot exotic roll: one draw per slot, `counters.shopChance` (15%) then `casino.shopChance` (3%) then `parity.shopChance` (8%). Which piece is offered = rarity weight × `weight`. Everything (points, slot mult, +2, prices, rarities, chances) is in `data/balance.json` under `casino` and `parity`. `node tools/casino-parity-stats.mjs [N]` reports the win rate with and without the sets, ownership, and demo seeds (`SEEDS=1`). Demo links: `?seed=47&demo=casino` (both Casino dice land on 777 when you pick them plus the first 3 d6s), `?seed=16&demo=parity` (ODD coin, 3 matches).
+
 ### Modifiers on every shape
 
 The nine d6 specials above (everything except Coin) are **modifiers**: the shop offers each one on any shape d4–d20.

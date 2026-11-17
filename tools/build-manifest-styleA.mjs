@@ -6,7 +6,7 @@
 // The placeholder manifest (assets/manifest.placeholder.json) stays as the per-key fallback.
 import fs from 'node:fs';
 import zlib from 'node:zlib';
-import { requiredKeys, counterArtKeys, modArtKeys, modRingKeys } from '../js/art.js';
+import { requiredKeys, counterArtKeys, modArtKeys, modRingKeys, exoticArtKeys } from '../js/art.js';
 const ROOT = new URL('..', import.meta.url).pathname, A = ROOT + 'assets/';
 const src = JSON.parse(fs.readFileSync(A + 'pack-styleA/builder-manifest.styleA.json', 'utf8'));
 const exists = p => fs.existsSync(A + p);
@@ -38,7 +38,7 @@ for (const [key, e0] of Object.entries(assets)) {
 }
 // Ship only the keys the game asks for (the full sprite list stays in pack-styleA/builder-manifest.styleA.json).
 // Binary counters ride along (counterArtKeys), with each body's bit_cells from the pack's own manifest.json.
-const wanted = [...requiredKeys(), ...counterArtKeys(), ...modArtKeys(), ...modRingKeys()];
+const wanted = [...requiredKeys(), ...counterArtKeys(), ...modArtKeys(), ...modRingKeys(), ...exoticArtKeys()];
 for (const k of Object.keys(assets)) if (!wanted.includes(k)) delete assets[k];
 const packMan = JSON.parse(fs.readFileSync(A + 'pack-styleA/manifest.json', 'utf8'));
 const packByName = Object.fromEntries((Array.isArray(packMan.assets) ? packMan.assets : Object.values(packMan.assets)).map(e => [e.name, e]));

@@ -320,3 +320,16 @@ body.hc .ctr .ctrval b, body.hc .chaintag .tag b { color: #fff; text-shadow: non
 .modwrap .modovl { position: absolute; left: -6.25%; top: -25%; width: 131.25%; height: 131.25%; max-width: none; pointer-events: none; image-rendering: pixelated; }
 .modwrap .modbadge { position: absolute; left: 34.375%; top: -25%; width: 87.5%; height: 34.375%; max-width: none; pointer-events: none; image-rendering: pixelated; }
 .modwrap .modbadge.nudge { top: -31.25%; } /* pointed tops: 2 native px higher so the apex shows */
+/* Casino / Odds & Evens (style A pack). Jackpot and match pulse are fixed overlays placed by roundAnim.js. */
+.jp, .pmpulse { position: fixed; z-index: 46; pointer-events: none; image-rendering: pixelated; max-width: none; }
+.jp-burst, .jp-rays { z-index: 45; } .jp-banner { z-index: 47; filter: drop-shadow(0 4px 0 #0008); }
+.pmpulse { z-index: 44; }
+/* Parity tag (28x11 native) centred under the die art, overlapping its lower edge. */
+.modwrap .partag { position: absolute; left: 6.25%; top: 78%; width: 87.5%; height: 34.375%; pointer-events: none; z-index: 2; line-height: 0; }
+.partag .partag-img { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+.partag b { position: absolute; display: flex; align-items: center; justify-content: center; font: 900 clamp(9px, 2.4vw, 1.1rem)/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: -.04em; }
+.partag.p-odd b { color: #2e2604; } .partag.p-even b { color: #082038; }
+.partag:not(.art) { border-radius: 6px; } .partag.p-odd:not(.art) { background: #fff07a; } .partag.p-even:not(.art) { background: #7ed2f2; }
+@media (min-width: 900px) { .r2 .table .partag b { font-size: 1.5rem; } }
+body.hc .partag b { color: #000; }
+.sdie.seticon { line-height: 0; }

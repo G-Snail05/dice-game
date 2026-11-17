@@ -9,7 +9,7 @@ import { B } from '../balance.js';
 import { artHTML } from '../art.js';
 import { dieArt, badge, cssDie, staticDie, blankArt, specialDesc } from './dieView.js';
 import { btn, coin, esc, fmtMult } from './dom.js';
-import { dieName, specialOf } from '../dice.js';
+import { dieName, specialOf, faceLabel } from '../dice.js';
 
 export function breakdown(res, { title } = {}) {
   const lines = res.lines.map(l => `<li class="l-${l.layer}${l.idle ? ' idle' : ''}"><b>${esc(l.who)}</b> ${esc(l.text)}</li>`).join('');
@@ -45,11 +45,19 @@ function benchBtn(d) {
     ${blankArt(d)}${badge(d)}<span class="shapetag">${esc(s ? s.tag || s.name : d.shape)}</span></span>`;
 }
 
-function dieBtn(run, d, i, where) {
+// Parity Coin matches in the current throw: die index -> {side, add} (two coins on the same side stack).
+export function parityMarks(res) {
+  const m = new Map();
+  for (const l of res.lines) if (l.parity && !l.idle) for (const j of l.matches) { const o = m.get(j) || { side: l.parity, add: 0 }; o.add += l.addMult / l.matches.length; m.set(j, o); }
+  return m;
+}
+
+function dieBtn(run, d, i, where, marks = null) {
   const r = run.round, s = specialOf(d), held = r.revealed && r.locked[i];
-  const face = r.revealed ? dieArt(d) : blankArt(d, `${dieName(d)}, not rolled yet`);
-  const label = r.revealed ? `${dieName(d)} showing ${d.face}${held ? ', held' : ''}. Tap to ${held ? 'return it to the table' : 'hold it'}.` : `${dieName(d)}, in your hand`;
-  return `<button class="die ${held ? 'locked' : ''} ${s ? 'special l-' + s.layer : ''} at-${where}" data-act="lock" data-i="${i}" data-uid="${d.uid}" ${r.revealed ? '' : 'disabled'} aria-pressed="${held}" aria-label="${esc(label)}${s ? ' ' + esc(specialDesc(d)) : ''}">
+  const mark = marks && marks.get(i);
+  const face = r.revealed ? dieArt(d, d.face, d.tag, { parity: mark || null }) : blankArt(d, `${dieName(d)}, not rolled yet`);
+  const label = r.revealed ? `${dieName(d)} showing ${faceLabel(d)}${held ? ', held' : ''}. Tap to ${held ? 'return it to the table' : 'hold it'}.` : `${dieName(d)}, in your hand`;
+  return `<button class="die ${held ? 'locked' : ''} ${s ? 'special l-' + s.layer : ''}${mark ? ` pmatch pm-${mark.side}` : ''} at-${where}" data-act="lock" data-i="${i}" data-uid="${d.uid}" ${r.revealed ? '' : 'disabled'} aria-pressed="${held}" aria-label="${esc(label)}${mark ? ` Parity Coin: +${mark.add} mult (${mark.side}).` : ''}${s ? ' ' + esc(specialDesc(d)) : ''}">
     ${face}${badge(d)}${held ? `<span class="lockmark">${artHTML('icon_lock', { alt: '', fallback: '🔒' })} HELD</span>` : ''}</button>`;
 }
 
@@ -75,12 +83,13 @@ export function tallyHTML(run) {
 
 export function roundView(run, opts = {}) {
   const r = run.round, dice = handDice(run), cols = B.rollCount;
+  const marks = r.revealed && dice.some(d => d.special === 'paritycoin') ? parityMarks(preview(run)) : null;
   const tableCols = r.revealed ? dice.map((d, i) => ({ d, i, hand: inHand(run, i, opts) })) : [];
   while (tableCols.length < cols) tableCols.push({ empty: true });
   // Hand rows: top row = `cols` slots, bottom row = the rest (bench).
   let top, bottom;
   if (r.revealed) {
-    top = tableCols.map(c => (!c.empty && c.hand ? dieBtn(run, c.d, c.i, 'hand') : '<span class="ghost"></span>'));
+    top = tableCols.map(c => (!c.empty && c.hand ? dieBtn(run, c.d, c.i, 'hand', marks) : '<span class="ghost"></span>'));
     bottom = benchDice(run).map(benchBtn);
   } else {
     const picks = dice.map((d, i) => pickBtn(run, d, i));
@@ -98,7 +107,7 @@ export function roundView(run, opts = {}) {
     <div class="table">
       <div class="tcorner tl"><span class="rlabel">${esc(r.label)}</span>${coin(run.gold)}</div>
       <div class="tcorner tr">${iconBar(true)}</div>
-      <div class="slots tslots" role="group" aria-label="Table">${tableCols.map(c => `<div class="slot">${c.empty || c.hand ? '<span class="ghost"></span>' : dieBtn(run, c.d, c.i, 'table')}</div>`).join('')}</div>
+      <div class="slots tslots" role="group" aria-label="Table">${tableCols.map(c => `<div class="slot">${c.empty || c.hand ? '<span class="ghost"></span>' : dieBtn(run, c.d, c.i, 'table', marks)}</div>`).join('')}</div>
       <div class="tally" aria-live="polite">${tallyHTML(run)}</div>
       <div class="tfoot">${bagView(run)}<span class="seed">Seed ${esc(run.seed)}${run.demo ? ` · demo ${esc(run.demo)}` : ""}${run.endless ? ' · endless' : ` · ${totalRounds()} rounds`}${r.last ? ` · last throw +${r.last.total}` : ''}</span></div>
     </div>

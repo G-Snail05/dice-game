@@ -17,6 +17,7 @@ export const intToBits = (v, n) => Array.from({ length: n }, (_, i) => (v >> (n 
 
 export function facesOf(die) {
   const s = specialOf(die);
+  if (s && s.sides) return s.sides(die.shape).map(x => x.v);
   if (s && s.faces) return s.faces;
   if (s && s.faceOffset && SHAPES[die.shape]) return Array.from({ length: SHAPES[die.shape] }, (_, i) => i + 1 + s.faceOffset);
   if (isCounter(die)) return Array.from({ length: 2 ** bitsOf(die) }, (_, i) => i);
@@ -34,6 +35,13 @@ export function rollDie(die, rng) {
   if (isCounter(die)) {
     die.bits = Array.from({ length: bitsOf(die) }, () => rng.int(2));
     die.face = bitsToInt(die.bits);
+    return die.face;
+  }
+  const s = specialOf(die);
+  // Tagged sides (Casino slot faces, Parity Coin odd/even): the face is the points value, `tag` names the side.
+  if (s && s.sides) {
+    const sides = s.sides(die.shape), x = sides[rng.int(sides.length)];
+    die.face = x.v; die.tag = x.tag;
     return die.face;
   }
   const f = facesOf(die);
@@ -55,3 +63,30 @@ export function dieName(die) {
 
 // Logical art key for a die face, e.g. die_d6_face3, die_coin_face10.
 export const faceKey = (shape, face) => `die_${shape}_face${face}`;
+
+// Dice with their own sprite set (Casino, Odds & Evens, Parity Coin) name their keys via the special's `art`.
+// Everything else uses the shared per-shape keys.
+export function faceArtKey(die, face = die.face, tag = die.tag) {
+  const s = specialOf(die);
+  return s && s.art ? s.art.face(die.shape, face, tag) : faceKey(die.shape, face);
+}
+export function blankArtKey(die) {
+  const s = specialOf(die);
+  return s && s.art ? s.art.blank(die.shape) : `die_${die.shape}_blank`;
+}
+export function rollArtKeys(die) {
+  const s = specialOf(die);
+  return s && s.art ? s.art.roll(die.shape) : [`die_${die.shape}_blank`, `die_${die.shape}_roll_1`, `die_${die.shape}_roll_2`];
+}
+// Short text for the CSS fallback die / labels (777, ODD, ...).
+export function faceLabel(die, face = die.face, tag = die.tag) {
+  const s = specialOf(die);
+  return s && s.label ? s.label(face, tag) : String(face);
+}
+// The face a shop/bag icon shows: the special's showcase side, else the top face.
+export function showcaseOf(die) {
+  const s = specialOf(die);
+  if (s && s.showcase) return s.showcase(die.shape);
+  const f = facesOf(die);
+  return { face: f[f.length - 1], tag: null };
+}

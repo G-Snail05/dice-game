@@ -10,9 +10,9 @@ function offerCard(run, o, i) {
   const fake = { shape: o.shape, special: o.special };
   const s = o.special ? SPECIALS_BY_ID[o.special] : null;
   const f = facesOf(fake);
-  const desc = s ? specialDesc(fake) : `Faces ${f[0]}–${f[f.length - 1]} (average ${((f[0] + f[f.length - 1]) / 2).toFixed(1)}).`;
+  const desc = s ? `${specialDesc(fake)}${s.set ? ` (${s.set === 'casino' ? 'Casino' : 'Odds & Evens'} set)` : ''}` : `Faces ${f[0]}–${f[f.length - 1]} (average ${((f[0] + f[f.length - 1]) / 2).toFixed(1)}).`;
   return `<li class="offer ${o.sold ? 'sold' : ''} ${s ? 'l-' + s.layer : ''}">
-    ${staticDie(fake)}
+    ${staticDie(fake, { disabled: !o.sold && run.gold < o.price })}
     <div class="otext"><b>${esc(dieName(fake))}</b>${s ? ` <small class="rar r-${s.rarity}">${s.rarity}</small>` : ''}<br><small>${esc(desc)}</small></div>
     ${o.sold ? '<span class="soldtag">Sold</span>' : btn('buy', `Buy for $${o.price}`, { icon: 'ui_btn_buy', disabled: run.gold < o.price, data: `data-i="${i}"`, cls: 'buy', caption: `$${o.price}` })}
   </li>`;

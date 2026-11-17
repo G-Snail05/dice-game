@@ -1,9 +1,9 @@
 // node tools/sync-pack-styleA.mjs [asset-pack dir] -> copy what the game ships from Ælfstan's raw pack
 // (asset-pack/, kept out of git) into assets/pack-styleA/: the pack's README + manifests, and only the
-// sprite files the game's keys reference (requiredKeys + counterArtKeys + modArtKeys + modRingKeys), with their _hc twins and button
+// sprite files the game's keys reference (requiredKeys + counterArtKeys + modArtKeys + modRingKeys + exoticArtKeys: Casino and Odds & Evens), with their _hc twins and button
 // states. Then run tools/build-manifest-styleA.mjs to regenerate assets/manifest.json.
 import fs from 'node:fs';
-import { requiredKeys, counterArtKeys, modArtKeys, modRingKeys } from '../js/art.js';
+import { requiredKeys, counterArtKeys, modArtKeys, modRingKeys, exoticArtKeys } from '../js/art.js';
 const ROOT = new URL('..', import.meta.url).pathname, SRC = (process.argv[2] || ROOT + 'asset-pack').replace(/\/?$/, '/'), DST = ROOT + 'assets/pack-styleA/';
 for (const f of ['README.md', 'manifest.json', 'builder-manifest.styleA.json']) fs.copyFileSync(SRC + f, DST + f);
 const B = JSON.parse(fs.readFileSync(DST + 'builder-manifest.styleA.json', 'utf8')).assets;
@@ -18,7 +18,7 @@ const collect = e => {
   // Button skins: the converter derives _pressed/_disabled from _normal, so ship those too.
   if (/_normal\.png$/.test(e.src)) for (const s of ['pressed', 'disabled']) collect({ src: e.src.replace('_normal.png', `_${s}.png`), srcset: Object.fromEntries(Object.entries(e.srcset || {}).map(([k, v]) => [k, v.replace('_normal.png', `_${s}.png`)])) });
 };
-const keys = [...requiredKeys(), ...counterArtKeys(), ...modArtKeys(), ...modRingKeys()];
+const keys = [...requiredKeys(), ...counterArtKeys(), ...modArtKeys(), ...modRingKeys(), ...exoticArtKeys()];
 for (const k of keys) { if (!B[k]) missingKeys.push(k); collect(B[k]); }
 for (const b of ['settings', 'reroll', 'pause', 'info']) if (!B[`ui_btn_${b}`]) collect(B[`ui_btn_${b}_normal`]);
 let copied = 0, same = 0;

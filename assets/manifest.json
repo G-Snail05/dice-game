@@ -1753,6 +1753,1148 @@
     }
    }
   },
+  "die_casino_d12_7": {
+   "src": "pack-styleA/1x/die_casino_d12_7.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d12_7.png",
+    "3x": "pack-styleA/3x/die_casino_d12_7.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d12_7_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d12_7_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d12_7_hc.png"
+    }
+   }
+  },
+  "die_casino_d12_slot7": {
+   "src": "pack-styleA/1x/die_casino_d12_slot7.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d12_slot7.png",
+    "3x": "pack-styleA/3x/die_casino_d12_slot7.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d12_slot7_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d12_slot7_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d12_slot7_hc.png"
+    }
+   }
+  },
+  "die_casino_d12_slot77": {
+   "src": "pack-styleA/1x/die_casino_d12_slot77.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d12_slot77.png",
+    "3x": "pack-styleA/3x/die_casino_d12_slot77.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d12_slot77_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d12_slot77_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d12_slot77_hc.png"
+    }
+   }
+  },
+  "die_casino_d12_slot777": {
+   "src": "pack-styleA/1x/die_casino_d12_slot777.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d12_slot777.png",
+    "3x": "pack-styleA/3x/die_casino_d12_slot777.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d12_slot777_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d12_slot777_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d12_slot777_hc.png"
+    }
+   }
+  },
+  "die_casino_d12_blank": {
+   "src": "pack-styleA/1x/die_casino_d12_blank.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d12_blank.png",
+    "3x": "pack-styleA/3x/die_casino_d12_blank.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d12_blank_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d12_blank_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d12_blank_hc.png"
+    }
+   }
+  },
+  "die_casino_d12_roll_1": {
+   "src": "pack-styleA/1x/die_casino_d12_roll_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d12_roll_1.png",
+    "3x": "pack-styleA/3x/die_casino_d12_roll_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d12_roll_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d12_roll_1_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d12_roll_1_hc.png"
+    }
+   }
+  },
+  "die_casino_d12_roll_2": {
+   "src": "pack-styleA/1x/die_casino_d12_roll_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d12_roll_2.png",
+    "3x": "pack-styleA/3x/die_casino_d12_roll_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d12_roll_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d12_roll_2_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d12_roll_2_hc.png"
+    }
+   }
+  },
+  "die_casino_d20_7": {
+   "src": "pack-styleA/1x/die_casino_d20_7.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d20_7.png",
+    "3x": "pack-styleA/3x/die_casino_d20_7.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d20_7_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d20_7_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d20_7_hc.png"
+    }
+   }
+  },
+  "die_casino_d20_slot7": {
+   "src": "pack-styleA/1x/die_casino_d20_slot7.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d20_slot7.png",
+    "3x": "pack-styleA/3x/die_casino_d20_slot7.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d20_slot7_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d20_slot7_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d20_slot7_hc.png"
+    }
+   }
+  },
+  "die_casino_d20_slot77": {
+   "src": "pack-styleA/1x/die_casino_d20_slot77.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d20_slot77.png",
+    "3x": "pack-styleA/3x/die_casino_d20_slot77.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d20_slot77_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d20_slot77_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d20_slot77_hc.png"
+    }
+   }
+  },
+  "die_casino_d20_slot777": {
+   "src": "pack-styleA/1x/die_casino_d20_slot777.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d20_slot777.png",
+    "3x": "pack-styleA/3x/die_casino_d20_slot777.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d20_slot777_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d20_slot777_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d20_slot777_hc.png"
+    }
+   }
+  },
+  "die_casino_d20_blank": {
+   "src": "pack-styleA/1x/die_casino_d20_blank.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d20_blank.png",
+    "3x": "pack-styleA/3x/die_casino_d20_blank.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d20_blank_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d20_blank_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d20_blank_hc.png"
+    }
+   }
+  },
+  "die_casino_d20_roll_1": {
+   "src": "pack-styleA/1x/die_casino_d20_roll_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d20_roll_1.png",
+    "3x": "pack-styleA/3x/die_casino_d20_roll_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d20_roll_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d20_roll_1_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d20_roll_1_hc.png"
+    }
+   }
+  },
+  "die_casino_d20_roll_2": {
+   "src": "pack-styleA/1x/die_casino_d20_roll_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_casino_d20_roll_2.png",
+    "3x": "pack-styleA/3x/die_casino_d20_roll_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_casino_d20_roll_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_casino_d20_roll_2_hc.png",
+     "3x": "pack-styleA/3x/die_casino_d20_roll_2_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_01": {
+   "src": "pack-styleA/1x/fx_jackpot_01.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_01.png",
+    "3x": "pack-styleA/3x/fx_jackpot_01.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_01_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_01_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_01_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_02": {
+   "src": "pack-styleA/1x/fx_jackpot_02.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_02.png",
+    "3x": "pack-styleA/3x/fx_jackpot_02.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_02_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_02_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_02_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_03": {
+   "src": "pack-styleA/1x/fx_jackpot_03.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_03.png",
+    "3x": "pack-styleA/3x/fx_jackpot_03.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_03_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_03_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_03_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_04": {
+   "src": "pack-styleA/1x/fx_jackpot_04.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_04.png",
+    "3x": "pack-styleA/3x/fx_jackpot_04.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_04_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_04_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_04_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_05": {
+   "src": "pack-styleA/1x/fx_jackpot_05.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_05.png",
+    "3x": "pack-styleA/3x/fx_jackpot_05.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_05_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_05_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_05_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_06": {
+   "src": "pack-styleA/1x/fx_jackpot_06.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_06.png",
+    "3x": "pack-styleA/3x/fx_jackpot_06.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_06_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_06_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_06_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_07": {
+   "src": "pack-styleA/1x/fx_jackpot_07.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_07.png",
+    "3x": "pack-styleA/3x/fx_jackpot_07.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_07_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_07_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_07_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_08": {
+   "src": "pack-styleA/1x/fx_jackpot_08.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_08.png",
+    "3x": "pack-styleA/3x/fx_jackpot_08.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_08_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_08_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_08_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_09": {
+   "src": "pack-styleA/1x/fx_jackpot_09.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_09.png",
+    "3x": "pack-styleA/3x/fx_jackpot_09.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_09_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_09_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_09_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_10": {
+   "src": "pack-styleA/1x/fx_jackpot_10.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_10.png",
+    "3x": "pack-styleA/3x/fx_jackpot_10.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_10_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_10_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_10_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_11": {
+   "src": "pack-styleA/1x/fx_jackpot_11.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_11.png",
+    "3x": "pack-styleA/3x/fx_jackpot_11.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_11_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_11_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_11_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_12": {
+   "src": "pack-styleA/1x/fx_jackpot_12.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_12.png",
+    "3x": "pack-styleA/3x/fx_jackpot_12.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_12_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_12_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_12_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_rays_1": {
+   "src": "pack-styleA/1x/fx_jackpot_rays_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_rays_1.png",
+    "3x": "pack-styleA/3x/fx_jackpot_rays_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_rays_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_rays_1_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_rays_1_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_rays_2": {
+   "src": "pack-styleA/1x/fx_jackpot_rays_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_rays_2.png",
+    "3x": "pack-styleA/3x/fx_jackpot_rays_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_rays_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_rays_2_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_rays_2_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_banner": {
+   "src": "pack-styleA/1x/fx_jackpot_banner.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_banner.png",
+    "3x": "pack-styleA/3x/fx_jackpot_banner.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_banner_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_banner_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_banner_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_banner_2": {
+   "src": "pack-styleA/1x/fx_jackpot_banner_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_banner_2.png",
+    "3x": "pack-styleA/3x/fx_jackpot_banner_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_banner_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_banner_2_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_banner_2_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_coin_1": {
+   "src": "pack-styleA/1x/fx_jackpot_coin_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_coin_1.png",
+    "3x": "pack-styleA/3x/fx_jackpot_coin_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_coin_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_coin_1_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_coin_1_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_coin_2": {
+   "src": "pack-styleA/1x/fx_jackpot_coin_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_coin_2.png",
+    "3x": "pack-styleA/3x/fx_jackpot_coin_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_coin_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_coin_2_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_coin_2_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_coin_3": {
+   "src": "pack-styleA/1x/fx_jackpot_coin_3.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_coin_3.png",
+    "3x": "pack-styleA/3x/fx_jackpot_coin_3.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_coin_3_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_coin_3_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_coin_3_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_coin_4": {
+   "src": "pack-styleA/1x/fx_jackpot_coin_4.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_coin_4.png",
+    "3x": "pack-styleA/3x/fx_jackpot_coin_4.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_coin_4_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_coin_4_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_coin_4_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_sparkle_1": {
+   "src": "pack-styleA/1x/fx_jackpot_sparkle_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_sparkle_1.png",
+    "3x": "pack-styleA/3x/fx_jackpot_sparkle_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_sparkle_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_sparkle_1_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_sparkle_1_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_sparkle_2": {
+   "src": "pack-styleA/1x/fx_jackpot_sparkle_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_sparkle_2.png",
+    "3x": "pack-styleA/3x/fx_jackpot_sparkle_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_sparkle_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_sparkle_2_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_sparkle_2_hc.png"
+    }
+   }
+  },
+  "fx_jackpot_sparkle_3": {
+   "src": "pack-styleA/1x/fx_jackpot_sparkle_3.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_jackpot_sparkle_3.png",
+    "3x": "pack-styleA/3x/fx_jackpot_sparkle_3.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_jackpot_sparkle_3_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_jackpot_sparkle_3_hc.png",
+     "3x": "pack-styleA/3x/fx_jackpot_sparkle_3_hc.png"
+    }
+   }
+  },
+  "die_odds_d6_1": {
+   "src": "pack-styleA/1x/die_odds_d6_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_odds_d6_1.png",
+    "3x": "pack-styleA/3x/die_odds_d6_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_odds_d6_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_odds_d6_1_hc.png",
+     "3x": "pack-styleA/3x/die_odds_d6_1_hc.png"
+    }
+   }
+  },
+  "die_odds_d6_3": {
+   "src": "pack-styleA/1x/die_odds_d6_3.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_odds_d6_3.png",
+    "3x": "pack-styleA/3x/die_odds_d6_3.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_odds_d6_3_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_odds_d6_3_hc.png",
+     "3x": "pack-styleA/3x/die_odds_d6_3_hc.png"
+    }
+   }
+  },
+  "die_odds_d6_5": {
+   "src": "pack-styleA/1x/die_odds_d6_5.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_odds_d6_5.png",
+    "3x": "pack-styleA/3x/die_odds_d6_5.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_odds_d6_5_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_odds_d6_5_hc.png",
+     "3x": "pack-styleA/3x/die_odds_d6_5_hc.png"
+    }
+   }
+  },
+  "die_odds_d6_7": {
+   "src": "pack-styleA/1x/die_odds_d6_7.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_odds_d6_7.png",
+    "3x": "pack-styleA/3x/die_odds_d6_7.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_odds_d6_7_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_odds_d6_7_hc.png",
+     "3x": "pack-styleA/3x/die_odds_d6_7_hc.png"
+    }
+   }
+  },
+  "die_odds_d6_9": {
+   "src": "pack-styleA/1x/die_odds_d6_9.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_odds_d6_9.png",
+    "3x": "pack-styleA/3x/die_odds_d6_9.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_odds_d6_9_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_odds_d6_9_hc.png",
+     "3x": "pack-styleA/3x/die_odds_d6_9_hc.png"
+    }
+   }
+  },
+  "die_odds_d6_11": {
+   "src": "pack-styleA/1x/die_odds_d6_11.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_odds_d6_11.png",
+    "3x": "pack-styleA/3x/die_odds_d6_11.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_odds_d6_11_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_odds_d6_11_hc.png",
+     "3x": "pack-styleA/3x/die_odds_d6_11_hc.png"
+    }
+   }
+  },
+  "die_odds_d6_blank": {
+   "src": "pack-styleA/1x/die_odds_d6_blank.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_odds_d6_blank.png",
+    "3x": "pack-styleA/3x/die_odds_d6_blank.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_odds_d6_blank_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_odds_d6_blank_hc.png",
+     "3x": "pack-styleA/3x/die_odds_d6_blank_hc.png"
+    }
+   }
+  },
+  "die_odds_d6_roll_1": {
+   "src": "pack-styleA/1x/die_odds_d6_roll_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_odds_d6_roll_1.png",
+    "3x": "pack-styleA/3x/die_odds_d6_roll_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_odds_d6_roll_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_odds_d6_roll_1_hc.png",
+     "3x": "pack-styleA/3x/die_odds_d6_roll_1_hc.png"
+    }
+   }
+  },
+  "die_odds_d6_roll_2": {
+   "src": "pack-styleA/1x/die_odds_d6_roll_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_odds_d6_roll_2.png",
+    "3x": "pack-styleA/3x/die_odds_d6_roll_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_odds_d6_roll_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_odds_d6_roll_2_hc.png",
+     "3x": "pack-styleA/3x/die_odds_d6_roll_2_hc.png"
+    }
+   }
+  },
+  "die_evens_d6_2": {
+   "src": "pack-styleA/1x/die_evens_d6_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_evens_d6_2.png",
+    "3x": "pack-styleA/3x/die_evens_d6_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_evens_d6_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_evens_d6_2_hc.png",
+     "3x": "pack-styleA/3x/die_evens_d6_2_hc.png"
+    }
+   }
+  },
+  "die_evens_d6_4": {
+   "src": "pack-styleA/1x/die_evens_d6_4.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_evens_d6_4.png",
+    "3x": "pack-styleA/3x/die_evens_d6_4.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_evens_d6_4_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_evens_d6_4_hc.png",
+     "3x": "pack-styleA/3x/die_evens_d6_4_hc.png"
+    }
+   }
+  },
+  "die_evens_d6_6": {
+   "src": "pack-styleA/1x/die_evens_d6_6.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_evens_d6_6.png",
+    "3x": "pack-styleA/3x/die_evens_d6_6.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_evens_d6_6_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_evens_d6_6_hc.png",
+     "3x": "pack-styleA/3x/die_evens_d6_6_hc.png"
+    }
+   }
+  },
+  "die_evens_d6_8": {
+   "src": "pack-styleA/1x/die_evens_d6_8.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_evens_d6_8.png",
+    "3x": "pack-styleA/3x/die_evens_d6_8.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_evens_d6_8_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_evens_d6_8_hc.png",
+     "3x": "pack-styleA/3x/die_evens_d6_8_hc.png"
+    }
+   }
+  },
+  "die_evens_d6_10": {
+   "src": "pack-styleA/1x/die_evens_d6_10.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_evens_d6_10.png",
+    "3x": "pack-styleA/3x/die_evens_d6_10.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_evens_d6_10_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_evens_d6_10_hc.png",
+     "3x": "pack-styleA/3x/die_evens_d6_10_hc.png"
+    }
+   }
+  },
+  "die_evens_d6_12": {
+   "src": "pack-styleA/1x/die_evens_d6_12.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_evens_d6_12.png",
+    "3x": "pack-styleA/3x/die_evens_d6_12.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_evens_d6_12_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_evens_d6_12_hc.png",
+     "3x": "pack-styleA/3x/die_evens_d6_12_hc.png"
+    }
+   }
+  },
+  "die_evens_d6_blank": {
+   "src": "pack-styleA/1x/die_evens_d6_blank.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_evens_d6_blank.png",
+    "3x": "pack-styleA/3x/die_evens_d6_blank.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_evens_d6_blank_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_evens_d6_blank_hc.png",
+     "3x": "pack-styleA/3x/die_evens_d6_blank_hc.png"
+    }
+   }
+  },
+  "die_evens_d6_roll_1": {
+   "src": "pack-styleA/1x/die_evens_d6_roll_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_evens_d6_roll_1.png",
+    "3x": "pack-styleA/3x/die_evens_d6_roll_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_evens_d6_roll_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_evens_d6_roll_1_hc.png",
+     "3x": "pack-styleA/3x/die_evens_d6_roll_1_hc.png"
+    }
+   }
+  },
+  "die_evens_d6_roll_2": {
+   "src": "pack-styleA/1x/die_evens_d6_roll_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_evens_d6_roll_2.png",
+    "3x": "pack-styleA/3x/die_evens_d6_roll_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_evens_d6_roll_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_evens_d6_roll_2_hc.png",
+     "3x": "pack-styleA/3x/die_evens_d6_roll_2_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_odd": {
+   "src": "pack-styleA/1x/die_parity_coin_odd.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_odd.png",
+    "3x": "pack-styleA/3x/die_parity_coin_odd.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_odd_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_odd_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_odd_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_even": {
+   "src": "pack-styleA/1x/die_parity_coin_even.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_even.png",
+    "3x": "pack-styleA/3x/die_parity_coin_even.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_even_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_even_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_even_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_flip_1": {
+   "src": "pack-styleA/1x/die_parity_coin_flip_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_flip_1.png",
+    "3x": "pack-styleA/3x/die_parity_coin_flip_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_flip_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_flip_1_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_flip_1_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_flip_2": {
+   "src": "pack-styleA/1x/die_parity_coin_flip_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_flip_2.png",
+    "3x": "pack-styleA/3x/die_parity_coin_flip_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_flip_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_flip_2_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_flip_2_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_flip_3": {
+   "src": "pack-styleA/1x/die_parity_coin_flip_3.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_flip_3.png",
+    "3x": "pack-styleA/3x/die_parity_coin_flip_3.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_flip_3_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_flip_3_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_flip_3_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_flip_4": {
+   "src": "pack-styleA/1x/die_parity_coin_flip_4.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_flip_4.png",
+    "3x": "pack-styleA/3x/die_parity_coin_flip_4.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_flip_4_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_flip_4_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_flip_4_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_flip_5": {
+   "src": "pack-styleA/1x/die_parity_coin_flip_5.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_flip_5.png",
+    "3x": "pack-styleA/3x/die_parity_coin_flip_5.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_flip_5_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_flip_5_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_flip_5_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_flip_6": {
+   "src": "pack-styleA/1x/die_parity_coin_flip_6.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_flip_6.png",
+    "3x": "pack-styleA/3x/die_parity_coin_flip_6.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_flip_6_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_flip_6_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_flip_6_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_flip_7": {
+   "src": "pack-styleA/1x/die_parity_coin_flip_7.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_flip_7.png",
+    "3x": "pack-styleA/3x/die_parity_coin_flip_7.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_flip_7_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_flip_7_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_flip_7_hc.png"
+    }
+   }
+  },
+  "die_parity_coin_flip_8": {
+   "src": "pack-styleA/1x/die_parity_coin_flip_8.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/die_parity_coin_flip_8.png",
+    "3x": "pack-styleA/3x/die_parity_coin_flip_8.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/die_parity_coin_flip_8_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/die_parity_coin_flip_8_hc.png",
+     "3x": "pack-styleA/3x/die_parity_coin_flip_8_hc.png"
+    }
+   }
+  },
+  "ui_parity_tag_odd_blank": {
+   "src": "pack-styleA/1x/ui_parity_tag_odd_blank.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/ui_parity_tag_odd_blank.png",
+    "3x": "pack-styleA/3x/ui_parity_tag_odd_blank.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_parity_tag_odd_blank_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_parity_tag_odd_blank_hc.png",
+     "3x": "pack-styleA/3x/ui_parity_tag_odd_blank_hc.png"
+    }
+   },
+   "textArea": [
+    11,
+    2,
+    25,
+    8
+   ]
+  },
+  "ui_parity_tag_odd_x2": {
+   "src": "pack-styleA/1x/ui_parity_tag_odd_x2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/ui_parity_tag_odd_x2.png",
+    "3x": "pack-styleA/3x/ui_parity_tag_odd_x2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_parity_tag_odd_x2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_parity_tag_odd_x2_hc.png",
+     "3x": "pack-styleA/3x/ui_parity_tag_odd_x2_hc.png"
+    }
+   },
+   "textArea": [
+    11,
+    2,
+    25,
+    8
+   ]
+  },
+  "ui_parity_tag_odd_x3": {
+   "src": "pack-styleA/1x/ui_parity_tag_odd_x3.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/ui_parity_tag_odd_x3.png",
+    "3x": "pack-styleA/3x/ui_parity_tag_odd_x3.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_parity_tag_odd_x3_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_parity_tag_odd_x3_hc.png",
+     "3x": "pack-styleA/3x/ui_parity_tag_odd_x3_hc.png"
+    }
+   },
+   "textArea": [
+    11,
+    2,
+    25,
+    8
+   ]
+  },
+  "fx_parity_match_odd_1": {
+   "src": "pack-styleA/1x/fx_parity_match_odd_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_parity_match_odd_1.png",
+    "3x": "pack-styleA/3x/fx_parity_match_odd_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_parity_match_odd_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_parity_match_odd_1_hc.png",
+     "3x": "pack-styleA/3x/fx_parity_match_odd_1_hc.png"
+    }
+   }
+  },
+  "fx_parity_match_odd_2": {
+   "src": "pack-styleA/1x/fx_parity_match_odd_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_parity_match_odd_2.png",
+    "3x": "pack-styleA/3x/fx_parity_match_odd_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_parity_match_odd_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_parity_match_odd_2_hc.png",
+     "3x": "pack-styleA/3x/fx_parity_match_odd_2_hc.png"
+    }
+   }
+  },
+  "fx_parity_match_odd_3": {
+   "src": "pack-styleA/1x/fx_parity_match_odd_3.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_parity_match_odd_3.png",
+    "3x": "pack-styleA/3x/fx_parity_match_odd_3.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_parity_match_odd_3_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_parity_match_odd_3_hc.png",
+     "3x": "pack-styleA/3x/fx_parity_match_odd_3_hc.png"
+    }
+   }
+  },
+  "fx_parity_match_odd_4": {
+   "src": "pack-styleA/1x/fx_parity_match_odd_4.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_parity_match_odd_4.png",
+    "3x": "pack-styleA/3x/fx_parity_match_odd_4.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_parity_match_odd_4_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_parity_match_odd_4_hc.png",
+     "3x": "pack-styleA/3x/fx_parity_match_odd_4_hc.png"
+    }
+   }
+  },
+  "ui_parity_tag_even_blank": {
+   "src": "pack-styleA/1x/ui_parity_tag_even_blank.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/ui_parity_tag_even_blank.png",
+    "3x": "pack-styleA/3x/ui_parity_tag_even_blank.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_parity_tag_even_blank_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_parity_tag_even_blank_hc.png",
+     "3x": "pack-styleA/3x/ui_parity_tag_even_blank_hc.png"
+    }
+   },
+   "textArea": [
+    12,
+    2,
+    25,
+    8
+   ]
+  },
+  "ui_parity_tag_even_x2": {
+   "src": "pack-styleA/1x/ui_parity_tag_even_x2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/ui_parity_tag_even_x2.png",
+    "3x": "pack-styleA/3x/ui_parity_tag_even_x2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_parity_tag_even_x2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_parity_tag_even_x2_hc.png",
+     "3x": "pack-styleA/3x/ui_parity_tag_even_x2_hc.png"
+    }
+   },
+   "textArea": [
+    12,
+    2,
+    25,
+    8
+   ]
+  },
+  "ui_parity_tag_even_x3": {
+   "src": "pack-styleA/1x/ui_parity_tag_even_x3.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/ui_parity_tag_even_x3.png",
+    "3x": "pack-styleA/3x/ui_parity_tag_even_x3.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/ui_parity_tag_even_x3_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/ui_parity_tag_even_x3_hc.png",
+     "3x": "pack-styleA/3x/ui_parity_tag_even_x3_hc.png"
+    }
+   },
+   "textArea": [
+    12,
+    2,
+    25,
+    8
+   ]
+  },
+  "fx_parity_match_even_1": {
+   "src": "pack-styleA/1x/fx_parity_match_even_1.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_parity_match_even_1.png",
+    "3x": "pack-styleA/3x/fx_parity_match_even_1.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_parity_match_even_1_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_parity_match_even_1_hc.png",
+     "3x": "pack-styleA/3x/fx_parity_match_even_1_hc.png"
+    }
+   }
+  },
+  "fx_parity_match_even_2": {
+   "src": "pack-styleA/1x/fx_parity_match_even_2.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_parity_match_even_2.png",
+    "3x": "pack-styleA/3x/fx_parity_match_even_2.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_parity_match_even_2_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_parity_match_even_2_hc.png",
+     "3x": "pack-styleA/3x/fx_parity_match_even_2_hc.png"
+    }
+   }
+  },
+  "fx_parity_match_even_3": {
+   "src": "pack-styleA/1x/fx_parity_match_even_3.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_parity_match_even_3.png",
+    "3x": "pack-styleA/3x/fx_parity_match_even_3.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_parity_match_even_3_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_parity_match_even_3_hc.png",
+     "3x": "pack-styleA/3x/fx_parity_match_even_3_hc.png"
+    }
+   }
+  },
+  "fx_parity_match_even_4": {
+   "src": "pack-styleA/1x/fx_parity_match_even_4.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/fx_parity_match_even_4.png",
+    "3x": "pack-styleA/3x/fx_parity_match_even_4.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/fx_parity_match_even_4_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/fx_parity_match_even_4_hc.png",
+     "3x": "pack-styleA/3x/fx_parity_match_even_4_hc.png"
+    }
+   }
+  },
   "die_d4_face1": {
    "src": "pack-styleA/1x/die_d4_1.png",
    "srcset": {
@@ -3928,6 +5070,146 @@
     "srcset": {
      "2x": "pack-styleA/2x/special_counter_8bit_icon_hc.png",
      "3x": "pack-styleA/3x/special_counter_8bit_icon_hc.png"
+    }
+   }
+  },
+  "icon_casino_d12": {
+   "src": "pack-styleA/1x/special_casino_d12_icon.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_casino_d12_icon.png",
+    "3x": "pack-styleA/3x/special_casino_d12_icon.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_casino_d12_icon_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_casino_d12_icon_hc.png",
+     "3x": "pack-styleA/3x/special_casino_d12_icon_hc.png"
+    }
+   }
+  },
+  "icon_casino_d12_disabled": {
+   "src": "pack-styleA/1x/special_casino_d12_icon_disabled.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_casino_d12_icon_disabled.png",
+    "3x": "pack-styleA/3x/special_casino_d12_icon_disabled.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_casino_d12_icon_disabled_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_casino_d12_icon_disabled_hc.png",
+     "3x": "pack-styleA/3x/special_casino_d12_icon_disabled_hc.png"
+    }
+   }
+  },
+  "icon_casino_d20": {
+   "src": "pack-styleA/1x/special_casino_d20_icon.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_casino_d20_icon.png",
+    "3x": "pack-styleA/3x/special_casino_d20_icon.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_casino_d20_icon_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_casino_d20_icon_hc.png",
+     "3x": "pack-styleA/3x/special_casino_d20_icon_hc.png"
+    }
+   }
+  },
+  "icon_casino_d20_disabled": {
+   "src": "pack-styleA/1x/special_casino_d20_icon_disabled.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_casino_d20_icon_disabled.png",
+    "3x": "pack-styleA/3x/special_casino_d20_icon_disabled.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_casino_d20_icon_disabled_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_casino_d20_icon_disabled_hc.png",
+     "3x": "pack-styleA/3x/special_casino_d20_icon_disabled_hc.png"
+    }
+   }
+  },
+  "icon_odds_d6": {
+   "src": "pack-styleA/1x/special_odds_d6_icon.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_odds_d6_icon.png",
+    "3x": "pack-styleA/3x/special_odds_d6_icon.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_odds_d6_icon_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_odds_d6_icon_hc.png",
+     "3x": "pack-styleA/3x/special_odds_d6_icon_hc.png"
+    }
+   }
+  },
+  "icon_odds_d6_disabled": {
+   "src": "pack-styleA/1x/special_odds_d6_icon_disabled.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_odds_d6_icon_disabled.png",
+    "3x": "pack-styleA/3x/special_odds_d6_icon_disabled.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_odds_d6_icon_disabled_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_odds_d6_icon_disabled_hc.png",
+     "3x": "pack-styleA/3x/special_odds_d6_icon_disabled_hc.png"
+    }
+   }
+  },
+  "icon_evens_d6": {
+   "src": "pack-styleA/1x/special_evens_d6_icon.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_evens_d6_icon.png",
+    "3x": "pack-styleA/3x/special_evens_d6_icon.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_evens_d6_icon_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_evens_d6_icon_hc.png",
+     "3x": "pack-styleA/3x/special_evens_d6_icon_hc.png"
+    }
+   }
+  },
+  "icon_evens_d6_disabled": {
+   "src": "pack-styleA/1x/special_evens_d6_icon_disabled.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_evens_d6_icon_disabled.png",
+    "3x": "pack-styleA/3x/special_evens_d6_icon_disabled.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_evens_d6_icon_disabled_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_evens_d6_icon_disabled_hc.png",
+     "3x": "pack-styleA/3x/special_evens_d6_icon_disabled_hc.png"
+    }
+   }
+  },
+  "icon_parity_coin": {
+   "src": "pack-styleA/1x/special_parity_coin_icon.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_parity_coin_icon.png",
+    "3x": "pack-styleA/3x/special_parity_coin_icon.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_parity_coin_icon_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_parity_coin_icon_hc.png",
+     "3x": "pack-styleA/3x/special_parity_coin_icon_hc.png"
+    }
+   }
+  },
+  "icon_parity_coin_disabled": {
+   "src": "pack-styleA/1x/special_parity_coin_icon_disabled.png",
+   "srcset": {
+    "2x": "pack-styleA/2x/special_parity_coin_icon_disabled.png",
+    "3x": "pack-styleA/3x/special_parity_coin_icon_disabled.png"
+   },
+   "hc": {
+    "src": "pack-styleA/1x/special_parity_coin_icon_disabled_hc.png",
+    "srcset": {
+     "2x": "pack-styleA/2x/special_parity_coin_icon_disabled_hc.png",
+     "3x": "pack-styleA/3x/special_parity_coin_icon_disabled_hc.png"
     }
    }
   }

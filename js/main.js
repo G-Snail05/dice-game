@@ -1,5 +1,5 @@
 import { setBalance } from './balance.js';
-import { initArt, installArtFallbacks, setVariant, hasHighContrast, bgCSS, preload, fxKeys, counterArtKeys, artSrc } from './art.js';
+import { initArt, installArtFallbacks, setVariant, hasHighContrast, bgCSS, preload, fxKeys, counterArtKeys, artSrc, exoticArtKeys } from './art.js';
 import { enqueue, busy, snapshotRects, setReduced, setSpeed } from './ui/anim.js';
 import { rollIn, slide, deal, scoreSequence } from './ui/roundAnim.js';
 import { randomSeed } from './rng.js';
@@ -152,6 +152,7 @@ async function boot() {
   applySettings();
   installArtFallbacks(document);
   preload(fxKeys());
+  preload(exoticArtKeys().filter(k => !/_disabled$/.test(k)));
   const q = new URLSearchParams(location.search);
   if (q.has('seed')) start(q.get('seed'), q.get('demo')); else render();
   // Test/debug hook (used by the screenshot script); harmless in normal play.

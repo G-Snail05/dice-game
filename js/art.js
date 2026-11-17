@@ -24,11 +24,11 @@ export function requiredKeys() {
   const keys = [];
   const faces = { coin: new Set([0, 10]) };
   for (const shape of Object.keys(SHAPES)) if (shape !== 'coin') faces[shape] = new Set(Array.from({ length: SHAPES[shape] }, (_, i) => i + 1));
-  for (const s of SPECIALS) if (s.faces) s.faces.forEach(f => faces[s.shape].add(f));
+  for (const s of SPECIALS) if (s.faces && !s.set) s.faces.forEach(f => faces[s.shape].add(f));
   // Overcharged's default shape (d6 -> faces 7-9). Other shapes' high faces are optional art (modArtKeys).
   for (const s of SPECIALS) if (s.faceOffset && faces[s.shape]) for (let f = 1; f <= SHAPES[s.shape]; f++) faces[s.shape].add(f + s.faceOffset);
   for (const [shape, set] of Object.entries(faces)) [...set].sort((a, b) => a - b).forEach(f => keys.push(faceKey(shape, f)));
-  for (const s of SPECIALS) if (!s.counter && !keys.includes(s.icon)) keys.push(s.icon);
+  for (const s of SPECIALS) if (!s.counter && !s.set && !keys.includes(s.icon)) keys.push(s.icon);
   return keys.concat(ICON_KEYS, UI_KEYS, BG_KEYS, fxKeys());
 }
 
@@ -39,6 +39,34 @@ export function counterArtKeys() {
   return ['die_bin4_body', 'die_bin8_body', 'die_bin4_blank', 'die_bin8_blank', 'led_bit_on', 'led_bit_off', 'counter_bit_tumble_1', 'counter_bit_tumble_2',
     'icon_counter4', 'icon_counter8', 'icon_link', 'overlay_chain', 'fx_chain_link', 'fx_chain_link_lit', 'counter_readout', 'fx_link_glow_1', 'fx_link_glow_2', 'fx_link_glow_3'];
 }
+// Casino d12/d20 and the jackpot (Ælfstan's style A pack, "Casino D12 / D20 and the jackpot"). Kept apart from
+// requiredKeys() like the counters: without art the dice fall back to the CSS die with 7 / 77 / 777 text.
+export const CASINO_SHAPES = ['d12', 'd20'];
+export const jackpotKeys = () => [...Array.from({ length: 12 }, (_, i) => `fx_jackpot_${String(i + 1).padStart(2, '0')}`), 'fx_jackpot_rays_1', 'fx_jackpot_rays_2', 'fx_jackpot_banner', 'fx_jackpot_banner_2',
+  ...[1, 2, 3, 4].map(n => `fx_jackpot_coin_${n}`), ...[1, 2, 3].map(n => `fx_jackpot_sparkle_${n}`)];
+export function casinoArtKeys() {
+  const k = [];
+  for (const sh of CASINO_SHAPES) {
+    for (const f of ['7', 'slot7', 'slot77', 'slot777', 'blank', 'roll_1', 'roll_2']) k.push(`die_casino_${sh}_${f}`);
+    k.push(`icon_casino_${sh}`, `icon_casino_${sh}_disabled`);
+  }
+  return k.concat(jackpotKeys());
+}
+// Odds & Evens (pack section "Odds & Evens"): parity d6s, the Parity Coin, the parity tag and the match pulse.
+export function parityArtKeys() {
+  const k = [];
+  for (const [kind, faces] of [['odds', [1, 3, 5, 7, 9, 11]], ['evens', [2, 4, 6, 8, 10, 12]]]) {
+    for (const f of [...faces, 'blank', 'roll_1', 'roll_2']) k.push(`die_${kind}_d6_${f}`);
+    k.push(`icon_${kind}_d6`, `icon_${kind}_d6_disabled`);
+  }
+  k.push('die_parity_coin_odd', 'die_parity_coin_even', ...Array.from({ length: 8 }, (_, i) => `die_parity_coin_flip_${i + 1}`), 'icon_parity_coin', 'icon_parity_coin_disabled');
+  for (const p of ['odd', 'even']) { for (const t of ['blank', 'x2', 'x3']) k.push(`ui_parity_tag_${p}_${t}`); for (let n = 1; n <= 4; n++) k.push(`fx_parity_match_${p}_${n}`); }
+  return k;
+}
+export const exoticArtKeys = () => [...casinoArtKeys(), ...parityArtKeys()];
+// Native text area of a label-free tag (from the manifest's textArea), e.g. ui_parity_tag_odd_blank.
+export const textAreaOf = key => { const e = M.assets[key]; return e && Array.isArray(e.textArea) ? e.textArea : null; };
+
 // Modifier dice on any shape (d4–d20). Fallback chain per die, first hit wins:
 //   1. mod_<mod>_<shape>   42x42 native overlay (die drawn at 2,8): ring traced to the shape + badge
 //   2. mod_badge_<mod>     28x11 native badge, top-left at die origin + (11, -8), works on any shape

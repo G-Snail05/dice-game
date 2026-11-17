@@ -19,15 +19,33 @@ function rollCounter(rng) {
   return { shape: s.shape, special: s.id, price: s.price, sold: false };
 }
 
+// Exotic sets (Casino, Odds & Evens) work the same way, but share the counters' single roll per slot:
+// x < counters.shopChance -> counter, then the next casino.shopChance -> Casino, then parity.shopChance ->
+// Odds & Evens. One draw keeps the classic offers' odds (and old seeds' shops) unchanged when no exotic shows.
+function rollSet(rng, set) {
+  const pool = SPECIALS.filter(s => s.set === set).map(s => [s, (B.shop.rarityWeights[s.rarity] || 0) * (s.weight ?? 1)]).filter(e => e[1] > 0);
+  if (!pool.length) return null;
+  const s = rng.weighted(pool);
+  return { shape: s.shape, special: s.id, price: s.price, sold: false };
+}
+export const exoticChances = () => [['counter', (B.counters && B.counters.shopChance) || 0], ['casino', (B.casino && B.casino.shopChance) || 0], ['parity', (B.parity && B.parity.shopChance) || 0]];
+function rollExotic(rng) {
+  const ch = exoticChances(), tot = ch.reduce((a, c) => a + c[1], 0);
+  if (!tot) return null;
+  let x = rng.next();
+  for (const [set, p] of ch) { if (x < p) return set === 'counter' ? rollCounter(rng) : rollSet(rng, set); x -= p; }
+  return null;
+}
+
+const classic = s => !s.counter && !s.set;
 function rollOffer(run, forceSpecial = false) {
   const rng = run.rng;
-  const C = B.counters;
-  if (!forceSpecial && C && C.shopChance && rng.next() < C.shopChance) { const o = rollCounter(rng); if (o) return o; }
+  if (!forceSpecial) { const o = rollExotic(rng); if (o) return o; }
   if (forceSpecial || rng.next() < B.shop.specialChance) {
     const rarity = rng.weighted(Object.entries(B.shop.rarityWeights));
-    let pool = SPECIALS.filter(s => s.rarity === rarity && !s.counter);
+    let pool = SPECIALS.filter(s => s.rarity === rarity && classic(s));
     if (forceSpecial) pool = SPECIALS.filter(s => B.shop.firstShopPool.includes(s.id));
-    const s = rng.pick(pool.length ? pool : SPECIALS.filter(x => !x.counter));
+    const s = rng.pick(pool.length ? pool : SPECIALS.filter(classic));
     if (!s.mod) return { shape: s.shape, special: s.id, price: s.price, sold: false };
     // Modifier: roll the shape it comes on (mods.shapeWeights, else the plain-dice shapeWeights).
     const W = (B.mods && B.mods.shapeWeights) || B.shop.shapeWeights;

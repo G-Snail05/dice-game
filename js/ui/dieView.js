@@ -1,5 +1,5 @@
-import { artHTML, artSrc, bitCells, POINTED_SHAPES, MOD_BADGE_NUDGE, badgePillX } from '../art.js';
-import { faceKey, specialOf, dieName, facesOf, isCounter, isLink, bitsOf, counterBits } from '../dice.js';
+import { artHTML, artSrc, bitCells, POINTED_SHAPES, MOD_BADGE_NUDGE, badgePillX, textAreaOf } from '../art.js';
+import { specialOf, dieName, isCounter, isLink, bitsOf, counterBits, faceArtKey, blankArtKey, faceLabel, showcaseOf } from '../dice.js';
 import { descOf } from '../specials.js';
 import { esc } from './dom.js';
 
@@ -23,7 +23,7 @@ const ctrBitsFor = (die, face) => (face == null ? null : face === die.face ? cou
 // Face-down art for a die in the hand (before the roll).
 export function blankArt(die, alt = '') {
   if (isCounter(die)) return counterHTML(die, null, { alt: alt || `${dieName(die)}, not rolled yet` });
-  return withMod(die, artHTML(`die_${die.shape}_blank`, { cls: 'die-art', alt, fallback: cssDie(die.shape, '?') }));
+  return withMod(die, artHTML(blankArtKey(die), { cls: 'die-art', alt, fallback: cssDie(die.shape, '?') }));
 }
 
 // Modifier art hook (see modArtKeys in art.js): per-shape overlay, else a generic badge sprite, else null
@@ -50,12 +50,24 @@ export function modArt(die) {
 const withMod = (die, html) => { const m = modArt(die); return m ? `<span class="modwrap">${html}${m}</span>` : html; };
 export const specialDesc = die => descOf(specialOf(die), die.shape);
 
-export function dieArt(die, face = die.face) {
+export function dieArt(die, face = die.face, tag = face === die.face ? die.tag : null, { parity = null } = {}) {
   if (isCounter(die)) return counterHTML(die, ctrBitsFor(die, face), { alt: `${dieName(die)} showing ${face}` });
-  return withMod(die, dieArtPlain(die, face));
+  const html = dieArtPlain(die, face, tag);
+  if (parity) return `<span class="modwrap">${html}${modArt(die) || ''}${parityTag(parity.side, parity.add)}</span>`;
+  return withMod(die, html);
 }
-function dieArtPlain(die, face) {
-  return artHTML(faceKey(die.shape, face), { cls: 'die-art', alt: `${dieName(die)} showing ${face}`, fallback: cssDie(die.shape, face) });
+function dieArtPlain(die, face, tag) {
+  const lbl = faceLabel(die, face, tag);
+  return artHTML(faceArtKey(die, face, tag), { cls: 'die-art', alt: `${dieName(die)} showing ${lbl}`, fallback: cssDie(die.shape, lbl) });
+}
+
+// Parity tag (ui_parity_tag_<odd|even>_blank, 28x11 native) under a die that a Parity Coin matches; the value
+// (+2, or +4 with two coins) is drawn inside the tag's text_area. CSS fallback: a pill in the parity colours.
+const P28 = v => `${+(v / 28 * 100).toFixed(4)}%`, P11 = v => `${+(v / 11 * 100).toFixed(4)}%`;
+export function parityTag(side, add) {
+  const key = `ui_parity_tag_${side}_blank`, ta = textAreaOf(key) || (side === 'odd' ? [11, 2, 25, 8] : [12, 2, 25, 8]);
+  const box = `left:${P28(ta[0])};top:${P11(ta[1])};width:${P28(ta[2] - ta[0] + 1)};height:${P11(ta[3] - ta[1] + 1)}`;
+  return `<span class="partag p-${side}${artSrc(key) ? ' art' : ''}" aria-hidden="true">${artHTML(key, { cls: 'partag-img', alt: '' })}<b style="${box}">+${add}</b></span>`;
 }
 
 export function badge(die) {
@@ -63,6 +75,7 @@ export function badge(die) {
   if (!s) return '';
   if (modArt(die)) return ''; // the mod overlay/badge sprite replaces the icon badge
   if (s.link && artSrc('overlay_chain')) return ''; // the Link overlay sprite carries its own badge
+  if (s.set && artSrc(faceArtKey(die, showcaseOf(die).face, showcaseOf(die).tag))) return ''; // Casino / Odds & Evens: the dice have their own sprites
   const fb = s.counter ? (s.link ? '<i class="ctrbadge">LINK</i>' : `<i class="ctrbadge">${s.bits}b</i>`) : `<i>${esc(s.name[0])}</i>`;
   return `<span class="badge l-${s.layer}">${artHTML(s.icon, { alt: s.name, fallback: fb })}</span>`;
 }
@@ -77,7 +90,10 @@ export function trayDie(die, i, { locked = false, broken = false, disabled = fal
 }
 
 // Static die for shop and bag lists (shows its top face).
-export function staticDie(die) {
-  const f = facesOf(die);
-  return `<span class="sdie">${dieArt(die, f[f.length - 1])}${badge(die)}</span>`;
+// Casino / Odds & Evens use the pack's shop icon (icon_<...>, _disabled when it can't be bought).
+export function staticDie(die, { disabled = false } = {}) {
+  const s = specialOf(die);
+  if (s && s.set && artSrc(s.icon)) return `<span class="sdie seticon">${artHTML(disabled && artSrc(`${s.icon}_disabled`) ? `${s.icon}_disabled` : s.icon, { cls: 'die-art', alt: dieName(die) })}</span>`;
+  const sc = showcaseOf(die);
+  return `<span class="sdie">${dieArt(die, sc.face, sc.tag)}${badge(die)}</span>`;
 }

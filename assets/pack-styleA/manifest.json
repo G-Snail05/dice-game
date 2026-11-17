@@ -58,9 +58,13 @@
   "backgrounds": 6,
   "backgrounds_hc": 2,
   "counters": 62,
-  "counters_hc": 55
+  "counters_hc": 55,
+  "casino": 41,
+  "casino_hc": 41,
+  "parity": 48,
+  "parity_hc": 48
  },
- "total": 911,
+ "total": 1089,
  "assets": [
   {
    "name": "die_d4_1",
@@ -27289,6 +27293,4441 @@
     "3x": "3x/fx_chain_bracket_r_hc.png"
    },
    "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d12_7",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_7.png",
+    "1x": "1x/die_casino_d12_7.png",
+    "2x": "2x/die_casino_d12_7.png",
+    "3x": "3x/die_casino_d12_7.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "7",
+   "builder_key": "die_casino_d12_7",
+   "note": "plain 7 (9 of 12 faces on the d12, 17 of 20 on the d20)"
+  },
+  {
+   "name": "die_casino_d12_7_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_7_hc.png",
+    "1x": "1x/die_casino_d12_7_hc.png",
+    "2x": "2x/die_casino_d12_7_hc.png",
+    "3x": "3x/die_casino_d12_7_hc.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "7",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d12_slot7",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_slot7.png",
+    "1x": "1x/die_casino_d12_slot7.png",
+    "2x": "2x/die_casino_d12_slot7.png",
+    "3x": "3x/die_casino_d12_slot7.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot7",
+   "builder_key": "die_casino_d12_slot7",
+   "note": "slot-machine single 7"
+  },
+  {
+   "name": "die_casino_d12_slot7_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_slot7_hc.png",
+    "1x": "1x/die_casino_d12_slot7_hc.png",
+    "2x": "2x/die_casino_d12_slot7_hc.png",
+    "3x": "3x/die_casino_d12_slot7_hc.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot7",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d12_slot77",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_slot77.png",
+    "1x": "1x/die_casino_d12_slot77.png",
+    "2x": "2x/die_casino_d12_slot77.png",
+    "3x": "3x/die_casino_d12_slot77.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot77",
+   "builder_key": "die_casino_d12_slot77",
+   "note": "slot-machine 77"
+  },
+  {
+   "name": "die_casino_d12_slot77_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_slot77_hc.png",
+    "1x": "1x/die_casino_d12_slot77_hc.png",
+    "2x": "2x/die_casino_d12_slot77_hc.png",
+    "3x": "3x/die_casino_d12_slot77_hc.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot77",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d12_slot777",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_slot777.png",
+    "1x": "1x/die_casino_d12_slot777.png",
+    "2x": "2x/die_casino_d12_slot777.png",
+    "3x": "3x/die_casino_d12_slot777.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot777",
+   "builder_key": "die_casino_d12_slot777",
+   "note": "slot-machine 777 (reel window)"
+  },
+  {
+   "name": "die_casino_d12_slot777_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_slot777_hc.png",
+    "1x": "1x/die_casino_d12_slot777_hc.png",
+    "2x": "2x/die_casino_d12_slot777_hc.png",
+    "3x": "3x/die_casino_d12_slot777_hc.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot777",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d12_blank",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_blank.png",
+    "1x": "1x/die_casino_d12_blank.png",
+    "2x": "2x/die_casino_d12_blank.png",
+    "3x": "3x/die_casino_d12_blank.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "builder_key": "die_casino_d12_blank",
+   "note": "blank gold body / tumble frame 0"
+  },
+  {
+   "name": "die_casino_d12_blank_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_blank_hc.png",
+    "1x": "1x/die_casino_d12_blank_hc.png",
+    "2x": "2x/die_casino_d12_blank_hc.png",
+    "3x": "3x/die_casino_d12_blank_hc.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d12_roll_1",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_roll_1.png",
+    "1x": "1x/die_casino_d12_roll_1.png",
+    "2x": "2x/die_casino_d12_roll_1.png",
+    "3x": "3x/die_casino_d12_roll_1.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "frame": 1,
+   "builder_key": "die_casino_d12_roll_1",
+   "note": "gold tumble frame: blank, roll_1, roll_2 at ~12 fps"
+  },
+  {
+   "name": "die_casino_d12_roll_1_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_roll_1_hc.png",
+    "1x": "1x/die_casino_d12_roll_1_hc.png",
+    "2x": "2x/die_casino_d12_roll_1_hc.png",
+    "3x": "3x/die_casino_d12_roll_1_hc.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "frame": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d12_roll_2",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_roll_2.png",
+    "1x": "1x/die_casino_d12_roll_2.png",
+    "2x": "2x/die_casino_d12_roll_2.png",
+    "3x": "3x/die_casino_d12_roll_2.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "frame": 2,
+   "builder_key": "die_casino_d12_roll_2",
+   "note": "gold tumble frame: blank, roll_1, roll_2 at ~12 fps"
+  },
+  {
+   "name": "die_casino_d12_roll_2_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d12_roll_2_hc.png",
+    "1x": "1x/die_casino_d12_roll_2_hc.png",
+    "2x": "2x/die_casino_d12_roll_2_hc.png",
+    "3x": "3x/die_casino_d12_roll_2_hc.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "frame": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_casino_d12_icon",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_casino_d12_icon.png",
+    "1x": "1x/special_casino_d12_icon.png",
+    "2x": "2x/special_casino_d12_icon.png",
+    "3x": "3x/special_casino_d12_icon.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "builder_key": "icon_casino_d12",
+   "note": "shop / info icon (gold octagon = money family)"
+  },
+  {
+   "name": "special_casino_d12_icon_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_casino_d12_icon_hc.png",
+    "1x": "1x/special_casino_d12_icon_hc.png",
+    "2x": "2x/special_casino_d12_icon_hc.png",
+    "3x": "3x/special_casino_d12_icon_hc.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_casino_d12_icon_disabled",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_casino_d12_icon_disabled.png",
+    "1x": "1x/special_casino_d12_icon_disabled.png",
+    "2x": "2x/special_casino_d12_icon_disabled.png",
+    "3x": "3x/special_casino_d12_icon_disabled.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "state": "disabled",
+   "builder_key": "icon_casino_d12_disabled"
+  },
+  {
+   "name": "special_casino_d12_icon_disabled_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_casino_d12_icon_disabled_hc.png",
+    "1x": "1x/special_casino_d12_icon_disabled_hc.png",
+    "2x": "2x/special_casino_d12_icon_disabled_hc.png",
+    "3x": "3x/special_casino_d12_icon_disabled_hc.png"
+   },
+   "casino": true,
+   "shape": "d12",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "state": "disabled",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d20_7",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_7.png",
+    "1x": "1x/die_casino_d20_7.png",
+    "2x": "2x/die_casino_d20_7.png",
+    "3x": "3x/die_casino_d20_7.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "7",
+   "builder_key": "die_casino_d20_7",
+   "note": "plain 7 (9 of 12 faces on the d12, 17 of 20 on the d20)"
+  },
+  {
+   "name": "die_casino_d20_7_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_7_hc.png",
+    "1x": "1x/die_casino_d20_7_hc.png",
+    "2x": "2x/die_casino_d20_7_hc.png",
+    "3x": "3x/die_casino_d20_7_hc.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "7",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d20_slot7",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_slot7.png",
+    "1x": "1x/die_casino_d20_slot7.png",
+    "2x": "2x/die_casino_d20_slot7.png",
+    "3x": "3x/die_casino_d20_slot7.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot7",
+   "builder_key": "die_casino_d20_slot7",
+   "note": "slot-machine single 7"
+  },
+  {
+   "name": "die_casino_d20_slot7_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_slot7_hc.png",
+    "1x": "1x/die_casino_d20_slot7_hc.png",
+    "2x": "2x/die_casino_d20_slot7_hc.png",
+    "3x": "3x/die_casino_d20_slot7_hc.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot7",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d20_slot77",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_slot77.png",
+    "1x": "1x/die_casino_d20_slot77.png",
+    "2x": "2x/die_casino_d20_slot77.png",
+    "3x": "3x/die_casino_d20_slot77.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot77",
+   "builder_key": "die_casino_d20_slot77",
+   "note": "slot-machine 77"
+  },
+  {
+   "name": "die_casino_d20_slot77_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_slot77_hc.png",
+    "1x": "1x/die_casino_d20_slot77_hc.png",
+    "2x": "2x/die_casino_d20_slot77_hc.png",
+    "3x": "3x/die_casino_d20_slot77_hc.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot77",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d20_slot777",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_slot777.png",
+    "1x": "1x/die_casino_d20_slot777.png",
+    "2x": "2x/die_casino_d20_slot777.png",
+    "3x": "3x/die_casino_d20_slot777.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot777",
+   "builder_key": "die_casino_d20_slot777",
+   "note": "slot-machine 777 (reel window)"
+  },
+  {
+   "name": "die_casino_d20_slot777_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_slot777_hc.png",
+    "1x": "1x/die_casino_d20_slot777_hc.png",
+    "2x": "2x/die_casino_d20_slot777_hc.png",
+    "3x": "3x/die_casino_d20_slot777_hc.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "face": "slot777",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d20_blank",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_blank.png",
+    "1x": "1x/die_casino_d20_blank.png",
+    "2x": "2x/die_casino_d20_blank.png",
+    "3x": "3x/die_casino_d20_blank.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "builder_key": "die_casino_d20_blank",
+   "note": "blank gold body / tumble frame 0"
+  },
+  {
+   "name": "die_casino_d20_blank_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_blank_hc.png",
+    "1x": "1x/die_casino_d20_blank_hc.png",
+    "2x": "2x/die_casino_d20_blank_hc.png",
+    "3x": "3x/die_casino_d20_blank_hc.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d20_roll_1",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_roll_1.png",
+    "1x": "1x/die_casino_d20_roll_1.png",
+    "2x": "2x/die_casino_d20_roll_1.png",
+    "3x": "3x/die_casino_d20_roll_1.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "frame": 1,
+   "builder_key": "die_casino_d20_roll_1",
+   "note": "gold tumble frame: blank, roll_1, roll_2 at ~12 fps"
+  },
+  {
+   "name": "die_casino_d20_roll_1_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_roll_1_hc.png",
+    "1x": "1x/die_casino_d20_roll_1_hc.png",
+    "2x": "2x/die_casino_d20_roll_1_hc.png",
+    "3x": "3x/die_casino_d20_roll_1_hc.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "frame": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_casino_d20_roll_2",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_roll_2.png",
+    "1x": "1x/die_casino_d20_roll_2.png",
+    "2x": "2x/die_casino_d20_roll_2.png",
+    "3x": "3x/die_casino_d20_roll_2.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "frame": 2,
+   "builder_key": "die_casino_d20_roll_2",
+   "note": "gold tumble frame: blank, roll_1, roll_2 at ~12 fps"
+  },
+  {
+   "name": "die_casino_d20_roll_2_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_casino_d20_roll_2_hc.png",
+    "1x": "1x/die_casino_d20_roll_2_hc.png",
+    "2x": "2x/die_casino_d20_roll_2_hc.png",
+    "3x": "3x/die_casino_d20_roll_2_hc.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "frame": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_casino_d20_icon",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_casino_d20_icon.png",
+    "1x": "1x/special_casino_d20_icon.png",
+    "2x": "2x/special_casino_d20_icon.png",
+    "3x": "3x/special_casino_d20_icon.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "builder_key": "icon_casino_d20",
+   "note": "shop / info icon (gold octagon = money family)"
+  },
+  {
+   "name": "special_casino_d20_icon_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_casino_d20_icon_hc.png",
+    "1x": "1x/special_casino_d20_icon_hc.png",
+    "2x": "2x/special_casino_d20_icon_hc.png",
+    "3x": "3x/special_casino_d20_icon_hc.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_casino_d20_icon_disabled",
+   "category": "casino",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_casino_d20_icon_disabled.png",
+    "1x": "1x/special_casino_d20_icon_disabled.png",
+    "2x": "2x/special_casino_d20_icon_disabled.png",
+    "3x": "3x/special_casino_d20_icon_disabled.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "state": "disabled",
+   "builder_key": "icon_casino_d20_disabled"
+  },
+  {
+   "name": "special_casino_d20_icon_disabled_hc",
+   "category": "casino_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_casino_d20_icon_disabled_hc.png",
+    "1x": "1x/special_casino_d20_icon_disabled_hc.png",
+    "2x": "2x/special_casino_d20_icon_disabled_hc.png",
+    "3x": "3x/special_casino_d20_icon_disabled_hc.png"
+   },
+   "casino": true,
+   "shape": "d20",
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "state": "disabled",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_01",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_01.png",
+    "1x": "1x/fx_jackpot_01.png",
+    "2x": "2x/fx_jackpot_01.png",
+    "3x": "3x/fx_jackpot_01.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 1,
+   "builder_key": "fx_jackpot_01",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_01_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_01_hc.png",
+    "1x": "1x/fx_jackpot_01_hc.png",
+    "2x": "2x/fx_jackpot_01_hc.png",
+    "3x": "3x/fx_jackpot_01_hc.png"
+   },
+   "frame": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_02",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_02.png",
+    "1x": "1x/fx_jackpot_02.png",
+    "2x": "2x/fx_jackpot_02.png",
+    "3x": "3x/fx_jackpot_02.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 2,
+   "builder_key": "fx_jackpot_02",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_02_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_02_hc.png",
+    "1x": "1x/fx_jackpot_02_hc.png",
+    "2x": "2x/fx_jackpot_02_hc.png",
+    "3x": "3x/fx_jackpot_02_hc.png"
+   },
+   "frame": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_03",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_03.png",
+    "1x": "1x/fx_jackpot_03.png",
+    "2x": "2x/fx_jackpot_03.png",
+    "3x": "3x/fx_jackpot_03.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 3,
+   "builder_key": "fx_jackpot_03",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_03_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_03_hc.png",
+    "1x": "1x/fx_jackpot_03_hc.png",
+    "2x": "2x/fx_jackpot_03_hc.png",
+    "3x": "3x/fx_jackpot_03_hc.png"
+   },
+   "frame": 3,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_04",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_04.png",
+    "1x": "1x/fx_jackpot_04.png",
+    "2x": "2x/fx_jackpot_04.png",
+    "3x": "3x/fx_jackpot_04.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 4,
+   "builder_key": "fx_jackpot_04",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_04_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_04_hc.png",
+    "1x": "1x/fx_jackpot_04_hc.png",
+    "2x": "2x/fx_jackpot_04_hc.png",
+    "3x": "3x/fx_jackpot_04_hc.png"
+   },
+   "frame": 4,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_05",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_05.png",
+    "1x": "1x/fx_jackpot_05.png",
+    "2x": "2x/fx_jackpot_05.png",
+    "3x": "3x/fx_jackpot_05.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 5,
+   "builder_key": "fx_jackpot_05",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_05_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_05_hc.png",
+    "1x": "1x/fx_jackpot_05_hc.png",
+    "2x": "2x/fx_jackpot_05_hc.png",
+    "3x": "3x/fx_jackpot_05_hc.png"
+   },
+   "frame": 5,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_06",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_06.png",
+    "1x": "1x/fx_jackpot_06.png",
+    "2x": "2x/fx_jackpot_06.png",
+    "3x": "3x/fx_jackpot_06.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 6,
+   "builder_key": "fx_jackpot_06",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_06_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_06_hc.png",
+    "1x": "1x/fx_jackpot_06_hc.png",
+    "2x": "2x/fx_jackpot_06_hc.png",
+    "3x": "3x/fx_jackpot_06_hc.png"
+   },
+   "frame": 6,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_07",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_07.png",
+    "1x": "1x/fx_jackpot_07.png",
+    "2x": "2x/fx_jackpot_07.png",
+    "3x": "3x/fx_jackpot_07.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 7,
+   "builder_key": "fx_jackpot_07",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_07_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_07_hc.png",
+    "1x": "1x/fx_jackpot_07_hc.png",
+    "2x": "2x/fx_jackpot_07_hc.png",
+    "3x": "3x/fx_jackpot_07_hc.png"
+   },
+   "frame": 7,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_08",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_08.png",
+    "1x": "1x/fx_jackpot_08.png",
+    "2x": "2x/fx_jackpot_08.png",
+    "3x": "3x/fx_jackpot_08.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 8,
+   "builder_key": "fx_jackpot_08",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_08_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_08_hc.png",
+    "1x": "1x/fx_jackpot_08_hc.png",
+    "2x": "2x/fx_jackpot_08_hc.png",
+    "3x": "3x/fx_jackpot_08_hc.png"
+   },
+   "frame": 8,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_09",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_09.png",
+    "1x": "1x/fx_jackpot_09.png",
+    "2x": "2x/fx_jackpot_09.png",
+    "3x": "3x/fx_jackpot_09.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 9,
+   "builder_key": "fx_jackpot_09",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_09_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_09_hc.png",
+    "1x": "1x/fx_jackpot_09_hc.png",
+    "2x": "2x/fx_jackpot_09_hc.png",
+    "3x": "3x/fx_jackpot_09_hc.png"
+   },
+   "frame": 9,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_10",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_10.png",
+    "1x": "1x/fx_jackpot_10.png",
+    "2x": "2x/fx_jackpot_10.png",
+    "3x": "3x/fx_jackpot_10.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 10,
+   "builder_key": "fx_jackpot_10",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_10_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_10_hc.png",
+    "1x": "1x/fx_jackpot_10_hc.png",
+    "2x": "2x/fx_jackpot_10_hc.png",
+    "3x": "3x/fx_jackpot_10_hc.png"
+   },
+   "frame": 10,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_11",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_11.png",
+    "1x": "1x/fx_jackpot_11.png",
+    "2x": "2x/fx_jackpot_11.png",
+    "3x": "3x/fx_jackpot_11.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 11,
+   "builder_key": "fx_jackpot_11",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_11_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_11_hc.png",
+    "1x": "1x/fx_jackpot_11_hc.png",
+    "2x": "2x/fx_jackpot_11_hc.png",
+    "3x": "3x/fx_jackpot_11_hc.png"
+   },
+   "frame": 11,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_12",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_12.png",
+    "1x": "1x/fx_jackpot_12.png",
+    "2x": "2x/fx_jackpot_12.png",
+    "3x": "3x/fx_jackpot_12.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 12,
+   "builder_key": "fx_jackpot_12",
+   "note": "jackpot burst, 12 frames @ 15 fps (0.8 s): 01-03 flash, 04-09 burst, 10-12 fade. Then loop fx_jackpot_rays_1/2 while the banner is up"
+  },
+  {
+   "name": "fx_jackpot_12_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_12_hc.png",
+    "1x": "1x/fx_jackpot_12_hc.png",
+    "2x": "2x/fx_jackpot_12_hc.png",
+    "3x": "3x/fx_jackpot_12_hc.png"
+   },
+   "frame": 12,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_rays_1",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_rays_1.png",
+    "1x": "1x/fx_jackpot_rays_1.png",
+    "2x": "2x/fx_jackpot_rays_1.png",
+    "3x": "3x/fx_jackpot_rays_1.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 1,
+   "builder_key": "fx_jackpot_rays_1",
+   "note": "sustain loop behind the banner: alternate rays_1 / rays_2 at ~8 fps after fx_jackpot_12 (or straight after 09)"
+  },
+  {
+   "name": "fx_jackpot_rays_1_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_rays_1_hc.png",
+    "1x": "1x/fx_jackpot_rays_1_hc.png",
+    "2x": "2x/fx_jackpot_rays_1_hc.png",
+    "3x": "3x/fx_jackpot_rays_1_hc.png"
+   },
+   "frame": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_rays_2",
+   "category": "casino",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_rays_2.png",
+    "1x": "1x/fx_jackpot_rays_2.png",
+    "2x": "2x/fx_jackpot_rays_2.png",
+    "3x": "3x/fx_jackpot_rays_2.png"
+   },
+   "layer": "gold",
+   "effect_colour": "#e09a1a",
+   "anchor": {
+    "canvas": [
+     96,
+     64
+    ],
+    "centre": [
+     48,
+     36
+    ],
+    "rule": "centre the burst on the scoring die: frame (x,y) = die centre - (48,36)"
+   },
+   "frame": 2,
+   "builder_key": "fx_jackpot_rays_2",
+   "note": "sustain loop behind the banner: alternate rays_1 / rays_2 at ~8 fps after fx_jackpot_12 (or straight after 09)"
+  },
+  {
+   "name": "fx_jackpot_rays_2_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    64
+   ],
+   "css_size": [
+    192,
+    128
+   ],
+   "files": {
+    "native": "native/fx_jackpot_rays_2_hc.png",
+    "1x": "1x/fx_jackpot_rays_2_hc.png",
+    "2x": "2x/fx_jackpot_rays_2_hc.png",
+    "3x": "3x/fx_jackpot_rays_2_hc.png"
+   },
+   "frame": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_banner",
+   "category": "casino",
+   "native_size": [
+    96,
+    26
+   ],
+   "css_size": [
+    192,
+    52
+   ],
+   "files": {
+    "native": "native/fx_jackpot_banner.png",
+    "1x": "1x/fx_jackpot_banner.png",
+    "2x": "2x/fx_jackpot_banner.png",
+    "3x": "3x/fx_jackpot_banner.png"
+   },
+   "layer": "gold",
+   "builder_key": "fx_jackpot_banner",
+   "note": "JACKPOT marquee (96x26). Alternate banner / banner_2 at ~6 fps for chasing bulbs; drop in over frames 03-06 (y -22, -8, +3, -1, 0 native px)"
+  },
+  {
+   "name": "fx_jackpot_banner_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    26
+   ],
+   "css_size": [
+    192,
+    52
+   ],
+   "files": {
+    "native": "native/fx_jackpot_banner_hc.png",
+    "1x": "1x/fx_jackpot_banner_hc.png",
+    "2x": "2x/fx_jackpot_banner_hc.png",
+    "3x": "3x/fx_jackpot_banner_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_banner_2",
+   "category": "casino",
+   "native_size": [
+    96,
+    26
+   ],
+   "css_size": [
+    192,
+    52
+   ],
+   "files": {
+    "native": "native/fx_jackpot_banner_2.png",
+    "1x": "1x/fx_jackpot_banner_2.png",
+    "2x": "2x/fx_jackpot_banner_2.png",
+    "3x": "3x/fx_jackpot_banner_2.png"
+   },
+   "layer": "gold",
+   "builder_key": "fx_jackpot_banner_2",
+   "note": "JACKPOT marquee (96x26). Alternate banner / banner_2 at ~6 fps for chasing bulbs; drop in over frames 03-06 (y -22, -8, +3, -1, 0 native px)"
+  },
+  {
+   "name": "fx_jackpot_banner_2_hc",
+   "category": "casino_hc",
+   "native_size": [
+    96,
+    26
+   ],
+   "css_size": [
+    192,
+    52
+   ],
+   "files": {
+    "native": "native/fx_jackpot_banner_2_hc.png",
+    "1x": "1x/fx_jackpot_banner_2_hc.png",
+    "2x": "2x/fx_jackpot_banner_2_hc.png",
+    "3x": "3x/fx_jackpot_banner_2_hc.png"
+   },
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_coin_1",
+   "category": "casino",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_jackpot_coin_1.png",
+    "1x": "1x/fx_jackpot_coin_1.png",
+    "2x": "2x/fx_jackpot_coin_1.png",
+    "3x": "3x/fx_jackpot_coin_1.png"
+   },
+   "frame": 1,
+   "builder_key": "fx_jackpot_coin_1",
+   "note": "8x8 coin particle, spin loop @ 12 fps"
+  },
+  {
+   "name": "fx_jackpot_coin_1_hc",
+   "category": "casino_hc",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_jackpot_coin_1_hc.png",
+    "1x": "1x/fx_jackpot_coin_1_hc.png",
+    "2x": "2x/fx_jackpot_coin_1_hc.png",
+    "3x": "3x/fx_jackpot_coin_1_hc.png"
+   },
+   "frame": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_coin_2",
+   "category": "casino",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_jackpot_coin_2.png",
+    "1x": "1x/fx_jackpot_coin_2.png",
+    "2x": "2x/fx_jackpot_coin_2.png",
+    "3x": "3x/fx_jackpot_coin_2.png"
+   },
+   "frame": 2,
+   "builder_key": "fx_jackpot_coin_2",
+   "note": "8x8 coin particle, spin loop @ 12 fps"
+  },
+  {
+   "name": "fx_jackpot_coin_2_hc",
+   "category": "casino_hc",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_jackpot_coin_2_hc.png",
+    "1x": "1x/fx_jackpot_coin_2_hc.png",
+    "2x": "2x/fx_jackpot_coin_2_hc.png",
+    "3x": "3x/fx_jackpot_coin_2_hc.png"
+   },
+   "frame": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_coin_3",
+   "category": "casino",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_jackpot_coin_3.png",
+    "1x": "1x/fx_jackpot_coin_3.png",
+    "2x": "2x/fx_jackpot_coin_3.png",
+    "3x": "3x/fx_jackpot_coin_3.png"
+   },
+   "frame": 3,
+   "builder_key": "fx_jackpot_coin_3",
+   "note": "8x8 coin particle, spin loop @ 12 fps"
+  },
+  {
+   "name": "fx_jackpot_coin_3_hc",
+   "category": "casino_hc",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_jackpot_coin_3_hc.png",
+    "1x": "1x/fx_jackpot_coin_3_hc.png",
+    "2x": "2x/fx_jackpot_coin_3_hc.png",
+    "3x": "3x/fx_jackpot_coin_3_hc.png"
+   },
+   "frame": 3,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_coin_4",
+   "category": "casino",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_jackpot_coin_4.png",
+    "1x": "1x/fx_jackpot_coin_4.png",
+    "2x": "2x/fx_jackpot_coin_4.png",
+    "3x": "3x/fx_jackpot_coin_4.png"
+   },
+   "frame": 4,
+   "builder_key": "fx_jackpot_coin_4",
+   "note": "8x8 coin particle, spin loop @ 12 fps"
+  },
+  {
+   "name": "fx_jackpot_coin_4_hc",
+   "category": "casino_hc",
+   "native_size": [
+    8,
+    8
+   ],
+   "css_size": [
+    16,
+    16
+   ],
+   "files": {
+    "native": "native/fx_jackpot_coin_4_hc.png",
+    "1x": "1x/fx_jackpot_coin_4_hc.png",
+    "2x": "2x/fx_jackpot_coin_4_hc.png",
+    "3x": "3x/fx_jackpot_coin_4_hc.png"
+   },
+   "frame": 4,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_sparkle_1",
+   "category": "casino",
+   "native_size": [
+    5,
+    5
+   ],
+   "css_size": [
+    10,
+    10
+   ],
+   "files": {
+    "native": "native/fx_jackpot_sparkle_1.png",
+    "1x": "1x/fx_jackpot_sparkle_1.png",
+    "2x": "2x/fx_jackpot_sparkle_1.png",
+    "3x": "3x/fx_jackpot_sparkle_1.png"
+   },
+   "frame": 1,
+   "builder_key": "fx_jackpot_sparkle_1",
+   "note": "5x5 sparkle twinkle, 3 frames"
+  },
+  {
+   "name": "fx_jackpot_sparkle_1_hc",
+   "category": "casino_hc",
+   "native_size": [
+    5,
+    5
+   ],
+   "css_size": [
+    10,
+    10
+   ],
+   "files": {
+    "native": "native/fx_jackpot_sparkle_1_hc.png",
+    "1x": "1x/fx_jackpot_sparkle_1_hc.png",
+    "2x": "2x/fx_jackpot_sparkle_1_hc.png",
+    "3x": "3x/fx_jackpot_sparkle_1_hc.png"
+   },
+   "frame": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_sparkle_2",
+   "category": "casino",
+   "native_size": [
+    5,
+    5
+   ],
+   "css_size": [
+    10,
+    10
+   ],
+   "files": {
+    "native": "native/fx_jackpot_sparkle_2.png",
+    "1x": "1x/fx_jackpot_sparkle_2.png",
+    "2x": "2x/fx_jackpot_sparkle_2.png",
+    "3x": "3x/fx_jackpot_sparkle_2.png"
+   },
+   "frame": 2,
+   "builder_key": "fx_jackpot_sparkle_2",
+   "note": "5x5 sparkle twinkle, 3 frames"
+  },
+  {
+   "name": "fx_jackpot_sparkle_2_hc",
+   "category": "casino_hc",
+   "native_size": [
+    5,
+    5
+   ],
+   "css_size": [
+    10,
+    10
+   ],
+   "files": {
+    "native": "native/fx_jackpot_sparkle_2_hc.png",
+    "1x": "1x/fx_jackpot_sparkle_2_hc.png",
+    "2x": "2x/fx_jackpot_sparkle_2_hc.png",
+    "3x": "3x/fx_jackpot_sparkle_2_hc.png"
+   },
+   "frame": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_jackpot_sparkle_3",
+   "category": "casino",
+   "native_size": [
+    5,
+    5
+   ],
+   "css_size": [
+    10,
+    10
+   ],
+   "files": {
+    "native": "native/fx_jackpot_sparkle_3.png",
+    "1x": "1x/fx_jackpot_sparkle_3.png",
+    "2x": "2x/fx_jackpot_sparkle_3.png",
+    "3x": "3x/fx_jackpot_sparkle_3.png"
+   },
+   "frame": 3,
+   "builder_key": "fx_jackpot_sparkle_3",
+   "note": "5x5 sparkle twinkle, 3 frames"
+  },
+  {
+   "name": "fx_jackpot_sparkle_3_hc",
+   "category": "casino_hc",
+   "native_size": [
+    5,
+    5
+   ],
+   "css_size": [
+    10,
+    10
+   ],
+   "files": {
+    "native": "native/fx_jackpot_sparkle_3_hc.png",
+    "1x": "1x/fx_jackpot_sparkle_3_hc.png",
+    "2x": "2x/fx_jackpot_sparkle_3_hc.png",
+    "3x": "3x/fx_jackpot_sparkle_3_hc.png"
+   },
+   "frame": 3,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_odds_d6_1",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_1.png",
+    "1x": "1x/die_odds_d6_1.png",
+    "2x": "2x/die_odds_d6_1.png",
+    "3x": "3x/die_odds_d6_1.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 1,
+   "builder_key": "die_odds_d6_1",
+   "note": "ODD D6 face 1"
+  },
+  {
+   "name": "die_odds_d6_1_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_1_hc.png",
+    "1x": "1x/die_odds_d6_1_hc.png",
+    "2x": "2x/die_odds_d6_1_hc.png",
+    "3x": "3x/die_odds_d6_1_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_odds_d6_3",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_3.png",
+    "1x": "1x/die_odds_d6_3.png",
+    "2x": "2x/die_odds_d6_3.png",
+    "3x": "3x/die_odds_d6_3.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 3,
+   "builder_key": "die_odds_d6_3",
+   "note": "ODD D6 face 3"
+  },
+  {
+   "name": "die_odds_d6_3_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_3_hc.png",
+    "1x": "1x/die_odds_d6_3_hc.png",
+    "2x": "2x/die_odds_d6_3_hc.png",
+    "3x": "3x/die_odds_d6_3_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 3,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_odds_d6_5",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_5.png",
+    "1x": "1x/die_odds_d6_5.png",
+    "2x": "2x/die_odds_d6_5.png",
+    "3x": "3x/die_odds_d6_5.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 5,
+   "builder_key": "die_odds_d6_5",
+   "note": "ODD D6 face 5"
+  },
+  {
+   "name": "die_odds_d6_5_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_5_hc.png",
+    "1x": "1x/die_odds_d6_5_hc.png",
+    "2x": "2x/die_odds_d6_5_hc.png",
+    "3x": "3x/die_odds_d6_5_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 5,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_odds_d6_7",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_7.png",
+    "1x": "1x/die_odds_d6_7.png",
+    "2x": "2x/die_odds_d6_7.png",
+    "3x": "3x/die_odds_d6_7.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 7,
+   "builder_key": "die_odds_d6_7",
+   "note": "ODD D6 face 7"
+  },
+  {
+   "name": "die_odds_d6_7_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_7_hc.png",
+    "1x": "1x/die_odds_d6_7_hc.png",
+    "2x": "2x/die_odds_d6_7_hc.png",
+    "3x": "3x/die_odds_d6_7_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 7,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_odds_d6_9",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_9.png",
+    "1x": "1x/die_odds_d6_9.png",
+    "2x": "2x/die_odds_d6_9.png",
+    "3x": "3x/die_odds_d6_9.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 9,
+   "builder_key": "die_odds_d6_9",
+   "note": "ODD D6 face 9"
+  },
+  {
+   "name": "die_odds_d6_9_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_9_hc.png",
+    "1x": "1x/die_odds_d6_9_hc.png",
+    "2x": "2x/die_odds_d6_9_hc.png",
+    "3x": "3x/die_odds_d6_9_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 9,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_odds_d6_11",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_11.png",
+    "1x": "1x/die_odds_d6_11.png",
+    "2x": "2x/die_odds_d6_11.png",
+    "3x": "3x/die_odds_d6_11.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 11,
+   "builder_key": "die_odds_d6_11",
+   "note": "ODD D6 face 11"
+  },
+  {
+   "name": "die_odds_d6_11_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_11_hc.png",
+    "1x": "1x/die_odds_d6_11_hc.png",
+    "2x": "2x/die_odds_d6_11_hc.png",
+    "3x": "3x/die_odds_d6_11_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "face": 11,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_odds_d6_blank",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_blank.png",
+    "1x": "1x/die_odds_d6_blank.png",
+    "2x": "2x/die_odds_d6_blank.png",
+    "3x": "3x/die_odds_d6_blank.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "builder_key": "die_odds_d6_blank",
+   "note": "blank body / tumble frame 0 (parity pips stay visible)"
+  },
+  {
+   "name": "die_odds_d6_blank_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_blank_hc.png",
+    "1x": "1x/die_odds_d6_blank_hc.png",
+    "2x": "2x/die_odds_d6_blank_hc.png",
+    "3x": "3x/die_odds_d6_blank_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_odds_d6_roll_1",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_roll_1.png",
+    "1x": "1x/die_odds_d6_roll_1.png",
+    "2x": "2x/die_odds_d6_roll_1.png",
+    "3x": "3x/die_odds_d6_roll_1.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "frame": 1,
+   "builder_key": "die_odds_d6_roll_1",
+   "note": "tumble frame: blank, roll_1, roll_2 at ~12 fps"
+  },
+  {
+   "name": "die_odds_d6_roll_1_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_roll_1_hc.png",
+    "1x": "1x/die_odds_d6_roll_1_hc.png",
+    "2x": "2x/die_odds_d6_roll_1_hc.png",
+    "3x": "3x/die_odds_d6_roll_1_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "frame": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_odds_d6_roll_2",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_roll_2.png",
+    "1x": "1x/die_odds_d6_roll_2.png",
+    "2x": "2x/die_odds_d6_roll_2.png",
+    "3x": "3x/die_odds_d6_roll_2.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "frame": 2,
+   "builder_key": "die_odds_d6_roll_2",
+   "note": "tumble frame: blank, roll_1, roll_2 at ~12 fps"
+  },
+  {
+   "name": "die_odds_d6_roll_2_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_odds_d6_roll_2_hc.png",
+    "1x": "1x/die_odds_d6_roll_2_hc.png",
+    "2x": "2x/die_odds_d6_roll_2_hc.png",
+    "3x": "3x/die_odds_d6_roll_2_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "frame": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_odds_d6_icon",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_odds_d6_icon.png",
+    "1x": "1x/special_odds_d6_icon.png",
+    "2x": "2x/special_odds_d6_icon.png",
+    "3x": "3x/special_odds_d6_icon.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "builder_key": "icon_odds_d6",
+   "note": "shop / info icon"
+  },
+  {
+   "name": "special_odds_d6_icon_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_odds_d6_icon_hc.png",
+    "1x": "1x/special_odds_d6_icon_hc.png",
+    "2x": "2x/special_odds_d6_icon_hc.png",
+    "3x": "3x/special_odds_d6_icon_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_odds_d6_icon_disabled",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_odds_d6_icon_disabled.png",
+    "1x": "1x/special_odds_d6_icon_disabled.png",
+    "2x": "2x/special_odds_d6_icon_disabled.png",
+    "3x": "3x/special_odds_d6_icon_disabled.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "builder_key": "icon_odds_d6_disabled",
+   "note": "shop / info icon"
+  },
+  {
+   "name": "special_odds_d6_icon_disabled_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_odds_d6_icon_disabled_hc.png",
+    "1x": "1x/special_odds_d6_icon_disabled_hc.png",
+    "2x": "2x/special_odds_d6_icon_disabled_hc.png",
+    "3x": "3x/special_odds_d6_icon_disabled_hc.png"
+   },
+   "parity": "odd",
+   "shape": "d6",
+   "effect_colour": "#f2dc2a",
+   "motif": "one pip",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_evens_d6_2",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_2.png",
+    "1x": "1x/die_evens_d6_2.png",
+    "2x": "2x/die_evens_d6_2.png",
+    "3x": "3x/die_evens_d6_2.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 2,
+   "builder_key": "die_evens_d6_2",
+   "note": "EVEN D6 face 2"
+  },
+  {
+   "name": "die_evens_d6_2_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_2_hc.png",
+    "1x": "1x/die_evens_d6_2_hc.png",
+    "2x": "2x/die_evens_d6_2_hc.png",
+    "3x": "3x/die_evens_d6_2_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_evens_d6_4",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_4.png",
+    "1x": "1x/die_evens_d6_4.png",
+    "2x": "2x/die_evens_d6_4.png",
+    "3x": "3x/die_evens_d6_4.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 4,
+   "builder_key": "die_evens_d6_4",
+   "note": "EVEN D6 face 4"
+  },
+  {
+   "name": "die_evens_d6_4_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_4_hc.png",
+    "1x": "1x/die_evens_d6_4_hc.png",
+    "2x": "2x/die_evens_d6_4_hc.png",
+    "3x": "3x/die_evens_d6_4_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 4,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_evens_d6_6",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_6.png",
+    "1x": "1x/die_evens_d6_6.png",
+    "2x": "2x/die_evens_d6_6.png",
+    "3x": "3x/die_evens_d6_6.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 6,
+   "builder_key": "die_evens_d6_6",
+   "note": "EVEN D6 face 6"
+  },
+  {
+   "name": "die_evens_d6_6_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_6_hc.png",
+    "1x": "1x/die_evens_d6_6_hc.png",
+    "2x": "2x/die_evens_d6_6_hc.png",
+    "3x": "3x/die_evens_d6_6_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 6,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_evens_d6_8",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_8.png",
+    "1x": "1x/die_evens_d6_8.png",
+    "2x": "2x/die_evens_d6_8.png",
+    "3x": "3x/die_evens_d6_8.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 8,
+   "builder_key": "die_evens_d6_8",
+   "note": "EVEN D6 face 8"
+  },
+  {
+   "name": "die_evens_d6_8_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_8_hc.png",
+    "1x": "1x/die_evens_d6_8_hc.png",
+    "2x": "2x/die_evens_d6_8_hc.png",
+    "3x": "3x/die_evens_d6_8_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 8,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_evens_d6_10",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_10.png",
+    "1x": "1x/die_evens_d6_10.png",
+    "2x": "2x/die_evens_d6_10.png",
+    "3x": "3x/die_evens_d6_10.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 10,
+   "builder_key": "die_evens_d6_10",
+   "note": "EVEN D6 face 10"
+  },
+  {
+   "name": "die_evens_d6_10_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_10_hc.png",
+    "1x": "1x/die_evens_d6_10_hc.png",
+    "2x": "2x/die_evens_d6_10_hc.png",
+    "3x": "3x/die_evens_d6_10_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 10,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_evens_d6_12",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_12.png",
+    "1x": "1x/die_evens_d6_12.png",
+    "2x": "2x/die_evens_d6_12.png",
+    "3x": "3x/die_evens_d6_12.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 12,
+   "builder_key": "die_evens_d6_12",
+   "note": "EVEN D6 face 12"
+  },
+  {
+   "name": "die_evens_d6_12_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_12_hc.png",
+    "1x": "1x/die_evens_d6_12_hc.png",
+    "2x": "2x/die_evens_d6_12_hc.png",
+    "3x": "3x/die_evens_d6_12_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "face": 12,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_evens_d6_blank",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_blank.png",
+    "1x": "1x/die_evens_d6_blank.png",
+    "2x": "2x/die_evens_d6_blank.png",
+    "3x": "3x/die_evens_d6_blank.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "builder_key": "die_evens_d6_blank",
+   "note": "blank body / tumble frame 0 (parity pips stay visible)"
+  },
+  {
+   "name": "die_evens_d6_blank_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_blank_hc.png",
+    "1x": "1x/die_evens_d6_blank_hc.png",
+    "2x": "2x/die_evens_d6_blank_hc.png",
+    "3x": "3x/die_evens_d6_blank_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_evens_d6_roll_1",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_roll_1.png",
+    "1x": "1x/die_evens_d6_roll_1.png",
+    "2x": "2x/die_evens_d6_roll_1.png",
+    "3x": "3x/die_evens_d6_roll_1.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "frame": 1,
+   "builder_key": "die_evens_d6_roll_1",
+   "note": "tumble frame: blank, roll_1, roll_2 at ~12 fps"
+  },
+  {
+   "name": "die_evens_d6_roll_1_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_roll_1_hc.png",
+    "1x": "1x/die_evens_d6_roll_1_hc.png",
+    "2x": "2x/die_evens_d6_roll_1_hc.png",
+    "3x": "3x/die_evens_d6_roll_1_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "frame": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_evens_d6_roll_2",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_roll_2.png",
+    "1x": "1x/die_evens_d6_roll_2.png",
+    "2x": "2x/die_evens_d6_roll_2.png",
+    "3x": "3x/die_evens_d6_roll_2.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "frame": 2,
+   "builder_key": "die_evens_d6_roll_2",
+   "note": "tumble frame: blank, roll_1, roll_2 at ~12 fps"
+  },
+  {
+   "name": "die_evens_d6_roll_2_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_evens_d6_roll_2_hc.png",
+    "1x": "1x/die_evens_d6_roll_2_hc.png",
+    "2x": "2x/die_evens_d6_roll_2_hc.png",
+    "3x": "3x/die_evens_d6_roll_2_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "frame": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_evens_d6_icon",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_evens_d6_icon.png",
+    "1x": "1x/special_evens_d6_icon.png",
+    "2x": "2x/special_evens_d6_icon.png",
+    "3x": "3x/special_evens_d6_icon.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "builder_key": "icon_evens_d6",
+   "note": "shop / info icon"
+  },
+  {
+   "name": "special_evens_d6_icon_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_evens_d6_icon_hc.png",
+    "1x": "1x/special_evens_d6_icon_hc.png",
+    "2x": "2x/special_evens_d6_icon_hc.png",
+    "3x": "3x/special_evens_d6_icon_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_evens_d6_icon_disabled",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_evens_d6_icon_disabled.png",
+    "1x": "1x/special_evens_d6_icon_disabled.png",
+    "2x": "2x/special_evens_d6_icon_disabled.png",
+    "3x": "3x/special_evens_d6_icon_disabled.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "builder_key": "icon_evens_d6_disabled",
+   "note": "shop / info icon"
+  },
+  {
+   "name": "special_evens_d6_icon_disabled_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_evens_d6_icon_disabled_hc.png",
+    "1x": "1x/special_evens_d6_icon_disabled_hc.png",
+    "2x": "2x/special_evens_d6_icon_disabled_hc.png",
+    "3x": "3x/special_evens_d6_icon_disabled_hc.png"
+   },
+   "parity": "even",
+   "shape": "d6",
+   "effect_colour": "#36b0e6",
+   "motif": "two pips",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_odd",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_odd.png",
+    "1x": "1x/die_parity_coin_odd.png",
+    "2x": "2x/die_parity_coin_odd.png",
+    "3x": "3x/die_parity_coin_odd.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "face": "odd",
+   "builder_key": "die_parity_coin_odd",
+   "note": "parity coin ODD side"
+  },
+  {
+   "name": "die_parity_coin_odd_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_odd_hc.png",
+    "1x": "1x/die_parity_coin_odd_hc.png",
+    "2x": "2x/die_parity_coin_odd_hc.png",
+    "3x": "3x/die_parity_coin_odd_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_even",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_even.png",
+    "1x": "1x/die_parity_coin_even.png",
+    "2x": "2x/die_parity_coin_even.png",
+    "3x": "3x/die_parity_coin_even.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "face": "even",
+   "builder_key": "die_parity_coin_even",
+   "note": "parity coin EVEN side"
+  },
+  {
+   "name": "die_parity_coin_even_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_even_hc.png",
+    "1x": "1x/die_parity_coin_even_hc.png",
+    "2x": "2x/die_parity_coin_even_hc.png",
+    "3x": "3x/die_parity_coin_even_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_flip_1",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_1.png",
+    "1x": "1x/die_parity_coin_flip_1.png",
+    "2x": "2x/die_parity_coin_flip_1.png",
+    "3x": "3x/die_parity_coin_flip_1.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 1,
+   "builder_key": "die_parity_coin_flip_1",
+   "note": "flip loop @ 15 fps: ODD full, squash, edge-on, EVEN full, edge-on. Land on die_parity_coin_<odd|even>; add a CSS arc (translateY) for the toss"
+  },
+  {
+   "name": "die_parity_coin_flip_1_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_1_hc.png",
+    "1x": "1x/die_parity_coin_flip_1_hc.png",
+    "2x": "2x/die_parity_coin_flip_1_hc.png",
+    "3x": "3x/die_parity_coin_flip_1_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 1,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_flip_2",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_2.png",
+    "1x": "1x/die_parity_coin_flip_2.png",
+    "2x": "2x/die_parity_coin_flip_2.png",
+    "3x": "3x/die_parity_coin_flip_2.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 2,
+   "builder_key": "die_parity_coin_flip_2",
+   "note": "flip loop @ 15 fps: ODD full, squash, edge-on, EVEN full, edge-on. Land on die_parity_coin_<odd|even>; add a CSS arc (translateY) for the toss"
+  },
+  {
+   "name": "die_parity_coin_flip_2_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_2_hc.png",
+    "1x": "1x/die_parity_coin_flip_2_hc.png",
+    "2x": "2x/die_parity_coin_flip_2_hc.png",
+    "3x": "3x/die_parity_coin_flip_2_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 2,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_flip_3",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_3.png",
+    "1x": "1x/die_parity_coin_flip_3.png",
+    "2x": "2x/die_parity_coin_flip_3.png",
+    "3x": "3x/die_parity_coin_flip_3.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 3,
+   "builder_key": "die_parity_coin_flip_3",
+   "note": "flip loop @ 15 fps: ODD full, squash, edge-on, EVEN full, edge-on. Land on die_parity_coin_<odd|even>; add a CSS arc (translateY) for the toss"
+  },
+  {
+   "name": "die_parity_coin_flip_3_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_3_hc.png",
+    "1x": "1x/die_parity_coin_flip_3_hc.png",
+    "2x": "2x/die_parity_coin_flip_3_hc.png",
+    "3x": "3x/die_parity_coin_flip_3_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 3,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_flip_4",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_4.png",
+    "1x": "1x/die_parity_coin_flip_4.png",
+    "2x": "2x/die_parity_coin_flip_4.png",
+    "3x": "3x/die_parity_coin_flip_4.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 4,
+   "builder_key": "die_parity_coin_flip_4",
+   "note": "flip loop @ 15 fps: ODD full, squash, edge-on, EVEN full, edge-on. Land on die_parity_coin_<odd|even>; add a CSS arc (translateY) for the toss"
+  },
+  {
+   "name": "die_parity_coin_flip_4_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_4_hc.png",
+    "1x": "1x/die_parity_coin_flip_4_hc.png",
+    "2x": "2x/die_parity_coin_flip_4_hc.png",
+    "3x": "3x/die_parity_coin_flip_4_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 4,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_flip_5",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_5.png",
+    "1x": "1x/die_parity_coin_flip_5.png",
+    "2x": "2x/die_parity_coin_flip_5.png",
+    "3x": "3x/die_parity_coin_flip_5.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 5,
+   "builder_key": "die_parity_coin_flip_5",
+   "note": "flip loop @ 15 fps: ODD full, squash, edge-on, EVEN full, edge-on. Land on die_parity_coin_<odd|even>; add a CSS arc (translateY) for the toss"
+  },
+  {
+   "name": "die_parity_coin_flip_5_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_5_hc.png",
+    "1x": "1x/die_parity_coin_flip_5_hc.png",
+    "2x": "2x/die_parity_coin_flip_5_hc.png",
+    "3x": "3x/die_parity_coin_flip_5_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 5,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_flip_6",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_6.png",
+    "1x": "1x/die_parity_coin_flip_6.png",
+    "2x": "2x/die_parity_coin_flip_6.png",
+    "3x": "3x/die_parity_coin_flip_6.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 6,
+   "builder_key": "die_parity_coin_flip_6",
+   "note": "flip loop @ 15 fps: ODD full, squash, edge-on, EVEN full, edge-on. Land on die_parity_coin_<odd|even>; add a CSS arc (translateY) for the toss"
+  },
+  {
+   "name": "die_parity_coin_flip_6_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_6_hc.png",
+    "1x": "1x/die_parity_coin_flip_6_hc.png",
+    "2x": "2x/die_parity_coin_flip_6_hc.png",
+    "3x": "3x/die_parity_coin_flip_6_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 6,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_flip_7",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_7.png",
+    "1x": "1x/die_parity_coin_flip_7.png",
+    "2x": "2x/die_parity_coin_flip_7.png",
+    "3x": "3x/die_parity_coin_flip_7.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 7,
+   "builder_key": "die_parity_coin_flip_7",
+   "note": "flip loop @ 15 fps: ODD full, squash, edge-on, EVEN full, edge-on. Land on die_parity_coin_<odd|even>; add a CSS arc (translateY) for the toss"
+  },
+  {
+   "name": "die_parity_coin_flip_7_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_7_hc.png",
+    "1x": "1x/die_parity_coin_flip_7_hc.png",
+    "2x": "2x/die_parity_coin_flip_7_hc.png",
+    "3x": "3x/die_parity_coin_flip_7_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 7,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "die_parity_coin_flip_8",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_8.png",
+    "1x": "1x/die_parity_coin_flip_8.png",
+    "2x": "2x/die_parity_coin_flip_8.png",
+    "3x": "3x/die_parity_coin_flip_8.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 8,
+   "builder_key": "die_parity_coin_flip_8",
+   "note": "flip loop @ 15 fps: ODD full, squash, edge-on, EVEN full, edge-on. Land on die_parity_coin_<odd|even>; add a CSS arc (translateY) for the toss"
+  },
+  {
+   "name": "die_parity_coin_flip_8_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/die_parity_coin_flip_8_hc.png",
+    "1x": "1x/die_parity_coin_flip_8_hc.png",
+    "2x": "2x/die_parity_coin_flip_8_hc.png",
+    "3x": "3x/die_parity_coin_flip_8_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "frame": 8,
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_parity_coin_icon",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_parity_coin_icon.png",
+    "1x": "1x/special_parity_coin_icon.png",
+    "2x": "2x/special_parity_coin_icon.png",
+    "3x": "3x/special_parity_coin_icon.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "builder_key": "icon_parity_coin",
+   "note": "shop / info icon: ODD coin in front of EVEN coin"
+  },
+  {
+   "name": "special_parity_coin_icon_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_parity_coin_icon_hc.png",
+    "1x": "1x/special_parity_coin_icon_hc.png",
+    "2x": "2x/special_parity_coin_icon_hc.png",
+    "3x": "3x/special_parity_coin_icon_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "special_parity_coin_icon_disabled",
+   "category": "parity",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_parity_coin_icon_disabled.png",
+    "1x": "1x/special_parity_coin_icon_disabled.png",
+    "2x": "2x/special_parity_coin_icon_disabled.png",
+    "3x": "3x/special_parity_coin_icon_disabled.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "builder_key": "icon_parity_coin_disabled",
+   "note": "shop / info icon: ODD coin in front of EVEN coin"
+  },
+  {
+   "name": "special_parity_coin_icon_disabled_hc",
+   "category": "parity_hc",
+   "native_size": [
+    32,
+    32
+   ],
+   "css_size": [
+    64,
+    64
+   ],
+   "files": {
+    "native": "native/special_parity_coin_icon_disabled_hc.png",
+    "1x": "1x/special_parity_coin_icon_disabled_hc.png",
+    "2x": "2x/special_parity_coin_icon_disabled_hc.png",
+    "3x": "3x/special_parity_coin_icon_disabled_hc.png"
+   },
+   "parity": "both",
+   "shape": "coin",
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_parity_tag_odd_blank",
+   "category": "parity",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_odd_blank.png",
+    "1x": "1x/ui_parity_tag_odd_blank.png",
+    "2x": "2x/ui_parity_tag_odd_blank.png",
+    "3x": "3x/ui_parity_tag_odd_blank.png"
+   },
+   "parity": "odd",
+   "label": null,
+   "text_area": [
+    11,
+    2,
+    25,
+    8
+   ],
+   "text_colour": "#2e2604",
+   "builder_key": "ui_parity_tag_odd_blank",
+   "note": "parity multiplier tag (28x11). Blank: draw the value in text_area (inclusive native rect), e.g. with ui_font_text_white tinted to text_colour; motif pips on the left"
+  },
+  {
+   "name": "ui_parity_tag_odd_blank_hc",
+   "category": "parity_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_odd_blank_hc.png",
+    "1x": "1x/ui_parity_tag_odd_blank_hc.png",
+    "2x": "2x/ui_parity_tag_odd_blank_hc.png",
+    "3x": "3x/ui_parity_tag_odd_blank_hc.png"
+   },
+   "parity": "odd",
+   "label": null,
+   "text_area": [
+    11,
+    2,
+    25,
+    8
+   ],
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_parity_tag_odd_x2",
+   "category": "parity",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_odd_x2.png",
+    "1x": "1x/ui_parity_tag_odd_x2.png",
+    "2x": "2x/ui_parity_tag_odd_x2.png",
+    "3x": "3x/ui_parity_tag_odd_x2.png"
+   },
+   "parity": "odd",
+   "label": "x2",
+   "text_area": [
+    11,
+    2,
+    25,
+    8
+   ],
+   "text_colour": "#2e2604",
+   "builder_key": "ui_parity_tag_odd_x2",
+   "note": "parity multiplier tag (28x11). Blank: draw the value in text_area (inclusive native rect), e.g. with ui_font_text_white tinted to text_colour; motif pips on the left"
+  },
+  {
+   "name": "ui_parity_tag_odd_x2_hc",
+   "category": "parity_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_odd_x2_hc.png",
+    "1x": "1x/ui_parity_tag_odd_x2_hc.png",
+    "2x": "2x/ui_parity_tag_odd_x2_hc.png",
+    "3x": "3x/ui_parity_tag_odd_x2_hc.png"
+   },
+   "parity": "odd",
+   "label": "x2",
+   "text_area": [
+    11,
+    2,
+    25,
+    8
+   ],
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_parity_tag_odd_x3",
+   "category": "parity",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_odd_x3.png",
+    "1x": "1x/ui_parity_tag_odd_x3.png",
+    "2x": "2x/ui_parity_tag_odd_x3.png",
+    "3x": "3x/ui_parity_tag_odd_x3.png"
+   },
+   "parity": "odd",
+   "label": "x3",
+   "text_area": [
+    11,
+    2,
+    25,
+    8
+   ],
+   "text_colour": "#2e2604",
+   "builder_key": "ui_parity_tag_odd_x3",
+   "note": "parity multiplier tag (28x11). Blank: draw the value in text_area (inclusive native rect), e.g. with ui_font_text_white tinted to text_colour; motif pips on the left"
+  },
+  {
+   "name": "ui_parity_tag_odd_x3_hc",
+   "category": "parity_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_odd_x3_hc.png",
+    "1x": "1x/ui_parity_tag_odd_x3_hc.png",
+    "2x": "2x/ui_parity_tag_odd_x3_hc.png",
+    "3x": "3x/ui_parity_tag_odd_x3_hc.png"
+   },
+   "parity": "odd",
+   "label": "x3",
+   "text_area": [
+    11,
+    2,
+    25,
+    8
+   ],
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_parity_match_odd_1",
+   "category": "parity",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_odd_1.png",
+    "1x": "1x/fx_parity_match_odd_1.png",
+    "2x": "2x/fx_parity_match_odd_1.png",
+    "3x": "3x/fx_parity_match_odd_1.png"
+   },
+   "parity": "odd",
+   "frame": 1,
+   "builder_key": "fx_parity_match_odd_1",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   },
+   "note": "parity-match pulse, 4 frames @ 12 fps (play 1-2-3-4, or 1-2-3-2 x2). Shape-agnostic: hugs the 32x32 die box; same anchor as overlays"
+  },
+  {
+   "name": "fx_parity_match_odd_1_hc",
+   "category": "parity_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_odd_1_hc.png",
+    "1x": "1x/fx_parity_match_odd_1_hc.png",
+    "2x": "2x/fx_parity_match_odd_1_hc.png",
+    "3x": "3x/fx_parity_match_odd_1_hc.png"
+   },
+   "parity": "odd",
+   "frame": 1,
+   "variant": "high_contrast",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   }
+  },
+  {
+   "name": "fx_parity_match_odd_2",
+   "category": "parity",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_odd_2.png",
+    "1x": "1x/fx_parity_match_odd_2.png",
+    "2x": "2x/fx_parity_match_odd_2.png",
+    "3x": "3x/fx_parity_match_odd_2.png"
+   },
+   "parity": "odd",
+   "frame": 2,
+   "builder_key": "fx_parity_match_odd_2",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   },
+   "note": "parity-match pulse, 4 frames @ 12 fps (play 1-2-3-4, or 1-2-3-2 x2). Shape-agnostic: hugs the 32x32 die box; same anchor as overlays"
+  },
+  {
+   "name": "fx_parity_match_odd_2_hc",
+   "category": "parity_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_odd_2_hc.png",
+    "1x": "1x/fx_parity_match_odd_2_hc.png",
+    "2x": "2x/fx_parity_match_odd_2_hc.png",
+    "3x": "3x/fx_parity_match_odd_2_hc.png"
+   },
+   "parity": "odd",
+   "frame": 2,
+   "variant": "high_contrast",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   }
+  },
+  {
+   "name": "fx_parity_match_odd_3",
+   "category": "parity",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_odd_3.png",
+    "1x": "1x/fx_parity_match_odd_3.png",
+    "2x": "2x/fx_parity_match_odd_3.png",
+    "3x": "3x/fx_parity_match_odd_3.png"
+   },
+   "parity": "odd",
+   "frame": 3,
+   "builder_key": "fx_parity_match_odd_3",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   },
+   "note": "parity-match pulse, 4 frames @ 12 fps (play 1-2-3-4, or 1-2-3-2 x2). Shape-agnostic: hugs the 32x32 die box; same anchor as overlays"
+  },
+  {
+   "name": "fx_parity_match_odd_3_hc",
+   "category": "parity_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_odd_3_hc.png",
+    "1x": "1x/fx_parity_match_odd_3_hc.png",
+    "2x": "2x/fx_parity_match_odd_3_hc.png",
+    "3x": "3x/fx_parity_match_odd_3_hc.png"
+   },
+   "parity": "odd",
+   "frame": 3,
+   "variant": "high_contrast",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   }
+  },
+  {
+   "name": "fx_parity_match_odd_4",
+   "category": "parity",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_odd_4.png",
+    "1x": "1x/fx_parity_match_odd_4.png",
+    "2x": "2x/fx_parity_match_odd_4.png",
+    "3x": "3x/fx_parity_match_odd_4.png"
+   },
+   "parity": "odd",
+   "frame": 4,
+   "builder_key": "fx_parity_match_odd_4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   },
+   "note": "parity-match pulse, 4 frames @ 12 fps (play 1-2-3-4, or 1-2-3-2 x2). Shape-agnostic: hugs the 32x32 die box; same anchor as overlays"
+  },
+  {
+   "name": "fx_parity_match_odd_4_hc",
+   "category": "parity_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_odd_4_hc.png",
+    "1x": "1x/fx_parity_match_odd_4_hc.png",
+    "2x": "2x/fx_parity_match_odd_4_hc.png",
+    "3x": "3x/fx_parity_match_odd_4_hc.png"
+   },
+   "parity": "odd",
+   "frame": 4,
+   "variant": "high_contrast",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   }
+  },
+  {
+   "name": "ui_parity_tag_even_blank",
+   "category": "parity",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_even_blank.png",
+    "1x": "1x/ui_parity_tag_even_blank.png",
+    "2x": "2x/ui_parity_tag_even_blank.png",
+    "3x": "3x/ui_parity_tag_even_blank.png"
+   },
+   "parity": "even",
+   "label": null,
+   "text_area": [
+    12,
+    2,
+    25,
+    8
+   ],
+   "text_colour": "#082038",
+   "builder_key": "ui_parity_tag_even_blank",
+   "note": "parity multiplier tag (28x11). Blank: draw the value in text_area (inclusive native rect), e.g. with ui_font_text_white tinted to text_colour; motif pips on the left"
+  },
+  {
+   "name": "ui_parity_tag_even_blank_hc",
+   "category": "parity_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_even_blank_hc.png",
+    "1x": "1x/ui_parity_tag_even_blank_hc.png",
+    "2x": "2x/ui_parity_tag_even_blank_hc.png",
+    "3x": "3x/ui_parity_tag_even_blank_hc.png"
+   },
+   "parity": "even",
+   "label": null,
+   "text_area": [
+    12,
+    2,
+    25,
+    8
+   ],
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_parity_tag_even_x2",
+   "category": "parity",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_even_x2.png",
+    "1x": "1x/ui_parity_tag_even_x2.png",
+    "2x": "2x/ui_parity_tag_even_x2.png",
+    "3x": "3x/ui_parity_tag_even_x2.png"
+   },
+   "parity": "even",
+   "label": "x2",
+   "text_area": [
+    12,
+    2,
+    25,
+    8
+   ],
+   "text_colour": "#082038",
+   "builder_key": "ui_parity_tag_even_x2",
+   "note": "parity multiplier tag (28x11). Blank: draw the value in text_area (inclusive native rect), e.g. with ui_font_text_white tinted to text_colour; motif pips on the left"
+  },
+  {
+   "name": "ui_parity_tag_even_x2_hc",
+   "category": "parity_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_even_x2_hc.png",
+    "1x": "1x/ui_parity_tag_even_x2_hc.png",
+    "2x": "2x/ui_parity_tag_even_x2_hc.png",
+    "3x": "3x/ui_parity_tag_even_x2_hc.png"
+   },
+   "parity": "even",
+   "label": "x2",
+   "text_area": [
+    12,
+    2,
+    25,
+    8
+   ],
+   "variant": "high_contrast"
+  },
+  {
+   "name": "ui_parity_tag_even_x3",
+   "category": "parity",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_even_x3.png",
+    "1x": "1x/ui_parity_tag_even_x3.png",
+    "2x": "2x/ui_parity_tag_even_x3.png",
+    "3x": "3x/ui_parity_tag_even_x3.png"
+   },
+   "parity": "even",
+   "label": "x3",
+   "text_area": [
+    12,
+    2,
+    25,
+    8
+   ],
+   "text_colour": "#082038",
+   "builder_key": "ui_parity_tag_even_x3",
+   "note": "parity multiplier tag (28x11). Blank: draw the value in text_area (inclusive native rect), e.g. with ui_font_text_white tinted to text_colour; motif pips on the left"
+  },
+  {
+   "name": "ui_parity_tag_even_x3_hc",
+   "category": "parity_hc",
+   "native_size": [
+    28,
+    11
+   ],
+   "css_size": [
+    56,
+    22
+   ],
+   "files": {
+    "native": "native/ui_parity_tag_even_x3_hc.png",
+    "1x": "1x/ui_parity_tag_even_x3_hc.png",
+    "2x": "2x/ui_parity_tag_even_x3_hc.png",
+    "3x": "3x/ui_parity_tag_even_x3_hc.png"
+   },
+   "parity": "even",
+   "label": "x3",
+   "text_area": [
+    12,
+    2,
+    25,
+    8
+   ],
+   "variant": "high_contrast"
+  },
+  {
+   "name": "fx_parity_match_even_1",
+   "category": "parity",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_even_1.png",
+    "1x": "1x/fx_parity_match_even_1.png",
+    "2x": "2x/fx_parity_match_even_1.png",
+    "3x": "3x/fx_parity_match_even_1.png"
+   },
+   "parity": "even",
+   "frame": 1,
+   "builder_key": "fx_parity_match_even_1",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   },
+   "note": "parity-match pulse, 4 frames @ 12 fps (play 1-2-3-4, or 1-2-3-2 x2). Shape-agnostic: hugs the 32x32 die box; same anchor as overlays"
+  },
+  {
+   "name": "fx_parity_match_even_1_hc",
+   "category": "parity_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_even_1_hc.png",
+    "1x": "1x/fx_parity_match_even_1_hc.png",
+    "2x": "2x/fx_parity_match_even_1_hc.png",
+    "3x": "3x/fx_parity_match_even_1_hc.png"
+   },
+   "parity": "even",
+   "frame": 1,
+   "variant": "high_contrast",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   }
+  },
+  {
+   "name": "fx_parity_match_even_2",
+   "category": "parity",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_even_2.png",
+    "1x": "1x/fx_parity_match_even_2.png",
+    "2x": "2x/fx_parity_match_even_2.png",
+    "3x": "3x/fx_parity_match_even_2.png"
+   },
+   "parity": "even",
+   "frame": 2,
+   "builder_key": "fx_parity_match_even_2",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   },
+   "note": "parity-match pulse, 4 frames @ 12 fps (play 1-2-3-4, or 1-2-3-2 x2). Shape-agnostic: hugs the 32x32 die box; same anchor as overlays"
+  },
+  {
+   "name": "fx_parity_match_even_2_hc",
+   "category": "parity_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_even_2_hc.png",
+    "1x": "1x/fx_parity_match_even_2_hc.png",
+    "2x": "2x/fx_parity_match_even_2_hc.png",
+    "3x": "3x/fx_parity_match_even_2_hc.png"
+   },
+   "parity": "even",
+   "frame": 2,
+   "variant": "high_contrast",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   }
+  },
+  {
+   "name": "fx_parity_match_even_3",
+   "category": "parity",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_even_3.png",
+    "1x": "1x/fx_parity_match_even_3.png",
+    "2x": "2x/fx_parity_match_even_3.png",
+    "3x": "3x/fx_parity_match_even_3.png"
+   },
+   "parity": "even",
+   "frame": 3,
+   "builder_key": "fx_parity_match_even_3",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   },
+   "note": "parity-match pulse, 4 frames @ 12 fps (play 1-2-3-4, or 1-2-3-2 x2). Shape-agnostic: hugs the 32x32 die box; same anchor as overlays"
+  },
+  {
+   "name": "fx_parity_match_even_3_hc",
+   "category": "parity_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_even_3_hc.png",
+    "1x": "1x/fx_parity_match_even_3_hc.png",
+    "2x": "2x/fx_parity_match_even_3_hc.png",
+    "3x": "3x/fx_parity_match_even_3_hc.png"
+   },
+   "parity": "even",
+   "frame": 3,
+   "variant": "high_contrast",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   }
+  },
+  {
+   "name": "fx_parity_match_even_4",
+   "category": "parity",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_even_4.png",
+    "1x": "1x/fx_parity_match_even_4.png",
+    "2x": "2x/fx_parity_match_even_4.png",
+    "3x": "3x/fx_parity_match_even_4.png"
+   },
+   "parity": "even",
+   "frame": 4,
+   "builder_key": "fx_parity_match_even_4",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   },
+   "note": "parity-match pulse, 4 frames @ 12 fps (play 1-2-3-4, or 1-2-3-2 x2). Shape-agnostic: hugs the 32x32 die box; same anchor as overlays"
+  },
+  {
+   "name": "fx_parity_match_even_4_hc",
+   "category": "parity_hc",
+   "native_size": [
+    42,
+    42
+   ],
+   "css_size": [
+    84,
+    84
+   ],
+   "files": {
+    "native": "native/fx_parity_match_even_4_hc.png",
+    "1x": "1x/fx_parity_match_even_4_hc.png",
+    "2x": "2x/fx_parity_match_even_4_hc.png",
+    "3x": "3x/fx_parity_match_even_4_hc.png"
+   },
+   "parity": "even",
+   "frame": 4,
+   "variant": "high_contrast",
+   "anchor": {
+    "canvas": [
+     42,
+     42
+    ],
+    "die_at": [
+     2,
+     8
+    ]
+   }
   }
  ]
 }

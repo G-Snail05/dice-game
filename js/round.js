@@ -22,7 +22,7 @@ export function drawThrow(run) {
   r.bench = [];
   r.selected = r.hand.map(() => false);
   r.locked = [];
-  for (const d of handDice(run)) d.face = null;
+  for (const d of handDice(run)) { d.face = null; if ('tag' in d) d.tag = null; }
   r.revealed = false;
 }
 

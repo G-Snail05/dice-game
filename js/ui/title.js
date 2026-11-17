@@ -2,6 +2,7 @@ import { artHTML } from '../art.js';
 import { B, totalRounds } from '../balance.js';
 import { btn, esc } from './dom.js';
 import { SPECIALS } from '../specials.js';
+import { dieName } from '../dice.js';
 import { staticDie } from './dieView.js';
 
 export function titleView({ save, best }) {
@@ -39,7 +40,7 @@ export function infoView() {
     <h1>How to play</h1>
     <div class="panel">${howToPlay()}</div>
     <h2>Special dice</h2>
-    <ul class="baglist panel">${SPECIALS.map(s => `<li>${staticDie({ shape: s.shape, special: s.id })}<span><b>${esc(s.name)}</b> <small class="rar r-${s.rarity}">${s.rarity} · ${s.mod ? `any d4–d20 · plain price + $${(B.mods && B.mods.priceAdd) ?? 2}` : `$${s.price}`}</small><br><small>${esc(s.desc)}</small></span></li>`).join('')}</ul>
+    <ul class="baglist panel">${SPECIALS.map(s => `<li>${staticDie({ shape: s.shape, special: s.id })}<span><b>${esc(s.set ? dieName({ shape: s.shape, special: s.id }) : s.name)}</b> <small class="rar r-${s.rarity}">${s.rarity} · ${s.mod ? `any d4–d20 · plain price + $${(B.mods && B.mods.priceAdd) ?? 2}` : `$${s.price}`}</small><br><small>${esc(s.desc)}</small></span></li>`).join('')}</ul>
     <div class="stack">${btn('back', 'Back', { cls: 'primary' })}</div>
   </section>`;
 }

@@ -2,10 +2,10 @@
 
 This is the full pack in the style G picked (A, 16-bit pixel). It was built by extending `style-samples/style_a.py` and `pix.py`, so it uses the same 32×32 dice grid, 1px `#1a1030` outlines, three-tone shading and palette. It follows the art and mobile notes in `docs/research-brief.md` §4 and §6.
 
-- **911 sprites**, each exported 4 times (`native/`, `1x/`, `2x/`, `3x/`), giving 3,644 PNGs. This includes the binary counters (see below).
+- **1089 sprites**, each exported 4 times (`native/`, `1x/`, `2x/`, `3x/`), giving 4,356 PNGs. This includes the binary counters (see below).
 - `manifest.json` lists every sprite: its files, native and CSS size, category, layer and effect colour, anchors, value areas and the Builder's key.
 - `builder-manifest.styleA.json` is a drop-in for the game's `assets/manifest.json` format. It covers **all 146 keys** that `js/art.js → requiredKeys()` asks for, and every entry that has a high-contrast sprite carries an `hc` twin (used by `setVariant('hc')`).
-- Contact sheets are in `sheets/`: `sheet_dice`, `sheet_specials`, `sheet_ui`, `sheet_fx`, `sheet_backgrounds`, `sheet_high_contrast`, `sheet_counters`, `sheet_shape_mods` and `sheet_overview` (two phone mock-ups).
+- Contact sheets are in `sheets/`: `sheet_dice`, `sheet_specials`, `sheet_ui`, `sheet_fx`, `sheet_backgrounds`, `sheet_high_contrast`, `sheet_counters`, `sheet_shape_mods`, `sheet_casino` (plus the animated `jackpot_preview.gif`), `sheet_parity` (plus `coin_flip_preview.gif`) and `sheet_overview` (two phone mock-ups).
 
 ## Scales: one pixel grid everywhere
 | folder | scale | use |
@@ -42,6 +42,8 @@ Use `<img src="1x/x.png" srcset="2x/x.png 2x, 3x/x.png 3x">` (the Builder's mani
 - `ui_font_bold_<white|blue|red|gold|violet|grey|dark>` and `ui_font_text_white`: bitmap-font strips. Glyph x and width for each are in `manifest.json → glyphs`, and the height is 9.
 - `bg_<table|shop|hc>_tile.png` (32×32, seamless) and `bg_<table|shop|hc>_full.png` (180×320 native).
 - `mod_<mod>_<shape>.png` and `mod_badge_<mod>.png`: modifiers on every die shape (see below).
+- `die_casino_<d12|d20>_*`, `special_casino_<shape>_icon*` and `fx_jackpot_*`: Casino dice and the jackpot effect (see below).
+- `die_odds_d6_*`, `die_evens_d6_*`, `die_parity_coin_*`, `ui_parity_tag_*` and `fx_parity_match_*`: Odds & Evens (see below).
 - `*_hc.png`: the **high-contrast** variant of the same sprite (brief §6, "High-contrast mode").
 
 ## Overlay anchoring (special dice are overlays, not new sprites)
@@ -112,6 +114,50 @@ Cues 1, 2 and 7 (lift, squash-and-stretch, bounce) are cheaper as CSS transforms
 
 ## Panels and value areas
 The panels have their label baked in and an empty value area. `manifest.json → value_area` is an inclusive native rect: multiply it by the scale and draw the number there with `ui_font_bold_*`. `ui_panel_frame` is a 9-slice: use `border-image-slice: 6` at native, which is 12 at 1x. Shop cards have a die window at (8,14) for a 32×32 die, and a name strip at `name_strip`.
+
+## Odds & Evens (parity dice, parity coin, parity multiplier)
+G's rule: **EVEN = blue, ODD = yellow**. The pack already uses royal blue for points and orange-gold for money, so parity uses its own tones and a motif as well.
+- **ODD is lemon yellow:** `#fffde6` `#fff07a` `#f4e04a` `#e0c92c` `#b9a214` `#806e0a`, with a `#3a3006` outline and `#2e2604` ink. It is greener and paler than the money gold (`#ffd23a` / `#e09a1a`).
+- **EVEN is sky blue:** `#eafaff` `#a6e6fc` `#7ed2f2` `#56bce6` `#2e96c8` `#1a6a98`, with a `#0a2440` outline and `#082038` ink. It is lighter and more cyan than the points blue (`#2563c9`).
+- **Motif:** ODD is **one pip**, EVEN is **two pips**. The pips sit in the top-left of every die face (blank and tumble included), on the coin faces, on the tags and in the match pulse. Icons also carry an ODD or EVEN tab, so colour is never the only cue.
+
+All 48 keys are listed in `builder-manifest.styleA.json → _newKeys_parity`, and each one has an `_hc` twin (pure yellow `#ffee00` / cyan `#00c8ff`, black outlines and ink). They are not in `js/art.js` yet.
+
+| key | what |
+|---|---|
+| `die_odds_d6_<1,3,5,7,9,11>` | Odds D6 faces. All numerals are 7×10, so two-digit faces read at 32×32. |
+| `die_evens_d6_<2,4,6,8,10,12>` | Evens D6 faces |
+| `die_<odds|evens>_d6_blank`, `_roll_1`, `_roll_2` | body and tumble frames (blank → roll_1 → roll_2 at about 12 fps) |
+| `icon_<odds|evens>_d6` (+`_disabled`) | 32×32 shop icon ("11" or "12" plus an ODD/EVEN tab). The sprite is `special_<odds|evens>_d6_icon`. |
+| `die_parity_coin_odd`, `die_parity_coin_even` | coin sides: pips plus the word ODD / EVEN (5×7, readable at 1x) |
+| `die_parity_coin_flip_1..8` | flip loop at 15 fps: ODD, squash, squash, **edge-on**, EVEN squash, squash, EVEN, **edge-on**. Land on `die_parity_coin_<odd|even>`. Add the toss arc with CSS `translateY` (the preview uses 24 native px). |
+| `icon_parity_coin` (+`_disabled`) | an ODD coin in front of an EVEN coin |
+| `ui_parity_tag_<odd|even>_<blank|x2|x3>` | 28×11 multiplier tag with the motif pips on the left. On the blank tag, draw the value inside `text_area` (`[11,2,25,8]` odd, `[12,2,25,8]` even, native) in `text_colour`. |
+| `fx_parity_match_<odd|even>_1..4` | 42×42 pulse, die at (2,8), the same anchor as the overlays. It hugs the 32×32 die box, so it works on **any** shape, and the parity pips float up from it. Play at 12 fps (1-2-3-4, or 1-2-3-2 twice). |
+
+## Casino D12 / D20 and the jackpot
+These are gold special dice. On the d12, 9 faces are a plain 7 and 3 are slot faces. On the d20, 17 are a plain 7 and 3 are slot faces. Each die uses the existing d12 or d20 silhouette (32×32), recoloured in casino gold: `#fff6c0` `#ffd23a` `#f5c030` `#e09a1a` `#b8700f` `#7a4008`, with a dark-gold `#4a2606` outline and a white glint. All 41 keys are listed in `builder-manifest.styleA.json → _newKeys_casino`, and each one has an `_hc` twin. They are not in `js/art.js` yet.
+
+| key | what |
+|---|---|
+| `die_casino_<shape>_7` | plain 7 in dark-gold ink (10.4:1 on the gold face), the same 7×10 numeral as the other dice |
+| `die_casino_<shape>_slot7` | one big fruit-machine 7: bevelled red, pale-gold rim, dark edge |
+| `die_casino_<shape>_slot77` | two red 7s on a shared gold plate |
+| `die_casino_<shape>_slot777` | a 3-reel slot window (white reels, gold bezel) with a red 7 on each reel, which stays legible at 32×32 |
+| `die_casino_<shape>_blank`, `_roll_1`, `_roll_2` | gold body and tumble frames, used like `die_<shape>_blank` / `roll_*` |
+| `icon_casino_<shape>` (+`_disabled`) | 32×32 shop/info icon: gold octagon (the money family), a red slot 7 and a D12/D20 tab. The sprite is `special_casino_<shape>_icon`. |
+| `fx_jackpot_01..12` | 96×64 burst, 15 fps (0.8 s). 01–03: flash and shock ring. 04–09: flashing gold rays, an 18-coin burst with gravity and sparkles. 10–12: dither out. The centre is (48,36). |
+| `fx_jackpot_rays_1`, `_2` | 2-frame sustain loop (rays swap bright/dim, sparkles twinkle). Alternate at about 8 fps while the banner is up. |
+| `fx_jackpot_banner`, `_2` | 96×26 JACKPOT marquee: gold 2× lettering on a deep maroon panel, red frame with bulbs. Alternate `banner`/`banner_2` at about 6 fps for chasing bulbs. |
+| `fx_jackpot_coin_1..4`, `fx_jackpot_sparkle_1..3` | 8×8 spinning coin and 5×5 sparkle particles for extra CSS/JS bursts |
+
+**Suggested timing** (this is what `sheets/jackpot_preview.gif` shows):
+1. Play `fx_jackpot_01..12` once.
+2. Drop the banner in over frames 03–06 (y −22, −8, +3, −1, 0 native px).
+3. Loop `rays_1/2` behind the banner for about 1 s.
+4. Fade out.
+
+Draw the burst behind the banner, between the banner and the tray (or centred on the scoring die, behind it). At 1x the burst is 192×128 CSS and the banner 192×52, so both fit a 360 px phone.
 
 ## Modifiers on every die shape
 For The Builder's `modArtKeys()` (`js/art.js`). Mods: `ruby`, `ember`, `lastcall`, `matching`, `overcharged`, `gold`, `twin`, `echo`, `glass`. Shapes: `d4 d6 d8 d10 d12 d20`. All 78 keys are listed in `builder-manifest.styleA.json → _newKeys_shapeMods`, and each one has an `_hc` twin.

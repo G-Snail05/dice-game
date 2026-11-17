@@ -43,6 +43,27 @@ export const EFFECTS = {
       return r;
     },
   },
+  // Casino: every face scores casino.basePoints (7); a slot face also adds casino.faceMult[tag] mult (+7/+14/+21).
+  casinoSlot: {
+    score: c => {
+      const m = casinoFaceMult(c.die.tag);
+      if (!m) return { note: 'plain 7', layer: 'mult', idle: true };
+      const jackpot = c.die.tag === 'slot777';
+      return { addMult: m, note: `${SLOT_LABEL[c.die.tag]}: +${m} mult${jackpot ? ' (JACKPOT!)' : ''}`, layer: 'mult', jackpot };
+    },
+  },
+  // Parity Coin: +parity.addMult mult for every other die whose scored value (after Link chains / Echo) is
+  // non-zero and has the coin's parity. 0 counts as neither (coins showing 0, chain members, a 0 counter).
+  parity: {
+    score: c => {
+      const side = c.die.tag, want = side === 'even' ? 0 : 1, add = parityAdd();
+      if (side !== 'odd' && side !== 'even') return { note: 'not flipped', layer: 'mult', idle: true };
+      const matches = [];
+      c.pts.forEach((v, j) => { if (j !== c.i && !isParityCoin(c.dice[j]) && v > 0 && v % 2 === want) matches.push(j); });
+      if (!matches.length) return { note: `${side.toUpperCase()}: no ${side} dice`, layer: 'mult', idle: true, parity: side, matches };
+      return { addMult: add * matches.length, note: `${side.toUpperCase()}: +${add} mult × ${matches.length} ${side} ${matches.length === 1 ? 'die' : 'dice'}`, layer: 'mult', parity: side, matches };
+    },
+  },
   twinReroll: {
     score: c => {
       let hi = 0;
@@ -54,6 +75,9 @@ export const EFFECTS = {
     },
   },
 };
+
+const SLOT_LABEL = { slot7: '7', slot77: '77', slot777: '777' };
+const isParityCoin = d => !!d && d.special === 'paritycoin';
 
 const COND = {
   lastThrow: c => c.env.throwsLeft === 1,
@@ -102,6 +126,50 @@ SPECIALS.push(
   counter('link8', 'Link 8-bit Counter', 'bin8', 8, true, 'An 8-bit counter that links the unbroken run of counters to its left into one binary number (max 12 bits). A regular die breaks the chain.', 'rare', 16),
 );
 export const COUNTER_IDS = SPECIALS.filter(s => s.counter).map(s => s.id);
+
+// Exotic sets with their own sprites: Casino (d12/d20) and Odds & Evens (Odds d6, Evens d6, Parity Coin).
+// Rarity, price and shop weight come from data/balance.json `casino.dice` / `parity.dice`; each set has its
+// own shop chance (see shop.js rollExotic). `set` names the group.
+const CAS = () => (B && B.casino) || {}, PAR = () => (B && B.parity) || {};
+export const casinoBase = () => CAS().basePoints ?? 7;
+export const casinoFaceMult = tag => (tag && CAS().faceMult && CAS().faceMult[tag] != null ? CAS().faceMult[tag] : tag ? ({ slot7: 7, slot77: 14, slot777: 21 })[tag] || 0 : 0);
+export const parityAdd = () => PAR().addMult ?? 2;
+const setBal = (set, id, k, dflt) => { const g = set === 'casino' ? CAS() : PAR(); return g.dice && g.dice[id] && g.dice[id][k] != null ? g.dice[id][k] : dflt; };
+const exotic = (o, rarity, price) => Object.defineProperties(o, {
+  rarity: { get: () => setBal(o.set, o.id, 'rarity', rarity), enumerable: true },
+  price: { get: () => setBal(o.set, o.id, 'price', price), enumerable: true },
+  weight: { get: () => setBal(o.set, o.id, 'weight', 1), enumerable: true },
+});
+const SLOTS = ['slot7', 'slot77', 'slot777'];
+const casino = (shape, n) => exotic({
+  id: `casino${n}`, set: 'casino', name: 'Casino', tag: `Casino ${shape}`, shape, icon: `icon_casino_${shape}`, layer: 'mult',
+  get desc() { const m = SLOTS.map(casinoFaceMult); return `Every face scores ${casinoBase()}. ${n - 3} plain 7s and three slot faces: 7 (+${m[0]} mult), 77 (+${m[1]} mult), 777 (+${m[2]} mult, JACKPOT).`; },
+  sides: () => [...Array.from({ length: n - 3 }, () => ({ v: casinoBase(), tag: null })), ...SLOTS.map(tag => ({ v: casinoBase(), tag }))],
+  showcase: () => ({ face: casinoBase(), tag: 'slot777' }),
+  label: (f, tag) => (tag ? SLOT_LABEL[tag] : String(f)),
+  art: { face: (sh, f, tag) => `die_casino_${sh}_${tag || '7'}`, blank: sh => `die_casino_${sh}_blank`, roll: sh => [`die_casino_${sh}_blank`, `die_casino_${sh}_roll_1`, `die_casino_${sh}_roll_2`] },
+  effect: { type: 'casinoSlot' },
+}, 'rare', n === 12 ? 14 : 16);
+const parityDie = (kind, faces) => exotic({
+  id: kind, set: 'parity', name: kind === 'odds' ? 'Odds' : 'Evens', tag: kind === 'odds' ? 'Odds' : 'Evens', shape: 'd6', icon: `icon_${kind}_d6`, layer: 'points',
+  desc: `A d6 with only ${kind === 'odds' ? 'odd' : 'even'} faces: ${faces.join(', ')}.`, faces,
+  art: { face: (sh, f) => `die_${kind}_d6_${f}`, blank: () => `die_${kind}_d6_blank`, roll: () => [`die_${kind}_d6_blank`, `die_${kind}_d6_roll_1`, `die_${kind}_d6_roll_2`] },
+  effect: { type: 'none' },
+}, 'uncommon', 4);
+SPECIALS.push(
+  casino('d12', 12), casino('d20', 20),
+  parityDie('odds', [1, 3, 5, 7, 9, 11]), parityDie('evens', [2, 4, 6, 8, 10, 12]),
+  exotic({
+    id: 'paritycoin', set: 'parity', name: 'Parity Coin', tag: 'Parity', shape: 'coin', icon: 'icon_parity_coin', layer: 'mult',
+    get desc() { return `Scores 0. Flips ODD or EVEN: every other die showing a number of that parity gets +${parityAdd()} mult.`; },
+    sides: () => [{ v: 0, tag: 'odd' }, { v: 0, tag: 'even' }],
+    showcase: () => ({ face: 0, tag: 'even' }),
+    label: (f, tag) => (tag ? tag.toUpperCase() : '?'),
+    art: { face: (sh, f, tag) => `die_parity_coin_${tag || 'odd'}`, blank: () => 'die_parity_coin_flip_1', roll: () => Array.from({ length: 8 }, (_, k) => `die_parity_coin_flip_${k + 1}`) },
+    effect: { type: 'parity' },
+  }, 'rare', 6),
+);
+export const CASINO_IDS = ['casino12', 'casino20'], PARITY_IDS = ['odds', 'evens', 'paritycoin'];
 
 // Modifiers (mod: true) fit any polyhedral shape (d4–d20; not the Coin or binary counters). Their `shape` above
 // is only the default (info screen, tests); a bought die keeps the shape it was offered on.

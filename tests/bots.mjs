@@ -6,7 +6,8 @@ import { meanFace, maxFace, specialOf } from '../js/dice.js';
 import { makeRng } from '../js/rng.js';
 
 const SPECIAL_VALUE = { ruby: 9, matching: 8, lastcall: 8, ember: 16, glass: 10, overcharged: 6.5, twin: 7.5, coin: 5, gold: 4.5, echo: 4,
-  counter4: 5.5, counter8: 127.5, link4: 12, link8: 135 };
+  counter4: 5.5, counter8: 127.5, link4: 12, link8: 135,
+  casino12: 30, casino20: 22, odds: 6, evens: 7, paritycoin: 16 };
 // Modifier dice: the d6 value of the effect, shifted by how much bigger the shape's average face is
 // (Overcharged is just its +3 faces). Gold on a big shape rarely pays: its threshold is its own top face.
 const MODV = d => {
@@ -28,6 +29,10 @@ export function shopValue(d, bag) {
 
 function wantLock(d, i, dice) {
   const s = specialOf(d);
+  // Casino: keep a slot face, re-roll a plain 7 for another shot at a slot. Parity Coin: keep a side that
+  // already matches at least two other dice.
+  if (s && s.effect.type === 'casinoSlot') return !!d.tag;
+  if (s && s.effect.type === 'parity') return dice.filter((o, j) => j !== i && o.face > 0 && o.face % 2 === (d.tag === 'even' ? 0 : 1)).length >= 2;
   if (s && s.effect.type === 'echo') return true;
   if (s && ['xMult', 'glass', 'addMultPerEven', 'goldPerHigh', 'twinReroll'].includes(s.effect.type) && d.face >= meanFace(d)) return true;
   if (d.special === 'matching' && dice.some((o, j) => j !== i && o.face === d.face)) return true;

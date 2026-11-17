@@ -71,7 +71,7 @@ export function scoreThrow(dice, env = {}, rng = null) {
     if (r.pending) pending = true;
     if (r.breakForRound) broken.push(die.uid);
     if (r.shatter) shattered.push(die.uid);
-    lines.push({ layer: r.layer, who: s.name, text: r.note, points, mult: round2(mult), idle: !!r.idle, i, addPoints: r.addPoints || 0, addMult: r.addMult || 0, xMult: r.xMult || 0, gold: r.gold || 0, shatter: !!r.shatter });
+    lines.push({ layer: r.layer, who: s.name, text: r.note, points, mult: round2(mult), idle: !!r.idle, i, addPoints: r.addPoints || 0, addMult: r.addMult || 0, xMult: r.xMult || 0, gold: r.gold || 0, shatter: !!r.shatter, ...(r.jackpot ? { jackpot: true } : {}), ...(r.parity ? { parity: r.parity, matches: r.matches } : {}) });
   });
   mult = round2(mult);
   const total = Math.floor(points * mult);
